@@ -1,47 +1,72 @@
 PROGRAM FortranUtilitiesTest
 
    USE Strings_M
+   USE Prec_M
 
    IMPLICIT NONE
 
-   WRITE(*,*) 'Test  1', splitstr('campo1 campo2 campo3 campo4') == 'campo1'
-   WRITE(*,*) 'Test  2', splitstr('campo1 campo2 campo3 campo4',fieldNumber=1) == 'campo1'
-   WRITE(*,*) 'Test  3', splitstr('campo1 campo2 campo3 campo4',fieldNumber=2) == 'campo2'
-   WRITE(*,*) 'Test  4', splitstr('campo1 campo2 campo3 campo4',fieldNumber=3) == 'campo3'
-   WRITE(*,*) 'Test  5', splitstr('campo1 campo2 campo3 campo4',fieldNumber=4) == 'campo4'
-   WRITE(*,*) 'Test  6', splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=1) == 'c'
-   WRITE(*,*) 'Test  7', splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=2) == 'mpo1 c'
-   WRITE(*,*) 'Test  8', splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=3) == 'mpo2 c'
-   WRITE(*,*) 'Test  9', splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=4) == 'mpo3 c'
-   WRITE(*,*) 'Test 10', splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=5) == 'mpo4 '
-   WRITE(*,*) 'Test 11', splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=1) == 'ampo1 '
-   WRITE(*,*) 'Test 12', splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=2) == 'ampo2 '
-   WRITE(*,*) 'Test 13', splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=3) == 'ampo3 '
-   WRITE(*,*) 'Test 14', splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=4) == 'ampo4'
-   WRITE(*,*) 'Test 15', splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=1) == 'mpo1 '
-   WRITE(*,*) 'Test 16', splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=2) == 'mpo2 '
-   WRITE(*,*) 'Test 17', splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=3) == 'mpo3 '
-   WRITE(*,*) 'Test 18', splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=4) == 'mpo4'
-   WRITE(*,*) 'Test 19', splitstr('campo1 campo2 campo3 campo4',delimiter = '4',fieldNumber=1) == 'campo1 campo2 campo3 campo'
-   WRITE(*,*) 'Test 20', splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=8) == ''
-   WRITE(*,*) 'Test 21', splitstr('campo1 campo2 campo3 campo4',delimiter = 'j') == 'campo1 campo2 campo3 campo4'
-   WRITE(*,*) 'Test 22', startsWith('frase','fra') .EQV. .TRUE.
-   WRITE(*,*) 'Test 23', startsWith('frase','f') .EQV. .TRUE.
-   WRITE(*,*) 'Test 24', startsWith('frase','afra') .EQV. .FALSE.
-   WRITE(*,*) 'Test 25', endsWith('frase','ase') .EQV. .TRUE.
-   WRITE(*,*) 'Test 26', endsWith('frase','e') .EQV. .TRUE.
-   WRITE(*,*) 'Test 27', endsWith('frase','asa') .EQV. .FALSE.
-   WRITE(*,*) 'Test 28', int2char(5) == '5'
-   WRITE(*,*) 'Test 29', int2char(0) == '0'
-   WRITE(*,*) 'Test 20', int2char(-125) == '-125'
-   WRITE(*,*) 'Test 31', int2char00000(5,9) == '000000005'
-   WRITE(*,*) 'Test 32', int2char00000(5,1) == '5'
-   WRITE(*,*) 'Test 33', int2char00000(0,3) == '000'
-   WRITE(*,*) 'Test 34', count_digits_integer(824) == 3
-   WRITE(*,*) 'Test 35', count_digits_integer(-4421) == 5
-   WRITE(*,*) 'Test 35', char2int('4321') == 4321
-   WRITE(*,*) 'Test 36', char2int('-4134') == -4134
-   WRITE(*,*) 'Test 37', ABS(char2real('-4134.8786') - (-4134.8786_8)) < 1E-10
-   WRITE(*,*) 'Test 38', ABS(char2real('0.55') - (0.55_8)) < 1E-10
+   CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=1_i8) == 'campo1')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=2_i16) == 'campo2')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=3_i32) == 'campo3')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=4_i64) == 'campo4')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=1_i64) == 'c')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=2_i32) == 'mpo1 c')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=3_i16) == 'mpo2 c')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=4_i8) == 'mpo3 c')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'a',fieldNumber=5_i32) == 'mpo4 ')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=1_i32) == 'ampo1 ')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=2_i16) == 'ampo2 ')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=3_i8) == 'ampo3 ')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'c',fieldNumber=4_i64) == 'ampo4')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=1_i32) == 'mpo1 ')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=2_i16) == 'mpo2 ')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=3_i8) == 'mpo3 ')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=4_i8) == 'mpo4')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = '4',fieldNumber=1_i64) == 'campo1 campo2 campo3 campo')
+   CALL test(splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=8_i32) == '')
+   CALL test(startsWith('frase','fra') .EQV. .TRUE.)
+   CALL test(startsWith('frase','f') .EQV. .TRUE.)
+   CALL test(startsWith('frase','afra') .EQV. .FALSE.)
+   CALL test(endsWith('frase','ase') .EQV. .TRUE.)
+   CALL test(endsWith('frase','e') .EQV. .TRUE.)
+   CALL test(endsWith('frase','asa') .EQV. .FALSE.)
+   CALL test(num2str(5) == '5')
+   CALL test(num2str(5_i8) == '5')
+   CALL test(num2str(5_i16) == '5')
+   CALL test(num2str(5_i32) == '5')
+   CALL test(num2str(5_i64) == '5')
+   CALL test(num2str(0) == '0')
+   CALL test(num2str(-125) == '-125')
+   CALL test(num2str(-125_i8) == '-125')
+   CALL test(num2str(-125_i16) == '-125')
+   CALL test(num2str(-125_i32) == '-125')
+   CALL test(num2str(-125_i64) == '-125')
+   CALL test(num2str(-65.889_sp,'F7.3') == '-65.889')
+   CALL test(num2str(-65.889_sp,'E10.3') == '-0.659E+02')
+   CALL test(int2str00000(5_i8,9_i8) == '000000005')
+   CALL test(int2str00000(5_i16,9_i16) == '000000005')
+   CALL test(int2str00000(5_i32,9_i32) == '000000005')
+   CALL test(int2str00000(5_i64,9_i64) == '000000005')
+   CALL test(int2str00000(5_i8,1_i8) == '5')
+   CALL test(int2str00000(5_i16,1_i16) == '5')
+   CALL test(int2str00000(5_i32,1_i32) == '5')
+   CALL test(int2str00000(5_i64,1_i64) == '5')
+   CALL test(int2str00000(0,3) == '000')
+   CALL test(count_digits_integer(824) == 3)
+   CALL test(count_digits_integer(-4421) == 5)
+   CALL test(str2num('4321',1_i32) == 4321_i32)
+   CALL test(str2num('-4134',1_i64) == -4134_i64)
+   CALL test(ABS(str2num('-4134.8786',1._sp) - (-4134.8786_sp)) < 1E-10)
+   CALL test(ABS(str2num('0.55',1._dp) - (0.55_dp)) < 1E-10)
+   CALL test(ABS(str2num('55E10',1._dp) - (55E10_dp)) < 1E-10)
+
+   CONTAINS
+      SUBROUTINE test(testRes)
+         IMPLICIT NONE
+         LOGICAL, INTENT(IN) :: testRes
+         INTEGER             :: i = 0
+         i = i + 1
+         WRITE(*,*) 'Test' , i, testRes
+      END SUBROUTINE test
 
 END PROGRAM FortranUtilitiesTest

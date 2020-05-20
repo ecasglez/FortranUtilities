@@ -1,6 +1,6 @@
 FortranUtilities is a collection of simple functions and subroutines for Fortran programs.
 
-Only functions to manipulate strings are included so far. See file refman.pdf in folder doc for specifications of the different functions. More functions for different tasks will be included in the future.
+Only functions to manipulate strings are included so far. See below for specifications of the different functions. More functions for different tasks will be included in the future.
 
 ## Downloading
 
@@ -44,7 +44,7 @@ To use the library in your programs you first need to use the module of interest
 ```fortran
 PROGRAM test
 USE Strings_M
-WRITE(*,*) int2char(5)
+WRITE(*,*) int2str(5)
 END PROGRAM test
 ```
 
@@ -60,6 +60,52 @@ Then you have to link to the library when compiling. For example:
    gfortran program.f90 -lFortranUtilities -L/path/to/the/library/folder -I/path/to/include/folder
    ```
 
+## Module Prec\_M
+
+Contains precision parameters to use in Fortran programs.
+
+* sp: Kind parameter to specify a real type with a storage size of 32 bits.
+* dp: Kind parameter to specify a real type with a storage size of 64 bits.
+* qp: Kind parameter to specify a real type with a storage size of 128 bits.
+* i8: Kind parameter to specify an integer type with a storage size of 8 bits.
+* i16: Kind parameter to specify an integer type with a storage size of 16 bits.
+* i32: Kind parameter to specify an integer type with a storage size of 32 bits.
+* i64: Kind parameter to specify an integer type with a storage size of 64 bits.
+
+## Module Strings\_M
+
+Contains useful tools to manipulate strings in Fortran programs.
+
+* num2str(num, formato): Converts an integer or real variable into a string. Useful to open files named sequentially.
+   * num: Number to convert.
+   * formato: only for real numbers, format to use in the string variable.
+   * returns: string containing the number.
+* int2str00000(integ,total\_length): Converts an integer variable into a string, filling with leading zeros up to the limit imposed by the user. Useful to open files named sequentially with leading zeros in the name.
+   * integ: Integer number to convert. This number MUST be positive.
+   * total\_length: Number of digits to use including zeros.
+   * returns: string contining the number
+* count\_digits\_integer(integ): Counts the number of digits of an integer, including the - sign in case it is a negative value.
+   * integ: Integer number whose digits are to be counted.
+   * returns: The number of digits of the input number.
+* str2num(str,mold): Converts a string into an integer or a real.
+   * str: String to convert to integer or real
+   * mold: real or integer to specify the type of result. It is only used to set the type of the return value, so it can be any value.
+   * returns: Integer or real containing the number in the input string. The type is the same as the mold one.
+* splitstr(str,delimiter,fieldNumber): Splits a string and returns the portion selected by the user.
+   * str: String that the user wants to split.
+   * delimiter: String that the users wants to use as a delimiter for splitting. Optional parameter. Default is Space.
+   * fieldNumber: Integer indicating which of the divisions to return. Optional parameter. Default is the first part obtained.
+   * returns: A string with the selected part of str. If the fieldNumber does not exists or if the delimiter does not exists it returns an empty string.
+* startsWith(str,substr): Checks if a string starts with a given substring.
+   * str: String that the user wants to check how it starts.
+   * substr: Substring to search to check if str starts with it.
+   * returns: True if the string starts with the substring and False otherwise. If substr is empty it returns True.
+* endsWith: Checks if a string starts with a given substring.
+   * str: String that the user wants to check how it ends.
+   * substr: Substring to search to check if str ends with it.
+   * returns: True if the string ends with the substring and False otherwise. If substr is empty it returns True.
+
+
 ## Contact
 
 Developed by Emilio Castro.
@@ -69,3 +115,4 @@ Create a Issue in GitHub if you have any suggestion, comment, enhancement, bug, 
 ## License
 
 See LICENSE file for more information on using and distributing these files.
+
