@@ -2,8 +2,13 @@ PROGRAM FortranUtilitiesTest
 
    USE Strings_M
    USE Prec_M
+   USE Statistics_M
 
    IMPLICIT NONE
+
+   REAL(KIND=sp),DIMENSION(6) :: vecSp = (/1., 2., 3., 4., 5., 6./)
+   REAL(KIND=dp),DIMENSION(6) :: vecDp = (/1., 2., 3., 4., 5., 6./)
+   REAL(KIND=qp),DIMENSION(6) :: vecQp = (/1., 2., 3., 4., 5., 6./)
 
    CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=1_i8) == 'campo1')
    CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=2_i16) == 'campo2')
@@ -59,6 +64,12 @@ PROGRAM FortranUtilitiesTest
    CALL test(ABS(str2num('-4134.8786',1._sp) - (-4134.8786_sp)) < 1E-10)
    CALL test(ABS(str2num('0.55',1._dp) - (0.55_dp)) < 1E-10)
    CALL test(ABS(str2num('55E10',1._dp) - (55E10_dp)) < 1E-10)
+   CALL test(ABS(mean((/4.2_sp/)) - 4.2_sp) < 1E-10)
+   CALL test(ABS(mean((/4.2_dp/)) - 4.2_dp) < 1E-10)
+   CALL test(ABS(mean((/4.2_qp/)) - 4.2_qp) < 1E-10)
+   CALL test(ABS(mean(vecSp) - 3.5_sp) < 1E-10)
+   CALL test(ABS(mean(vecDp) - 3.5_dp) < 1E-10)
+   CALL test(ABS(mean(vecQp) - 3.5_qp) < 1E-10)
 
    CONTAINS
       SUBROUTINE test(testRes)
