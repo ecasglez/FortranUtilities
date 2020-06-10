@@ -3,12 +3,16 @@ PROGRAM FortranUtilitiesTest
    USE Strings_M
    USE Prec_M
    USE Statistics_M
+   USE Numbers_M
 
    IMPLICIT NONE
 
    REAL(KIND=sp),DIMENSION(6) :: vecSp = (/1., 2., 3., 4., 5., 6./)
    REAL(KIND=dp),DIMENSION(6) :: vecDp = (/1., 2., 3., 4., 5., 6./)
    REAL(KIND=qp),DIMENSION(6) :: vecQp = (/1., 2., 3., 4., 5., 6./)
+   REAL(KIND=sp) :: zero_sp = 0.0
+   REAL(KIND=dp) :: zero_dp = 0.0
+   REAL(KIND=qp) :: zero_qp = 0.0
 
    CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=1_i8) == 'campo1')
    CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=2_i16) == 'campo2')
@@ -70,6 +74,31 @@ PROGRAM FortranUtilitiesTest
    CALL test(ABS(mean(vecSp) - 3.5_sp) < 1E-10)
    CALL test(ABS(mean(vecDp) - 3.5_dp) < 1E-10)
    CALL test(ABS(mean(vecQp) - 3.5_qp) < 1E-10)
+   CALL test(.NOT.is_nan(5._sp))
+   CALL test(.NOT.is_nan(5._dp))
+   CALL test(.NOT.is_nan(5._qp))
+   CALL test(is_nan(zero_sp/zero_sp))
+   CALL test(is_nan(zero_dp/zero_dp))
+   CALL test(is_nan(zero_qp/zero_qp))
+   CALL test(ALL(.NOT.is_nan(vecSp)))
+   CALL test(ALL(.NOT.is_nan(vecDp)))
+   CALL test(ALL(.NOT.is_nan(vecQp)))
+   !Falta comprobar is_nan a true con un vector de zeros.
+   CALL test(.NOT.is_inf(5._sp))
+   CALL test(.NOT.is_inf(5._dp))
+   CALL test(.NOT.is_inf(5._qp))
+   CALL test(is_inf(5._sp/zero_sp))
+   CALL test(is_inf(5._dp/zero_dp))
+   CALL test(is_inf(5._qp/zero_qp))
+   CALL test(is_inf(-5._sp/zero_sp))
+   CALL test(is_inf(-5._dp/zero_dp))
+   CALL test(is_inf(-5._qp/zero_qp))
+   CALL test(ALL(.NOT.is_inf(vecSp)))
+   CALL test(ALL(.NOT.is_inf(vecDp)))
+   CALL test(ALL(.NOT.is_inf(vecQp)))
+   CALL test(ALL(is_inf(vecSp/zero_sp)))
+   CALL test(ALL(is_inf(vecDp/zero_dp)))
+   CALL test(ALL(is_inf(vecQp/zero_qp)))
 
    CONTAINS
       SUBROUTINE test(testRes)

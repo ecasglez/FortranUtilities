@@ -72,6 +72,17 @@ Contains precision parameters to use in Fortran programs.
 * ```i32```: Kind parameter to specify an integer type with a storage size of 32 bits.
 * ```i64```: Kind parameter to specify an integer type with a storage size of 64 bits.
 
+## Module Numbers\_M
+
+Contains useful tools to analyze numbers. These functions are now available in the intrinsics module IEEE_ARITHMETIC and are provided here only for compatibility with some old programs that use them.
+
+* ```is_nan(num)```: Determines if the number is NaN or not.
+   * ```num```: real number or array with real numbers to analye. It can have any rank and size.
+   * ```returns```: True if the number is NaN. False otherwise. The return value will have the same rank and size as the input value.
+* ```is_inf(num)```: Determines if the number is Infinite or not.
+   * ```num```: real number or array with real numbers to analye. It can have any rank and size.
+   * ```returns```: True if the number is Infinite. False otherwise. The return value will have the same rank and size as the input value.
+
 ## Module Strings\_M
 
 Contains useful tools to manipulate strings in Fortran programs.
@@ -104,7 +115,6 @@ Contains useful tools to manipulate strings in Fortran programs.
    * ```str```: String that the user wants to check how it ends.
    * ```substr```: Substring to search to check if str ends with it.
    * ```returns```: True if the string ends with the substring and False otherwise. If substr is empty it returns True.
-
 
 ## Contact
 

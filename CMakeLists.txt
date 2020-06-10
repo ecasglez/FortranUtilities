@@ -10,6 +10,6 @@ if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
   endif()
 endif()
 
-add_compile_options(-Wall -O2)
+add_compile_options(-Wall -O2 -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans)
 
 add_subdirectory(src)
