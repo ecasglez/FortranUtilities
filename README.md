@@ -123,10 +123,10 @@ Contains useful tools to perform simple statistics in Fortran programs. Input da
 * ```mean(values)```: Calculates the mean value of a set of values given in an array.
    * ```values```: Vector of real numbers to calculate the mean value. It can have any size and it must have one dimension.
    * ```returns```: Real number with the average value.
-* ```variace(values)```: Calculates the sample variance of a set of values given in an array.
+* ```variance(values)```: Calculates the sample variance of a set of values given in an array.
    * ```values```: Vector of real numbers to calculate the sample variance. It can have any size and it must have one dimension.
    * ```returns```: Real number with the sample variance.
-* ```pvariace(values)```: Calculates the population variance of a set of values given in an array.
+* ```pvariance(values)```: Calculates the population variance of a set of values given in an array.
    * ```values```: Vector of real numbers to calculate the population variance. It can have any size and it must have one dimension.
    * ```returns```: Real number with the population variance.
 * ```stdev(values)```: Calculates the sample standard deviation of a set of values given in an array.
