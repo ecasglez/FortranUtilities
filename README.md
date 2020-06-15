@@ -116,6 +116,27 @@ Contains useful tools to manipulate strings in Fortran programs.
    * ```substr```: Substring to search to check if str ends with it.
    * ```returns```: True if the string ends with the substring and False otherwise. If substr is empty it returns True.
 
+## Module Statistics\_M
+
+Contains useful tools to perform simple statistics in Fortran programs. Input data is an array with one dimension. If your data is has more dimensions you can use RESHAPE or sequence association.
+
+* ```mean(values)```: Calculates the mean value of a set of values given in an array.
+   * ```values```: Vector of real numbers to calculate the mean value. It can have any size and it must have one dimension.
+   * ```returns```: Real number with the average value.
+* ```variace(values)```: Calculates the sample variance of a set of values given in an array.
+   * ```values```: Vector of real numbers to calculate the sample variance. It can have any size and it must have one dimension.
+   * ```returns```: Real number with the sample variance.
+* ```pvariace(values)```: Calculates the population variance of a set of values given in an array.
+   * ```values```: Vector of real numbers to calculate the population variance. It can have any size and it must have one dimension.
+   * ```returns```: Real number with the population variance.
+* ```stdev(values)```: Calculates the sample standard deviation of a set of values given in an array.
+   * ```values```: Vector of real numbers to calculate the sample standard deviation. It can have any size and it must have one dimension.
+   * ```returns```: Real number with the sample standard deviation.
+* ```pstdev(values)```: Calculates the population standard deviation of a set of values given in an array.
+   * ```values```: Vector of real numbers to calculate the population standard deviation. It can have any size and it must have one dimension.
+   * ```returns```: Real number with the population standard deviation.
+
+
 ## Contact
 
 Developed by Emilio Castro.
