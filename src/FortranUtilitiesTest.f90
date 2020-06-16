@@ -4,6 +4,7 @@ PROGRAM FortranUtilitiesTest
    USE Prec_M
    USE Statistics_M
    USE Numbers_M
+   USE Files_M
 
    IMPLICIT NONE
 
@@ -13,6 +14,7 @@ PROGRAM FortranUtilitiesTest
    REAL(KIND=sp) :: zero_sp = 0.0
    REAL(KIND=dp) :: zero_dp = 0.0
    REAL(KIND=qp) :: zero_qp = 0.0
+   INTEGER :: u
 
    CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=1_i8) == 'campo1')
    CALL test(splitstr('campo1 campo2 campo3 campo4',fieldNumber=2_i16) == 'campo2')
@@ -111,6 +113,44 @@ PROGRAM FortranUtilitiesTest
    CALL test(ALL(is_inf(vecSp/zero_sp)))
    CALL test(ALL(is_inf(vecDp/zero_dp)))
    CALL test(ALL(is_inf(vecQp/zero_qp)))
+   CALL test(mkdir("testdir32"))
+   CALL test(is_empty("testdir32"))
+   OPEN(NEWUNIT=u,FILE="testfile32",STATUS="REPLACE")
+   WRITE(u,*) 'test content'
+   CLOSE(u)
+   OPEN(NEWUNIT=u,FILE="testdir32/testemptyfile",STATUS="REPLACE")
+   CLOSE(u)
+   CALL test(is_empty("testdir32/testemptyfile"))
+   CALL test(.NOT.is_empty("testdir32"))
+   CALL test(.NOT.is_empty("testfile32"))
+   CALL test(cp("testdir32","testdir33"))
+   CALL test(cp("testfile32","testfile33"))
+   CALL test(mv("testdir32","testdir34"))
+   CALL test(mv("testfile32","testfile34"))
+   CALL test(.NOT.mv("testdir34","testdir33",.TRUE.))
+   CALL test(mv("testfile34","testfile33"))
+   CALL test(exists("testdir33"))
+   CALL test(exists("testfile33"))
+   CALL test(create_symlink("testdir33","linkedtestdir33"))
+   CALL test(create_symlink("testfile33","linkedtestfile33"))
+   CALL test(is_directory("testdir33"))
+   CALL test(is_directory("linkedtestdir33"))
+   CALL test(.NOT.is_directory("testfile33"))
+   CALL test(.NOT.is_regular_file("testdir33"))
+   CALL test(is_regular_file("testfile33"))
+   CALL test(is_regular_file("linkedtestfile33"))
+   CALL test(.NOT.is_symlink("testdir33"))
+   CALL test(.NOT.is_symlink("testfile33"))
+   CALL test(is_symlink("linkedtestdir33"))
+   CALL test(is_symlink("linkedtestfile33"))
+   CALL test(rm("testdir33"))
+   CALL test(rm("testdir34"))
+   CALL test(rm("testfile33"))
+   CALL test(rm("testfile34"))
+   CALL test(rm("linkedtestfile33"))
+   CALL test(rm("linkedtestdir33"))
+
+
 
    CONTAINS
       SUBROUTINE test(testRes)

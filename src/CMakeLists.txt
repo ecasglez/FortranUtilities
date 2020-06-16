@@ -1,5 +1,5 @@
 
-set(LibrarySources Strings_M.f90 Prec_M.f90 Statistics_M.f90 Numbers_M.f90)
+set(LibrarySources Strings_M.f90 Prec_M.f90 Statistics_M.f90 Numbers_M.f90 Files_M.f90 cfiles.cpp)
 set(TestSources FortranUtilitiesTest.f90)
 
 set(LIB_MOD_DIR ${CMAKE_CURRENT_BINARY_DIR}/mod/)
@@ -7,7 +7,9 @@ set(LIB_MOD_DIR ${CMAKE_CURRENT_BINARY_DIR}/mod/)
 #Library
 add_library(objlib OBJECT ${LibrarySources})
 add_library (FortranUtilitiesStatic STATIC $<TARGET_OBJECTS:objlib>)
+target_link_libraries(FortranUtilitiesStatic stdc++fs)
 add_library (FortranUtilities SHARED $<TARGET_OBJECTS:objlib>)
+target_link_libraries(FortranUtilities stdc++fs)
 set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
 
 #Tests

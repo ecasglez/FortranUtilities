@@ -1,6 +1,8 @@
-FortranUtilities is a collection of simple functions and subroutines for Fortran programs.
+FortranUtilities is a collection of simple functions for Fortran programs.
 
-Only functions to manipulate strings are included so far. See below for specifications of the different functions. More functions for different tasks will be included in the future.
+Functions for strings, numbers, precision, statistics and files are included. See below for specifications of the different functions. More functions for different tasks will be included in the future.
+
+This is a BETA version.
 
 ## Downloading
 
@@ -8,7 +10,7 @@ Only functions to manipulate strings are included so far. See below for specific
 
 ## Compilation
 
-1. Check that you have cmake version 3.10 or newer, and a Fortran compiler compatible with Fortran 2008.
+1. Check that you have cmake version 3.10 or newer, a Fortran compiler compatible with Fortran 2008, and a C++ compiler compatible with C++17.
 2. Download the files and enter directory FortranUtilities. Then create a build directory and enter that directory:
    ```
    mkdir build
@@ -136,6 +138,52 @@ Contains useful tools to perform simple statistics in Fortran programs. Input da
    * ```values```: Vector of real numbers to calculate the population standard deviation. It can have any size and it must have one dimension.
    * ```returns```: Real number with the population standard deviation.
 
+## Module Files\_M
+
+Contains useful tools to manage files.
+
+* ```mkdir(dir,ignoreErrors)```. Creates a directory.
+   * ```dir```: path and name of the directory to be created.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the process has been succesful. False in case of error.
+* ```create_symlink(src,dest,ignoreErrors)```. Creates a symlink.
+   * ```src```: path and name of the file or directory to be linked.
+   * ```dest```: name of the destination link.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the process has been succesful. False in case of error.
+* ```cp(src,dest,ignoreErrors)```. Copies a file or directory. Directories are copied recursively. Existing files are overwritten.
+   * ```src```: path and name of the file to be copied.
+   * ```dest```: destination.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the process has been succesful. False in case of error.
+* ```rm(src,dest,ignoreErrors)```. Moves or renames a file or directory. When moving a directory if the destination has the same name and it is an already existing directory which isnot empty an error is shown and nothing is done. The destination folder must be removed first using rm.
+   * ```src```: path and name of the file to be moved.
+   * ```dest```: destination.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the process has been succesful. False in case of error.
+* ```rm(fname,ignoreErrors)```. Removes a file or directory
+   * ```fname```: path and name of the file to be removed.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the process has been succesful. False in case of error.
+* ```exists(fname)```. Checks if a file or directory exists.
+   * ```fname```: path and name of the file or directory to be checked.
+   * ```returns```: True if the file or directory exists. False otherwise.
+* ```is_directory(fname, ignoreErrors)```. Checks if a directory exists.
+   * ```fname```: path of the directory to be checked.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the directory exists. False otherwise.
+* ```is_empty(fname, ignoreErrors)```. Checks if a file or directory is empty.
+   * ```fname```: path and name of the file or directory to be checked.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the file or directory is empty. False otherwise.
+* ```is_regular_file(fname, ignoreErrors)```. Checks if a regular file (not a directory, symlink, etc.) exists.
+   * ```fname```: path of the file to be checked.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the file exists. False otherwise.
+* ```is_symlink(fname, ignoreErrors)```. Checks if a symlink exists.
+   * ```fname```: path of the file to be checked.
+   * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
+   * ```returns```: True if the symlink exists. False otherwise.
 
 ## Contact
 
