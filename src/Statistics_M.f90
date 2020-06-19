@@ -23,7 +23,7 @@ MODULE Statistics_M
    IMPLICIT NONE
 
    PRIVATE
-   PUBLIC :: mean, variance, stdev, pvariance, pstdev
+   PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev
 
    !> Error code issued by all functions in module Statistics_M
    INTEGER,PARAMETER :: exit_error_code = 11
@@ -48,6 +48,27 @@ MODULE Statistics_M
       MODULE PROCEDURE mean_dp
       MODULE PROCEDURE mean_qp
    END INTERFACE mean
+
+
+
+   !--------------------------------------------------------------------
+   ! DESCRIPTION:
+   !> @brief Calculates the geometric mean value of a set of values given in a vector.
+   !> of any size with one dimension
+   !
+   ! REVISION HISTORY:
+   ! 27-05-2020 - Initial Version.
+   !
+   !> @author Emilio Castro.
+   !> @version 1.0.
+   !> @param values Vector of real numbers to calculate the geometric mean value. It can 
+   !> have any size and it must have one dimension.
+   !> @return Real number with the geometric mean of the values.
+   INTERFACE gmean
+      MODULE PROCEDURE gmean_sp
+      MODULE PROCEDURE gmean_dp
+      MODULE PROCEDURE gmean_qp
+   END INTERFACE gmean
 
 
    !--------------------------------------------------------------------
@@ -167,6 +188,36 @@ MODULE Statistics_M
          INCLUDE 'Statistics_M/include_mean.f90'
 
       END FUNCTION mean_qp
+
+      FUNCTION gmean_sp(values) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp)                         :: res
+         INTEGER,PARAMETER                     :: prec = sp
+
+         INCLUDE 'Statistics_M/include_gmean.f90'
+
+      END FUNCTION gmean_sp
+
+      FUNCTION gmean_dp(values) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp)                         :: res
+         INTEGER,PARAMETER                     :: prec = dp
+
+         INCLUDE 'Statistics_M/include_gmean.f90'
+
+      END FUNCTION gmean_dp
+
+      FUNCTION gmean_qp(values) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=qp)                         :: res
+         INTEGER,PARAMETER                     :: prec = qp
+
+         INCLUDE 'Statistics_M/include_gmean.f90'
+
+      END FUNCTION gmean_qp
 
 
       FUNCTION variance_sp(values) RESULT(res)

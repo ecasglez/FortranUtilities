@@ -2,7 +2,7 @@ FortranUtilities is a collection of simple functions for Fortran programs.
 
 Functions for strings, numbers, precision, statistics and files are included. See below for specifications of the different functions. More functions for different tasks will be included in the future.
 
-This is a BETA version.
+This is a BETA version. All functions work properly on Linux using gfortran 7.5 or newer, and all functions except symlink functions work on Windows using gfortran 7.5 or newer. More compilers will be tested in the future.
 
 ## Downloading
 
@@ -104,10 +104,11 @@ Contains useful tools to manipulate strings in Fortran programs.
    * ```str```: String to convert to integer or real
    * ```mold```: real or integer to specify the type of result. It is only used to set the type of the return value, so it can be any value.
    * ```returns```: Integer or real containing the number in the input string. The type is the same as the mold one.
-* ```splitstr(str,delimiter,fieldNumber)```: Splits a string and returns the portion selected by the user.
+* ```splitstr(str,fieldNumber,delimiter,rev)```: Splits a string and returns the portion selected by the user.
    * ```str```: String that the user wants to split.
+   * ```fieldNumber```: Integer indicating which of the divisions to return.
    * ```delimiter```: String that the users wants to use as a delimiter for splitting. Optional parameter. Default is Space.
-   * ```fieldNumber```: Integer indicating which of the divisions to return. Optional parameter. Default is the first part obtained.
+   * ```rev```: Logical variable. If True start spliting by the end of the string. Optional parameter. Default is False.
    * ```returns```: A string with the selected part of str. If the fieldNumber does not exists or if the delimiter does not exists it returns an empty string.
 * ```startsWith(str,substr)```: Checks if a string starts with a given substring.
    * ```str```: String that the user wants to check how it starts.
@@ -125,6 +126,9 @@ Contains useful tools to perform simple statistics in Fortran programs. Input da
 * ```mean(values)```: Calculates the mean value of a set of values given in an array.
    * ```values```: Vector of real numbers to calculate the mean value. It can have any size and it must have one dimension.
    * ```returns```: Real number with the average value.
+* ```gmean(values)```: Calculates the geometric mean of a set of values given in an array.
+   * ```values```: Vector of real numbers to calculate the geometric mean. It can have any size and it must have one dimension.
+   * ```returns```: Real number with the geometric mean.
 * ```variance(values)```: Calculates the sample variance of a set of values given in an array.
    * ```values```: Vector of real numbers to calculate the sample variance. It can have any size and it must have one dimension.
    * ```returns```: Real number with the sample variance.

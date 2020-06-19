@@ -6,6 +6,12 @@ END IF
 
 res = str
 
+IF (PRESENT(rev)) THEN
+   IF (rev) THEN
+      res = strReverse(res)
+   END IF
+END IF
+
 ! If the delimiter is in the first positions of the string, remove it
 IF (INDEX(res,d) == 1) THEN
    res = res(LEN(d)+1:)
@@ -23,3 +29,9 @@ DO i = 1, fieldNumber
       res = res(pos+LEN(d):)
    END IF
 END DO
+
+IF (PRESENT(rev)) THEN
+   IF (rev) THEN
+      res = strReverse(res)
+   END IF
+END IF

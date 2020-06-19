@@ -44,6 +44,8 @@ MODULE Strings_M
    !> @param fieldNumber Integer indicating which of the divisions to return.
    !> @param delimiter String that the users wants to use as a delimiter for splitting.
    !> Optional parameter. Default is Space.
+   !> @param rev. Logical variable. If true start spliting by the end of the string.
+   !> Optional parameter. Default is False.
    !> @return A string with the selected part of str. If the fieldNumber does not exists
    !> or if the delimiter does not exists it returns an empty string.
    INTERFACE splitstr
@@ -154,10 +156,11 @@ CONTAINS
 
 
 
-   FUNCTION splitstr_i8(str, delimiter, fieldNumber) RESULT(res)
+   FUNCTION splitstr_i8(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*), INTENT(IN)            :: str
       INTEGER(KIND=i8), INTENT(IN)            :: fieldNumber
       CHARACTER(LEN=*), INTENT(IN), OPTIONAL  :: delimiter
+      LOGICAL         , INTENT(IN), OPTIONAL  :: rev
       CHARACTER(LEN=:), ALLOCATABLE           :: res
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
@@ -168,10 +171,11 @@ CONTAINS
 
    END FUNCTION splitstr_i8
 
-   FUNCTION splitstr_i16(str, delimiter, fieldNumber) RESULT(res)
+   FUNCTION splitstr_i16(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       INTEGER(KIND=i16), INTENT(IN)            :: fieldNumber
       CHARACTER(LEN=*) , INTENT(IN), OPTIONAL  :: delimiter
+      LOGICAL          , INTENT(IN), OPTIONAL  :: rev
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
@@ -182,10 +186,11 @@ CONTAINS
 
    END FUNCTION splitstr_i16
 
-   FUNCTION splitstr_i32(str, delimiter, fieldNumber) RESULT(res)
+   FUNCTION splitstr_i32(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       INTEGER(KIND=i32), INTENT(IN)            :: fieldNumber
       CHARACTER(LEN=*) , INTENT(IN), OPTIONAL  :: delimiter
+      LOGICAL          , INTENT(IN), OPTIONAL  :: rev
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
@@ -196,10 +201,11 @@ CONTAINS
 
    END FUNCTION splitstr_i32
 
-   FUNCTION splitstr_i64(str, delimiter, fieldNumber) RESULT(res)
+   FUNCTION splitstr_i64(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       INTEGER(KIND=i64), INTENT(IN)            :: fieldNumber
       CHARACTER(LEN=*) , INTENT(IN), OPTIONAL  :: delimiter
+      LOGICAL          , INTENT(IN), OPTIONAL  :: rev
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
@@ -306,6 +312,7 @@ CONTAINS
       REAL(KIND=sp)   ,INTENT(IN)   :: num
       CHARACTER(LEN=*), INTENT(IN)  :: formato
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      INTEGER                       :: length
 
       INCLUDE 'Strings_M/include_num2strReal.f90'
 
@@ -316,6 +323,7 @@ CONTAINS
       REAL(KIND=dp)   ,INTENT(IN)   :: num
       CHARACTER(LEN=*), INTENT(IN)  :: formato
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      INTEGER                       :: length
 
       INCLUDE 'Strings_M/include_num2strReal.f90'
 
@@ -326,6 +334,7 @@ CONTAINS
       REAL(KIND=qp)   ,INTENT(IN)   :: num
       CHARACTER(LEN=*), INTENT(IN)  :: formato
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      INTEGER                       :: length
 
       INCLUDE 'Strings_M/include_num2strReal.f90'
 
@@ -395,41 +404,45 @@ CONTAINS
 
 
 
-   FUNCTION count_digits_integer_i8(integ) RESULT(num_digits)
+   PURE FUNCTION count_digits_integer_i8(i) RESULT(num_digits)
       IMPLICIT NONE
-      INTEGER(KIND=i8), VALUE     :: integ
+      INTEGER(KIND=i8), INTENT(IN):: i
       INTEGER(KIND=i8)            :: num_digits
       INTEGER(KIND=i8), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i8)            :: integ
 
       INCLUDE 'Strings_M/include_count_digits_integer.f90'
 
    END FUNCTION count_digits_integer_i8
 
-   FUNCTION count_digits_integer_i16(integ) RESULT(num_digits)
+   PURE FUNCTION count_digits_integer_i16(i) RESULT(num_digits)
       IMPLICIT NONE
-      INTEGER(KIND=i16), VALUE     :: integ
+      INTEGER(KIND=i16), INTENT(IN):: i
       INTEGER(KIND=i16)            :: num_digits
       INTEGER(KIND=i16), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i16)            :: integ
 
       INCLUDE 'Strings_M/include_count_digits_integer.f90'
 
    END FUNCTION count_digits_integer_i16
 
-   FUNCTION count_digits_integer_i32(integ) RESULT(num_digits)
+   PURE FUNCTION count_digits_integer_i32(i) RESULT(num_digits)
       IMPLICIT NONE
-      INTEGER(KIND=i32), VALUE     :: integ
+      INTEGER(KIND=i32), INTENT(IN):: i
       INTEGER(KIND=i32)            :: num_digits
       INTEGER(KIND=i32), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i32)            :: integ
 
       INCLUDE 'Strings_M/include_count_digits_integer.f90'
 
    END FUNCTION count_digits_integer_i32
 
-   FUNCTION count_digits_integer_i64(integ) RESULT(num_digits)
+   PURE FUNCTION count_digits_integer_i64(i) RESULT(num_digits)
       IMPLICIT NONE
-      INTEGER(KIND=i64), VALUE     :: integ
+      INTEGER(KIND=i64), INTENT(IN):: i
       INTEGER(KIND=i64)            :: num_digits
       INTEGER(KIND=i64), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i64)            :: integ
 
       INCLUDE 'Strings_M/include_count_digits_integer.f90'
 
@@ -524,6 +537,15 @@ CONTAINS
 
    END FUNCTION str2num_qp
 
+
+   FUNCTION strReverse(str) RESULT(res)
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)  :: str
+      CHARACTER(LEN=:), ALLOCATABLE :: res
+      INTEGER                       :: i
+      res = str
+      FORALL (i=1:len(res)) res(i:i) = res(len(res)-i+1:len(res)-i+1)
+   END FUNCTION strReverse
 
 
 
