@@ -125,7 +125,7 @@ PROGRAM FortranUtilitiesTest
    OPEN(NEWUNIT=u,FILE="testfile32",STATUS="REPLACE")
    WRITE(u,*) 'test content'
    CLOSE(u)
-   OPEN(NEWUNIT=u,FILE="testdir32/testemptyfile",STATUS="REPLACE")
+   OPEN(NEWUNIT=u,FILE="testdir32"//filesep()//"testemptyfile",STATUS="REPLACE")
    CLOSE(u)
    CALL test('is_empty and filesep',is_empty("testdir32"//filesep()//"testemptyfile"))
    CALL test('is_empty',.NOT.is_empty("testdir32"))
