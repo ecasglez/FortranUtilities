@@ -150,7 +150,7 @@ Contains useful tools to manage files.
    * ```dir```: path and name of the directory to be created.
    * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
    * ```returns```: True if the process has been succesful. False in case of error.
-* ```create_symlink(src,dest,ignoreErrors)```. Creates a symlink.
+* ```create_symlink(src,dest,ignoreErrors)```. Creates a symlink. Only for UNIX-based systems.
    * ```src```: path and name of the file or directory to be linked.
    * ```dest```: name of the destination link.
    * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
@@ -184,10 +184,12 @@ Contains useful tools to manage files.
    * ```fname```: path of the file to be checked.
    * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
    * ```returns```: True if the file exists. False otherwise.
-* ```is_symlink(fname, ignoreErrors)```. Checks if a symlink exists.
+* ```is_symlink(fname, ignoreErrors)```. Checks if a symlink exists. Only for UNIX-based systems.
    * ```fname```: path of the file to be checked.
    * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
    * ```returns```: True if the symlink exists. False otherwise.
+* ```filesep()```: Returns the path separator '\' for Windows and '/' for Linux and MacOS.
+   * ```returns```: Character of len=1: '\' for Windows and '/' for Linux and MacOS.
 
 ## Contact
 

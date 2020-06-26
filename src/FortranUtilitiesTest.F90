@@ -127,7 +127,7 @@ PROGRAM FortranUtilitiesTest
    CLOSE(u)
    OPEN(NEWUNIT=u,FILE="testdir32/testemptyfile",STATUS="REPLACE")
    CLOSE(u)
-   CALL test('is_empty',is_empty("testdir32/testemptyfile"))
+   CALL test('is_empty and filesep',is_empty("testdir32"//filesep()//"testemptyfile"))
    CALL test('is_empty',.NOT.is_empty("testdir32"))
    CALL test('is_empty',.NOT.is_empty("testfile32"))
    CALL test('cp',cp("testdir32","testdir33"))
@@ -138,18 +138,38 @@ PROGRAM FortranUtilitiesTest
    CALL test('mv',mv("testfile34","testfile33"))
    CALL test('exists',exists("testdir33"))
    CALL test('exists',exists("testfile33"))
+#ifdef LIN_CPP
    CALL test('create_symlink',create_symlink("testdir33","linkedtestdir33"))
    CALL test('create_symlink',create_symlink("testfile33","linkedtestfile33"))
+#elif WIN_CPP
+   CALL test('create_symlink. N/A on Windows',.TRUE.)
+   CALL test('create_symlink. N/A on Windows',.TRUE.)
+#endif
    CALL test('is_directory',is_directory("testdir33"))
+#ifdef LIN_CPP
    CALL test('is_directory',is_directory("linkedtestdir33"))
+#elif WIN_CPP
+   CALL test('is_directory. N/A on Windows',.TRUE.)
+#endif
    CALL test('is_directory',.NOT.is_directory("testfile33"))
    CALL test('is_regular_file',.NOT.is_regular_file("testdir33"))
    CALL test('is_regular_file',is_regular_file("testfile33"))
+#ifdef LIN_CPP
    CALL test('is_regular_file',is_regular_file("linkedtestfile33"))
+#elif WIN_CPP
+   CALL test('is_regular_file. N/A on Windows',.TRUE.)
+#endif
+#ifdef LIN_CPP
    CALL test('is_symlink',.NOT.is_symlink("testdir33"))
    CALL test('is_symlink',.NOT.is_symlink("testfile33"))
    CALL test('is_symlink',is_symlink("linkedtestdir33"))
    CALL test('is_symlink',is_symlink("linkedtestfile33"))
+#elif WIN_CPP
+   CALL test('is_symlink. N/A on Windows',.TRUE.)
+   CALL test('is_symlink. N/A on Windows',.TRUE.)
+   CALL test('is_symlink. N/A on Windows',.TRUE.)
+   CALL test('is_symlink. N/A on Windows',.TRUE.)
+#endif
    CALL test('rm',rm("testdir33"))
    CALL test('rm',rm("testdir34"))
    CALL test('rm',rm("testfile33"))

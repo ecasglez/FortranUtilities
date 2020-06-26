@@ -23,7 +23,11 @@ MODULE Files_M
    IMPLICIT NONE
 
    PRIVATE
-   PUBLIC :: mkdir, cp, mv, rm, exists, is_directory, is_empty, is_regular_file, is_symlink, create_symlink
+   PUBLIC :: mkdir, cp, mv, rm, exists, is_directory, is_empty, is_regular_file
+#ifdef LIN_CPP
+   PUBLIC :: is_symlink, create_symlink
+#endif
+   PUBLIC :: filesep
 
    INTERFACE
       FUNCTION c_createdir(dir, ign) RESULT(res) BIND(c,name='c_createdir')
@@ -32,6 +36,7 @@ MODULE Files_M
          LOGICAL(C_BOOL)          :: ign
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_createdir
+#ifdef LIN_CPP
       FUNCTION c_create_symlink(src, dest, ignoreErrors) RESULT(res) BIND(c,name='c_create_symlink')
          USE iso_c_binding
          IMPLICIT NONE
@@ -39,6 +44,7 @@ MODULE Files_M
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_create_symlink
+#endif
       FUNCTION c_copy_file(src, dest, ignoreErrors) RESULT(res) BIND(c,name='c_copy_file')
          USE iso_c_binding
          IMPLICIT NONE
@@ -78,12 +84,14 @@ MODULE Files_M
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_regular_file
+#ifdef LIN_CPP
       FUNCTION c_is_symlink(fname, ignoreErrors) RESULT(res) BIND(c,name='c_is_symlink')
          USE iso_c_binding
          CHARACTER(C_CHAR), VALUE :: fname
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_symlink
+#endif
    END INTERFACE
 
    CONTAINS
@@ -131,6 +139,7 @@ MODULE Files_M
       !> @param ignoreErrors. True to print a detailed description of the error message. 
       !> Optional parameter. Default is False.
       !> @return True if the process has been succesful. False in case of error.
+#ifdef LIN_CPP
       FUNCTION create_symlink(src, dest, ignoreErrors) RESULT(res)
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: src, dest
@@ -144,6 +153,7 @@ MODULE Files_M
          END IF
          res = c_create_symlink(src//C_NULL_CHAR, dest//C_NULL_CHAR, ign)
       END FUNCTION create_symlink
+#endif
 
 
 
@@ -359,6 +369,7 @@ MODULE Files_M
       !> @param ignoreErrors. True to print a detailed description of the error message. 
       !> Optional parameter. Default is False.
       !> @return True if fname is a symlink. False otherwise.
+#ifdef LIN_CPP
       FUNCTION is_symlink(fname, ignoreErrors) RESULT(res)
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
@@ -372,6 +383,32 @@ MODULE Files_M
          END IF
          res = c_is_symlink(fname//C_NULL_CHAR, ign)
       END FUNCTION is_symlink
+#endif
+
+
+
+      !--------------------------------------------------------------------
+      ! DESCRIPTION:
+      !> @brief Returns the path separator '\' for Windows and '/' for Linux and MacOS.
+      !
+      ! REVISION HISTORY:
+      ! 24-06-2020 - Initial Version.
+      !
+      !> @author Emilio Castro.
+      !> @version 1.0.
+      !> @return Character of len=1: '\' for Windows and '/' for Linux and MacOS.
+      FUNCTION filesep() RESULT(res)
+         IMPLICIT NONE
+         CHARACTER(LEN=1) :: res
+#ifdef WIN_CPP
+         res = '\'
+#elif LIN_CPP
+         res = '/'
+#else
+         WRITE(*,*) 'ERROR in filesep. Platform not supported'
+         STOP
+#endif
+      END FUNCTION filesep
 
 END MODULE Files_M
 

@@ -1,6 +1,6 @@
 
-set(LibrarySources Strings_M.f90 Prec_M.f90 Statistics_M.f90 Numbers_M.f90 Files_M.f90 cfiles.cpp)
-set(TestSources FortranUtilitiesTest.f90)
+set(LibrarySources Strings_M.f90 Prec_M.f90 Statistics_M.f90 Numbers_M.f90 Files_M.F90 cfiles.cpp)
+set(TestSources FortranUtilitiesTest.F90)
 
 set(LIB_MOD_DIR ${CMAKE_CURRENT_BINARY_DIR}/mod/)
 

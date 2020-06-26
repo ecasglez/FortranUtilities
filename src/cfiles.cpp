@@ -45,6 +45,7 @@ bool c_createdir(const char * name, const bool * ignoreErrors)
    return (ec.value() == 0);
 }
 
+#ifdef LIN_CPP
 extern "C"
 {
    bool c_create_symlink(const char *, const char *, const bool *);
@@ -67,6 +68,7 @@ bool c_create_symlink(const char * src, const char * dest, const bool * ignoreEr
    }
    return (ec.value() == 0);
 }
+#endif
 
 extern "C"
 {
@@ -169,7 +171,7 @@ bool c_is_regular_file(const char * name, const bool * ignoreErrors)
    return (res && ec.value() == 0);
 }
 
-
+#ifdef LIN_CPP
 extern "C"
 {
    bool c_is_symlink(const char *, const bool *);
@@ -186,4 +188,5 @@ bool c_is_symlink(const char * name, const bool * ignoreErrors)
    }
    return (res && ec.value() == 0);
 }
+#endif
 

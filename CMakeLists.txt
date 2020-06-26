@@ -20,6 +20,14 @@ if (CMAKE_COMPILER_IS_GNUCXX)
    endif()
 endif()
 
+if (CMAKE_SYSTEM_NAME STREQUAL "Windows" OR CMAKE_SYSTEM_NAME STREQUAL "MSYS")
+   message("-- Detecting platform: Windows")
+   add_definitions(-DWIN_CPP)
+else ()
+   message("-- Detecting platform: Unix-based")
+   add_definitions(-DLIN_CPP)
+endif ()
+
 add_compile_options(-Wall -O2 -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans)
 
 add_subdirectory(src)
