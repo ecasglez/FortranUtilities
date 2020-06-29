@@ -29,6 +29,26 @@ MODULE Files_M
 #endif
    PUBLIC :: filesep
 
+
+   !--------------------------------------------------------------------
+   ! DESCRIPTION:
+   !> @brief Path separator: '\' for Windows and '/' for Linux and MacOS.
+   !
+   ! REVISION HISTORY:
+   ! 24-06-2020 - Initial Version.
+   !
+   !> @author Emilio Castro.
+   !> @version 1.0.
+   !> @return Character of len=1: '\' for Windows and '/' for Linux and MacOS and others
+#ifdef WIN_CPP
+         CHARACTER,PARAMETER :: filesep = '\'
+#elif LIN_CPP
+         CHARACTER,PARAMETER :: filesep = '/'
+#else
+         CHARACTER,PARAMETER :: filesep = '/'
+#endif
+
+
    INTERFACE
       FUNCTION c_createdir(dir, ign) RESULT(res) BIND(c,name='c_createdir')
          USE iso_c_binding
@@ -385,30 +405,6 @@ MODULE Files_M
       END FUNCTION is_symlink
 #endif
 
-
-
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Returns the path separator '\' for Windows and '/' for Linux and MacOS.
-      !
-      ! REVISION HISTORY:
-      ! 24-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @return Character of len=1: '\' for Windows and '/' for Linux and MacOS.
-      FUNCTION filesep() RESULT(res)
-         IMPLICIT NONE
-         CHARACTER(LEN=1) :: res
-#ifdef WIN_CPP
-         res = '\'
-#elif LIN_CPP
-         res = '/'
-#else
-         WRITE(*,*) 'ERROR in filesep. Platform not supported'
-         STOP
-#endif
-      END FUNCTION filesep
 
 END MODULE Files_M
 

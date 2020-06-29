@@ -2,7 +2,7 @@ FortranUtilities is a collection of simple functions for Fortran programs.
 
 Functions for strings, numbers, precision, statistics and files are included. See below for specifications of the different functions. More functions for different tasks will be included in the future.
 
-This is a BETA version. All functions work properly on Linux using gfortran 7.5 or newer, and all functions except symlink functions work on Windows using gfortran 7.5 or newer. More compilers will be tested in the future.
+This is a BETA version. All functions work properly on Linux using gfortran 7.5 or newer, and all functions except symlink functions work on Windows using gfortran 7.5 (MSYS2) or newer. More compilers will be tested in the future.
 
 ## Downloading
 
@@ -160,7 +160,7 @@ Contains useful tools to manage files.
    * ```dest```: destination.
    * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
    * ```returns```: True if the process has been succesful. False in case of error.
-* ```rm(src,dest,ignoreErrors)```. Moves or renames a file or directory. When moving a directory if the destination has the same name and it is an already existing directory which isnot empty an error is shown and nothing is done. The destination folder must be removed first using rm.
+* ```mv(src,dest,ignoreErrors)```. Moves or renames a file or directory. When moving a directory if the destination has the same name and it is an already existing directory which isnot empty an error is shown and nothing is done. The destination folder must be removed first using rm.
    * ```src```: path and name of the file to be moved.
    * ```dest```: destination.
    * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
@@ -188,8 +188,7 @@ Contains useful tools to manage files.
    * ```fname```: path of the file to be checked.
    * ```ignoreErrors```: True to print a detailed description of the error message. Optional variable. Default is False.
    * ```returns```: True if the symlink exists. False otherwise.
-* ```filesep()```: Returns the path separator '\' for Windows and '/' for Linux and MacOS.
-   * ```returns```: Character of len=1: '\' for Windows and '/' for Linux and MacOS.
+* ```filesep```: Character variable containing the path separator '\\' for Windows and '/' for Linux, MacOS and other OS.
 
 ## Contact
 
