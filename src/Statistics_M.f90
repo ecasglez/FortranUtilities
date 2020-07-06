@@ -1,49 +1,35 @@
 !--------------------------------------------------------------------
 ! FortranUtilities
 !--------------------------------------------------------------------
-!
-! MODULE: Statistics_M
-!
-! DESCRIPTION:
-!> @brief Statistics tools for Fortran programs.
-!
-! REVISION HISTORY:
-! 27-05-2020 - Initial Version.
-!
-!> @author Emilio Castro.
-!> @version 1.0.
-!
-!> @copyright See LICENSE file that comes with this distribution.
-!--------------------------------------------------------------------
 
-MODULE Statistics_M
+MODULE FU_Statistics
+   !! author: Emilio Castro.
+   !! date: 27/05/2020.
+   !! version: 1.0.
+   !! license: MIT.
+   !! summary: Statistics tools for Fortran programs.
+   !! Statistics tools for Fortran programs.
 
-   USE Prec_M
+   USE FU_Prec
 
    IMPLICIT NONE
 
    PRIVATE
    PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev
 
-   !> Error code issued by all functions in module Statistics_M
    INTEGER,PARAMETER :: exit_error_code = 11
+   !! Error code issued by all functions in module Statistics_M.
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Calculates the mean value of a set of values given in a vector.
-   !> of any size with one dimension
-   !
-   ! REVISION HISTORY:
-   ! 27-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param values Vector of real numbers to calculate the mean value. It can 
-   !> have any size and it must have one dimension.
-   !> @return Real number with the average of values.
    INTERFACE mean
+      !! author: Emilio Castro.
+      !! date: 27/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the mean value.
+      !! Calculates the mean value of a set of values given in a vector
+      !! of any size with one dimension.
       MODULE PROCEDURE mean_sp
       MODULE PROCEDURE mean_dp
       MODULE PROCEDURE mean_qp
@@ -51,40 +37,28 @@ MODULE Statistics_M
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Calculates the geometric mean value of a set of values given in a vector.
-   !> of any size with one dimension
-   !
-   ! REVISION HISTORY:
-   ! 27-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param values Vector of real numbers to calculate the geometric mean value. It can 
-   !> have any size and it must have one dimension.
-   !> @return Real number with the geometric mean of the values.
    INTERFACE gmean
+      !! author: Emilio Castro.
+      !! date: 27/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the geometric mean.
+      !! Calculates the geometric mean of a set of values given in a vector
+      !! of any size with one dimension.
       MODULE PROCEDURE gmean_sp
       MODULE PROCEDURE gmean_dp
       MODULE PROCEDURE gmean_qp
    END INTERFACE gmean
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Calculates the sample variance of a set of values given in a vector.
-   !> of any size with one dimension
-   !
-   ! REVISION HISTORY:
-   ! 09-06-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param values Vector of real numbers to calculate the variance value. It can 
-   !> have any size and it must have one dimension.
-   !> @return Real number with the sample variance of values.
    INTERFACE variance
+      !! author: Emilio Castro.
+      !! date: 09/06/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the sample variance.
+      !! Calculates the sample variance of a set of values given in a vector
+      !! of any size with one dimension.
       MODULE PROCEDURE variance_sp
       MODULE PROCEDURE variance_dp
       MODULE PROCEDURE variance_qp
@@ -92,40 +66,28 @@ MODULE Statistics_M
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Calculates the sample standard deviation of a set of values given in a vector.
-   !> of any size with one dimension
-   !
-   ! REVISION HISTORY:
-   ! 09-06-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param values Vector of real numbers to calculate the sample standard deviation value. 
-   !> It can have any size and it must have one dimension.
-   !> @return Real number with the sample standard deviation of values.
    INTERFACE stdev
+      !! author: Emilio Castro.
+      !! date: 09/06/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the sample standard deviation.
+      !! Calculates the sample standard deviation of a set of values given in a vector
+      !! of any size with one dimension.
       MODULE PROCEDURE stdev_sp
       MODULE PROCEDURE stdev_dp
       MODULE PROCEDURE stdev_qp
    END INTERFACE stdev
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Calculates the population variance of a set of values given in a vector.
-   !> of any size with one dimension
-   !
-   ! REVISION HISTORY:
-   ! 09-06-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param values Vector of real numbers to calculate the population variance value.
-   !> It can have any size and it must have one dimension.
-   !> @return Real number with the variance of values.
    INTERFACE pvariance
+      !! author: Emilio Castro.
+      !! date: 09/06/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the population variance.
+      !! Calculates the population variance of a set of values given in a vector
+      !! of any size with one dimension.
       MODULE PROCEDURE pvariance_sp
       MODULE PROCEDURE pvariance_dp
       MODULE PROCEDURE pvariance_qp
@@ -133,20 +95,14 @@ MODULE Statistics_M
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Calculates the population standard deviation of a set of values given in a vector.
-   !> of any size with one dimension
-   !
-   ! REVISION HISTORY:
-   ! 09-06-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param values Vector of real numbers to calculate the population standard deviation value. 
-   !> It can have any size and it must have one dimension.
-   !> @return Real number with the population standard deviation of values.
    INTERFACE pstdev
+      !! author: Emilio Castro.
+      !! date: 09/06/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the population standard deviation.
+      !! Calculates the population standard deviation of a set of values given in a vector
+      !! of any size with one dimension.
       MODULE PROCEDURE pstdev_sp
       MODULE PROCEDURE pstdev_dp
       MODULE PROCEDURE pstdev_qp
@@ -158,11 +114,13 @@ MODULE Statistics_M
 
 
 
-
       FUNCTION mean_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the mean value. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
+         !! Real number with the average of values.
          INTEGER,PARAMETER                     :: prec = sp
          
          INCLUDE 'Statistics_M/include_mean.f90'
@@ -172,7 +130,10 @@ MODULE Statistics_M
       FUNCTION mean_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the mean value. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
+         !! Real number with the average of values.
          INTEGER,PARAMETER                     :: prec = dp
          
          INCLUDE 'Statistics_M/include_mean.f90'
@@ -182,7 +143,10 @@ MODULE Statistics_M
       FUNCTION mean_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the mean value. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
+         !! Real number with the average of values.
          INTEGER,PARAMETER                     :: prec = qp
          
          INCLUDE 'Statistics_M/include_mean.f90'
@@ -192,7 +156,10 @@ MODULE Statistics_M
       FUNCTION gmean_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the geometric mean. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
+         !! Real number with the geometric mean of the values.
          INTEGER,PARAMETER                     :: prec = sp
 
          INCLUDE 'Statistics_M/include_gmean.f90'
@@ -202,7 +169,10 @@ MODULE Statistics_M
       FUNCTION gmean_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the geometric mean. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
+         !! Real number with the geometric mean of the values.
          INTEGER,PARAMETER                     :: prec = dp
 
          INCLUDE 'Statistics_M/include_gmean.f90'
@@ -212,7 +182,10 @@ MODULE Statistics_M
       FUNCTION gmean_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the geometric mean. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
+         !! Real number with the geometric mean of the values.
          INTEGER,PARAMETER                     :: prec = qp
 
          INCLUDE 'Statistics_M/include_gmean.f90'
@@ -223,7 +196,10 @@ MODULE Statistics_M
       FUNCTION variance_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the sample variance. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
+         !! Real number with the sample variance of values.
          INTEGER,PARAMETER                     :: prec = sp
          REAL(KIND=sp)                         :: avg
          INTEGER                               :: i
@@ -235,7 +211,10 @@ MODULE Statistics_M
       FUNCTION variance_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the sample variance. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
+         !! Real number with the sample variance of values.
          INTEGER,PARAMETER                     :: prec = dp
          REAL(KIND=dp)                         :: avg
          INTEGER                               :: i
@@ -247,7 +226,10 @@ MODULE Statistics_M
       FUNCTION variance_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the sample variance. It can
+         !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
+         !! Real number with the sample variance of values.
          INTEGER,PARAMETER                     :: prec = qp
          REAL(KIND=qp)                         :: avg
          INTEGER                               :: i
@@ -260,7 +242,10 @@ MODULE Statistics_M
       FUNCTION stdev_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the sample standard deviation.
+         !! It can have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
+         !! Real number with the sample standard deviation of values.
 
          res = SQRT(variance(values))
 
@@ -269,7 +254,10 @@ MODULE Statistics_M
       FUNCTION stdev_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the sample standard deviation.
+         !! It can have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
+         !! Real number with the sample standard deviation of values.
 
          res = SQRT(variance(values))
 
@@ -278,7 +266,10 @@ MODULE Statistics_M
       FUNCTION stdev_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the sample standard deviation.
+         !! It can have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
+         !! Real number with the sample standard deviation of values.
 
          res = SQRT(variance(values))
 
@@ -289,7 +280,10 @@ MODULE Statistics_M
       FUNCTION pvariance_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the population variance.
+         !! It can have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
+         !! Real number with the variance of values.
          INTEGER,PARAMETER                     :: prec = sp
 
          res = variance(values) * REAL(SIZE(values) - 1, prec) / REAL(SIZE(values),prec)
@@ -299,7 +293,10 @@ MODULE Statistics_M
       FUNCTION pvariance_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the population variance.
+         !! It can have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
+         !! Real number with the variance of values.
          INTEGER,PARAMETER                     :: prec = dp
 
          res = variance(values) * REAL(SIZE(values) - 1, prec) / REAL(SIZE(values),prec)
@@ -309,7 +306,10 @@ MODULE Statistics_M
       FUNCTION pvariance_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the population variance.
+         !! It can have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
+         !! Real number with the variance of values.
          INTEGER,PARAMETER                     :: prec = qp
 
          res = variance(values) * REAL(SIZE(values) - 1, prec) / REAL(SIZE(values),prec)
@@ -320,7 +320,10 @@ MODULE Statistics_M
       FUNCTION pstdev_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the population standard deviation. 
+         !! It can have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
+         !! Real number with the population standard deviation of values.
 
          res = SQRT(pvariance(values))
 
@@ -329,7 +332,10 @@ MODULE Statistics_M
       FUNCTION pstdev_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the population standard deviation. 
+         !! It can have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
+         !! Real number with the population standard deviation of values.
 
          res = SQRT(pvariance(values))
 
@@ -338,10 +344,13 @@ MODULE Statistics_M
       FUNCTION pstdev_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the population standard deviation. 
+         !! It can have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
+         !! Real number with the population standard deviation of values.
 
          res = SQRT(pvariance(values))
 
       END FUNCTION pstdev_qp
 
-END MODULE Statistics_M
+END MODULE FU_Statistics

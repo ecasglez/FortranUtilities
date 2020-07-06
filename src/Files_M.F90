@@ -1,22 +1,14 @@
 !--------------------------------------------------------------------
 ! FortranUtilities
 !--------------------------------------------------------------------
-!
-! MODULE: Files_M
-!
-! DESCRIPTION:
-!> @brief Useful tools to manipulate files in Fortran programs.
-!
-! REVISION HISTORY:
-! 16-06-2020 - Initial Version.
-!
-!> @author Emilio Castro.
-!> @version 1.0.
-!
-!> @copyright See LICENSE file that comes with this distribution.
-!--------------------------------------------------------------------
 
-MODULE Files_M
+MODULE FU_Files
+   !! author: Emilio Castro.
+   !! date: 16/06/2020.
+   !! version: 1.0.
+   !! license: MIT.
+   !! summary: Useful tools to manipulate files in Fortran programs.
+   !! Useful tools to manipulate files in Fortran programs.
 
    USE iso_c_binding
 
@@ -30,22 +22,15 @@ MODULE Files_M
    PUBLIC :: filesep
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Path separator: '\' for Windows and '/' for Linux and MacOS.
-   !
-   ! REVISION HISTORY:
-   ! 24-06-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @return Character of len=1: '\' for Windows and '/' for Linux and MacOS and others
 #ifdef WIN_CPP
-         CHARACTER,PARAMETER :: filesep = '\'
+         CHARACTER,PARAMETER :: filesep = '\\'
+         !! Path separator: '\' for Windows and '/' for Linux, MacOS and other OS.
 #elif LIN_CPP
          CHARACTER,PARAMETER :: filesep = '/'
+         !! Path separator: '\' for Windows and '/' for Linux, MacOS and other OS.
 #else
          CHARACTER,PARAMETER :: filesep = '/'
+         !! Path separator: '\' for Windows and '/' for Linux, MacOS and other OS.
 #endif
 
 
@@ -116,24 +101,21 @@ MODULE Files_M
 
    CONTAINS
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Creates a directory.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param dir String name of the directory to be created.
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if the process has been succesful. False in case of error.
       FUNCTION mkdir(dir,ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Creates a directory.
+         !! Creates a directory.
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: dir
+         !! Path and name of the directory to be created.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -145,26 +127,24 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Creates a symlink to a file or directory.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param src Name of the file or directory to be linked. 
-      !> @param dest Name of the destination link..
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if the process has been succesful. False in case of error.
 #ifdef LIN_CPP
       FUNCTION create_symlink(src, dest, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Creates a symlink to a file or directory (Linux only).
+         !! Creates a symlink to a file or directory (Linux only).
          IMPLICIT NONE
-         CHARACTER(LEN=*), INTENT(IN) :: src, dest
+         CHARACTER(LEN=*), INTENT(IN) :: src
+         !! Name of the file or directory to be linked. 
+         CHARACTER(LEN=*), INTENT(IN) :: dest
+         !! Name of the destination link.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -177,26 +157,24 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Copies a file or directory. Directories are copied recursively.
-      !> Existing files are overwritten.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param src Name of the file to be copied. 
-      !> @param dest Name of the destination file.
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if the process has been succesful. False in case of error.
       FUNCTION cp(src, dest, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Copies a file or directory.
+         !! Copies a file or directory. Directories are copied recursively.
+         !! Existing files are overwritten.
          IMPLICIT NONE
-         CHARACTER(LEN=*), INTENT(IN) :: src, dest
+         CHARACTER(LEN=*), INTENT(IN) :: src
+         !! Name of the file to be copied. 
+         CHARACTER(LEN=*), INTENT(IN) :: dest
+         !! Name of the destination file.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -208,27 +186,25 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Moves or renames a file or directory. When moving a directory if the 
-      !> destination is an already existing directory which is not empty an error is shown
-      !> and nothing is done. The destination folder must be removed first using function rm.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param src Name of the file to be moved. 
-      !> @param dest Name of the destination file.
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if the process has been succesful. False in case of error.
       FUNCTION mv(src, dest, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Moves or renames a file or directory.
+         !! Moves or renames a file or directory. When moving a directory if the 
+         !! destination is an already existing directory which is not empty an error is shown
+         !! and nothing is done. The destination folder must be removed first using function rm.
          IMPLICIT NONE
-         CHARACTER(LEN=*), INTENT(IN) :: src, dest
+         CHARACTER(LEN=*), INTENT(IN) :: src
+         !! Name of the file to be moved. 
+         CHARACTER(LEN=*), INTENT(IN) :: dest
+         !! Name of the destination file.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -240,24 +216,21 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Removes a file or directory.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param fname Name of the file or directory to be removed.
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if the process has been succesful. False in case of error.
       FUNCTION rm(fname, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Removes a file or directory.
+         !! Removes a file or directory.
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Name of the file or directory to be removed.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -269,44 +242,38 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Checks if a file or directory exists.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param fname Name of the file to be check for existence.
-      !> @return True if the file exists. False otherwise.
       FUNCTION exists(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Checks if a file or directory exists.
+         !! Checks if a file or directory exists.
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Name of the file to be check for existence.
          LOGICAL                      :: res
+         !! True if the file exists. False otherwise.
          INQUIRE(FILE=fname,EXIST=res)
       END FUNCTION exists
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Checks if a directory exists.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param fname Name of the directory to be checked. 
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if fname is a directory. False otherwise.
       FUNCTION is_directory(fname, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Checks if a directory exists.
+         !! Checks if a directory exists.
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Name of the directory to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if fname is a directory. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -318,24 +285,21 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Checks if a file is empty.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param fname Name of the file to be checked. 
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if fname is an empty file. False otherwise.
       FUNCTION is_empty(fname, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Checks if a file is empty.
+         !! Checks if a file is empty.
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Name of the file to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if fname is an empty file. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -347,24 +311,21 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Checks if a regular file exists: it is not a directory, symlink, etc.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param fname Name of the file to be checked. 
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if fname is a regular file. False otherwise.
       FUNCTION is_regular_file(fname, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Checks if a regular file exists: it is not a directory, symlink, etc.
+         !! Checks if a regular file exists: it is not a directory, symlink, etc.
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Name of the file to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if fname is a regular file. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -376,25 +337,22 @@ MODULE Files_M
 
 
 
-      !--------------------------------------------------------------------
-      ! DESCRIPTION:
-      !> @brief Checks if a symlink exists.
-      !
-      ! REVISION HISTORY:
-      ! 16-06-2020 - Initial Version.
-      !
-      !> @author Emilio Castro.
-      !> @version 1.0.
-      !> @param fname Name of the symlink to be checked. 
-      !> @param ignoreErrors. True to print a detailed description of the error message. 
-      !> Optional parameter. Default is False.
-      !> @return True if fname is a symlink. False otherwise.
 #ifdef LIN_CPP
       FUNCTION is_symlink(fname, ignoreErrors) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 16/06/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Checks if a symlink exists (Linux only).
+         !! Checks if a symlink exists (Linux only).
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Name of the symlink to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
+         !! True to print a detailed description of the error message. 
+         !! Optional parameter. Default is False.
          LOGICAL                      :: res
+         !! True if fname is a symlink. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
             ign = ignoreErrors
@@ -406,6 +364,6 @@ MODULE Files_M
 #endif
 
 
-END MODULE Files_M
+END MODULE FU_Files
 
 

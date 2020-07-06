@@ -1,24 +1,16 @@
 !--------------------------------------------------------------------
 ! FortranUtilities
 !--------------------------------------------------------------------
-!
-! MODULE: Strings_M
-!
-! DESCRIPTION:
-!> @brief Useful tools to manipulate strings in Fortran programs.
-!
-! REVISION HISTORY:
-! 07-05-2020 - Initial Version.
-!
-!> @author Emilio Castro.
-!> @version 1.0.
-!
-!> @copyright See LICENSE file that comes with this distribution.
-!--------------------------------------------------------------------
 
-MODULE Strings_M
+MODULE FU_Strings
+   !! author: Emilio Castro.
+   !! date: 07/05/2020.
+   !! version: 1.0.
+   !! license: MIT.
+   !! summary: Useful tools to manipulate strings in Fortran programs.
+   !! Useful tools to manipulate strings in Fortran programs.
 
-   USE Prec_M
+   USE FU_Prec
 
    IMPLICIT NONE
 
@@ -26,29 +18,18 @@ MODULE Strings_M
    PUBLIC :: num2str, int2str00000, count_digits_integer, str2num
    PUBLIC :: startsWith, endsWith, splitstr
 
-   !> Error code issued by all functions in module Strings_M
    INTEGER,PARAMETER :: exit_error_code = 10
+   !! Error code issued by all functions in module Strings_M
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Splits a string and returns the portion selected by the user.
-   !
-   ! REVISION HISTORY:
-   ! 07-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param str String that the user wants to split.
-   !> @param fieldNumber Integer indicating which of the divisions to return.
-   !> @param delimiter String that the users wants to use as a delimiter for splitting.
-   !> Optional parameter. Default is Space.
-   !> @param rev. Logical variable. If true start spliting by the end of the string.
-   !> Optional parameter. Default is False.
-   !> @return A string with the selected part of str. If the fieldNumber does not exists
-   !> or if the delimiter does not exists it returns an empty string.
    INTERFACE splitstr
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Splits a string.
+      !! Splits a string and returns the portion selected by the user.
       MODULE PROCEDURE splitstr_i8
       MODULE PROCEDURE splitstr_i16
       MODULE PROCEDURE splitstr_i32
@@ -57,18 +38,14 @@ MODULE Strings_M
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Converts an integer or real variable into a string variable.
-   !
-   ! REVISION HISTORY:
-   ! 07-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param num Integer or real number to convert.
-   !> @return String containing the number.
    INTERFACE num2str
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Converts number into a string.
+      !! Converts an integer or real variable into a string variable.
+      !! Useful to open files named sequentially.
       MODULE PROCEDURE num2str_i8
       MODULE PROCEDURE num2str_i16
       MODULE PROCEDURE num2str_i32
@@ -79,21 +56,15 @@ MODULE Strings_M
    END INTERFACE num2str
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Converts an integer variable into a string variable, filling with leading
-   !> zeros up to the limit imposed by the user. Useful to open files named 
-   !> sequentially with leading zeros in the name.
-   !
-   ! REVISION HISTORY:
-   ! 07-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param integ Integer number to convert. This number MUST be positive.
-   !> @param total_length Number of digits to use, including zeros.
-   !> @return string containing the number.
    INTERFACE int2str00000
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Converts an integer into a string filling with leading zeros.
+      !! Converts an integer variable into a string variable,
+      !! filling with leading zeros up to the limit imposed by the user.
+      !! Useful to open files named sequentially with leading zeros in the name.
       MODULE PROCEDURE int2str00000_i8
       MODULE PROCEDURE int2str00000_i16
       MODULE PROCEDURE int2str00000_i32
@@ -103,19 +74,14 @@ MODULE Strings_M
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Counts the number of digits of an integer, including the - sign 
-   !> in case it is a negative value.
-   !
-   ! REVISION HISTORY:
-   ! 07-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param integ Integer number whose digits are to be counted.
-   !> @returns The number of digits of the input number.
    INTERFACE count_digits_integer
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Counts the number of digits of an integer.
+      !! Counts the number of digits of an integer, including the - sign 
+      !! in case it is a negative value.
       MODULE PROCEDURE count_digits_integer_i8
       MODULE PROCEDURE count_digits_integer_i16
       MODULE PROCEDURE count_digits_integer_i32
@@ -126,19 +92,13 @@ MODULE Strings_M
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Converts a string into an integer or real number as specified by the type of variable mold.
-   !
-   ! REVISION HISTORY:
-   ! 07-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param str String to convert to integer or real.
-   !> @param mold Real or integer value to identify the type and kind of the output
-   !> @returns Integer or real containing the number of the input string.
    INTERFACE str2num
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Converts a string into an integer or real.
+      !! Converts a string into an integer or real number as specified by the type of variable mold.
       MODULE PROCEDURE str2num_i8
       MODULE PROCEDURE str2num_i16
       MODULE PROCEDURE str2num_i32
@@ -158,10 +118,18 @@ CONTAINS
 
    FUNCTION splitstr_i8(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*), INTENT(IN)            :: str
+      !! String that the user wants to split.
       INTEGER(KIND=i8), INTENT(IN)            :: fieldNumber
+      !! Integer indicating which of the divisions to return.
       CHARACTER(LEN=*), INTENT(IN), OPTIONAL  :: delimiter
+      !! String that the users wants to use as a delimiter for splitting.
+      !! Optional parameter. Default is Space.
       LOGICAL         , INTENT(IN), OPTIONAL  :: rev
+      !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
       CHARACTER(LEN=:), ALLOCATABLE           :: res
+      !! A string with the selected part of str. If the fieldNumber does not exists
+      !! or if the delimiter does not exists it returns an empty string.
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
       INTEGER(KIND=i8)              :: i
@@ -173,10 +141,18 @@ CONTAINS
 
    FUNCTION splitstr_i16(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
+      !! String that the user wants to split.
       INTEGER(KIND=i16), INTENT(IN)            :: fieldNumber
+      !! Integer indicating which of the divisions to return.
       CHARACTER(LEN=*) , INTENT(IN), OPTIONAL  :: delimiter
+      !! String that the users wants to use as a delimiter for splitting.
+      !! Optional parameter. Default is Space.
       LOGICAL          , INTENT(IN), OPTIONAL  :: rev
+      !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
+      !! A string with the selected part of str. If the fieldNumber does not exists
+      !! or if the delimiter does not exists it returns an empty string.
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
       INTEGER(KIND=i16)             :: i
@@ -188,10 +164,18 @@ CONTAINS
 
    FUNCTION splitstr_i32(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
+      !! String that the user wants to split.
       INTEGER(KIND=i32), INTENT(IN)            :: fieldNumber
+      !! Integer indicating which of the divisions to return.
       CHARACTER(LEN=*) , INTENT(IN), OPTIONAL  :: delimiter
+      !! String that the users wants to use as a delimiter for splitting.
+      !! Optional parameter. Default is Space.
       LOGICAL          , INTENT(IN), OPTIONAL  :: rev
+      !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
+      !! A string with the selected part of str. If the fieldNumber does not exists
+      !! or if the delimiter does not exists it returns an empty string.
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
       INTEGER(KIND=i32)             :: i
@@ -203,10 +187,18 @@ CONTAINS
 
    FUNCTION splitstr_i64(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
+      !! String that the user wants to split.
       INTEGER(KIND=i64), INTENT(IN)            :: fieldNumber
+      !! Integer indicating which of the divisions to return.
       CHARACTER(LEN=*) , INTENT(IN), OPTIONAL  :: delimiter
+      !! String that the users wants to use as a delimiter for splitting.
+      !! Optional parameter. Default is Space.
       LOGICAL          , INTENT(IN), OPTIONAL  :: rev
+      !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
+      !! A string with the selected part of str. If the fieldNumber does not exists
+      !! or if the delimiter does not exists it returns an empty string.
       !Local
       CHARACTER(LEN=:), ALLOCATABLE :: d !delimiter
       INTEGER(KIND=i64)             :: i
@@ -221,23 +213,20 @@ CONTAINS
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Checks if a string starts with a given substring.
-   !
-   ! REVISION HISTORY:
-   ! 07-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param str String that the user wants to check how it starts.
-   !> @param substr Substring to search to check if str starts with it.
-   !> @return True if the string starts with the substring and False otherwise. If
-   !> substr is empty it returns True.
    FUNCTION startsWith(str, substr) RESULT(res)
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Checks if a string starts with a given substring.
+      !! Checks if a string starts with a given substring.
       CHARACTER(LEN=*), INTENT(IN) :: str
+      !! String that the user wants to check how it starts.
       CHARACTER(LEN=*), INTENT(IN) :: substr
+      !! Substring to search to check if str starts with it.
       LOGICAL                      :: res
+      !! True if the string starts with the substring and False otherwise. If
+      !! substr is empty it returns True.
       res = INDEX(str,substr) == 1
    END FUNCTION startsWith
 
@@ -245,23 +234,20 @@ CONTAINS
 
 
 
-   !--------------------------------------------------------------------
-   ! DESCRIPTION:
-   !> @brief Checks if a string ends with a given substring.
-   !
-   ! REVISION HISTORY:
-   ! 07-05-2020 - Initial Version.
-   !
-   !> @author Emilio Castro.
-   !> @version 1.0.
-   !> @param str String that the user wants to check how it ends.
-   !> @param substr Substring to search to check if str ends with it.
-   !> @return True if the string ends with the substring and False otherwise. If 
-   !> substr is empty it returns True.
    FUNCTION endsWith(str, substr) RESULT(res)
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Checks if a string ends with a given substring.
+      !! Checks if a string ends with a given substring.
       CHARACTER(LEN=*), INTENT(IN) :: str
+      !! String that the user wants to check how it ends.
       CHARACTER(LEN=*), INTENT(IN) :: substr
+      !! Substring to search to check if str ends with it.
       LOGICAL                      :: res
+      !! True if the string ends with the substring and False otherwise. If 
+      !! substr is empty it returns True.
       res = INDEX(str,substr,BACK = .TRUE.) == LEN(str) - LEN(substr) + 1
    END FUNCTION endsWith
 
@@ -270,7 +256,9 @@ CONTAINS
    FUNCTION num2str_i8(num) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i8), INTENT(IN)  :: num
+      !! Number to convert to string.
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      !! String containing the number
       CHARACTER(LEN=4), PARAMETER   :: formato = '(I0)'
 
       INCLUDE 'Strings_M/include_num2strInt.f90'
@@ -280,7 +268,9 @@ CONTAINS
    FUNCTION num2str_i16(num) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i16),INTENT(IN)  :: num
+      !! Number to convert to string.
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      !! String containing the number
       CHARACTER(LEN=4), PARAMETER   :: formato = '(I0)'
 
       INCLUDE 'Strings_M/include_num2strInt.f90'
@@ -290,7 +280,9 @@ CONTAINS
    FUNCTION num2str_i32(num) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i32),INTENT(IN)  :: num
+      !! Number to convert to string.
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      !! String containing the number
       CHARACTER(LEN=4), PARAMETER   :: formato = '(I0)'
 
       INCLUDE 'Strings_M/include_num2strInt.f90'
@@ -300,7 +292,9 @@ CONTAINS
    FUNCTION num2str_i64(num) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i64),INTENT(IN)  :: num
+      !! Number to convert to string.
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      !! String containing the number
       CHARACTER(LEN=4), PARAMETER   :: formato = '(I0)'
 
       INCLUDE 'Strings_M/include_num2strInt.f90'
@@ -310,8 +304,11 @@ CONTAINS
    FUNCTION num2str_sp(num,formato) RESULT(str)
       IMPLICIT NONE
       REAL(KIND=sp)   ,INTENT(IN)   :: num
+      !! Number to convert to string.
       CHARACTER(LEN=*), INTENT(IN)  :: formato
+      !! Format to use in the string variable. Only for real numbers.
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      !! String containing the number
       INTEGER                       :: length
 
       INCLUDE 'Strings_M/include_num2strReal.f90'
@@ -321,8 +318,11 @@ CONTAINS
    FUNCTION num2str_dp(num,formato) RESULT(str)
       IMPLICIT NONE
       REAL(KIND=dp)   ,INTENT(IN)   :: num
+      !! Number to convert to string.
       CHARACTER(LEN=*), INTENT(IN)  :: formato
+      !! Format to use in the string variable. Only for real numbers.
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      !! String containing the number
       INTEGER                       :: length
 
       INCLUDE 'Strings_M/include_num2strReal.f90'
@@ -332,8 +332,11 @@ CONTAINS
    FUNCTION num2str_qp(num,formato) RESULT(str)
       IMPLICIT NONE
       REAL(KIND=qp)   ,INTENT(IN)   :: num
+      !! Number to convert to string.
       CHARACTER(LEN=*), INTENT(IN)  :: formato
+      !! Format to use in the string variable. Only for real numbers.
       CHARACTER(LEN=:), ALLOCATABLE :: str
+      !! String containing the number
       INTEGER                       :: length
 
       INCLUDE 'Strings_M/include_num2strReal.f90'
@@ -350,8 +353,11 @@ CONTAINS
    FUNCTION int2str00000_i8(integ,total_length) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i8),INTENT(IN)  :: integ
+      !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i8),INTENT(IN)  :: total_length
+      !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
+      !! String containing the number.
       !local
       INTEGER(KIND=i8)             :: num_digits, num_zeros
 
@@ -362,8 +368,11 @@ CONTAINS
    FUNCTION int2str00000_i16(integ,total_length) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i16),INTENT(IN) :: integ
+      !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i16),INTENT(IN) :: total_length
+      !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
+      !! String containing the number.
       !local
       INTEGER(KIND=i16)            :: num_digits, num_zeros
 
@@ -374,8 +383,11 @@ CONTAINS
    FUNCTION int2str00000_i32(integ,total_length) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i32),INTENT(IN) :: integ
+      !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i32),INTENT(IN) :: total_length
+      !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
+      !! String containing the number.
       !local
       INTEGER(KIND=i32)            :: num_digits, num_zeros
 
@@ -386,8 +398,11 @@ CONTAINS
    FUNCTION int2str00000_i64(integ,total_length) RESULT(str)
       IMPLICIT NONE
       INTEGER(KIND=i64),INTENT(IN) :: integ
+      !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i64),INTENT(IN) :: total_length
+      !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
+      !! String containing the number.
       !local
       INTEGER(KIND=i64)            :: num_digits, num_zeros
 
@@ -407,7 +422,9 @@ CONTAINS
    PURE FUNCTION count_digits_integer_i8(i) RESULT(num_digits)
       IMPLICIT NONE
       INTEGER(KIND=i8), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
       INTEGER(KIND=i8)            :: num_digits
+      !! The number of digits of the input number.
       INTEGER(KIND=i8), PARAMETER :: ten = 10, one = 1, two = 2
       INTEGER(KIND=i8)            :: integ
 
@@ -418,7 +435,9 @@ CONTAINS
    PURE FUNCTION count_digits_integer_i16(i) RESULT(num_digits)
       IMPLICIT NONE
       INTEGER(KIND=i16), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
       INTEGER(KIND=i16)            :: num_digits
+      !! The number of digits of the input number.
       INTEGER(KIND=i16), PARAMETER :: ten = 10, one = 1, two = 2
       INTEGER(KIND=i16)            :: integ
 
@@ -429,7 +448,9 @@ CONTAINS
    PURE FUNCTION count_digits_integer_i32(i) RESULT(num_digits)
       IMPLICIT NONE
       INTEGER(KIND=i32), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
       INTEGER(KIND=i32)            :: num_digits
+      !! The number of digits of the input number.
       INTEGER(KIND=i32), PARAMETER :: ten = 10, one = 1, two = 2
       INTEGER(KIND=i32)            :: integ
 
@@ -440,7 +461,9 @@ CONTAINS
    PURE FUNCTION count_digits_integer_i64(i) RESULT(num_digits)
       IMPLICIT NONE
       INTEGER(KIND=i64), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
       INTEGER(KIND=i64)            :: num_digits
+      !! The number of digits of the input number.
       INTEGER(KIND=i64), PARAMETER :: ten = 10, one = 1, two = 2
       INTEGER(KIND=i64)            :: integ
 
@@ -456,8 +479,12 @@ CONTAINS
    FUNCTION str2num_i8(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
+      !! String to convert to number.
       INTEGER(KIND=i8), INTENT(IN) :: mold
+      !! Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i8)             :: res
+      !! The number of the input string.
       INTEGER                      :: IOERROR
       CHARACTER(LEN=7), PARAMETER  :: vartype = 'integer'
 
@@ -468,8 +495,12 @@ CONTAINS
    FUNCTION str2num_i16(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
+      !! String to convert to number.
       INTEGER(KIND=i16), INTENT(IN) :: mold
+      !! Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i16)             :: res
+      !! The number of the input string.
       INTEGER                       :: IOERROR
       CHARACTER(LEN=7), PARAMETER   :: vartype = 'integer'
 
@@ -480,8 +511,12 @@ CONTAINS
    FUNCTION str2num_i32(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
+      !! String to convert to number.
       INTEGER(KIND=i32), INTENT(IN) :: mold
+      !! Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i32)             :: res
+      !! The number of the input string.
       INTEGER                       :: IOERROR
       CHARACTER(LEN=7), PARAMETER   :: vartype = 'integer'
 
@@ -492,8 +527,12 @@ CONTAINS
    FUNCTION str2num_i64(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
+      !! String to convert to number.
       INTEGER(KIND=i64), INTENT(IN) :: mold
+      !! Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i64)             :: res
+      !! The number of the input string.
       INTEGER                       :: IOERROR
       CHARACTER(LEN=7), PARAMETER   :: vartype = 'integer'
 
@@ -504,8 +543,12 @@ CONTAINS
    FUNCTION str2num_sp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
+      !! String to convert to number.
       REAL(KIND=sp)   , INTENT(IN) :: mold
+      !! Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
       REAL(KIND=sp)                :: res
+      !! The number of the input string.
       INTEGER                      :: IOERROR
       CHARACTER(LEN=4), PARAMETER  :: vartype = 'real'
 
@@ -516,8 +559,12 @@ CONTAINS
    FUNCTION str2num_dp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
+      !! String to convert to number.
       REAL(KIND=dp)   , INTENT(IN) :: mold
+      !! Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
       REAL(KIND=dp)                :: res
+      !! The number of the input string.
       INTEGER                      :: IOERROR
       CHARACTER(LEN=4), PARAMETER  :: vartype = 'real'
 
@@ -528,8 +575,12 @@ CONTAINS
    FUNCTION str2num_qp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
+      !! String to convert to number.
       REAL(KIND=qp)   , INTENT(IN) :: mold
+      !! Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
       REAL(KIND=qp)                :: res
+      !! The number of the input string.
       INTEGER                      :: IOERROR
       CHARACTER(LEN=4), PARAMETER  :: vartype = 'real'
 
@@ -550,4 +601,4 @@ CONTAINS
 
 
 
-END MODULE Strings_M
+END MODULE FU_Strings

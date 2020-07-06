@@ -1,10 +1,10 @@
 PROGRAM FortranUtilitiesTest
 
-   USE Strings_M
-   USE Prec_M
-   USE Statistics_M
-   USE Numbers_M
-   USE Files_M
+   USE FU_Strings
+   USE FU_Prec
+   USE FU_Statistics
+   USE FU_Numbers
+   USE FU_Files
 
    IMPLICIT NONE
 
