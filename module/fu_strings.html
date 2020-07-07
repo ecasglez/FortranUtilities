@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="56.1% of total for modules and submodules.">557 statements</a>
+    title="48.7% of total for modules and submodules.">487 statements</a>
      </li> 
      
      
@@ -197,8 +197,6 @@
       <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
       
       <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-count_digits_integer">count_digits_integer</a>
       
       <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
       
@@ -303,8 +301,6 @@
       <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
       
       <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-count_digits_integer">count_digits_integer</a>
       
       <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
       
@@ -1587,254 +1583,6 @@ private function int2str00000_i64(integ, total_length) result(str)
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>String containing the number.</p>
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-count_digits_integer"></span><h3>public interface <a href='../interface/count_digits_integer.html'>count_digits_integer</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Counts the number of digits of an integer.</p><a href="../interface/count_digits_integer.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-  </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function count_digits_integer_i8(i) result(num_digits)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i8)
-  </small></h4>
-  <p>The number of digits of the input number.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function count_digits_integer_i16(i) result(num_digits)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i16)
-  </small></h4>
-  <p>The number of digits of the input number.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function count_digits_integer_i32(i) result(num_digits)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i32)
-  </small></h4>
-  <p>The number of digits of the input number.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function count_digits_integer_i64(i) result(num_digits)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i64)
-  </small></h4>
-  <p>The number of digits of the input number.</p>
     
 
     </li>

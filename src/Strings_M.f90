@@ -15,7 +15,7 @@ MODULE FU_Strings
    IMPLICIT NONE
 
    PRIVATE
-   PUBLIC :: num2str, int2str00000, count_digits_integer, str2num
+   PUBLIC :: num2str, int2str00000, str2num
    PUBLIC :: startsWith, endsWith, splitstr
 
    INTEGER,PARAMETER :: exit_error_code = 10
@@ -70,24 +70,6 @@ MODULE FU_Strings
       MODULE PROCEDURE int2str00000_i32
       MODULE PROCEDURE int2str00000_i64
    END INTERFACE int2str00000
-
-
-
-
-   INTERFACE count_digits_integer
-      !! author: Emilio Castro.
-      !! date: 07/05/2020.
-      !! version: 1.0.
-      !! license: MIT.
-      !! summary: Counts the number of digits of an integer.
-      !! Counts the number of digits of an integer, including the - sign 
-      !! in case it is a negative value.
-      MODULE PROCEDURE count_digits_integer_i8
-      MODULE PROCEDURE count_digits_integer_i16
-      MODULE PROCEDURE count_digits_integer_i32
-      MODULE PROCEDURE count_digits_integer_i64
-   END INTERFACE count_digits_integer
-
 
 
 
@@ -254,6 +236,7 @@ CONTAINS
 
 
    FUNCTION num2str_i8(num) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i8), INTENT(IN)  :: num
       !! Number to convert to string.
@@ -266,6 +249,7 @@ CONTAINS
    END FUNCTION num2str_i8
 
    FUNCTION num2str_i16(num) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i16),INTENT(IN)  :: num
       !! Number to convert to string.
@@ -278,6 +262,7 @@ CONTAINS
    END FUNCTION num2str_i16
 
    FUNCTION num2str_i32(num) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i32),INTENT(IN)  :: num
       !! Number to convert to string.
@@ -290,6 +275,7 @@ CONTAINS
    END FUNCTION num2str_i32
 
    FUNCTION num2str_i64(num) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i64),INTENT(IN)  :: num
       !! Number to convert to string.
@@ -351,6 +337,7 @@ CONTAINS
 
 
    FUNCTION int2str00000_i8(integ,total_length) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i8),INTENT(IN)  :: integ
       !! Integer number to convert. This number MUST be positive.
@@ -366,6 +353,7 @@ CONTAINS
    END FUNCTION int2str00000_i8
 
    FUNCTION int2str00000_i16(integ,total_length) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i16),INTENT(IN) :: integ
       !! Integer number to convert. This number MUST be positive.
@@ -381,6 +369,7 @@ CONTAINS
    END FUNCTION int2str00000_i16
 
    FUNCTION int2str00000_i32(integ,total_length) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i32),INTENT(IN) :: integ
       !! Integer number to convert. This number MUST be positive.
@@ -396,6 +385,7 @@ CONTAINS
    END FUNCTION int2str00000_i32
 
    FUNCTION int2str00000_i64(integ,total_length) RESULT(str)
+      USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i64),INTENT(IN) :: integ
       !! Integer number to convert. This number MUST be positive.
@@ -419,57 +409,6 @@ CONTAINS
 
 
 
-   PURE FUNCTION count_digits_integer_i8(i) RESULT(num_digits)
-      IMPLICIT NONE
-      INTEGER(KIND=i8), INTENT(IN):: i
-      !! Integer number whose digits are to be counted.
-      INTEGER(KIND=i8)            :: num_digits
-      !! The number of digits of the input number.
-      INTEGER(KIND=i8), PARAMETER :: ten = 10, one = 1, two = 2
-      INTEGER(KIND=i8)            :: integ
-
-      INCLUDE 'Strings_M/include_count_digits_integer.f90'
-
-   END FUNCTION count_digits_integer_i8
-
-   PURE FUNCTION count_digits_integer_i16(i) RESULT(num_digits)
-      IMPLICIT NONE
-      INTEGER(KIND=i16), INTENT(IN):: i
-      !! Integer number whose digits are to be counted.
-      INTEGER(KIND=i16)            :: num_digits
-      !! The number of digits of the input number.
-      INTEGER(KIND=i16), PARAMETER :: ten = 10, one = 1, two = 2
-      INTEGER(KIND=i16)            :: integ
-
-      INCLUDE 'Strings_M/include_count_digits_integer.f90'
-
-   END FUNCTION count_digits_integer_i16
-
-   PURE FUNCTION count_digits_integer_i32(i) RESULT(num_digits)
-      IMPLICIT NONE
-      INTEGER(KIND=i32), INTENT(IN):: i
-      !! Integer number whose digits are to be counted.
-      INTEGER(KIND=i32)            :: num_digits
-      !! The number of digits of the input number.
-      INTEGER(KIND=i32), PARAMETER :: ten = 10, one = 1, two = 2
-      INTEGER(KIND=i32)            :: integ
-
-      INCLUDE 'Strings_M/include_count_digits_integer.f90'
-
-   END FUNCTION count_digits_integer_i32
-
-   PURE FUNCTION count_digits_integer_i64(i) RESULT(num_digits)
-      IMPLICIT NONE
-      INTEGER(KIND=i64), INTENT(IN):: i
-      !! Integer number whose digits are to be counted.
-      INTEGER(KIND=i64)            :: num_digits
-      !! The number of digits of the input number.
-      INTEGER(KIND=i64), PARAMETER :: ten = 10, one = 1, two = 2
-      INTEGER(KIND=i64)            :: integ
-
-      INCLUDE 'Strings_M/include_count_digits_integer.f90'
-
-   END FUNCTION count_digits_integer_i64
 
 
 

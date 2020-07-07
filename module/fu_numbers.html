@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 5.4% of total for modules and submodules.">54 statements</a>
+    title="13.2% of total for modules and submodules.">132 statements</a>
      </li> 
      
      
@@ -180,6 +180,8 @@
   <div id="inters-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../module/fu_numbers.html#interface-count_digits_integer">count_digits_integer</a>
+      
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_nan">is_nan</a>
       
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_inf">is_inf</a>
@@ -206,7 +208,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <p>Functions to analyze numbers in Fortran programs. These functions
+    <p>Functions to analyze numbers in Fortran programs. Some of these functions (is_nan and is_inf)
  are now available in the intrinsics module IEEE_ARITHMETIC and
  are provided here only for compatibility with some old programs that use them. </p>
       <br>
@@ -258,6 +260,8 @@
   <div id="inters-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../module/fu_numbers.html#interface-count_digits_integer">count_digits_integer</a>
+      
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_nan">is_nan</a>
       
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_inf">is_inf</a>
@@ -292,6 +296,254 @@
     <section>
    <h2>Interfaces</h2>
    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-count_digits_integer"></span><h3>public interface <a href='../interface/count_digits_integer.html'>count_digits_integer</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Counts the number of digits of an integer.</p><a href="../interface/count_digits_integer.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function count_digits_integer_i8(i) result(num_digits)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i8),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i8)
+  </small></h4>
+  <p>The number of digits of the input number.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function count_digits_integer_i16(i) result(num_digits)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i16),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i16)
+  </small></h4>
+  <p>The number of digits of the input number.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function count_digits_integer_i32(i) result(num_digits)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>The number of digits of the input number.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function count_digits_integer_i64(i) result(num_digits)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td><p>Integer number whose digits are to be counted.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i64)
+  </small></h4>
+  <p>The number of digits of the input number.</p>
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
      
 <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="interface-is_nan"></span><h3>public interface <a href='../interface/is_nan.html'>is_nan</a>
