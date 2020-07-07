@@ -47,6 +47,10 @@ This is a BETA version. All functions work properly on Linux using gfortran 7.5 
 
 A static and and a shared library are created. Test programs for both libraries are created too.
 
+## Documentation
+
+Documentation of the different functions is [here](https://ecasglez.github.io/FortranUtilities/).
+
 ## Usage
 
 To use the library in your programs you first need to use the module of interest, as in the following example:
