@@ -8,7 +8,7 @@ MODULE FU_Numbers
    !! version: 1.0.
    !! license: MIT.
    !! summary: Functions to analyze numbers in Fortran programs.
-   !! Functions to analyze numbers in Fortran programs. These functions
+   !! Functions to analyze numbers in Fortran programs. Some of these functions (is_nan and is_inf)
    !! are now available in the intrinsics module IEEE_ARITHMETIC and
    !! are provided here only for compatibility with some old programs that use them. 
 
@@ -18,7 +18,27 @@ MODULE FU_Numbers
    IMPLICIT NONE
 
    PRIVATE
-   PUBLIC :: is_nan, is_inf
+   PUBLIC :: is_nan, is_inf, count_digits_integer
+
+
+
+   INTERFACE count_digits_integer
+      !! author: Emilio Castro.
+      !! date: 07/05/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Counts the number of digits of an integer.
+      !! Counts the number of digits of an integer, including the - sign 
+      !! in case it is a negative value.
+      MODULE PROCEDURE count_digits_integer_i8
+      MODULE PROCEDURE count_digits_integer_i16
+      MODULE PROCEDURE count_digits_integer_i32
+      MODULE PROCEDURE count_digits_integer_i64
+   END INTERFACE count_digits_integer
+
+
+
+
 
    INTERFACE is_nan
       !! author: Emilio Castro.
@@ -48,6 +68,65 @@ MODULE FU_Numbers
 
 
    CONTAINS
+
+
+
+   PURE FUNCTION count_digits_integer_i8(i) RESULT(num_digits)
+      IMPLICIT NONE
+      INTEGER(KIND=i8), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
+      INTEGER(KIND=i8)            :: num_digits
+      !! The number of digits of the input number.
+      INTEGER(KIND=i8), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i8)            :: integ
+
+      INCLUDE 'Numbers_M/include_count_digits_integer.f90'
+
+   END FUNCTION count_digits_integer_i8
+
+   PURE FUNCTION count_digits_integer_i16(i) RESULT(num_digits)
+      IMPLICIT NONE
+      INTEGER(KIND=i16), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
+      INTEGER(KIND=i16)            :: num_digits
+      !! The number of digits of the input number.
+      INTEGER(KIND=i16), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i16)            :: integ
+
+      INCLUDE 'Numbers_M/include_count_digits_integer.f90'
+
+   END FUNCTION count_digits_integer_i16
+
+   PURE FUNCTION count_digits_integer_i32(i) RESULT(num_digits)
+      IMPLICIT NONE
+      INTEGER(KIND=i32), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
+      INTEGER(KIND=i32)            :: num_digits
+      !! The number of digits of the input number.
+      INTEGER(KIND=i32), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i32)            :: integ
+
+      INCLUDE 'Numbers_M/include_count_digits_integer.f90'
+
+   END FUNCTION count_digits_integer_i32
+
+   PURE FUNCTION count_digits_integer_i64(i) RESULT(num_digits)
+      IMPLICIT NONE
+      INTEGER(KIND=i64), INTENT(IN):: i
+      !! Integer number whose digits are to be counted.
+      INTEGER(KIND=i64)            :: num_digits
+      !! The number of digits of the input number.
+      INTEGER(KIND=i64), PARAMETER :: ten = 10, one = 1, two = 2
+      INTEGER(KIND=i64)            :: integ
+
+      INCLUDE 'Numbers_M/include_count_digits_integer.f90'
+
+   END FUNCTION count_digits_integer_i64
+
+
+
+
+
 
       ELEMENTAL FUNCTION is_nan_sp(val) RESULT(res)
          IMPLICIT NONE
