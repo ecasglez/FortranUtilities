@@ -16,7 +16,7 @@ MODULE FU_Strings
 
    PRIVATE
    PUBLIC :: num2str, int2str00000, str2num
-   PUBLIC :: startsWith, endsWith, splitstr
+   PUBLIC :: startsWith, endsWith, splitstr, replace
 
    INTEGER,PARAMETER :: exit_error_code = 10
    !! Error code issued by all functions in module Strings_M
@@ -526,6 +526,45 @@ CONTAINS
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_qp
+
+
+
+   FUNCTION replace(str,search,repla) RESULT(res)
+      !! author: Emilio Castro.
+      !! date: 10/07/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Searches and replaces a substring in a string
+      !! Searches and replaces a substring in a string. It replaces 
+      !! all occurences.
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)  :: str
+      !! String to modify
+      CHARACTER(LEN=*), INTENT(IN)  :: search
+      !! String to search in str.
+      CHARACTER(LEN=*), INTENT(IN)  :: repla
+      !! String to replace in str.
+      CHARACTER(LEN=:), ALLOCATABLE :: res
+      !! Modified string.
+      INTEGER :: pos
+      INTEGER :: lensearch
+      CHARACTER(LEN=:), ALLOCATABLE :: straux
+
+      res = ''
+      straux = str
+      lensearch = LEN(search)
+      pos = INDEX(straux,search)
+
+      DO WHILE (pos /= 0)
+         res = res // straux(:pos-1) // repla
+         straux = straux(pos+lensearch:)
+         pos = INDEX(straux,search)
+      END DO
+      res = res // straux
+
+   END FUNCTION replace
+
+
 
 
    FUNCTION strReverse(str) RESULT(res)

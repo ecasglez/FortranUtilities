@@ -16,6 +16,7 @@ PROGRAM FortranUtilitiesTest
    REAL(KIND=qp) :: zero_qp = 0.0
    INTEGER :: u
 
+
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=1_i8) == 'campo1')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=2_i16) == 'campo2')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=3_i32) == 'campo3')
@@ -64,6 +65,7 @@ PROGRAM FortranUtilitiesTest
    CALL test('int2str00000',int2str00000(5_i32,1_i32) == '5')
    CALL test('int2str00000',int2str00000(5_i64,1_i64) == '5')
    CALL test('int2str00000',int2str00000(0,3) == '000')
+   CALL test('replace',replace('fggasdfggre23fgg','fgg','X') == 'XasdXre23X')
    CALL test('count_digits_integer',count_digits_integer(824) == 3)
    CALL test('count_digits_integer',count_digits_integer(-4421) == 5)
    CALL test('str2num',str2num('4321',1_i32) == 4321_i32)
