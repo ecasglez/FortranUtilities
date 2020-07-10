@@ -66,6 +66,7 @@ PROGRAM FortranUtilitiesTest
    CALL test('int2str00000',int2str00000(5_i64,1_i64) == '5')
    CALL test('int2str00000',int2str00000(0,3) == '000')
    CALL test('replace',replace('fggasdfggre23fgg','fgg','X') == 'XasdXre23X')
+   CALL test('replace',replace('fggasdfggre23fgg','Y','X') == 'fggasdfggre23fgg')
    CALL test('count_digits_integer',count_digits_integer(824) == 3)
    CALL test('count_digits_integer',count_digits_integer(-4421) == 5)
    CALL test('str2num',str2num('4321',1_i32) == 4321_i32)
