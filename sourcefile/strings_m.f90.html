@@ -122,7 +122,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="44.6% of total for source files.">487 statements</a>
+    title="45.6% of total for source files.">507 statements</a>
      </li> 
      
      
@@ -275,7 +275,7 @@
 <a name="ln-16"></a>
 <a name="ln-17"></a><span class="k">   PRIVATE</span>
 <a name="ln-18"></a><span class="k">   PUBLIC</span> <span class="kd">::</span> <span class="n">num2str</span><span class="p">,</span> <span class="n">int2str00000</span><span class="p">,</span> <span class="n">str2num</span>
-<a name="ln-19"></a>   <span class="k">PUBLIC</span> <span class="kd">::</span> <span class="n">startsWith</span><span class="p">,</span> <span class="n">endsWith</span><span class="p">,</span> <span class="n">splitstr</span>
+<a name="ln-19"></a>   <span class="k">PUBLIC</span> <span class="kd">::</span> <span class="n">startsWith</span><span class="p">,</span> <span class="n">endsWith</span><span class="p">,</span> <span class="n">splitstr</span><span class="p">,</span> <span class="n">replace</span>
 <a name="ln-20"></a>
 <a name="ln-21"></a>   <span class="kt">INTEGER</span><span class="p">,</span><span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">exit_error_code</span> <span class="o">=</span> <span class="mi">10</span>
 <a name="ln-22"></a>   <span class="c">!! Error code issued by all functions in module Strings_M</span>
@@ -787,19 +787,58 @@
 <a name="ln-528"></a>   <span class="k">END FUNCTION </span><span class="n">str2num_qp</span>
 <a name="ln-529"></a>
 <a name="ln-530"></a>
-<a name="ln-531"></a>   <span class="k">FUNCTION </span><span class="n">strReverse</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="ln-532"></a>      <span class="k">IMPLICIT NONE</span>
-<a name="ln-533"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
-<a name="ln-534"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">res</span>
-<a name="ln-535"></a>      <span class="kt">INTEGER</span>                       <span class="kd">::</span> <span class="n">i</span>
-<a name="ln-536"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
-<a name="ln-537"></a>      <span class="k">FORALL</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">))</span> <span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">res</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<a name="ln-538"></a>   <span class="k">END FUNCTION </span><span class="n">strReverse</span>
-<a name="ln-539"></a>
-<a name="ln-540"></a>
-<a name="ln-541"></a>
-<a name="ln-542"></a>
-<a name="ln-543"></a><span class="k">END MODULE </span><span class="n">FU_Strings</span>
+<a name="ln-531"></a>
+<a name="ln-532"></a>   <span class="k">FUNCTION </span><span class="n">replace</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">search</span><span class="p">,</span><span class="n">repla</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-533"></a>      <span class="c">!! author: Emilio Castro.</span>
+<a name="ln-534"></a>      <span class="c">!! date: 10/07/2020.</span>
+<a name="ln-535"></a>      <span class="c">!! version: 1.0.</span>
+<a name="ln-536"></a>      <span class="c">!! license: MIT.</span>
+<a name="ln-537"></a>      <span class="c">!! summary: Searches and replaces a substring in a string</span>
+<a name="ln-538"></a>      <span class="c">!! Searches and replaces a substring in a string. It replaces </span>
+<a name="ln-539"></a>      <span class="c">!! all occurences.</span>
+<a name="ln-540"></a>      <span class="k">IMPLICIT NONE</span>
+<a name="ln-541"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
+<a name="ln-542"></a>      <span class="c">!! String to modify</span>
+<a name="ln-543"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">search</span>
+<a name="ln-544"></a>      <span class="c">!! String to search in str.</span>
+<a name="ln-545"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">repla</span>
+<a name="ln-546"></a>      <span class="c">!! String to replace in str.</span>
+<a name="ln-547"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">res</span>
+<a name="ln-548"></a>      <span class="c">!! Modified string.</span>
+<a name="ln-549"></a>      <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">pos</span>
+<a name="ln-550"></a>      <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">lensearch</span>
+<a name="ln-551"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">straux</span>
+<a name="ln-552"></a>
+<a name="ln-553"></a>      <span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<a name="ln-554"></a>      <span class="n">straux</span> <span class="o">=</span> <span class="n">str</span>
+<a name="ln-555"></a>      <span class="n">lensearch</span> <span class="o">=</span> <span class="nb">LEN</span><span class="p">(</span><span class="n">search</span><span class="p">)</span>
+<a name="ln-556"></a>      <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">straux</span><span class="p">,</span><span class="n">search</span><span class="p">)</span>
+<a name="ln-557"></a>
+<a name="ln-558"></a>      <span class="k">DO WHILE</span> <span class="p">(</span><span class="n">pos</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span>
+<a name="ln-559"></a>         <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">//</span> <span class="n">straux</span><span class="p">(:</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">repla</span>
+<a name="ln-560"></a>         <span class="n">straux</span> <span class="o">=</span> <span class="n">straux</span><span class="p">(</span><span class="n">pos</span><span class="o">+</span><span class="n">lensearch</span><span class="p">:)</span>
+<a name="ln-561"></a>         <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">straux</span><span class="p">,</span><span class="n">search</span><span class="p">)</span>
+<a name="ln-562"></a>      <span class="k">END DO</span>
+<a name="ln-563"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">//</span> <span class="n">straux</span>
+<a name="ln-564"></a>
+<a name="ln-565"></a>   <span class="k">END FUNCTION </span><span class="n">replace</span>
+<a name="ln-566"></a>
+<a name="ln-567"></a>
+<a name="ln-568"></a>
+<a name="ln-569"></a>
+<a name="ln-570"></a>   <span class="k">FUNCTION </span><span class="n">strReverse</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-571"></a>      <span class="k">IMPLICIT NONE</span>
+<a name="ln-572"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
+<a name="ln-573"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">res</span>
+<a name="ln-574"></a>      <span class="kt">INTEGER</span>                       <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-575"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
+<a name="ln-576"></a>      <span class="k">FORALL</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">))</span> <span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">res</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-577"></a>   <span class="k">END FUNCTION </span><span class="n">strReverse</span>
+<a name="ln-578"></a>
+<a name="ln-579"></a>
+<a name="ln-580"></a>
+<a name="ln-581"></a>
+<a name="ln-582"></a><span class="k">END MODULE </span><span class="n">FU_Strings</span>
 </pre></div>
 
     </section>
