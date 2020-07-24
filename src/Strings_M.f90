@@ -529,7 +529,7 @@ CONTAINS
 
 
 
-   FUNCTION replace(str,search,repla) RESULT(res)
+   PURE FUNCTION replace(str,search,repla) RESULT(res)
       !! author: Emilio Castro.
       !! date: 10/07/2020.
       !! version: 1.0.
@@ -567,7 +567,7 @@ CONTAINS
 
 
 
-   FUNCTION strReverse(str) RESULT(res)
+   PURE FUNCTION strReverse(str) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       CHARACTER(LEN=:), ALLOCATABLE :: res

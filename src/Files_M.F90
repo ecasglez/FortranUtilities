@@ -19,7 +19,7 @@ MODULE FU_Files
 #ifdef LIN_CPP
    PUBLIC :: is_symlink, create_symlink
 #endif
-   PUBLIC :: filesep
+   PUBLIC :: filesep, is_path_absolute
 
 
 #ifdef WIN_CPP
@@ -362,6 +362,31 @@ MODULE FU_Files
          res = c_is_symlink(fname//C_NULL_CHAR, ign)
       END FUNCTION is_symlink
 #endif
+
+
+      ELEMENTAL FUNCTION is_path_absolute(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 24/07/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Determines if a path is absolute or not
+         !! Determines if a path is absolute or not. Returns True if path is absolute
+         !! and False if path is relative.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Path to a file. It can be a single filename or an array with several filenames.
+         LOGICAL                      :: res
+         !! True if the path is absolute and false if the path is relative. If the input
+         !! is an array, then the returned value will be an array.
+#ifdef WIN_CPP
+         res = INDEX(fname,':') == 2 .AND. ( &
+            (IACHAR(fname) <= 90  .AND. IACHAR(fname) >= 65) .OR. &
+            (IACHAR(fname) <= 122 .AND. IACHAR(fname) >= 97) )
+#else
+         res = INDEX(fname,filesep) == 1
+#endif
+      END FUNCTION is_path_absolute
+
 
 
 END MODULE FU_Files

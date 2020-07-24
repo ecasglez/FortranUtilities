@@ -179,6 +179,17 @@ PROGRAM FortranUtilitiesTest
    CALL test('rm',rm("testfile34"))
    CALL test('rm',rm("linkedtestfile33"))
    CALL test('rm',rm("linkedtestdir33"))
+#ifdef WIN_CPP
+   CALL test('is_path_absolute',is_path_absolute("C:\users\file.dat"))
+   CALL test('is_path_absolute',.NOT.is_path_absolute("file.dat"))
+   CALL test('is_path_absolute',ALL(is_path_absolute((/"C:\users\file.dat","C:\users\file.dat"/))))
+   CALL test('is_path_absolute',.NOT.ALL(is_path_absolute((/"C:\users\file.dat","file.dat         "/))))
+#else
+   CALL test('is_path_absolute',is_path_absolute("/home/user/file.dat"))
+   CALL test('is_path_absolute',.NOT.is_path_absolute("./file.dat"))
+   CALL test('is_path_absolute',ALL(is_path_absolute((/"/home/user/file.dat","/home/user/file.dat"/))))
+   CALL test('is_path_absolute',.NOT.ALL(is_path_absolute((/"/home/user/file.dat","./file.dat         "/))))
+#endif
 
    CONTAINS
       SUBROUTINE test(testname, testRes)
