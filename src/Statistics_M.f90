@@ -114,7 +114,7 @@ MODULE FU_Statistics
 
 
 
-      FUNCTION mean_sp(values) RESULT(res)
+      PURE FUNCTION mean_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the mean value. It can
@@ -127,7 +127,7 @@ MODULE FU_Statistics
 
       END FUNCTION mean_sp
 
-      FUNCTION mean_dp(values) RESULT(res)
+      PURE FUNCTION mean_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the mean value. It can
@@ -140,7 +140,7 @@ MODULE FU_Statistics
 
       END FUNCTION mean_dp
 
-      FUNCTION mean_qp(values) RESULT(res)
+      PURE FUNCTION mean_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the mean value. It can
@@ -153,7 +153,7 @@ MODULE FU_Statistics
 
       END FUNCTION mean_qp
 
-      FUNCTION gmean_sp(values) RESULT(res)
+      PURE FUNCTION gmean_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the geometric mean. It can
@@ -166,7 +166,7 @@ MODULE FU_Statistics
 
       END FUNCTION gmean_sp
 
-      FUNCTION gmean_dp(values) RESULT(res)
+      PURE FUNCTION gmean_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the geometric mean. It can
@@ -179,7 +179,7 @@ MODULE FU_Statistics
 
       END FUNCTION gmean_dp
 
-      FUNCTION gmean_qp(values) RESULT(res)
+      PURE FUNCTION gmean_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the geometric mean. It can
@@ -193,7 +193,7 @@ MODULE FU_Statistics
       END FUNCTION gmean_qp
 
 
-      FUNCTION variance_sp(values) RESULT(res)
+      PURE FUNCTION variance_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the sample variance. It can
@@ -202,13 +202,12 @@ MODULE FU_Statistics
          !! Real number with the sample variance of values.
          INTEGER,PARAMETER                     :: prec = sp
          REAL(KIND=sp)                         :: avg
-         INTEGER                               :: i
 
          INCLUDE 'Statistics_M/include_variance.f90'
 
       END FUNCTION variance_sp
 
-      FUNCTION variance_dp(values) RESULT(res)
+      PURE FUNCTION variance_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the sample variance. It can
@@ -217,13 +216,12 @@ MODULE FU_Statistics
          !! Real number with the sample variance of values.
          INTEGER,PARAMETER                     :: prec = dp
          REAL(KIND=dp)                         :: avg
-         INTEGER                               :: i
 
          INCLUDE 'Statistics_M/include_variance.f90'
 
       END FUNCTION variance_dp
 
-      FUNCTION variance_qp(values) RESULT(res)
+      PURE FUNCTION variance_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the sample variance. It can
@@ -232,14 +230,13 @@ MODULE FU_Statistics
          !! Real number with the sample variance of values.
          INTEGER,PARAMETER                     :: prec = qp
          REAL(KIND=qp)                         :: avg
-         INTEGER                               :: i
 
          INCLUDE 'Statistics_M/include_variance.f90'
 
       END FUNCTION variance_qp
 
 
-      FUNCTION stdev_sp(values) RESULT(res)
+      PURE FUNCTION stdev_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the sample standard deviation.
@@ -251,7 +248,7 @@ MODULE FU_Statistics
 
       END FUNCTION stdev_sp
 
-      FUNCTION stdev_dp(values) RESULT(res)
+      PURE FUNCTION stdev_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the sample standard deviation.
@@ -263,7 +260,7 @@ MODULE FU_Statistics
 
       END FUNCTION stdev_dp
 
-      FUNCTION stdev_qp(values) RESULT(res)
+      PURE FUNCTION stdev_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the sample standard deviation.
@@ -277,7 +274,7 @@ MODULE FU_Statistics
 
 
 
-      FUNCTION pvariance_sp(values) RESULT(res)
+      PURE FUNCTION pvariance_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the population variance.
@@ -290,7 +287,7 @@ MODULE FU_Statistics
 
       END FUNCTION pvariance_sp
 
-      FUNCTION pvariance_dp(values) RESULT(res)
+      PURE FUNCTION pvariance_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the population variance.
@@ -303,7 +300,7 @@ MODULE FU_Statistics
 
       END FUNCTION pvariance_dp
 
-      FUNCTION pvariance_qp(values) RESULT(res)
+      PURE FUNCTION pvariance_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the population variance.
@@ -317,7 +314,7 @@ MODULE FU_Statistics
       END FUNCTION pvariance_qp
 
 
-      FUNCTION pstdev_sp(values) RESULT(res)
+      PURE FUNCTION pstdev_sp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the population standard deviation. 
@@ -329,7 +326,7 @@ MODULE FU_Statistics
 
       END FUNCTION pstdev_sp
 
-      FUNCTION pstdev_dp(values) RESULT(res)
+      PURE FUNCTION pstdev_dp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the population standard deviation. 
@@ -341,7 +338,7 @@ MODULE FU_Statistics
 
       END FUNCTION pstdev_dp
 
-      FUNCTION pstdev_qp(values) RESULT(res)
+      PURE FUNCTION pstdev_qp(values) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
          !! Vector of real numbers to calculate the population standard deviation. 
