@@ -122,7 +122,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="14.0% of total for source files.">155 statements</a>
+    title="14.4% of total for source files.">161 statements</a>
      </li> 
      
      
@@ -278,7 +278,7 @@
 <a name="ln-19"></a><span class="cp">#ifdef LIN_CPP</span>
 <a name="ln-20"></a>   <span class="k">PUBLIC</span> <span class="kd">::</span> <span class="n">is_symlink</span><span class="p">,</span> <span class="n">create_symlink</span>
 <a name="ln-21"></a><span class="cp">#endif</span>
-<a name="ln-22"></a>   <span class="k">PUBLIC</span> <span class="kd">::</span> <span class="n">filesep</span>
+<a name="ln-22"></a>   <span class="k">PUBLIC</span> <span class="kd">::</span> <span class="n">filesep</span><span class="p">,</span> <span class="n">is_path_absolute</span>
 <a name="ln-23"></a>
 <a name="ln-24"></a>
 <a name="ln-25"></a><span class="cp">#ifdef WIN_CPP</span>
@@ -623,7 +623,32 @@
 <a name="ln-364"></a><span class="cp">#endif</span>
 <a name="ln-365"></a>
 <a name="ln-366"></a>
-<a name="ln-367"></a><span class="k">END MODULE </span><span class="n">FU_Files</span>
+<a name="ln-367"></a>      <span class="k">ELEMENTAL FUNCTION </span><span class="n">is_path_absolute</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-368"></a>         <span class="c">!! author: Emilio Castro.</span>
+<a name="ln-369"></a>         <span class="c">!! date: 24/07/2020.</span>
+<a name="ln-370"></a>         <span class="c">!! version: 1.0.</span>
+<a name="ln-371"></a>         <span class="c">!! license: MIT.</span>
+<a name="ln-372"></a>         <span class="c">!! summary: Determines if a path is absolute or not</span>
+<a name="ln-373"></a>         <span class="c">!! Determines if a path is absolute or not. Returns True if path is absolute</span>
+<a name="ln-374"></a>         <span class="c">!! and False if path is relative.</span>
+<a name="ln-375"></a>         <span class="k">IMPLICIT NONE</span>
+<a name="ln-376"></a><span class="k">         </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">fname</span>
+<a name="ln-377"></a>         <span class="c">!! Path to a file. It can be a single filename or an array with several filenames.</span>
+<a name="ln-378"></a>         <span class="kt">LOGICAL</span>                      <span class="kd">::</span> <span class="n">res</span>
+<a name="ln-379"></a>         <span class="c">!! True if the path is absolute and false if the path is relative. If the input</span>
+<a name="ln-380"></a>         <span class="c">!! is an array, then the returned value will be an array.</span>
+<a name="ln-381"></a><span class="cp">#ifdef WIN_CPP</span>
+<a name="ln-382"></a>         <span class="n">res</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="p">(</span> <span class="p">&amp;</span>
+<a name="ln-383"></a>            <span class="p">(</span><span class="nb">IACHAR</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">90</span>  <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="nb">IACHAR</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">)</span> <span class="p">.</span><span class="nb">OR</span><span class="p">.</span> <span class="p">&amp;</span>
+<a name="ln-384"></a>            <span class="p">(</span><span class="nb">IACHAR</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">122</span> <span class="p">.</span><span class="nb">AND</span><span class="p">.</span> <span class="nb">IACHAR</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">97</span><span class="p">)</span> <span class="p">)</span>
+<a name="ln-385"></a><span class="cp">#else</span>
+<a name="ln-386"></a>         <span class="n">res</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">filesep</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+<a name="ln-387"></a><span class="cp">#endif</span>
+<a name="ln-388"></a>      <span class="k">END FUNCTION </span><span class="n">is_path_absolute</span>
+<a name="ln-389"></a>
+<a name="ln-390"></a>
+<a name="ln-391"></a>
+<a name="ln-392"></a><span class="k">END MODULE </span><span class="n">FU_Files</span>
 </pre></div>
 
     </section>
