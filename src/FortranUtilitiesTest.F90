@@ -191,14 +191,28 @@ PROGRAM FortranUtilitiesTest
    CALL test('is_path_absolute',.NOT.ALL(is_path_absolute((/"/home/user/file.dat","./file.dat         "/))))
 #endif
 
+
+   CALL test('summary',.TRUE.)
+
+
    CONTAINS
       SUBROUTINE test(testname, testRes)
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: testName
          LOGICAL         , INTENT(IN) :: testRes
          INTEGER                      :: i = 0
-         i = i + 1
-         WRITE(*,'(A,1X,I3,1X,L,1X,A)') 'Test' , i, testRes, testName
+         INTEGER                      :: tests_failed = 0, tests_ok = 0
+         IF (testname == 'summary') THEN
+            WRITE(*,'(A,2(1X,I0,1X,A))') 'Total:', tests_ok, 'tests OK.', tests_failed, 'tests failed.'
+         ELSE
+            i = i + 1
+            WRITE(*,'(A,1X,I3,1X,L,1X,A)') 'Test' , i, testRes, testName
+            IF (testRes) THEN
+               tests_ok = tests_ok + 1
+            ELSE
+               tests_failed = tests_failed + 1
+            END IF
+         END IF
       END SUBROUTINE test
 
 END PROGRAM FortranUtilitiesTest
