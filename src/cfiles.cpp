@@ -190,3 +190,43 @@ bool c_is_symlink(const char * name, const bool * ignoreErrors)
 }
 #endif
 
+
+
+
+
+extern "C"
+{
+   bool c_is_absolute(const char *);
+}
+
+
+bool c_is_absolute(const char * name)
+{
+   return(fs::path(name).is_absolute());
+}
+
+
+
+extern "C"
+{
+   bool c_is_relative(const char *);
+}
+
+
+bool c_is_relative(const char * name)
+{
+   return(fs::path(name).is_relative());
+}
+
+
+
+extern "C"
+{
+   const char * c_extension(const char *);
+}
+
+
+const char * c_extension(const char * name)
+{
+   return(fs::path(name).extension().c_str());
+}

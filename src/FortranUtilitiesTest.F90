@@ -182,13 +182,21 @@ PROGRAM FortranUtilitiesTest
 #ifdef WIN_CPP
    CALL test('is_path_absolute',is_path_absolute("C:\users\file.dat"))
    CALL test('is_path_absolute',.NOT.is_path_absolute("file.dat"))
-   CALL test('is_path_absolute',ALL(is_path_absolute((/"C:\users\file.dat","C:\users\file.dat"/))))
-   CALL test('is_path_absolute',.NOT.ALL(is_path_absolute((/"C:\users\file.dat","file.dat         "/))))
+   CALL test('is_path_relative',.NOT.is_path_relative("C:\users\file.dat"))
+   CALL test('is_path_relative',is_path_relative("file.dat"))
+   CALL test('extension',extension("file.dat") == '.dat')
+   CALL test('extension',extension("fi.le.dat") == '.dat')
+   CALL test('extension',extension("file") == '')
+   CALL test('extension',extension("C:\use.rs\file.dat") == '.dat')
 #else
    CALL test('is_path_absolute',is_path_absolute("/home/user/file.dat"))
    CALL test('is_path_absolute',.NOT.is_path_absolute("./file.dat"))
-   CALL test('is_path_absolute',ALL(is_path_absolute((/"/home/user/file.dat","/home/user/file.dat"/))))
-   CALL test('is_path_absolute',.NOT.ALL(is_path_absolute((/"/home/user/file.dat","./file.dat         "/))))
+   CALL test('is_path_relative',.NOT.is_path_relative("/home/user/file.dat"))
+   CALL test('is_path_relative',is_path_relative("./file.dat"))
+   CALL test('extension',extension("./file.dat") == '.dat')
+   CALL test('extension',extension("./fi.le.dat") == '.dat')
+   CALL test('extension',extension("./file") == '')
+   CALL test('extension',extension("/ho.me/user/file.dat") == '.dat')
 #endif
 
 

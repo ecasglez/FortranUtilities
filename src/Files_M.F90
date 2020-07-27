@@ -19,7 +19,7 @@ MODULE FU_Files
 #ifdef LIN_CPP
    PUBLIC :: is_symlink, create_symlink
 #endif
-   PUBLIC :: filesep, is_path_absolute
+   PUBLIC :: filesep, is_path_absolute, is_path_relative, extension
 
 
 #ifdef WIN_CPP
@@ -97,6 +97,21 @@ MODULE FU_Files
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_symlink
 #endif
+      FUNCTION c_is_absolute(fname) RESULT(res) BIND(c,name='c_is_absolute')
+         USE iso_c_binding
+         CHARACTER(C_CHAR), VALUE :: fname
+         LOGICAL(C_BOOL)          :: res
+      END FUNCTION c_is_absolute
+      FUNCTION c_is_relative(fname) RESULT(res) BIND(c,name='c_is_relative')
+         USE iso_c_binding
+         CHARACTER(C_CHAR), VALUE :: fname
+         LOGICAL(C_BOOL)          :: res
+      END FUNCTION c_is_relative
+      FUNCTION c_extension(fname) RESULT(res) BIND(c,name='c_extension')
+         USE iso_c_binding
+         CHARACTER(C_CHAR), VALUE   :: fname
+         CHARACTER(C_CHAR), POINTER :: res
+      END FUNCTION c_extension
    END INTERFACE
 
    CONTAINS
@@ -364,9 +379,9 @@ MODULE FU_Files
 #endif
 
 
-      ELEMENTAL FUNCTION is_path_absolute(fname) RESULT(res)
+      FUNCTION is_path_absolute(fname) RESULT(res)
          !! author: Emilio Castro.
-         !! date: 24/07/2020.
+         !! date: 27/07/2020.
          !! version: 1.0.
          !! license: MIT.
          !! summary: Determines if a path is absolute or not
@@ -374,18 +389,72 @@ MODULE FU_Files
          !! and False if path is relative.
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
-         !! Path to a file. It can be a single filename or an array with several filenames.
+         !! Path to a file.
          LOGICAL                      :: res
-         !! True if the path is absolute and false if the path is relative. If the input
-         !! is an array, then the returned value will be an array.
-#ifdef WIN_CPP
-         res = INDEX(fname,':') == 2 .AND. ( &
-            (IACHAR(fname) <= 90  .AND. IACHAR(fname) >= 65) .OR. &
-            (IACHAR(fname) <= 122 .AND. IACHAR(fname) >= 97) )
-#else
-         res = INDEX(fname,filesep) == 1
-#endif
+         !! True if the path is absolute and false if the path is relative.
+         res = c_is_absolute(fname//C_NULL_CHAR)
       END FUNCTION is_path_absolute
+
+
+
+      FUNCTION is_path_relative(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 27/07/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Determines if a path is relative or not
+         !! Determines if a path is relative or not. Returns True if path is relative
+         !! and False if path is absolute.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Path to a file.
+         LOGICAL                      :: res
+         !! True if the path is relative and false if the path is absolute.
+         res = c_is_relative(fname//C_NULL_CHAR)
+      END FUNCTION is_path_relative
+
+
+
+      FUNCTION extension(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 27/07/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Determines the extension of a file.
+         !! Determines the extension of a file given its name or path.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Filename or path to a file.
+         CHARACTER(LEN=:), ALLOCATABLE :: res
+         !! Extension of the file including the "dot". Empty path is returned if no extension is found.
+         res = c_to_f(c_extension(fname//C_NULL_CHAR))
+      END FUNCTION extension
+
+
+
+
+
+
+
+
+
+      ! Auxiliary functions
+
+
+      FUNCTION c_to_f(c_string) RESULT(res)
+         ! Auxiliary function used as interface to convert c strings to fortran strings
+         IMPLICIT NONE
+         CHARACTER(C_CHAR)              :: c_string
+         CHARACTER(LEN=:), ALLOCATABLE  :: res
+         INTEGER :: l !length
+         l = 1
+         DO WHILE (c_string(l:l) /= C_NULL_CHAR)
+            l = l + 1
+         END DO
+         ALLOCATE(character(len=l-1) :: res)
+         res = c_string(1:l-1)
+      END FUNCTION c_to_f
+
 
 
 
