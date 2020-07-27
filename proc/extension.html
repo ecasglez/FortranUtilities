@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>mkdir &ndash; Fortran Utilities</title>
+    <title>extension &ndash; Fortran Utilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -104,7 +104,7 @@
     
   
   <div class="row">
-    <h1>mkdir
+    <h1>extension
       <small>Function</small>
     
     </h1>
@@ -117,7 +117,7 @@
      <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
-    <li><i class="fa fa-calendar-o"></i> 16/06/2020.</li>
+    <li><i class="fa fa-calendar-o"></i> 27/07/2020.</li>
      
      
     <li><i class="fa fa-legal"></i> MIT.</li>
@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 5.8% of total for procedures.">13 statements</a>
+    title=" 2.7% of total for procedures.">6 statements</a>
      </li> 
      
      
@@ -147,7 +147,7 @@
      <li><a href='../module/fu_files.html'>FU_Files</a></li>
     
   
-     <li class="active">mkdir</li>
+     <li class="active">extension</li>
   </ol>
 </div>
 </div>
@@ -197,7 +197,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public function mkdir(dir, ignoreErrors) result(res)
+public function extension(fname) result(res)
     
     
    
@@ -207,7 +207,7 @@ public function mkdir(dir, ignoreErrors) result(res)
 
 
     
-    <p>Creates a directory.</p>
+    <p>Determines the extension of a file given its name or path.</p>
     
 
     <h3>Arguments</h3>
@@ -228,28 +228,12 @@ public function mkdir(dir, ignoreErrors) result(res)
   
 <tr>
   
-  <td><span class="anchor" id="variable-dir"></span>character(len=*),</td>
+  <td><span class="anchor" id="variable-fname%7E8"></span>character(len=*),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>dir</strong></td><td><p>Path and name of the directory to be created.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-ignoreerrors"></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>True to print a detailed description of the error message.
- Optional parameter. Default is False.</p></td>
+  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
   
 </tr>
 
@@ -263,9 +247,9 @@ public function mkdir(dir, ignoreErrors) result(res)
     
     
     
-   <h3>Return Value <small><span class="anchor" id="variable-res%7E4"></span>logical
-  </small></h3>
-    <p>True if the process has been succesful. False in case of error.</p>
+   <h3>Return Value <small><span class="anchor" id="variable-res%7E14"></span>character(len=:),
+  ALLOCATABLE</small></h3>
+    <p>Extension of the file including the "dot". Empty path is returned if no extension is found.</p>
     
     
     

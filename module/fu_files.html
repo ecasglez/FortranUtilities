@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="16.5% of total for modules and submodules.">161 statements</a>
+    title="19.7% of total for modules and submodules.">200 statements</a>
      </li> 
      
      
@@ -212,6 +212,10 @@
       <a class="list-group-item" href="../module/fu_files.html#proc-is_regular_file">is_regular_file</a>
       
       <a class="list-group-item" href="../module/fu_files.html#proc-is_path_absolute">is_path_absolute</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-is_path_relative">is_path_relative</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
       
     </div>
   </div>
@@ -312,6 +316,10 @@
       <a class="list-group-item" href="../module/fu_files.html#proc-is_regular_file">is_regular_file</a>
       
       <a class="list-group-item" href="../module/fu_files.html#proc-is_path_absolute">is_path_absolute</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-is_path_relative">is_path_relative</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
       
     </div>
   </div>
@@ -1195,7 +1203,7 @@ public function <a href='../proc/is_regular_file.html'>is_regular_file</a>(fname
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-is_path_absolute"></span><h3>
-public elemental function <a href='../proc/is_path_absolute.html'>is_path_absolute</a>(fname) result(res)
+public function <a href='../proc/is_path_absolute.html'>is_path_absolute</a>(fname) result(res)
     
     
    
@@ -1213,7 +1221,7 @@ public elemental function <a href='../proc/is_path_absolute.html'>is_path_absolu
     <dt>Author</dt><dd>Emilio Castro.</dd>
     
     
-    <dt>Date</dt><dd>24/07/2020.</dd>
+    <dt>Date</dt><dd>27/07/2020.</dd>
     
     
     <dt>License</dt><dd>MIT.</dd>
@@ -1252,7 +1260,7 @@ public elemental function <a href='../proc/is_path_absolute.html'>is_path_absolu
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Path to a file. It can be a single filename or an array with several filenames.</p></td>
+  <td><strong>fname</strong></td><td><p>Path to a file.</p></td>
   
 </tr>
 
@@ -1269,8 +1277,175 @@ public elemental function <a href='../proc/is_path_absolute.html'>is_path_absolu
   
      <h4>Return Value <small>logical
   </small></h4>
-  <p>True if the path is absolute and false if the path is relative. If the input
- is an array, then the returned value will be an array.</p>
+  <p>True if the path is absolute and false if the path is relative.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-is_path_relative"></span><h3>
+public function <a href='../proc/is_path_relative.html'>is_path_relative</a>(fname) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>27/07/2020.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Determines if a path is relative or not</p><a href="../proc/is_path_relative.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>fname</strong></td><td><p>Path to a file.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if the path is relative and false if the path is absolute.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-extension"></span><h3>
+public function <a href='../proc/extension.html'>extension</a>(fname) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>27/07/2020.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Determines the extension of a file.</p><a href="../proc/extension.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  ALLOCATABLE</small></h4>
+  <p>Extension of the file including the "dot". Empty path is returned if no extension is found.</p>
     
 
   </div>
