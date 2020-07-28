@@ -107,11 +107,10 @@ MODULE FU_Files
          CHARACTER(C_CHAR), VALUE :: fname
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_relative
-      FUNCTION c_extension(fname) RESULT(res) BIND(c,name='c_extension')
+      SUBROUTINE c_extension(fname) BIND(c,name='c_extension')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE   :: fname
-         CHARACTER(C_CHAR), POINTER :: res
-      END FUNCTION c_extension
+         CHARACTER(C_CHAR)   :: fname(*)
+      END SUBROUTINE c_extension
    END INTERFACE
 
    CONTAINS
@@ -427,7 +426,10 @@ MODULE FU_Files
          !! Filename or path to a file.
          CHARACTER(LEN=:), ALLOCATABLE :: res
          !! Extension of the file including the "dot". Empty path is returned if no extension is found.
-         res = c_to_f(c_extension(fname//C_NULL_CHAR))
+         CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string
+         c_string = fname//C_NULL_CHAR
+         CALL c_extension(c_string)
+         res = c_to_f(c_string)
       END FUNCTION extension
 
 
@@ -451,7 +453,6 @@ MODULE FU_Files
          DO WHILE (c_string(l:l) /= C_NULL_CHAR)
             l = l + 1
          END DO
-         ALLOCATE(character(len=l-1) :: res)
          res = c_string(1:l-1)
       END FUNCTION c_to_f
 

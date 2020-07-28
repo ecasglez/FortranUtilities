@@ -2,7 +2,7 @@ FortranUtilities is a collection of simple functions for Fortran programs.
 
 Functions for strings, numbers, precision, statistics and files are included. See the specifications of the different functions. More functions for different tasks will be included in the future.
 
-This is a BETA version. All functions work properly on Linux using gfortran 7.5 or newer, and all functions except symlink functions work on Windows using gfortran 7.5 (MSYS2) or newer. More compilers will be tested in the future.
+This is a BETA version. All functions work properly on Linux using gfortran 7.5 or newer, and all functions except symlink functions work on Windows using gfortran 7.5 (MSYS2-Mingw-w64) or newer. More compilers will be tested in the future.
 
 ## Downloading
 

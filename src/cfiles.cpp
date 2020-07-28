@@ -29,6 +29,8 @@ namespace fs = std::experimental::filesystem;
 namespace fs = std::filesystem;
 #endif
 
+#include <cstring>
+
 extern "C"
 {
    bool c_createdir(const char *, const bool *);
@@ -222,11 +224,11 @@ bool c_is_relative(const char * name)
 
 extern "C"
 {
-   const char * c_extension(const char *);
+   void c_extension(char *);
 }
 
 
-const char * c_extension(const char * name)
+void c_extension(char * name)
 {
-   return(fs::path(name).extension().c_str());
+   strcpy(name,fs::path(name).extension().c_str());
 }
