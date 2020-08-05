@@ -145,10 +145,14 @@
 <p><code>cmake ..</code></p>
 <p>Optionally you can select an install directory by typing:</p>
 <p><code>cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/</code></p>
+<p>On Windows using MSYS2-Mingw-w64 use:</p>
+<p><code>cmake .. -G "MinGW Makefiles"</code></p>
 </li>
 <li>
 <p>Compile:</p>
 <p><code>make</code></p>
+<p>On Windows using MSYS2-Mingw-w64 use instead of make:</p>
+<p><code>mingw32-make.exe</code></p>
 </li>
 <li>
 <p>Install:</p>
