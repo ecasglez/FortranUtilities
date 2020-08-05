@@ -17,9 +17,6 @@ MODULE FU_Statistics
    PRIVATE
    PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev
 
-   INTEGER,PARAMETER :: exit_error_code = 11
-   !! Error code issued by all functions in module Statistics_M.
-
 
 
    INTERFACE mean

@@ -20,7 +20,7 @@ if (CMAKE_COMPILER_IS_GNUCXX)
    endif()
 endif()
 
-if (CMAKE_SYSTEM_NAME STREQUAL "Windows" OR CMAKE_SYSTEM_NAME STREQUAL "MSYS")
+if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
    message("-- Detecting platform: Windows")
    add_definitions(-DWIN_CPP)
 else ()

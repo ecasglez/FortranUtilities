@@ -23,7 +23,7 @@ MODULE FU_Files
 
 
 #ifdef WIN_CPP
-         CHARACTER,PARAMETER :: filesep = '\\'
+         CHARACTER,PARAMETER :: filesep = '\'
          !! Path separator: '\' for Windows and '/' for Linux, MacOS and other OS.
 #elif LIN_CPP
          CHARACTER,PARAMETER :: filesep = '/'
@@ -132,7 +132,7 @@ MODULE FU_Files
          !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -161,7 +161,7 @@ MODULE FU_Files
          !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -191,7 +191,7 @@ MODULE FU_Files
          !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -221,7 +221,7 @@ MODULE FU_Files
          !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -247,7 +247,7 @@ MODULE FU_Files
          !! True if the process has been succesful. False in case of error.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -290,7 +290,7 @@ MODULE FU_Files
          !! True if fname is a directory. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -316,7 +316,7 @@ MODULE FU_Files
          !! True if fname is an empty file. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -342,7 +342,7 @@ MODULE FU_Files
          !! True if fname is a regular file. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF
@@ -369,7 +369,7 @@ MODULE FU_Files
          !! True if fname is a symlink. False otherwise.
          LOGICAL(C_BOOL)              :: ign
          IF (PRESENT(ignoreErrors)) THEN
-            ign = ignoreErrors
+            ign = LOGICAL(ignoreErrors,KIND=C_BOOL)
          ELSE
             ign = .FALSE.
          END IF

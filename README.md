@@ -33,10 +33,23 @@ This is a BETA version. All functions work properly on Linux using gfortran 7.5 
       cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/
       ```
 
+      On Windows using MSYS2-Mingw-w64 use:
+
+      ```
+      cmake .. -G "MinGW Makefiles"
+      ```
+
+
 4. Compile:
 
       ```
       make
+      ```
+
+      On Windows using MSYS2-Mingw-w64 use instead of make:
+
+      ```
+      mingw32-make.exe
       ```
 
 5. Install:

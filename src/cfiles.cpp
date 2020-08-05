@@ -15,7 +15,7 @@
  * Copyright: See LICENSE file that comes with this distribution.
  *
  * NOTES: If compiler is gcc 8 the following compilation
- *        flag must be used: -lstdc++fs. Fro gcc 9 onwards
+ *        flag must be used: -lstdc++fs. From gcc 9 onwards
  *        it is not required.
 */
 
@@ -230,5 +230,5 @@ extern "C"
 
 void c_extension(char * name)
 {
-   strcpy(name,fs::path(name).extension().c_str());
+   strcpy(name,fs::path(name).extension().string().c_str());
 }
