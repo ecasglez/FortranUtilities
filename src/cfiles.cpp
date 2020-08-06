@@ -232,3 +232,39 @@ void c_extension(char * name)
 {
    strcpy(name,fs::path(name).extension().string().c_str());
 }
+
+
+extern "C"
+{
+   void c_stem(char *);
+}
+
+
+void c_stem(char * name)
+{
+   strcpy(name,fs::path(name).stem().string().c_str());
+}
+
+
+extern "C"
+{
+   void c_filename(char *);
+}
+
+
+void c_filename(char * name)
+{
+   strcpy(name,fs::path(name).filename().string().c_str());
+}
+
+
+extern "C"
+{
+   void c_parent_path(char *);
+}
+
+
+void c_parent_path(char * name)
+{
+   strcpy(name,fs::path(name).parent_path().string().c_str());
+}
