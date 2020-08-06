@@ -19,7 +19,8 @@ MODULE FU_Files
 #ifdef LIN_CPP
    PUBLIC :: is_symlink, create_symlink
 #endif
-   PUBLIC :: filesep, is_path_absolute, is_path_relative, extension
+   PUBLIC :: filesep, is_path_absolute, is_path_relative, extension, stem, filename, &
+             parent_path
 
 
 #ifdef WIN_CPP
@@ -111,6 +112,18 @@ MODULE FU_Files
          USE iso_c_binding
          CHARACTER(C_CHAR)   :: fname(*)
       END SUBROUTINE c_extension
+      SUBROUTINE c_stem(fname) BIND(c,name='c_stem')
+         USE iso_c_binding
+         CHARACTER(C_CHAR)   :: fname(*)
+      END SUBROUTINE c_stem
+      SUBROUTINE c_filename(fname) BIND(c,name='c_filename')
+         USE iso_c_binding
+         CHARACTER(C_CHAR)   :: fname(*)
+      END SUBROUTINE c_filename
+      SUBROUTINE c_parent_path(fname) BIND(c,name='c_parent_path')
+         USE iso_c_binding
+         CHARACTER(C_CHAR)   :: fname(*)
+      END SUBROUTINE c_parent_path
    END INTERFACE
 
    CONTAINS
@@ -433,6 +446,62 @@ MODULE FU_Files
       END FUNCTION extension
 
 
+      FUNCTION stem(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 06/08/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Determines the filename without the final extension given a path.
+         !! Determines the filename without the final extension given a path.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Filename or path to a file.
+         CHARACTER(LEN=:), ALLOCATABLE :: res
+         !! Filename without the final extension. If filename consists of an extension only, the
+         !! extension is returned.
+         CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string
+         c_string = fname//C_NULL_CHAR
+         CALL c_stem(c_string)
+         res = c_to_f(c_string)
+      END FUNCTION stem
+
+
+      FUNCTION filename(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 06/08/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Determines the full filename given a path.
+         !! Determines the full filename given a path.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Filename or path to a file.
+         CHARACTER(LEN=:), ALLOCATABLE :: res
+         !! Full filename given in the path.
+         CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string
+         c_string = fname//C_NULL_CHAR
+         CALL c_filename(c_string)
+         res = c_to_f(c_string)
+      END FUNCTION filename
+
+
+      FUNCTION parent_path(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 06/08/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Determines the path to the parent directory given the path to a file.
+         !! Determines the path to the parent directory given the path to a file.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Filename or path to a file.
+         CHARACTER(LEN=:), ALLOCATABLE :: res
+         !! Path of the parent directory without final slash.
+         CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string
+         c_string = fname//C_NULL_CHAR
+         CALL c_parent_path(c_string)
+         res = c_to_f(c_string)
+      END FUNCTION parent_path
 
 
 
