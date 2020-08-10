@@ -56,6 +56,7 @@ PROGRAM FortranUtilitiesTest
    CALL test('num2str',num2str(-125_i64) == '-125')
    CALL test('num2str',num2str(-65.889_sp,'F7.3') == '-65.889')
    CALL test('num2str',num2str(-65.889_sp,'E10.3') == '-0.659E+02')
+   CALL test('num2str',num2str(-65.889_sp,'(E10.3)') == '-0.659E+02')
    CALL test('int2str00000',int2str00000(5_i8,9_i8) == '000000005')
    CALL test('int2str00000',int2str00000(5_i16,9_i16) == '000000005')
    CALL test('int2str00000',int2str00000(5_i32,9_i32) == '000000005')
@@ -213,6 +214,7 @@ PROGRAM FortranUtilitiesTest
    CALL test('stem',stem("./file.dat") == 'file')
    CALL test('stem',stem("./fi.le.dat") == 'fi.le')
    CALL test('stem',stem("./file") == 'file')
+   ! The next test fails with gfortran 7.5. It returns an empty string.
    CALL test('stem',stem("./.dat") == '.dat')
    CALL test('stem',stem("/ho.me/user/file.dat") == 'file')
    CALL test('filename',filename("./file.dat") == 'file.dat')
