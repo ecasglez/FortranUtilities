@@ -122,7 +122,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.5% of total for source files.">6 statements</a>
+    title=" 0.2% of total for source files.">2 statements</a>
      </li> 
      
      
@@ -234,11 +234,7 @@
     <section>
       <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="hl"><pre><span></span><a name="ln-1"></a><span class="k">IF</span> <span class="p">(.</span><span class="n">FALSE</span><span class="p">.)</span> <span class="n">res</span> <span class="o">=</span> <span class="n">mold</span> <span class="c">!To disable compilation warning about unused variable</span>
-<a name="ln-2"></a><span class="k">READ</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="o">*</span><span class="p">,</span><span class="n">IOSTAT</span><span class="o">=</span><span class="n">IOERROR</span><span class="p">)</span> <span class="n">res</span>
-<a name="ln-3"></a><span class="k">IF</span> <span class="p">(</span><span class="n">IOERROR</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-4"></a><span class="k">   WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A)&#39;</span><span class="p">)</span> <span class="s1">&#39;ERROR in str2num: Inserted string is not an &#39;</span><span class="o">//</span><span class="n">vartype</span><span class="o">//</span><span class="s1">&#39; number&#39;</span>
-<a name="ln-5"></a>   <span class="k">STOP </span><span class="n">exit_error_code</span>
-<a name="ln-6"></a><span class="k">END IF</span>
+<a name="ln-2"></a><span class="k">READ</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">res</span>
 </pre></div>
 
     </section>

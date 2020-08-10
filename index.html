@@ -175,7 +175,7 @@
 <ol>
 <li>
 <p>To use the static library:</p>
-<p><code>gfortran program.f90 -lFortranUtilitiesStatic -L/path/to/the/library/folder -I/path/to/include/folder</code></p>
+<p><code>g++ program.f90 -o program -lgfortran -lFortranUtilitiesStatic -L/path/to/the/library/folder -I/path/to/include/folder -lstdc++fs</code></p>
 </li>
 <li>
 <p>To use the shared library:</p>
@@ -219,189 +219,184 @@
       
       
       
-      
-      
-          
-          <div class="row">
-              
-                      <div class="col-xs-6 col-sm-4">
-                  <h3>Source Files</h3>
-                  <ul>
-                    
-                      
-                        <li><a href='./sourcefile/files_m.f90.html'>Files_M.F90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_count_digits_integer.f90.html'>include_count_digits_integer.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_gmean.f90.html'>include_gmean.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_int2str00000.f90.html'>include_int2str00000.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_mean.f90.html'>include_mean.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_num2strint.f90.html'>include_num2strInt.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_num2strreal.f90.html'>include_num2strReal.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_splitstr.f90.html'>include_splitstr.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_str2num.f90.html'>include_str2num.f90</a></li>
-                      
-                    
-                      
-                        <li><a href='./sourcefile/include_variance.f90.html'>include_variance.f90</a></li>
-                      
-                    
-                      
-                        <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                  </ul>
-              </div>
-              
-              
-            	  <div class="col-xs-6 col-sm-4">
-                  <h3>Modules</h3>
-                  <ul>
-                    
-                      
-                        <li><a href='./module/fu_files.html'>FU_Files</a></li>
-                      
-                    
-                      
-                        <li><a href='./module/fu_numbers.html'>FU_Numbers</a></li>
-                      
-                    
-                      
-                        <li><a href='./module/fu_prec.html'>FU_Prec</a></li>
-                      
-                    
-                      
-                        <li><a href='./module/fu_statistics.html'>FU_Statistics</a></li>
-                      
-                    
-                      
-                        <li><a href='./module/fu_strings.html'>FU_Strings</a></li>
-                      
-                    
-                  </ul>
-              </div>
-              
-              
-            	  <div class="col-xs-6 col-sm-4">
-                  <h3>Procedures</h3>
-                  <ul>
-                    
-                      
-                        <li><a href='./interface/count_digits_integer.html'>count_digits_integer</a></li>
-                      
-                    
-                      
-                        <li><a href='./proc/cp.html'>cp</a></li>
-                      
-                    
-                      
-                        <li><a href='./proc/endswith.html'>endsWith</a></li>
-                      
-                    
-                      
-                        <li><a href='./proc/exists.html'>exists</a></li>
-                      
-                    
-                      
-                        <li><a href='./proc/extension.html'>extension</a></li>
-                      
-                    
-                      
-                        <li><a href='./proc/filename.html'>filename</a></li>
-                      
-                    
-                      
-                        <li><a href='./interface/gmean.html'>gmean</a></li>
-                      
-                    
-                      
-                        <li><a href='./interface/int2str00000.html'>int2str00000</a></li>
-                      
-                    
-                      
-                        <li><a href='./proc/is_directory.html'>is_directory</a></li>
-                      
-                    
-                      
-                        <li><a href='./proc/is_empty.html'>is_empty</a></li>
-                      
-                    
-                      
-                        <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                      
-                    
-                  </ul>
-              </div>
-              
-              
+		
+      <div class="row">
+        <div class="col-xs-6 col-sm-4">
+              <h3>Source Files</h3>
+              <ul>
+                
+                  
+                    <li><a href='./sourcefile/files_m.f90.html'>Files_M.F90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_count_digits_integer.f90.html'>include_count_digits_integer.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_gmean.f90.html'>include_gmean.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_int2str00000.f90.html'>include_int2str00000.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_mean.f90.html'>include_mean.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_num2strint.f90.html'>include_num2strInt.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_num2strreal.f90.html'>include_num2strReal.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_splitstr.f90.html'>include_splitstr.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_str2num.f90.html'>include_str2num.f90</a></li>
+                  
+                
+                  
+                    <li><a href='./sourcefile/include_variance.f90.html'>include_variance.f90</a></li>
+                  
+                
+                  
+                    <li><a href="./lists/files.html"><em>All source files&hellip;</em></a></li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
           </div>
-      
+          
+		  <div class="col-xs-6 col-sm-4">
+              <h3>Modules</h3>
+              <ul>
+                
+                  
+                    <li><a href='./module/fu_files.html'>FU_Files</a></li>
+                  
+                
+                  
+                    <li><a href='./module/fu_numbers.html'>FU_Numbers</a></li>
+                  
+                
+                  
+                    <li><a href='./module/fu_prec.html'>FU_Prec</a></li>
+                  
+                
+                  
+                    <li><a href='./module/fu_statistics.html'>FU_Statistics</a></li>
+                  
+                
+                  
+                    <li><a href='./module/fu_strings.html'>FU_Strings</a></li>
+                  
+                
+              </ul>
+          </div>
+          
+          
+		  <div class="col-xs-6 col-sm-4">
+              <h3>Procedures</h3>
+              <ul>
+                
+                  
+                    <li><a href='./interface/count_digits_integer.html'>count_digits_integer</a></li>
+                  
+                
+                  
+                    <li><a href='./proc/cp.html'>cp</a></li>
+                  
+                
+                  
+                    <li><a href='./proc/endswith.html'>endsWith</a></li>
+                  
+                
+                  
+                    <li><a href='./proc/exists.html'>exists</a></li>
+                  
+                
+                  
+                    <li><a href='./proc/extension.html'>extension</a></li>
+                  
+                
+                  
+                    <li><a href='./proc/filename.html'>filename</a></li>
+                  
+                
+                  
+                    <li><a href='./interface/gmean.html'>gmean</a></li>
+                  
+                
+                  
+                    <li><a href='./interface/int2str00000.html'>int2str00000</a></li>
+                  
+                
+                  
+                    <li><a href='./proc/is_directory.html'>is_directory</a></li>
+                  
+                
+                  
+                    <li><a href='./proc/is_empty.html'>is_empty</a></li>
+                  
+                
+                  
+                    <li><a href="./lists/procedures.html"><em>All procedures&hellip;</em></a></li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+          </div>
+          
+          
+      </div>
 
     <hr>    
     </div> <!-- /container -->

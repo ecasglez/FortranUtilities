@@ -18,9 +18,6 @@ MODULE FU_Strings
    PUBLIC :: num2str, int2str00000, str2num
    PUBLIC :: startsWith, endsWith, splitstr, replace
 
-   INTEGER,PARAMETER :: exit_error_code = 10
-   !! Error code issued by all functions in module Strings_M
-
 
 
    INTERFACE splitstr
@@ -98,7 +95,7 @@ CONTAINS
 
 
 
-   FUNCTION splitstr_i8(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i8(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*), INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i8), INTENT(IN)            :: fieldNumber
@@ -121,7 +118,7 @@ CONTAINS
 
    END FUNCTION splitstr_i8
 
-   FUNCTION splitstr_i16(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i16(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i16), INTENT(IN)            :: fieldNumber
@@ -144,7 +141,7 @@ CONTAINS
 
    END FUNCTION splitstr_i16
 
-   FUNCTION splitstr_i32(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i32(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i32), INTENT(IN)            :: fieldNumber
@@ -167,7 +164,7 @@ CONTAINS
 
    END FUNCTION splitstr_i32
 
-   FUNCTION splitstr_i64(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i64(str, fieldNumber, delimiter, rev) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i64), INTENT(IN)            :: fieldNumber
@@ -195,20 +192,21 @@ CONTAINS
 
 
 
-   FUNCTION startsWith(str, substr) RESULT(res)
+   ELEMENTAL FUNCTION startsWith(str, substr) RESULT(res)
       !! author: Emilio Castro.
       !! date: 07/05/2020.
       !! version: 1.0.
       !! license: MIT.
       !! summary: Checks if a string starts with a given substring.
-      !! Checks if a string starts with a given substring.
+      !! Checks if a string starts with a given substring. It can be an array of string.
       CHARACTER(LEN=*), INTENT(IN) :: str
-      !! String that the user wants to check how it starts.
+      !! String that the user wants to check how it starts. It can be an array.
       CHARACTER(LEN=*), INTENT(IN) :: substr
       !! Substring to search to check if str starts with it.
       LOGICAL                      :: res
       !! True if the string starts with the substring and False otherwise. If
-      !! substr is empty it returns True.
+      !! substr is empty it returns True. If the input is an array, the returned
+      !! values will also be in an array.
       res = INDEX(str,substr) == 1
    END FUNCTION startsWith
 
@@ -216,26 +214,27 @@ CONTAINS
 
 
 
-   FUNCTION endsWith(str, substr) RESULT(res)
+   ELEMENTAL FUNCTION endsWith(str, substr) RESULT(res)
       !! author: Emilio Castro.
       !! date: 07/05/2020.
       !! version: 1.0.
       !! license: MIT.
       !! summary: Checks if a string ends with a given substring.
-      !! Checks if a string ends with a given substring.
+      !! Checks if a string ends with a given substring. It can be an array of string.
       CHARACTER(LEN=*), INTENT(IN) :: str
-      !! String that the user wants to check how it ends.
+      !! String that the user wants to check how it ends. It can be an array.
       CHARACTER(LEN=*), INTENT(IN) :: substr
       !! Substring to search to check if str ends with it.
       LOGICAL                      :: res
       !! True if the string ends with the substring and False otherwise. If 
-      !! substr is empty it returns True.
+      !! substr is empty it returns True. If the input is an array, the returned
+      !! values will also be in an array.
       res = INDEX(str,substr,BACK = .TRUE.) == LEN(str) - LEN(substr) + 1
    END FUNCTION endsWith
 
 
 
-   FUNCTION num2str_i8(num) RESULT(str)
+   PURE FUNCTION num2str_i8(num) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i8), INTENT(IN)  :: num
@@ -248,7 +247,7 @@ CONTAINS
 
    END FUNCTION num2str_i8
 
-   FUNCTION num2str_i16(num) RESULT(str)
+   PURE FUNCTION num2str_i16(num) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i16),INTENT(IN)  :: num
@@ -261,7 +260,7 @@ CONTAINS
 
    END FUNCTION num2str_i16
 
-   FUNCTION num2str_i32(num) RESULT(str)
+   PURE FUNCTION num2str_i32(num) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i32),INTENT(IN)  :: num
@@ -274,7 +273,7 @@ CONTAINS
 
    END FUNCTION num2str_i32
 
-   FUNCTION num2str_i64(num) RESULT(str)
+   PURE FUNCTION num2str_i64(num) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i64),INTENT(IN)  :: num
@@ -287,7 +286,7 @@ CONTAINS
 
    END FUNCTION num2str_i64
 
-   FUNCTION num2str_sp(num,formato) RESULT(str)
+   PURE FUNCTION num2str_sp(num,formato) RESULT(str)
       IMPLICIT NONE
       REAL(KIND=sp)   ,INTENT(IN)   :: num
       !! Number to convert to string.
@@ -301,7 +300,7 @@ CONTAINS
 
    END FUNCTION num2str_sp
 
-   FUNCTION num2str_dp(num,formato) RESULT(str)
+   PURE FUNCTION num2str_dp(num,formato) RESULT(str)
       IMPLICIT NONE
       REAL(KIND=dp)   ,INTENT(IN)   :: num
       !! Number to convert to string.
@@ -315,7 +314,7 @@ CONTAINS
 
    END FUNCTION num2str_dp
 
-   FUNCTION num2str_qp(num,formato) RESULT(str)
+   PURE FUNCTION num2str_qp(num,formato) RESULT(str)
       IMPLICIT NONE
       REAL(KIND=qp)   ,INTENT(IN)   :: num
       !! Number to convert to string.
@@ -336,7 +335,7 @@ CONTAINS
 
 
 
-   FUNCTION int2str00000_i8(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str00000_i8(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i8),INTENT(IN)  :: integ
@@ -352,7 +351,7 @@ CONTAINS
 
    END FUNCTION int2str00000_i8
 
-   FUNCTION int2str00000_i16(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str00000_i16(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i16),INTENT(IN) :: integ
@@ -368,7 +367,7 @@ CONTAINS
 
    END FUNCTION int2str00000_i16
 
-   FUNCTION int2str00000_i32(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str00000_i32(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i32),INTENT(IN) :: integ
@@ -384,7 +383,7 @@ CONTAINS
 
    END FUNCTION int2str00000_i32
 
-   FUNCTION int2str00000_i64(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str00000_i64(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i64),INTENT(IN) :: integ
@@ -415,7 +414,7 @@ CONTAINS
 
 
 
-   FUNCTION str2num_i8(str,mold) RESULT(res)
+   PURE FUNCTION str2num_i8(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.
@@ -424,14 +423,12 @@ CONTAINS
       !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i8)             :: res
       !! The number of the input string.
-      INTEGER                      :: IOERROR
-      CHARACTER(LEN=7), PARAMETER  :: vartype = 'integer'
 
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_i8
 
-   FUNCTION str2num_i16(str,mold) RESULT(res)
+   PURE FUNCTION str2num_i16(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to number.
@@ -440,14 +437,12 @@ CONTAINS
       !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i16)             :: res
       !! The number of the input string.
-      INTEGER                       :: IOERROR
-      CHARACTER(LEN=7), PARAMETER   :: vartype = 'integer'
 
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_i16
 
-   FUNCTION str2num_i32(str,mold) RESULT(res)
+   PURE FUNCTION str2num_i32(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to number.
@@ -456,14 +451,12 @@ CONTAINS
       !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i32)             :: res
       !! The number of the input string.
-      INTEGER                       :: IOERROR
-      CHARACTER(LEN=7), PARAMETER   :: vartype = 'integer'
 
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_i32
 
-   FUNCTION str2num_i64(str,mold) RESULT(res)
+   PURE FUNCTION str2num_i64(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to number.
@@ -472,14 +465,12 @@ CONTAINS
       !! It is only used to set the type of the return value, so it can be any value.
       INTEGER(KIND=i64)             :: res
       !! The number of the input string.
-      INTEGER                       :: IOERROR
-      CHARACTER(LEN=7), PARAMETER   :: vartype = 'integer'
 
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_i64
 
-   FUNCTION str2num_sp(str,mold) RESULT(res)
+   PURE FUNCTION str2num_sp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.
@@ -488,14 +479,12 @@ CONTAINS
       !! It is only used to set the type of the return value, so it can be any value.
       REAL(KIND=sp)                :: res
       !! The number of the input string.
-      INTEGER                      :: IOERROR
-      CHARACTER(LEN=4), PARAMETER  :: vartype = 'real'
 
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_sp
 
-   FUNCTION str2num_dp(str,mold) RESULT(res)
+   PURE FUNCTION str2num_dp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.
@@ -504,14 +493,12 @@ CONTAINS
       !! It is only used to set the type of the return value, so it can be any value.
       REAL(KIND=dp)                :: res
       !! The number of the input string.
-      INTEGER                      :: IOERROR
-      CHARACTER(LEN=4), PARAMETER  :: vartype = 'real'
 
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_dp
 
-   FUNCTION str2num_qp(str,mold) RESULT(res)
+   PURE FUNCTION str2num_qp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.
@@ -520,8 +507,6 @@ CONTAINS
       !! It is only used to set the type of the return value, so it can be any value.
       REAL(KIND=qp)                :: res
       !! The number of the input string.
-      INTEGER                      :: IOERROR
-      CHARACTER(LEN=4), PARAMETER  :: vartype = 'real'
 
       INCLUDE 'Strings_M/include_str2num.f90'
 

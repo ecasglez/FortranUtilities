@@ -197,7 +197,7 @@
     
     <div class="col-md-9" id='text'>
     <h2>
-public function startsWith(str, substr) result(res)
+public elemental function startsWith(str, substr) result(res)
     
     
    
@@ -207,7 +207,7 @@ public function startsWith(str, substr) result(res)
 
 
     
-    <p>Checks if a string starts with a given substring.</p>
+    <p>Checks if a string starts with a given substring. It can be an array of string.</p>
     
 
     <h3>Arguments</h3>
@@ -233,7 +233,7 @@ public function startsWith(str, substr) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to check how it starts.</p></td>
+  <td><strong>str</strong></td><td><p>String that the user wants to check how it starts. It can be an array.</p></td>
   
 </tr>
 
@@ -265,7 +265,8 @@ public function startsWith(str, substr) result(res)
    <h3>Return Value <small><span class="anchor" id="variable-res"></span>logical
   </small></h3>
     <p>True if the string starts with the substring and False otherwise. If
- substr is empty it returns True.</p>
+ substr is empty it returns True. If the input is an array, the returned
+ values will also be in an array.</p>
     
     
     

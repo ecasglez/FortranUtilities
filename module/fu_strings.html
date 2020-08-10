@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="48.0% of total for modules and submodules.">507 statements</a>
+    title="44.0% of total for modules and submodules.">432 statements</a>
      </li> 
      
      
@@ -166,18 +166,6 @@
 <h3>Contents</h3>
  
 
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_strings.html#variable-exit_error_code">exit_error_code</a>
-      
-    </div>
-  </div>
-</div>
 
 
 
@@ -274,18 +262,6 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_strings.html#variable-exit_error_code">exit_error_code</a>
-      
-    </div>
-  </div>
-</div>
-
-
 
 
 
@@ -345,38 +321,6 @@
     
 
     
-    <section>
-    <h2>Variables</h2>
-    
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th>
-
-<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-exit_error_code"></span>integer,</td>
-  
-  <td>private,</td>
-  <td>parameter</td><td>::</td>
-  <td><strong>exit_error_code</strong></td><td> =</td><td>10</td><td><p>Error code issued by all functions in module Strings_M</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-    </section>
-    <br>
-    
     
     
     
@@ -403,7 +347,7 @@
     
     
     <h3>
-private function splitstr_i8(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i8(str, fieldNumber, delimiter, rev) result(res)
     
     
    
@@ -508,7 +452,7 @@ private function splitstr_i8(str, fieldNumber, delimiter, rev) result(res)
     
     
     <h3>
-private function splitstr_i16(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i16(str, fieldNumber, delimiter, rev) result(res)
     
     
    
@@ -613,7 +557,7 @@ private function splitstr_i16(str, fieldNumber, delimiter, rev) result(res)
     
     
     <h3>
-private function splitstr_i32(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i32(str, fieldNumber, delimiter, rev) result(res)
     
     
    
@@ -718,7 +662,7 @@ private function splitstr_i32(str, fieldNumber, delimiter, rev) result(res)
     
     
     <h3>
-private function splitstr_i64(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i64(str, fieldNumber, delimiter, rev) result(res)
     
     
    
@@ -843,7 +787,7 @@ private function splitstr_i64(str, fieldNumber, delimiter, rev) result(res)
     
     
     <h3>
-private function num2str_i8(num) result(str)
+private pure function num2str_i8(num) result(str)
     
     
    
@@ -900,7 +844,7 @@ private function num2str_i8(num) result(str)
     
     
     <h3>
-private function num2str_i16(num) result(str)
+private pure function num2str_i16(num) result(str)
     
     
    
@@ -957,7 +901,7 @@ private function num2str_i16(num) result(str)
     
     
     <h3>
-private function num2str_i32(num) result(str)
+private pure function num2str_i32(num) result(str)
     
     
    
@@ -1014,7 +958,7 @@ private function num2str_i32(num) result(str)
     
     
     <h3>
-private function num2str_i64(num) result(str)
+private pure function num2str_i64(num) result(str)
     
     
    
@@ -1071,7 +1015,7 @@ private function num2str_i64(num) result(str)
     
     
     <h3>
-private function num2str_sp(num, formato) result(str)
+private pure function num2str_sp(num, formato) result(str)
     
     
    
@@ -1143,7 +1087,7 @@ private function num2str_sp(num, formato) result(str)
     
     
     <h3>
-private function num2str_dp(num, formato) result(str)
+private pure function num2str_dp(num, formato) result(str)
     
     
    
@@ -1215,7 +1159,7 @@ private function num2str_dp(num, formato) result(str)
     
     
     <h3>
-private function num2str_qp(num, formato) result(str)
+private pure function num2str_qp(num, formato) result(str)
     
     
    
@@ -1307,7 +1251,7 @@ private function num2str_qp(num, formato) result(str)
     
     
     <h3>
-private function int2str00000_i8(integ, total_length) result(str)
+private pure function int2str00000_i8(integ, total_length) result(str)
     
     
    
@@ -1379,7 +1323,7 @@ private function int2str00000_i8(integ, total_length) result(str)
     
     
     <h3>
-private function int2str00000_i16(integ, total_length) result(str)
+private pure function int2str00000_i16(integ, total_length) result(str)
     
     
    
@@ -1451,7 +1395,7 @@ private function int2str00000_i16(integ, total_length) result(str)
     
     
     <h3>
-private function int2str00000_i32(integ, total_length) result(str)
+private pure function int2str00000_i32(integ, total_length) result(str)
     
     
    
@@ -1523,7 +1467,7 @@ private function int2str00000_i32(integ, total_length) result(str)
     
     
     <h3>
-private function int2str00000_i64(integ, total_length) result(str)
+private pure function int2str00000_i64(integ, total_length) result(str)
     
     
    
@@ -1615,7 +1559,7 @@ private function int2str00000_i64(integ, total_length) result(str)
     
     
     <h3>
-private function str2num_i8(str, mold) result(res)
+private pure function str2num_i8(str, mold) result(res)
     
     
    
@@ -1688,7 +1632,7 @@ private function str2num_i8(str, mold) result(res)
     
     
     <h3>
-private function str2num_i16(str, mold) result(res)
+private pure function str2num_i16(str, mold) result(res)
     
     
    
@@ -1761,7 +1705,7 @@ private function str2num_i16(str, mold) result(res)
     
     
     <h3>
-private function str2num_i32(str, mold) result(res)
+private pure function str2num_i32(str, mold) result(res)
     
     
    
@@ -1834,7 +1778,7 @@ private function str2num_i32(str, mold) result(res)
     
     
     <h3>
-private function str2num_i64(str, mold) result(res)
+private pure function str2num_i64(str, mold) result(res)
     
     
    
@@ -1907,7 +1851,7 @@ private function str2num_i64(str, mold) result(res)
     
     
     <h3>
-private function str2num_sp(str, mold) result(res)
+private pure function str2num_sp(str, mold) result(res)
     
     
    
@@ -1980,7 +1924,7 @@ private function str2num_sp(str, mold) result(res)
     
     
     <h3>
-private function str2num_dp(str, mold) result(res)
+private pure function str2num_dp(str, mold) result(res)
     
     
    
@@ -2053,7 +1997,7 @@ private function str2num_dp(str, mold) result(res)
     
     
     <h3>
-private function str2num_qp(str, mold) result(res)
+private pure function str2num_qp(str, mold) result(res)
     
     
    
@@ -2142,7 +2086,7 @@ private function str2num_qp(str, mold) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-startswith"></span><h3>
-public function <a href='../proc/startswith.html'>startsWith</a>(str, substr) result(res)
+public elemental function <a href='../proc/startswith.html'>startsWith</a>(str, substr) result(res)
     
     
    
@@ -2173,7 +2117,7 @@ public function <a href='../proc/startswith.html'>startsWith</a>(str, substr) re
 
 
 
-<p>Checks if a string starts with a given substring.</p>
+<p>Checks if a string starts with a given substring.</p><a href="../proc/startswith.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
     <h4>Arguments</h4>
     
@@ -2199,7 +2143,7 @@ public function <a href='../proc/startswith.html'>startsWith</a>(str, substr) re
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to check how it starts.</p></td>
+  <td><strong>str</strong></td><td><p>String that the user wants to check how it starts. It can be an array.</p></td>
   
 </tr>
 
@@ -2232,7 +2176,8 @@ public function <a href='../proc/startswith.html'>startsWith</a>(str, substr) re
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the string starts with the substring and False otherwise. If
- substr is empty it returns True.</p>
+ substr is empty it returns True. If the input is an array, the returned
+ values will also be in an array.</p>
     
 
   </div>
@@ -2242,7 +2187,7 @@ public function <a href='../proc/startswith.html'>startsWith</a>(str, substr) re
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-endswith"></span><h3>
-public function <a href='../proc/endswith.html'>endsWith</a>(str, substr) result(res)
+public elemental function <a href='../proc/endswith.html'>endsWith</a>(str, substr) result(res)
     
     
    
@@ -2273,7 +2218,7 @@ public function <a href='../proc/endswith.html'>endsWith</a>(str, substr) result
 
 
 
-<p>Checks if a string ends with a given substring.</p>
+<p>Checks if a string ends with a given substring.</p><a href="../proc/endswith.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
     <h4>Arguments</h4>
     
@@ -2299,7 +2244,7 @@ public function <a href='../proc/endswith.html'>endsWith</a>(str, substr) result
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to check how it ends.</p></td>
+  <td><strong>str</strong></td><td><p>String that the user wants to check how it ends. It can be an array.</p></td>
   
 </tr>
 
@@ -2332,7 +2277,8 @@ public function <a href='../proc/endswith.html'>endsWith</a>(str, substr) result
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the string ends with the substring and False otherwise. If 
- substr is empty it returns True.</p>
+ substr is empty it returns True. If the input is an array, the returned
+ values will also be in an array.</p>
     
 
   </div>
