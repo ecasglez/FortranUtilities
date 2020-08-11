@@ -11,6 +11,12 @@ PROGRAM FortranUtilitiesTest
    REAL(KIND=sp),DIMENSION(6) :: vecSp = (/1., 2., 3., 4., 5., 6./)
    REAL(KIND=dp),DIMENSION(6) :: vecDp = (/1., 2., 3., 4., 5., 6./)
    REAL(KIND=qp),DIMENSION(6) :: vecQp = (/1., 2., 3., 4., 5., 6./)
+   REAL(KIND=sp),DIMENSION(6) :: vec1Sp = (/0.9, 2.6, 4.3, 8.2, 10.0, 11.1/)
+   REAL(KIND=dp),DIMENSION(6) :: vec1Dp = (/0.9, 2.6, 4.3, 8.2, 10.0, 11.1/)
+   REAL(KIND=qp),DIMENSION(6) :: vec1Qp = (/0.9, 2.6, 4.3, 8.2, 10.0, 11.1/)
+   REAL(KIND=sp),DIMENSION(3,3) :: matSp = RESHAPE((/0.5, 2., 3., 2., 5.4, 6., 3., 6., 3.3/),SHAPE(matSp))
+   REAL(KIND=dp),DIMENSION(3,3) :: matDp = RESHAPE((/0.5, 2., 3., 2., 5.4, 6., 3., 6., 3.3/),SHAPE(matDp))
+   REAL(KIND=qp),DIMENSION(3,3) :: matQp = RESHAPE((/0.5, 2., 3., 2., 5.4, 6., 3., 6., 3.3/),SHAPE(matQp))
    REAL(KIND=sp) :: zero_sp = 0.0
    REAL(KIND=dp) :: zero_dp = 0.0
    REAL(KIND=qp) :: zero_qp = 0.0
@@ -99,6 +105,19 @@ PROGRAM FortranUtilitiesTest
    CALL test('pstdev',ABS(pstdev(vecSp) - 1.70782518_sp) < 1E-10)
    CALL test('pstdev',ABS(pstdev(vecDp) - 1.7078251276599330_dp) < 1E-10)
    CALL test('pstdev',ABS(pstdev(vecQp) - 1.70782512765993306387017311342017542_qp) < 1E-10)
+   CALL test('covariance',ABS(covariance(vecSp, vec1Sp) - 7.71000004_sp) < 1E-10)
+   CALL test('covariance',ABS(covariance(vecDp, vec1Dp) - 7.7100001931190487_dp) < 1E-10)
+   CALL test('covariance',ABS(covariance(vecQp, vec1Qp) - 7.71000019311904907226562499999999969_qp) < 1E-10)
+   CALL test('pcovariance',ABS(pcovariance(vecSp, vec1Sp) - 6.42499971_sp) < 1E-10)
+   CALL test('pcovariance',ABS(pcovariance(vecDp, vec1Dp) - 6.4250001609325409_dp) < 1E-10)
+   CALL test('pcovariance',ABS(pcovariance(vecQp, vec1Qp) - 6.42500016093254089355468750000000000_qp) < 1E-10)
+   CALL test('correlation',ABS(correlation(vecSp, vec1Sp) - 0.987359941_sp) < 1E-10)
+   CALL test('correlation',ABS(correlation(vecDp, vec1Dp) - 0.98735995385629849_dp) < 1E-10)
+   CALL test('correlation',ABS(correlation(vecQp, vec1Qp) - 0.987359953856298526574298348025205074_qp) < 1E-10)
+   CALL test('lin_error_propagation',ABS(lin_error_propagation(vecSp(1:3),matSp) - 149.799988_sp) < 1E-10)
+   CALL test('lin_error_propagation',ABS(lin_error_propagation(vecDp(1:3),matDp) - 149.79999995231628_dp) < 1E-10)
+   CALL test('lin_error_propagation',ABS(lin_error_propagation(vecQp(1:3),matQp) -  &
+                                 149.799999952316284179687500000000000_qp) < 1E-10)
    CALL test('is_nan',.NOT.is_nan(5._sp))
    CALL test('is_nan',.NOT.is_nan(5._dp))
    CALL test('is_nan',.NOT.is_nan(5._qp))

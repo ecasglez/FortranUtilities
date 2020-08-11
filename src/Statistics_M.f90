@@ -15,7 +15,8 @@ MODULE FU_Statistics
    IMPLICIT NONE
 
    PRIVATE
-   PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev
+   PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev, &
+      covariance, pcovariance, correlation, lin_error_propagation
 
 
 
@@ -105,6 +106,65 @@ MODULE FU_Statistics
       MODULE PROCEDURE pstdev_qp
    END INTERFACE pstdev
 
+
+
+   INTERFACE covariance
+      !! author: Emilio Castro.
+      !! date: 10/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the sample covariance between two variables.
+      !! Calculates the sample covariance between two variables given in two vectors
+      !! of any size with one dimension.
+      MODULE PROCEDURE covariance_sp
+      MODULE PROCEDURE covariance_dp
+      MODULE PROCEDURE covariance_qp
+   END INTERFACE covariance
+
+
+
+   INTERFACE pcovariance
+      !! author: Emilio Castro.
+      !! date: 10/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the population covariance between two variables.
+      !! Calculates the population covariance between two variables given in two vectors
+      !! of any size with one dimension.
+      MODULE PROCEDURE pcovariance_sp
+      MODULE PROCEDURE pcovariance_dp
+      MODULE PROCEDURE pcovariance_qp
+   END INTERFACE pcovariance
+
+
+
+   INTERFACE correlation
+      !! author: Emilio Castro.
+      !! date: 10/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the correlation coefficient between two variables.
+      !! Calculates the correlation coefficient between two variables given in two vectors
+      !! of any size with one dimension.
+      MODULE PROCEDURE correlation_sp
+      MODULE PROCEDURE correlation_dp
+      MODULE PROCEDURE correlation_qp
+   END INTERFACE correlation
+
+
+
+   INTERFACE lin_error_propagation
+      !! author: Emilio Castro.
+      !! date: 10/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Performs linear error (or uncertainties) propagation.
+      !! Performs linear error (or uncertainties) propagation given the
+      !! sensitivity coefficients and a covariance matrix.
+      MODULE PROCEDURE lin_error_propagation_sp
+      MODULE PROCEDURE lin_error_propagation_dp
+      MODULE PROCEDURE lin_error_propagation_qp
+   END INTERFACE lin_error_propagation
 
 
    CONTAINS
@@ -346,5 +406,208 @@ MODULE FU_Statistics
          res = SQRT(pvariance(values))
 
       END FUNCTION pstdev_qp
+
+
+      PURE FUNCTION covariance_sp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp)                         :: res
+         !! Real number with the sample covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = sp
+         REAL(KIND=sp)                         :: avg1, avg2
+
+         INCLUDE 'Statistics_M/include_covariance.f90'
+
+      END FUNCTION covariance_sp
+
+      PURE FUNCTION covariance_dp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp)                         :: res
+         !! Real number with the sample covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = dp
+         REAL(KIND=dp)                         :: avg1, avg2
+
+         INCLUDE 'Statistics_M/include_covariance.f90'
+
+      END FUNCTION covariance_dp
+
+      PURE FUNCTION covariance_qp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp)                         :: res
+         !! Real number with the sample covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = qp
+         REAL(KIND=qp)                         :: avg1, avg2
+
+         INCLUDE 'Statistics_M/include_covariance.f90'
+
+      END FUNCTION covariance_qp
+
+
+
+      PURE FUNCTION pcovariance_sp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp)                         :: res
+         !! Real number with the population covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = sp
+
+         res = covariance(values1,values2) &
+            * REAL(SIZE(values1) - 1, prec) / REAL(SIZE(values1),prec)
+
+      END FUNCTION pcovariance_sp
+
+      PURE FUNCTION pcovariance_dp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp)                         :: res
+         !! Real number with the population covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = dp
+
+         res = covariance(values1,values2) &
+            * REAL(SIZE(values1) - 1, prec) / REAL(SIZE(values1),prec)
+
+      END FUNCTION pcovariance_dp
+
+      PURE FUNCTION pcovariance_qp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp)                         :: res
+         !! Real number with the population covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = qp
+
+         res = covariance(values1,values2) &
+            * REAL(SIZE(values1) - 1, prec) / REAL(SIZE(values1),prec)
+
+      END FUNCTION pcovariance_qp
+
+
+
+      PURE FUNCTION correlation_sp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp)                         :: res
+         !! Real number with the population covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = sp
+
+         INCLUDE 'Statistics_M/include_correlation.f90'
+
+      END FUNCTION correlation_sp
+
+      PURE FUNCTION correlation_dp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp)                         :: res
+         !! Real number with the population covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = dp
+
+         INCLUDE 'Statistics_M/include_correlation.f90'
+
+      END FUNCTION correlation_dp
+
+      PURE FUNCTION correlation_qp(values1,values2) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values1
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values2
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp)                         :: res
+         !! Real number with the population covariance between both variables.
+         INTEGER,PARAMETER                     :: prec = qp
+
+         INCLUDE 'Statistics_M/include_correlation.f90'
+
+      END FUNCTION correlation_qp
+
+
+
+      PURE FUNCTION lin_error_propagation_sp(sensitivities,matcovar) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: sensitivities
+         !! Vector of sensitivity coefficients of the new variable with the respect the prior variable.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=sp),DIMENSION(:,:),INTENT(IN) :: matcovar
+         !! Covariance matrix with the error or uncertainty of the prior variable.
+         !! Dimensions of sensitivities and matcovar must be in agreement.
+         REAL(KIND=sp)                         :: res
+         !! Real number with the error or uncertainty (variance) propagated to the new variable.
+
+         INCLUDE 'Statistics_M/include_lin_error_propagation.f90'
+
+      END FUNCTION lin_error_propagation_sp
+
+      PURE FUNCTION lin_error_propagation_dp(sensitivities,matcovar) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: sensitivities
+         !! Vector of sensitivity coefficients of the new variable with the respect the prior variable.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=dp),DIMENSION(:,:),INTENT(IN) :: matcovar
+         !! Covariance matrix with the error or uncertainty of the prior variable.
+         !! Dimensions of sensitivities and matcovar must be in agreement.
+         REAL(KIND=dp)                         :: res
+         !! Real number with the error or uncertainty (variance) propagated to the new variable.
+
+         INCLUDE 'Statistics_M/include_lin_error_propagation.f90'
+
+      END FUNCTION lin_error_propagation_dp
+
+      PURE FUNCTION lin_error_propagation_qp(sensitivities,matcovar) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: sensitivities
+         !! Vector of sensitivity coefficients of the new variable with the respect the prior variable.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=qp),DIMENSION(:,:),INTENT(IN) :: matcovar
+         !! Covariance matrix with the error or uncertainty of the prior variable.
+         !! Dimensions of sensitivities and matcovar must be in agreement.
+         REAL(KIND=qp)                         :: res
+         !! Real number with the error or uncertainty (variance) propagated to the new variable.
+
+         INCLUDE 'Statistics_M/include_lin_error_propagation.f90'
+
+      END FUNCTION lin_error_propagation_qp
+
 
 END MODULE FU_Statistics
