@@ -16,8 +16,27 @@ MODULE FU_Statistics
 
    PRIVATE
    PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev, &
-      covariance, pcovariance, correlation, lin_error_propagation
+      covariance, pcovariance, correlation, lin_error_propagation, median
 
+   INTERFACE c_sort
+      !To sort the array of values using c++ functions in order
+      !to calculate median and quantiles.
+      SUBROUTINE c_sort_float(x, n) BIND(c,name='c_sort_float')
+         USE iso_c_binding
+         INTEGER(C_INT)    ,        VALUE         :: n
+         REAL(C_FLOAT),DIMENSION(n),INTENT(INOUT) :: x
+      END SUBROUTINE c_sort_float
+      SUBROUTINE c_sort_double(x, n) BIND(c,name='c_sort_double')
+         USE iso_c_binding
+         INTEGER(C_INT)    ,         VALUE         :: n
+         REAL(C_DOUBLE),DIMENSION(n),INTENT(INOUT) :: x
+      END SUBROUTINE c_sort_double
+      SUBROUTINE c_sort_long_double(x, n) BIND(c,name='c_sort_long_double')
+         USE iso_c_binding
+         INTEGER(C_INT)    ,              VALUE         :: n
+         REAL(C_LONG_DOUBLE),DIMENSION(n),INTENT(INOUT) :: x
+      END SUBROUTINE c_sort_long_double
+   END INTERFACE c_sort
 
 
    INTERFACE mean
@@ -167,8 +186,23 @@ MODULE FU_Statistics
    END INTERFACE lin_error_propagation
 
 
-   CONTAINS
+   INTERFACE median
+      !! author: Emilio Castro.
+      !! date: 12/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the median value.
+      !! Calculates the median value.
+      !! This function does not work with quadruple precision numbers
+      !! because of the ordering subroutine written in C++.
+      MODULE PROCEDURE median_sp
+      MODULE PROCEDURE median_dp
+   END INTERFACE median
 
+
+
+
+   CONTAINS
 
 
       PURE FUNCTION mean_sp(values) RESULT(res)
@@ -608,6 +642,40 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_lin_error_propagation.f90'
 
       END FUNCTION lin_error_propagation_qp
+
+
+      FUNCTION median_sp(values) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the median. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp) :: res
+         !! Real number with the median
+         REAL(KIND=sp),DIMENSION(SIZE(values)) :: values_cp
+         ! values_cp is a copy of values to avoid modifying it when ordering
+         INTEGER :: size_values
+         INTEGER,PARAMETER                     :: prec = sp
+
+         INCLUDE 'Statistics_M/include_median.f90'
+
+      END FUNCTION median_sp
+
+      FUNCTION median_dp(values) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         !! Vector of real numbers to calculate the median. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp) :: res
+         !! Real number with the median
+         REAL(KIND=dp),DIMENSION(SIZE(values)) :: values_cp
+         ! values_cp is a copy of values to avoid modifying it when ordering
+         INTEGER :: size_values
+         INTEGER,PARAMETER                     :: prec = dp
+
+         INCLUDE 'Statistics_M/include_median.f90'
+
+      END FUNCTION median_dp
+
 
 
 END MODULE FU_Statistics
