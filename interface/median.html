@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>variance &ndash; Fortran Utilities</title>
+    <title>median &ndash; Fortran Utilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -104,7 +104,7 @@
     
   
   <div class="row">
-    <h1>variance
+    <h1>median
    <small>Interface</small>
     
     </h1>
@@ -117,7 +117,7 @@
      <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
-    <li><i class="fa fa-calendar-o"></i> 09/06/2020.</li>
+    <li><i class="fa fa-calendar-o"></i> 12/08/2020.</li>
      
      
     <li><i class="fa fa-legal"></i> MIT.</li>
@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.8% of total for procedures.</p>Including implementation: 35 statements, 12.5% of total for procedures.">5 statements</a>
+    title="<p> 1.4% of total for procedures.</p>Including implementation: 36 statements, 12.9% of total for procedures.">4 statements</a>
      </li> 
      
      
@@ -147,7 +147,7 @@
      <li><a href='../module/fu_statistics.html'>FU_Statistics</a></li>
     
   
-     <li class="active">variance</li>
+     <li class="active">median</li>
   </ol>
 </div>
 </div>
@@ -192,11 +192,9 @@
   <div id="modprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/variance.html#moduleprocedure-variance_sp">variance_sp</a>
+      <a class="list-group-item" href="../interface/median.html#moduleprocedure-median_sp">median_sp</a>
       
-      <a class="list-group-item" href="../interface/variance.html#moduleprocedure-variance_dp">variance_dp</a>
-      
-      <a class="list-group-item" href="../interface/variance.html#moduleprocedure-variance_qp">variance_qp</a>
+      <a class="list-group-item" href="../interface/median.html#moduleprocedure-median_dp">median_dp</a>
       
     </div>
   </div>
@@ -210,9 +208,10 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface variance</h2>
-   <p>Calculates the sample variance of a set of values given in a vector
- of any size with one dimension.</p>
+      <h2>public interface median</h2>
+   <p>Calculates the median value.
+ This function does not work with quadruple precision numbers
+ because of the ordering subroutine written in C++.</p>
      
      
     <br>
@@ -246,11 +245,9 @@
   <div id="modprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/variance.html#moduleprocedure-variance_sp">variance_sp</a>
+      <a class="list-group-item" href="../interface/median.html#moduleprocedure-median_sp">median_sp</a>
       
-      <a class="list-group-item" href="../interface/variance.html#moduleprocedure-variance_dp">variance_dp</a>
-      
-      <a class="list-group-item" href="../interface/variance.html#moduleprocedure-variance_qp">variance_qp</a>
+      <a class="list-group-item" href="../interface/median.html#moduleprocedure-median_dp">median_dp</a>
       
     </div>
   </div>
@@ -271,8 +268,8 @@
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-variance_sp"></span><h3>
-private pure function variance_sp(values) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-median_sp"></span><h3>
+private function median_sp(values) result(res)
     
     
    
@@ -305,7 +302,7 @@ private pure function variance_sp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the sample variance. It can
+  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the median. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -323,7 +320,7 @@ private pure function variance_sp(values) result(res)
   
      <h4>Return Value <small>real(kind=sp)
   </small></h4>
-  <p>Real number with the sample variance of values.</p>
+  <p>Real number with the median</p>
     
 
   </div>
@@ -332,8 +329,8 @@ private pure function variance_sp(values) result(res)
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-variance_dp"></span><h3>
-private pure function variance_dp(values) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-median_dp"></span><h3>
+private function median_dp(values) result(res)
     
     
    
@@ -366,7 +363,7 @@ private pure function variance_dp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the sample variance. It can
+  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the median. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -384,68 +381,7 @@ private pure function variance_dp(values) result(res)
   
      <h4>Return Value <small>real(kind=dp)
   </small></h4>
-  <p>Real number with the sample variance of values.</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-variance_qp"></span><h3>
-private pure function variance_qp(values) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the sample variance. It can
- have any size and it must have one dimension.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=qp)
-  </small></h4>
-  <p>Real number with the sample variance of values.</p>
+  <p>Real number with the median</p>
     
 
   </div>
