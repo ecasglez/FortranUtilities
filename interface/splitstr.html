@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 2.2% of total for procedures.</p>Including implementation: 174 statements, 62.4% of total for procedures.">6 statements</a>
+    title="<p> 2.0% of total for procedures.</p>Including implementation: 210 statements, 70.0% of total for procedures.">6 statements</a>
      </li> 
      
      
@@ -275,7 +275,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i8"></span><h3>
-private pure function splitstr_i8(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) result(res)
     
     
    
@@ -359,6 +359,22 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev) result(res)
   
 </tr>
 
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
+ Optional parameter. Default is False.</p></td>
+  
+</tr>
+
 </tbody>
 </table>
 
@@ -383,7 +399,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i16"></span><h3>
-private pure function splitstr_i16(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim) result(res)
     
     
    
@@ -467,6 +483,22 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev) result(res)
   
 </tr>
 
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
+ Optional parameter. Default is False.</p></td>
+  
+</tr>
+
 </tbody>
 </table>
 
@@ -491,7 +523,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i32"></span><h3>
-private pure function splitstr_i32(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim) result(res)
     
     
    
@@ -575,6 +607,22 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev) result(res)
   
 </tr>
 
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
+ Optional parameter. Default is False.</p></td>
+  
+</tr>
+
 </tbody>
 </table>
 
@@ -599,7 +647,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i64"></span><h3>
-private pure function splitstr_i64(str, fieldNumber, delimiter, rev) result(res)
+private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim) result(res)
     
     
    
@@ -679,6 +727,22 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev) result(res)
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
+ Optional parameter. Default is False.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
  Optional parameter. Default is False.</p></td>
   
 </tr>

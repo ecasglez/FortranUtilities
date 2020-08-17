@@ -16,7 +16,7 @@ MODULE FU_Strings
 
    PRIVATE
    PUBLIC :: num2str, int2str00000, str2num
-   PUBLIC :: startsWith, endsWith, splitstr, replace
+   PUBLIC :: startsWith, endsWith, splitstr, replace, mergeChars
 
 
 
@@ -95,7 +95,7 @@ CONTAINS
 
 
 
-   PURE FUNCTION splitstr_i8(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) RESULT(res)
       CHARACTER(LEN=*), INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i8), INTENT(IN)            :: fieldNumber
@@ -105,6 +105,9 @@ CONTAINS
       !! Optional parameter. Default is Space.
       LOGICAL         , INTENT(IN), OPTIONAL  :: rev
       !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
+      LOGICAL          , INTENT(IN), OPTIONAL :: mergedelim
+      !! If true, contiguous delimiters in the string are merged before splitting.
       !! Optional parameter. Default is False.
       CHARACTER(LEN=:), ALLOCATABLE           :: res
       !! A string with the selected part of str. If the fieldNumber does not exists
@@ -118,7 +121,7 @@ CONTAINS
 
    END FUNCTION splitstr_i8
 
-   PURE FUNCTION splitstr_i16(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i16), INTENT(IN)            :: fieldNumber
@@ -128,6 +131,9 @@ CONTAINS
       !! Optional parameter. Default is Space.
       LOGICAL          , INTENT(IN), OPTIONAL  :: rev
       !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
+      LOGICAL          , INTENT(IN), OPTIONAL :: mergedelim
+      !! If true, contiguous delimiters in the string are merged before splitting.
       !! Optional parameter. Default is False.
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
       !! A string with the selected part of str. If the fieldNumber does not exists
@@ -141,7 +147,7 @@ CONTAINS
 
    END FUNCTION splitstr_i16
 
-   PURE FUNCTION splitstr_i32(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i32), INTENT(IN)            :: fieldNumber
@@ -151,6 +157,9 @@ CONTAINS
       !! Optional parameter. Default is Space.
       LOGICAL          , INTENT(IN), OPTIONAL  :: rev
       !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
+      LOGICAL          , INTENT(IN), OPTIONAL :: mergedelim
+      !! If true, contiguous delimiters in the string are merged before splitting.
       !! Optional parameter. Default is False.
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
       !! A string with the selected part of str. If the fieldNumber does not exists
@@ -164,7 +173,7 @@ CONTAINS
 
    END FUNCTION splitstr_i32
 
-   PURE FUNCTION splitstr_i64(str, fieldNumber, delimiter, rev) RESULT(res)
+   PURE FUNCTION splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim) RESULT(res)
       CHARACTER(LEN=*) , INTENT(IN)            :: str
       !! String that the user wants to split.
       INTEGER(KIND=i64), INTENT(IN)            :: fieldNumber
@@ -174,6 +183,9 @@ CONTAINS
       !! Optional parameter. Default is Space.
       LOGICAL          , INTENT(IN), OPTIONAL  :: rev
       !! If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
+      LOGICAL          , INTENT(IN), OPTIONAL :: mergedelim
+      !! If true, contiguous delimiters in the string are merged before splitting.
       !! Optional parameter. Default is False.
       CHARACTER(LEN=:) , ALLOCATABLE           :: res
       !! A string with the selected part of str. If the fieldNumber does not exists
@@ -187,6 +199,37 @@ CONTAINS
 
    END FUNCTION splitstr_i64
 
+
+   PURE FUNCTION mergeChars(str,c) RESULT(res)
+      !! author: Emilio Castro.
+      !! date: 14/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Merge characters in a string if they are contiguous.
+      !! Merge characters in a string if they are contiguous.
+      IMPLICIT NONE
+      CHARACTER(LEN=*),INTENT(IN)  :: str
+      !! String to search inside for contiguous duplicated characters.
+      CHARACTER(LEN=*),INTENT(IN)  :: c
+      !! Character to search for contiguous duplications.
+      CHARACTER(LEN=:),ALLOCATABLE :: res
+      !! String with the selected character contiguous duplications removed.
+      CHARACTER(LEN=:),ALLOCATABLE :: string
+      INTEGER :: pos
+      string = str
+      res = ''
+      pos = INDEX(string,c)
+      DO WHILE (pos /= 0)
+         res = res//string(:pos)
+         string = string(pos+1:)
+         pos = INDEX(string,c)
+         DO WHILE (pos == 1)
+            string = string(2:)
+            pos = INDEX(string,c)
+         END DO
+      END DO
+      res = res//string
+   END FUNCTION mergeChars
 
 
 

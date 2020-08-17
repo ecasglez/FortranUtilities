@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>include_num2strReal.f90 &ndash; Fortran Utilities</title>
+    <title>mergeChars &ndash; Fortran Utilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -104,8 +104,8 @@
     
   
   <div class="row">
-    <h1>include_num2strReal.f90
-    <small>Source File</small>
+    <h1>mergeChars
+      <small>Function</small>
     
     </h1>
     
@@ -114,28 +114,40 @@
 <div class="well well-sm">
   <ul class="list-inline" style="margin-bottom:0px;display:inline">
      
+     <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
+    <li><i class="fa fa-calendar-o"></i> 14/08/2020.</li>
      
+     
+    <li><i class="fa fa-legal"></i> MIT.</li>
+     
+     
+    <li><i class="fa fa-barcode"></i> 1.0.</li>
+    
     
     
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.5% of total for source files.">7 statements</a>
+    title=" 7.0% of total for procedures.">21 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/include_num2strReal.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Strings_M.f90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
+     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.f90</a></li>
+    
+     <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
+    
   
-     <li class="active">include_num2strReal.f90</li>
+     <li class="active">mergeChars</li>
   </ol>
 </div>
 </div>
@@ -147,6 +159,7 @@
 </script>
 
   </div>
+  
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
     
@@ -175,24 +188,88 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/include_num2strreal.f90.html#src">include_num2strReal.f90</a>
-  </div>
-</div>
-
+<em>None</em>
 
 
 </div>
 
     </div>
+    
     <div class="col-md-9" id='text'>
-      
-      <br>
+    <h2>
+public pure function mergeChars(str, c) result(res)
+    
+    
+   
+</h2>
+    
+  
+
+
+    
+    <p>Merge characters in a string if they are contiguous.</p>
+    
+
+    <h3>Arguments</h3>
     
       
-      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-str"></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str</strong></td><td><p>String to search inside for contiguous duplicated characters.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-c"></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>c</strong></td><td><p>Character to search for contiguous duplications.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    
+    
+    
+    
+   <h3>Return Value <small><span class="anchor" id="variable-res"></span>character(len=:),
+  ALLOCATABLE</small></h3>
+    <p>String with the selected character contiguous duplications removed.</p>
+    
+    
+    
+     
+    <br>
 
     <section class="visible-xs visible-sm hidden-md">
       
@@ -219,37 +296,35 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/include_num2strreal.f90.html#src">include_num2strReal.f90</a>
-  </div>
-</div>
-
+<em>None</em>
 
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
 
-    <section>
-      <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">!adding the following statement in the allocate statement wihtout using</span>
-<a name="ln-2"></a><span class="c">!variable length is causing memory leaks in valgrind. Using length to</span>
-<a name="ln-3"></a><span class="c">!store the information fixes those memory leaks.</span>
-<a name="ln-4"></a><span class="k">IF</span> <span class="p">(</span><span class="n">startsWith</span><span class="p">(</span><span class="n">formato</span><span class="p">,</span><span class="s1">&#39;(&#39;</span><span class="p">))</span> <span class="k">THEN</span>
-<a name="ln-5"></a><span class="k">   </span><span class="n">length</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">splitstr</span><span class="p">(</span><span class="n">formato</span><span class="p">(</span><span class="mi">3</span><span class="p">:),</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">),</span><span class="mi">1_i16</span><span class="p">)</span>
-<a name="ln-6"></a><span class="k">ELSE</span>
-<a name="ln-7"></a><span class="k">   </span><span class="n">length</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">splitstr</span><span class="p">(</span><span class="n">formato</span><span class="p">(</span><span class="mi">2</span><span class="p">:),</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">),</span><span class="mi">1_i16</span><span class="p">)</span>
-<a name="ln-8"></a><span class="k">END IF</span>
-<a name="ln-9"></a><span class="k">ALLOCATE</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">length</span><span class="p">)</span> <span class="kd">::</span> <span class="n">str</span><span class="p">)</span>
-<a name="ln-10"></a><span class="k">WRITE</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="s1">&#39;(&#39;</span><span class="o">//</span><span class="n">formato</span><span class="o">//</span><span class="s1">&#39;)&#39;</span><span class="p">)</span> <span class="n">num</span>
-</pre></div>
+    
 
-    </section>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
     </div>
   </div>
 
-  
+
     <hr>    
     </div> <!-- /container -->
     <footer>

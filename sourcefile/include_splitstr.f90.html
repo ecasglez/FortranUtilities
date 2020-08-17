@@ -122,7 +122,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 2.6% of total for source files.">32 statements</a>
+    title=" 3.1% of total for source files.">40 statements</a>
      </li> 
      
      
@@ -239,37 +239,45 @@
 <a name="ln-4"></a><span class="k">   </span><span class="n">d</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
 <a name="ln-5"></a><span class="k">END IF</span>
 <a name="ln-6"></a>
-<a name="ln-7"></a><span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
-<a name="ln-8"></a>
-<a name="ln-9"></a><span class="k">IF</span> <span class="p">(</span><span class="nb">PRESENT</span><span class="p">(</span><span class="n">rev</span><span class="p">))</span> <span class="k">THEN</span>
-<a name="ln-10"></a><span class="k">   IF</span> <span class="p">(</span><span class="n">rev</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-11"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">strReverse</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-7"></a><span class="k">IF</span> <span class="p">(</span><span class="nb">PRESENT</span><span class="p">(</span><span class="n">mergedelim</span><span class="p">))</span> <span class="k">THEN</span>
+<a name="ln-8"></a><span class="k">   IF</span> <span class="p">(</span><span class="n">mergedelim</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-9"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">mergeChars</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+<a name="ln-10"></a>   <span class="k">ELSE</span>
+<a name="ln-11"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
 <a name="ln-12"></a>   <span class="k">END IF</span>
-<a name="ln-13"></a><span class="k">END IF</span>
-<a name="ln-14"></a>
-<a name="ln-15"></a><span class="c">! If the delimiter is in the first positions of the string, remove it</span>
-<a name="ln-16"></a><span class="k">IF</span> <span class="p">(</span><span class="nb">INDEX</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-17"></a><span class="k">   </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">(</span><span class="nb">LEN</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:)</span>
-<a name="ln-18"></a><span class="k">END IF</span>
-<a name="ln-19"></a><span class="k">DO </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fieldNumber</span>
-<a name="ln-20"></a>   <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
-<a name="ln-21"></a>   <span class="k">IF</span> <span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-22"></a><span class="k">      IF</span> <span class="p">(</span><span class="n">i</span> <span class="o">/=</span> <span class="n">fieldNumber</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-23"></a><span class="k">         </span><span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<a name="ln-24"></a>      <span class="k">END IF</span>
-<a name="ln-25"></a><span class="k">      EXIT</span>
-<a name="ln-26"></a><span class="k">   ELSE IF</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">fieldNumber</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-27"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">(:</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a name="ln-28"></a>   <span class="k">ELSE</span>
-<a name="ln-29"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">(</span><span class="n">pos</span><span class="o">+</span><span class="nb">LEN</span><span class="p">(</span><span class="n">d</span><span class="p">):)</span>
-<a name="ln-30"></a>   <span class="k">END IF</span>
-<a name="ln-31"></a><span class="k">END DO</span>
-<a name="ln-32"></a>
-<a name="ln-33"></a><span class="k">IF</span> <span class="p">(</span><span class="nb">PRESENT</span><span class="p">(</span><span class="n">rev</span><span class="p">))</span> <span class="k">THEN</span>
-<a name="ln-34"></a><span class="k">   IF</span> <span class="p">(</span><span class="n">rev</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-35"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">strReverse</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="ln-36"></a>   <span class="k">END IF</span>
-<a name="ln-37"></a><span class="k">END IF</span>
+<a name="ln-13"></a><span class="k">ELSE</span>
+<a name="ln-14"></a><span class="k">   </span><span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
+<a name="ln-15"></a><span class="k">END IF</span>
+<a name="ln-16"></a>
+<a name="ln-17"></a><span class="k">IF</span> <span class="p">(</span><span class="nb">PRESENT</span><span class="p">(</span><span class="n">rev</span><span class="p">))</span> <span class="k">THEN</span>
+<a name="ln-18"></a><span class="k">   IF</span> <span class="p">(</span><span class="n">rev</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-19"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">strReverse</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-20"></a>   <span class="k">END IF</span>
+<a name="ln-21"></a><span class="k">END IF</span>
+<a name="ln-22"></a>
+<a name="ln-23"></a><span class="c">! If the delimiter is in the first positions of the string, remove it</span>
+<a name="ln-24"></a><span class="k">IF</span> <span class="p">(</span><span class="nb">INDEX</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-25"></a><span class="k">   </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">(</span><span class="nb">LEN</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:)</span>
+<a name="ln-26"></a><span class="k">END IF</span>
+<a name="ln-27"></a><span class="k">DO </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fieldNumber</span>
+<a name="ln-28"></a>   <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+<a name="ln-29"></a>   <span class="k">IF</span> <span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-30"></a><span class="k">      IF</span> <span class="p">(</span><span class="n">i</span> <span class="o">/=</span> <span class="n">fieldNumber</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-31"></a><span class="k">         </span><span class="n">res</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<a name="ln-32"></a>      <span class="k">END IF</span>
+<a name="ln-33"></a><span class="k">      EXIT</span>
+<a name="ln-34"></a><span class="k">   ELSE IF</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">fieldNumber</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-35"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">(:</span><span class="n">pos</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-36"></a>   <span class="k">ELSE</span>
+<a name="ln-37"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="p">(</span><span class="n">pos</span><span class="o">+</span><span class="nb">LEN</span><span class="p">(</span><span class="n">d</span><span class="p">):)</span>
+<a name="ln-38"></a>   <span class="k">END IF</span>
+<a name="ln-39"></a><span class="k">END DO</span>
+<a name="ln-40"></a>
+<a name="ln-41"></a><span class="k">IF</span> <span class="p">(</span><span class="nb">PRESENT</span><span class="p">(</span><span class="n">rev</span><span class="p">))</span> <span class="k">THEN</span>
+<a name="ln-42"></a><span class="k">   IF</span> <span class="p">(</span><span class="n">rev</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-43"></a><span class="k">      </span><span class="n">res</span> <span class="o">=</span> <span class="n">strReverse</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-44"></a>   <span class="k">END IF</span>
+<a name="ln-45"></a><span class="k">END IF</span>
 </pre></div>
 
     </section>

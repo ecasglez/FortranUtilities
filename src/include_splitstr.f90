@@ -4,7 +4,15 @@ ELSE
    d = ' '
 END IF
 
-res = str
+IF (PRESENT(mergedelim)) THEN
+   IF (mergedelim) THEN
+      res = mergeChars(str,d)
+   ELSE
+      res = str
+   END IF
+ELSE
+   res = str
+END IF
 
 IF (PRESENT(rev)) THEN
    IF (rev) THEN
