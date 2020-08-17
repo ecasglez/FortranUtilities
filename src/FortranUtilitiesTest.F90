@@ -45,6 +45,20 @@ PROGRAM FortranUtilitiesTest
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',delimiter = '4',fieldNumber=1_i64) == 'campo1 campo2 campo3 campo')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',delimiter = 'ca',fieldNumber=8_i32) == '')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=3_i32, rev = .TRUE.) == 'campo2')
+   CALL test('splitstr',splitstr('campo1     campo2     campo3    campo4',&
+      fieldNumber=3_i32, rev = .TRUE.,mergedelim=.TRUE.) == 'campo2')
+   CALL test('splitstr',splitstr('campo1     campo2     campo3    campo4',&
+      fieldNumber=5_i32, rev = .TRUE.,mergedelim=.FALSE.) == 'campo3')
+   CALL test('splitstr',splitstr('campo1     campo2     campo3    campo4',&
+      fieldNumber=5_i32, rev = .TRUE.) == 'campo3')
+   CALL test('mergeChars',mergeChars("asdf ghjj     qwer",' ') == "asdf ghjj qwer")
+   CALL test('mergeChars',mergeChars("asdf ghjj qwer",' ') == "asdf ghjj qwer")
+   CALL test('mergeChars',mergeChars("asdfghjjqwer",' ') == "asdfghjjqwer")
+   CALL test('mergeChars',mergeChars("asdfghjjqwer ",' ') == "asdfghjjqwer ")
+   CALL test('mergeChars',mergeChars(" asdfghjjqwer ",' ') == " asdfghjjqwer ")
+   CALL test('mergeChars',mergeChars("asdf ghjj     qwer ",' ') == 'asdf ghjj qwer ')
+   CALL test('mergeChars',mergeChars("      ",' ') == " ")
+   CALL test('mergeChars',mergeChars("",' ') == "")
    CALL test('startsWith',startsWith('frase','fra') .EQV. .TRUE.)
    CALL test('startsWith',startsWith('frase','f') .EQV. .TRUE.)
    CALL test('startsWith',startsWith('frase','afra') .EQV. .FALSE.)
@@ -251,7 +265,6 @@ PROGRAM FortranUtilitiesTest
    CALL test('parent_path',parent_path("/ho.me/user/file.dat") == '/ho.me/user')
    CALL test('parent_path',parent_path("/ho.me/user/.") == '/ho.me/user')
 #endif
-
 
    CALL test('summary',.TRUE.)
 
