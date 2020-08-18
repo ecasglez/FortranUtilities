@@ -1,4 +1,4 @@
-FortranUtilities is a collection of simple functions for Fortran programs.
+ecasglez's FortranUtilities is a collection of simple functions for Fortran programs.
 
 Functions for strings, numbers, precision, statistics and files are included. See the specifications of the different functions. More functions for different tasks will be included in the future.
 
