@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.7% of total for procedures.</p>Including implementation: 26 statements,  8.7% of total for procedures.">5 statements</a>
+    title="<p> 1.6% of total for procedures.</p>Including implementation: 26 statements,  8.4% of total for procedures.">5 statements</a>
      </li> 
      
      
@@ -212,7 +212,19 @@
     <div class="col-md-9" id='text'>
       <h2>public interface lin_error_propagation</h2>
    <p>Performs linear error (or uncertainties) propagation given the
- sensitivity coefficients and a covariance matrix.</p>
+ sensitivity coefficients and a covariance matrix. The following
+ formula is applied:</p>
+<p>
+<script type="math/tex; mode=display">\sigma^2_{y} = S \Sigma^{X} S^\intercal</script>
+ where:</p>
+<ul>
+<li>y is the response whose uncertainty is to be calculated.</li>
+<li>X is a set of input parameters to propagate their uncertainty to y.</li>
+<li>S is the vector of sensitivity coefficients of y with respect to the
+   different parameters in X.</li>
+<li>
+<script type="math/tex">\Sigma^{x}</script> is the covariance matrix of the parameters in X.</li>
+</ul>
      
      
     <br>

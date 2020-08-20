@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.7% of total for procedures.</p>Including implementation: 29 statements,  9.7% of total for procedures.">5 statements</a>
+    title="<p> 1.6% of total for procedures.</p>Including implementation: 29 statements,  9.4% of total for procedures.">5 statements</a>
      </li> 
      
      
@@ -212,7 +212,16 @@
     <div class="col-md-9" id='text'>
       <h2>public interface correlation</h2>
    <p>Calculates the correlation coefficient between two variables given in two vectors
- of any size with one dimension.</p>
+ of any size with one dimension applying the following equation:</p>
+<p>
+<script type="math/tex; mode=display">\rho_{xy} = \frac{\sigma_{xy}
+                 }{\sigma_{x} \sigma_{y}}</script>
+</p>
+<p>where:</p>
+<ul>
+<li>x and y are vectors with real numbers.</li>
+<li>n is how many numbers are included in x and y.</li>
+</ul>
      
      
     <br>
@@ -272,7 +281,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-correlation_sp"></span><h3>
-private pure function correlation_sp(values1, values2) result(res)
+private pure function correlation_sp(x, y) result(res)
     
     
    
@@ -305,7 +314,7 @@ private pure function correlation_sp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values1</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -321,7 +330,7 @@ private pure function correlation_sp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values2</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -349,7 +358,7 @@ private pure function correlation_sp(values1, values2) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-correlation_dp"></span><h3>
-private pure function correlation_dp(values1, values2) result(res)
+private pure function correlation_dp(x, y) result(res)
     
     
    
@@ -382,7 +391,7 @@ private pure function correlation_dp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values1</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -398,7 +407,7 @@ private pure function correlation_dp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values2</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -426,7 +435,7 @@ private pure function correlation_dp(values1, values2) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-correlation_qp"></span><h3>
-private pure function correlation_qp(values1, values2) result(res)
+private pure function correlation_qp(x, y) result(res)
     
     
    
@@ -459,7 +468,7 @@ private pure function correlation_qp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values1</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -475,7 +484,7 @@ private pure function correlation_qp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values2</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>

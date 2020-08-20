@@ -16,7 +16,8 @@ MODULE FU_Statistics
 
    PRIVATE
    PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev, &
-      covariance, pcovariance, correlation, lin_error_propagation, median
+      covariance, pcovariance, correlation, lin_error_propagation, median, &
+      skewness, pskewness
 
    INTERFACE c_sort
       !To sort the array of values using c++ functions in order
@@ -46,7 +47,14 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the mean value.
       !! Calculates the mean value of a set of values given in a vector
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\overline{x} = \frac{\sum\limits_{i=1}^n x_{i}}{n}$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
       MODULE PROCEDURE mean_sp
       MODULE PROCEDURE mean_dp
       MODULE PROCEDURE mean_qp
@@ -61,7 +69,15 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the geometric mean.
       !! Calculates the geometric mean of a set of values given in a vector
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\overline{x} = \left(\prod\limits_{i=1}^{n}x_{i}\right)^\frac{1}{n}
+      !! = \sqrt[n]{x_{1} \times x_{2} \times \dots \times x_{n}}$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
       MODULE PROCEDURE gmean_sp
       MODULE PROCEDURE gmean_dp
       MODULE PROCEDURE gmean_qp
@@ -75,7 +91,15 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the sample variance.
       !! Calculates the sample variance of a set of values given in a vector
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\sigma^{2} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+      !!              \overline{x}\right)^2}{n-1}$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
       MODULE PROCEDURE variance_sp
       MODULE PROCEDURE variance_dp
       MODULE PROCEDURE variance_qp
@@ -90,7 +114,15 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the sample standard deviation.
       !! Calculates the sample standard deviation of a set of values given in a vector
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+      !!              \overline{x}\right)^2}{n-1}}$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
       MODULE PROCEDURE stdev_sp
       MODULE PROCEDURE stdev_dp
       MODULE PROCEDURE stdev_qp
@@ -104,7 +136,15 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the population variance.
       !! Calculates the population variance of a set of values given in a vector
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\sigma^{2} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+      !!              \overline{x}\right)^2}{n}$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
       MODULE PROCEDURE pvariance_sp
       MODULE PROCEDURE pvariance_dp
       MODULE PROCEDURE pvariance_qp
@@ -119,7 +159,15 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the population standard deviation.
       !! Calculates the population standard deviation of a set of values given in a vector
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+      !!              \overline{x}\right)^2}{n}}$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
       MODULE PROCEDURE pstdev_sp
       MODULE PROCEDURE pstdev_dp
       MODULE PROCEDURE pstdev_qp
@@ -134,7 +182,16 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the sample covariance between two variables.
       !! Calculates the sample covariance between two variables given in two vectors
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\sigma_{xy} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+      !!              \overline{x}\right)\left(y_{i} -
+      !!              \overline{y}\right)}{n-1}$$
+      !!
+      !! where:
+      !!
+      !! * x and y are vectors with real numbers.
+      !! * n is how many numbers are included in x and y.
       MODULE PROCEDURE covariance_sp
       MODULE PROCEDURE covariance_dp
       MODULE PROCEDURE covariance_qp
@@ -149,7 +206,16 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the population covariance between two variables.
       !! Calculates the population covariance between two variables given in two vectors
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\sigma_{xy} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+      !!              \overline{x}\right)\left(y_{i} -
+      !!              \overline{y}\right)}{n}$$
+      !!
+      !! where:
+      !!
+      !! * x and y are vectors with real numbers.
+      !! * n is how many numbers are included in x and y.
       MODULE PROCEDURE pcovariance_sp
       MODULE PROCEDURE pcovariance_dp
       MODULE PROCEDURE pcovariance_qp
@@ -164,7 +230,15 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Calculates the correlation coefficient between two variables.
       !! Calculates the correlation coefficient between two variables given in two vectors
-      !! of any size with one dimension.
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$\rho_{xy} = \frac{\sigma_{xy}
+      !!                 }{\sigma_{x} \sigma_{y}}$$
+      !!
+      !! where:
+      !!
+      !! * x and y are vectors with real numbers.
+      !! * n is how many numbers are included in x and y.
       MODULE PROCEDURE correlation_sp
       MODULE PROCEDURE correlation_dp
       MODULE PROCEDURE correlation_qp
@@ -179,7 +253,17 @@ MODULE FU_Statistics
       !! license: MIT.
       !! summary: Performs linear error (or uncertainties) propagation.
       !! Performs linear error (or uncertainties) propagation given the
-      !! sensitivity coefficients and a covariance matrix.
+      !! sensitivity coefficients and a covariance matrix. The following
+      !! formula is applied:
+      !!
+      !! $$\sigma^2_{y} = S \Sigma^{X} S^\intercal$$
+      !! where:
+      !!
+      !! * y is the response whose uncertainty is to be calculated.
+      !! * X is a set of input parameters to propagate their uncertainty to y.
+      !! * S is the vector of sensitivity coefficients of y with respect to the
+      !!   different parameters in X.
+      !! * \(\Sigma^{x}\) is the covariance matrix of the parameters in X.
       MODULE PROCEDURE lin_error_propagation_sp
       MODULE PROCEDURE lin_error_propagation_dp
       MODULE PROCEDURE lin_error_propagation_qp
@@ -202,81 +286,130 @@ MODULE FU_Statistics
 
 
 
+   INTERFACE skewness
+      !! author: Emilio Castro.
+      !! date: 19/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the sample skewness of a set of values.
+      !! Calculates the sample skewness of a set of values given in a vector
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$S_{x} = \frac{n}{\left( n-1 \right)\left( n-2 \right)
+      !!               }\sum\limits_{i=1}^{n}\left( \frac{x_{i}-\overline{x}
+      !!               }{\sigma_{x}} \right)^3$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
+      MODULE PROCEDURE skewness_sp
+      MODULE PROCEDURE skewness_dp
+      MODULE PROCEDURE skewness_qp
+   END INTERFACE skewness
+
+
+
+   INTERFACE pskewness
+      !! author: Emilio Castro.
+      !! date: 19/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Calculates the population skewness of a set of values.
+      !! Calculates the population skewness of a set of values given in a vector
+      !! of any size with one dimension applying the following equation:
+      !!
+      !! $$S_{x} = \frac{1}{n
+      !!               }\sum\limits_{i=1}^{n}\left( \frac{x_{i}-\overline{x}
+      !!               }{\sigma_{x}} \right)^3$$
+      !!
+      !! where:
+      !!
+      !! * x is a vector with real numbers.
+      !! * n is how many numbers are included in x.
+      MODULE PROCEDURE pskewness_sp
+      MODULE PROCEDURE pskewness_dp
+      MODULE PROCEDURE pskewness_qp
+   END INTERFACE pskewness
+
+
+
+
    CONTAINS
 
 
-      PURE FUNCTION mean_sp(values) RESULT(res)
+      PURE FUNCTION mean_sp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the mean value. It can
          !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
-         !! Real number with the average of values.
+         !! Real number with the average of x.
          INTEGER,PARAMETER                     :: prec = sp
          
          INCLUDE 'Statistics_M/include_mean.f90'
 
       END FUNCTION mean_sp
 
-      PURE FUNCTION mean_dp(values) RESULT(res)
+      PURE FUNCTION mean_dp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the mean value. It can
          !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
-         !! Real number with the average of values.
+         !! Real number with the average of x.
          INTEGER,PARAMETER                     :: prec = dp
          
          INCLUDE 'Statistics_M/include_mean.f90'
 
       END FUNCTION mean_dp
 
-      PURE FUNCTION mean_qp(values) RESULT(res)
+      PURE FUNCTION mean_qp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the mean value. It can
          !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
-         !! Real number with the average of values.
+         !! Real number with the average of x.
          INTEGER,PARAMETER                     :: prec = qp
          
          INCLUDE 'Statistics_M/include_mean.f90'
 
       END FUNCTION mean_qp
 
-      PURE FUNCTION gmean_sp(values) RESULT(res)
+      PURE FUNCTION gmean_sp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the geometric mean. It can
          !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
-         !! Real number with the geometric mean of the values.
+         !! Real number with the geometric mean of the x.
          INTEGER,PARAMETER                     :: prec = sp
 
          INCLUDE 'Statistics_M/include_gmean.f90'
 
       END FUNCTION gmean_sp
 
-      PURE FUNCTION gmean_dp(values) RESULT(res)
+      PURE FUNCTION gmean_dp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the geometric mean. It can
          !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
-         !! Real number with the geometric mean of the values.
+         !! Real number with the geometric mean of the x.
          INTEGER,PARAMETER                     :: prec = dp
 
          INCLUDE 'Statistics_M/include_gmean.f90'
 
       END FUNCTION gmean_dp
 
-      PURE FUNCTION gmean_qp(values) RESULT(res)
+      PURE FUNCTION gmean_qp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the geometric mean. It can
          !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
-         !! Real number with the geometric mean of the values.
+         !! Real number with the geometric mean of the x.
          INTEGER,PARAMETER                     :: prec = qp
 
          INCLUDE 'Statistics_M/include_gmean.f90'
@@ -284,13 +417,13 @@ MODULE FU_Statistics
       END FUNCTION gmean_qp
 
 
-      PURE FUNCTION variance_sp(values) RESULT(res)
+      PURE FUNCTION variance_sp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the sample variance. It can
          !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
-         !! Real number with the sample variance of values.
+         !! Real number with the sample variance of x.
          INTEGER,PARAMETER                     :: prec = sp
          REAL(KIND=sp)                         :: avg
 
@@ -298,13 +431,13 @@ MODULE FU_Statistics
 
       END FUNCTION variance_sp
 
-      PURE FUNCTION variance_dp(values) RESULT(res)
+      PURE FUNCTION variance_dp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the sample variance. It can
          !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
-         !! Real number with the sample variance of values.
+         !! Real number with the sample variance of x.
          INTEGER,PARAMETER                     :: prec = dp
          REAL(KIND=dp)                         :: avg
 
@@ -312,13 +445,13 @@ MODULE FU_Statistics
 
       END FUNCTION variance_dp
 
-      PURE FUNCTION variance_qp(values) RESULT(res)
+      PURE FUNCTION variance_qp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the sample variance. It can
          !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
-         !! Real number with the sample variance of values.
+         !! Real number with the sample variance of x.
          INTEGER,PARAMETER                     :: prec = qp
          REAL(KIND=qp)                         :: avg
 
@@ -327,127 +460,127 @@ MODULE FU_Statistics
       END FUNCTION variance_qp
 
 
-      PURE FUNCTION stdev_sp(values) RESULT(res)
+      PURE FUNCTION stdev_sp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the sample standard deviation.
          !! It can have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
-         !! Real number with the sample standard deviation of values.
+         !! Real number with the sample standard deviation of x.
 
-         res = SQRT(variance(values))
+         res = SQRT(variance(x))
 
       END FUNCTION stdev_sp
 
-      PURE FUNCTION stdev_dp(values) RESULT(res)
+      PURE FUNCTION stdev_dp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the sample standard deviation.
          !! It can have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
-         !! Real number with the sample standard deviation of values.
+         !! Real number with the sample standard deviation of x.
 
-         res = SQRT(variance(values))
+         res = SQRT(variance(x))
 
       END FUNCTION stdev_dp
 
-      PURE FUNCTION stdev_qp(values) RESULT(res)
+      PURE FUNCTION stdev_qp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the sample standard deviation.
          !! It can have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
-         !! Real number with the sample standard deviation of values.
+         !! Real number with the sample standard deviation of x.
 
-         res = SQRT(variance(values))
+         res = SQRT(variance(x))
 
       END FUNCTION stdev_qp
 
 
 
-      PURE FUNCTION pvariance_sp(values) RESULT(res)
+      PURE FUNCTION pvariance_sp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the population variance.
          !! It can have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
-         !! Real number with the variance of values.
+         !! Real number with the variance of x.
          INTEGER,PARAMETER                     :: prec = sp
 
-         res = variance(values) * REAL(SIZE(values) - 1, prec) / REAL(SIZE(values),prec)
+         res = variance(x) * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pvariance_sp
 
-      PURE FUNCTION pvariance_dp(values) RESULT(res)
+      PURE FUNCTION pvariance_dp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the population variance.
          !! It can have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
-         !! Real number with the variance of values.
+         !! Real number with the variance of x.
          INTEGER,PARAMETER                     :: prec = dp
 
-         res = variance(values) * REAL(SIZE(values) - 1, prec) / REAL(SIZE(values),prec)
+         res = variance(x) * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pvariance_dp
 
-      PURE FUNCTION pvariance_qp(values) RESULT(res)
+      PURE FUNCTION pvariance_qp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the population variance.
          !! It can have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
-         !! Real number with the variance of values.
+         !! Real number with the variance of x.
          INTEGER,PARAMETER                     :: prec = qp
 
-         res = variance(values) * REAL(SIZE(values) - 1, prec) / REAL(SIZE(values),prec)
+         res = variance(x) * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pvariance_qp
 
 
-      PURE FUNCTION pstdev_sp(values) RESULT(res)
+      PURE FUNCTION pstdev_sp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the population standard deviation. 
          !! It can have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
-         !! Real number with the population standard deviation of values.
+         !! Real number with the population standard deviation of x.
 
-         res = SQRT(pvariance(values))
+         res = SQRT(pvariance(x))
 
       END FUNCTION pstdev_sp
 
-      PURE FUNCTION pstdev_dp(values) RESULT(res)
+      PURE FUNCTION pstdev_dp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the population standard deviation. 
          !! It can have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
-         !! Real number with the population standard deviation of values.
+         !! Real number with the population standard deviation of x.
 
-         res = SQRT(pvariance(values))
+         res = SQRT(pvariance(x))
 
       END FUNCTION pstdev_dp
 
-      PURE FUNCTION pstdev_qp(values) RESULT(res)
+      PURE FUNCTION pstdev_qp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the population standard deviation. 
          !! It can have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
-         !! Real number with the population standard deviation of values.
+         !! Real number with the population standard deviation of x.
 
-         res = SQRT(pvariance(values))
+         res = SQRT(pvariance(x))
 
       END FUNCTION pstdev_qp
 
 
-      PURE FUNCTION covariance_sp(values1,values2) RESULT(res)
+      PURE FUNCTION covariance_sp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
@@ -459,12 +592,12 @@ MODULE FU_Statistics
 
       END FUNCTION covariance_sp
 
-      PURE FUNCTION covariance_dp(values1,values2) RESULT(res)
+      PURE FUNCTION covariance_dp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
@@ -476,12 +609,12 @@ MODULE FU_Statistics
 
       END FUNCTION covariance_dp
 
-      PURE FUNCTION covariance_qp(values1,values2) RESULT(res)
+      PURE FUNCTION covariance_qp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
@@ -495,65 +628,65 @@ MODULE FU_Statistics
 
 
 
-      PURE FUNCTION pcovariance_sp(values1,values2) RESULT(res)
+      PURE FUNCTION pcovariance_sp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
          !! Real number with the population covariance between both variables.
          INTEGER,PARAMETER                     :: prec = sp
 
-         res = covariance(values1,values2) &
-            * REAL(SIZE(values1) - 1, prec) / REAL(SIZE(values1),prec)
+         res = covariance(x,y) &
+            * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pcovariance_sp
 
-      PURE FUNCTION pcovariance_dp(values1,values2) RESULT(res)
+      PURE FUNCTION pcovariance_dp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
          !! Real number with the population covariance between both variables.
          INTEGER,PARAMETER                     :: prec = dp
 
-         res = covariance(values1,values2) &
-            * REAL(SIZE(values1) - 1, prec) / REAL(SIZE(values1),prec)
+         res = covariance(x,y) &
+            * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pcovariance_dp
 
-      PURE FUNCTION pcovariance_qp(values1,values2) RESULT(res)
+      PURE FUNCTION pcovariance_qp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
          !! Real number with the population covariance between both variables.
          INTEGER,PARAMETER                     :: prec = qp
 
-         res = covariance(values1,values2) &
-            * REAL(SIZE(values1) - 1, prec) / REAL(SIZE(values1),prec)
+         res = covariance(x,y) &
+            * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pcovariance_qp
 
 
 
-      PURE FUNCTION correlation_sp(values1,values2) RESULT(res)
+      PURE FUNCTION correlation_sp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=sp)                         :: res
@@ -564,12 +697,12 @@ MODULE FU_Statistics
 
       END FUNCTION correlation_sp
 
-      PURE FUNCTION correlation_dp(values1,values2) RESULT(res)
+      PURE FUNCTION correlation_dp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=dp)                         :: res
@@ -580,12 +713,12 @@ MODULE FU_Statistics
 
       END FUNCTION correlation_dp
 
-      PURE FUNCTION correlation_qp(values1,values2) RESULT(res)
+      PURE FUNCTION correlation_qp(x,y) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values1
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers with the values of the first variable. It can
          !! have any size and it must have one dimension.
-         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: values2
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: y
          !! Vector of real numbers with the values of the second variable. It can
          !! have any size and it must have one dimension.
          REAL(KIND=qp)                         :: res
@@ -644,38 +777,142 @@ MODULE FU_Statistics
       END FUNCTION lin_error_propagation_qp
 
 
-      FUNCTION median_sp(values) RESULT(res)
+      FUNCTION median_sp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the median. It can
          !! have any size and it must have one dimension.
          REAL(KIND=sp) :: res
          !! Real number with the median
-         REAL(KIND=sp),DIMENSION(SIZE(values)) :: values_cp
-         ! values_cp is a copy of values to avoid modifying it when ordering
-         INTEGER :: size_values
+         REAL(KIND=sp),DIMENSION(SIZE(x)) :: x_cp
+         ! x_cp is a copy of x to avoid modifying it when ordering
+         INTEGER :: size_x
          INTEGER,PARAMETER                     :: prec = sp
 
          INCLUDE 'Statistics_M/include_median.f90'
 
       END FUNCTION median_sp
 
-      FUNCTION median_dp(values) RESULT(res)
+      FUNCTION median_dp(x) RESULT(res)
          IMPLICIT NONE
-         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: values
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
          !! Vector of real numbers to calculate the median. It can
          !! have any size and it must have one dimension.
          REAL(KIND=dp) :: res
          !! Real number with the median
-         REAL(KIND=dp),DIMENSION(SIZE(values)) :: values_cp
-         ! values_cp is a copy of values to avoid modifying it when ordering
-         INTEGER :: size_values
+         REAL(KIND=dp),DIMENSION(SIZE(x)) :: x_cp
+         ! x_cp is a copy of x to avoid modifying it when ordering
+         INTEGER :: size_x
          INTEGER,PARAMETER                     :: prec = dp
 
          INCLUDE 'Statistics_M/include_median.f90'
 
       END FUNCTION median_dp
 
+
+      PURE FUNCTION skewness_sp(x) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
+         !! Vector of real numbers to calculate the sample skewness.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=sp)                         :: res
+         !! Real number with the sample skewness of the x.
+         REAL(KIND=sp)                         :: avg
+         ! mean value
+         REAL(KIND=sp)                         :: sd
+         ! standard deviation
+         INTEGER                               :: n
+
+         INCLUDE 'Statistics_M/include_skewness.f90'
+
+      END FUNCTION skewness_sp
+
+      PURE FUNCTION skewness_dp(x) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
+         !! Vector of real numbers to calculate the sample skewness.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=dp)                         :: res
+         !! Real number with the sample skewness of the x.
+         REAL(KIND=dp)                         :: avg
+         ! mean value
+         REAL(KIND=dp)                         :: sd
+         ! standard deviation
+         INTEGER                               :: n
+
+         INCLUDE 'Statistics_M/include_skewness.f90'
+
+      END FUNCTION skewness_dp
+
+      PURE FUNCTION skewness_qp(x) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
+         !! Vector of real numbers to calculate the sample skewness.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=qp)                         :: res
+         !! Real number with the sample skewness of the x.
+         REAL(KIND=qp)                         :: avg
+         ! mean value
+         REAL(KIND=qp)                         :: sd
+         ! standard deviation
+         INTEGER                               :: n
+
+         INCLUDE 'Statistics_M/include_skewness.f90'
+
+      END FUNCTION skewness_qp
+
+
+
+      PURE FUNCTION pskewness_sp(x) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp),DIMENSION(:),INTENT(IN) :: x
+         !! Vector of real numbers to calculate the population skewness.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=sp)                         :: res
+         !! Real number with the population skewness of the x.
+         REAL(KIND=sp)                         :: avg
+         ! mean value
+         REAL(KIND=sp)                         :: sd
+         ! standard deviation
+         INTEGER                               :: n
+
+         INCLUDE 'Statistics_M/include_pskewness.f90'
+
+      END FUNCTION pskewness_sp
+
+      PURE FUNCTION pskewness_dp(x) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp),DIMENSION(:),INTENT(IN) :: x
+         !! Vector of real numbers to calculate the population skewness.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=dp)                         :: res
+         !! Real number with the population skewness of the x.
+         REAL(KIND=dp)                         :: avg
+         ! mean value
+         REAL(KIND=dp)                         :: sd
+         ! standard deviation
+         INTEGER                               :: n
+
+         INCLUDE 'Statistics_M/include_pskewness.f90'
+
+      END FUNCTION pskewness_dp
+
+      PURE FUNCTION pskewness_qp(x) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
+         !! Vector of real numbers to calculate the population skewness.
+         !! It can have any size and it must have one dimension.
+         REAL(KIND=qp)                         :: res
+         !! Real number with the population skewness of the x.
+         REAL(KIND=qp)                         :: avg
+         ! mean value
+         REAL(KIND=qp)                         :: sd
+         ! standard deviation
+         INTEGER                               :: n
+
+         INCLUDE 'Statistics_M/include_pskewness.f90'
+
+      END FUNCTION pskewness_qp
 
 
 END MODULE FU_Statistics

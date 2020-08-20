@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.7% of total for procedures.</p>Including implementation: 26 statements,  8.7% of total for procedures.">5 statements</a>
+    title="<p> 1.6% of total for procedures.</p>Including implementation: 26 statements,  8.4% of total for procedures.">5 statements</a>
      </li> 
      
      
@@ -212,7 +212,16 @@
     <div class="col-md-9" id='text'>
       <h2>public interface pvariance</h2>
    <p>Calculates the population variance of a set of values given in a vector
- of any size with one dimension.</p>
+ of any size with one dimension applying the following equation:</p>
+<p>
+<script type="math/tex; mode=display">\sigma^{2} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+              \overline{x}\right)^2}{n}</script>
+</p>
+<p>where:</p>
+<ul>
+<li>x is a vector with real numbers.</li>
+<li>n is how many numbers are included in x.</li>
+</ul>
      
      
     <br>
@@ -272,7 +281,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-pvariance_sp"></span><h3>
-private pure function pvariance_sp(values) result(res)
+private pure function pvariance_sp(x) result(res)
     
     
    
@@ -305,7 +314,7 @@ private pure function pvariance_sp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the population variance.
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the population variance.
  It can have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -323,7 +332,7 @@ private pure function pvariance_sp(values) result(res)
   
      <h4>Return Value <small>real(kind=sp)
   </small></h4>
-  <p>Real number with the variance of values.</p>
+  <p>Real number with the variance of x.</p>
     
 
   </div>
@@ -333,7 +342,7 @@ private pure function pvariance_sp(values) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-pvariance_dp"></span><h3>
-private pure function pvariance_dp(values) result(res)
+private pure function pvariance_dp(x) result(res)
     
     
    
@@ -366,7 +375,7 @@ private pure function pvariance_dp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the population variance.
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the population variance.
  It can have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -384,7 +393,7 @@ private pure function pvariance_dp(values) result(res)
   
      <h4>Return Value <small>real(kind=dp)
   </small></h4>
-  <p>Real number with the variance of values.</p>
+  <p>Real number with the variance of x.</p>
     
 
   </div>
@@ -394,7 +403,7 @@ private pure function pvariance_dp(values) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-pvariance_qp"></span><h3>
-private pure function pvariance_qp(values) result(res)
+private pure function pvariance_qp(x) result(res)
     
     
    
@@ -427,7 +436,7 @@ private pure function pvariance_qp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the population variance.
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the population variance.
  It can have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -445,7 +454,7 @@ private pure function pvariance_qp(values) result(res)
   
      <h4>Return Value <small>real(kind=qp)
   </small></h4>
-  <p>Real number with the variance of values.</p>
+  <p>Real number with the variance of x.</p>
     
 
   </div>

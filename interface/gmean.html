@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.7% of total for procedures.</p>Including implementation: 26 statements,  8.7% of total for procedures.">5 statements</a>
+    title="<p> 1.6% of total for procedures.</p>Including implementation: 26 statements,  8.4% of total for procedures.">5 statements</a>
      </li> 
      
      
@@ -212,7 +212,16 @@
     <div class="col-md-9" id='text'>
       <h2>public interface gmean</h2>
    <p>Calculates the geometric mean of a set of values given in a vector
- of any size with one dimension.</p>
+ of any size with one dimension applying the following equation:</p>
+<p>
+<script type="math/tex; mode=display">\overline{x} = \left(\prod\limits_{i=1}^{n}x_{i}\right)^\frac{1}{n}
+ = \sqrt[n]{x_{1} \times x_{2} \times \dots \times x_{n}}</script>
+</p>
+<p>where:</p>
+<ul>
+<li>x is a vector with real numbers.</li>
+<li>n is how many numbers are included in x.</li>
+</ul>
      
      
     <br>
@@ -272,7 +281,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-gmean_sp"></span><h3>
-private pure function gmean_sp(values) result(res)
+private pure function gmean_sp(x) result(res)
     
     
    
@@ -305,7 +314,7 @@ private pure function gmean_sp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -323,7 +332,7 @@ private pure function gmean_sp(values) result(res)
   
      <h4>Return Value <small>real(kind=sp)
   </small></h4>
-  <p>Real number with the geometric mean of the values.</p>
+  <p>Real number with the geometric mean of the x.</p>
     
 
   </div>
@@ -333,7 +342,7 @@ private pure function gmean_sp(values) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-gmean_dp"></span><h3>
-private pure function gmean_dp(values) result(res)
+private pure function gmean_dp(x) result(res)
     
     
    
@@ -366,7 +375,7 @@ private pure function gmean_dp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -384,7 +393,7 @@ private pure function gmean_dp(values) result(res)
   
      <h4>Return Value <small>real(kind=dp)
   </small></h4>
-  <p>Real number with the geometric mean of the values.</p>
+  <p>Real number with the geometric mean of the x.</p>
     
 
   </div>
@@ -394,7 +403,7 @@ private pure function gmean_dp(values) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-gmean_qp"></span><h3>
-private pure function gmean_qp(values) result(res)
+private pure function gmean_qp(x) result(res)
     
     
    
@@ -427,7 +436,7 @@ private pure function gmean_qp(values) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -445,7 +454,7 @@ private pure function gmean_qp(values) result(res)
   
      <h4>Return Value <small>real(kind=qp)
   </small></h4>
-  <p>Real number with the geometric mean of the values.</p>
+  <p>Real number with the geometric mean of the x.</p>
     
 
   </div>

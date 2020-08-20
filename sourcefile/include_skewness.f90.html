@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>include_mean.f90 &ndash; ecasglez's FortranUtilities</title>
+    <title>include_skewness.f90 &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -104,7 +104,7 @@
     
   
   <div class="row">
-    <h1>include_mean.f90
+    <h1>include_skewness.f90
     <small>Source File</small>
     
     </h1>
@@ -122,12 +122,12 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.1% of total for source files.">1 statements</a>
+    title=" 0.3% of total for source files.">4 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/include_mean.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/include_skewness.f90"> Source File</a></li>
      
      
   </ul>
@@ -135,7 +135,7 @@
   
     
   
-     <li class="active">include_mean.f90</li>
+     <li class="active">include_skewness.f90</li>
   </ol>
 </div>
 </div>
@@ -178,7 +178,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/include_mean.f90.html#src">include_mean.f90</a>
+    <a class="list-group-item" href="../sourcefile/include_skewness.f90.html#src">include_skewness.f90</a>
   </div>
 </div>
 
@@ -222,7 +222,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/include_mean.f90.html#src">include_mean.f90</a>
+    <a class="list-group-item" href="../sourcefile/include_skewness.f90.html#src">include_skewness.f90</a>
   </div>
 </div>
 
@@ -233,7 +233,10 @@
 
     <section>
       <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="n">res</span> <span class="o">=</span> <span class="nb">SUM</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="kt">REAL</span><span class="p">(</span><span class="n">SIZE</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">prec</span><span class="p">)</span>
+    <div class="hl"><pre><span></span><a name="ln-1"></a>  <span class="n">avg</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="ln-2"></a>  <span class="n">sd</span> <span class="o">=</span> <span class="n">stdev</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="ln-3"></a>  <span class="n">n</span> <span class="o">=</span> <span class="n">SIZE</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a name="ln-4"></a>  <span class="n">res</span> <span class="o">=</span> <span class="nb">SUM</span><span class="p">((</span><span class="n">x</span><span class="p">(:)</span><span class="o">-</span><span class="n">avg</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="n">sd</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
     </section>

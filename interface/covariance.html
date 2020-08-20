@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.7% of total for procedures.</p>Including implementation: 41 statements, 13.7% of total for procedures.">5 statements</a>
+    title="<p> 1.6% of total for procedures.</p>Including implementation: 41 statements, 13.2% of total for procedures.">5 statements</a>
      </li> 
      
      
@@ -212,7 +212,17 @@
     <div class="col-md-9" id='text'>
       <h2>public interface covariance</h2>
    <p>Calculates the sample covariance between two variables given in two vectors
- of any size with one dimension.</p>
+ of any size with one dimension applying the following equation:</p>
+<p>
+<script type="math/tex; mode=display">\sigma_{xy} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
+              \overline{x}\right)\left(y_{i} -
+              \overline{y}\right)}{n-1}</script>
+</p>
+<p>where:</p>
+<ul>
+<li>x and y are vectors with real numbers.</li>
+<li>n is how many numbers are included in x and y.</li>
+</ul>
      
      
     <br>
@@ -272,7 +282,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-covariance_sp"></span><h3>
-private pure function covariance_sp(values1, values2) result(res)
+private pure function covariance_sp(x, y) result(res)
     
     
    
@@ -305,7 +315,7 @@ private pure function covariance_sp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values1</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -321,7 +331,7 @@ private pure function covariance_sp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values2</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -349,7 +359,7 @@ private pure function covariance_sp(values1, values2) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-covariance_dp"></span><h3>
-private pure function covariance_dp(values1, values2) result(res)
+private pure function covariance_dp(x, y) result(res)
     
     
    
@@ -382,7 +392,7 @@ private pure function covariance_dp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values1</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -398,7 +408,7 @@ private pure function covariance_dp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values2</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -426,7 +436,7 @@ private pure function covariance_dp(values1, values2) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-covariance_qp"></span><h3>
-private pure function covariance_qp(values1, values2) result(res)
+private pure function covariance_qp(x, y) result(res)
     
     
    
@@ -459,7 +469,7 @@ private pure function covariance_qp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values1</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>
@@ -475,7 +485,7 @@ private pure function covariance_qp(values1, values2) result(res)
   <td></td>
   
   <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>values2</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
  have any size and it must have one dimension.</p></td>
   
 </tr>

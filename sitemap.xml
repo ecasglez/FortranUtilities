@@ -25,6 +25,9 @@
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_covariance.f90.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_pskewness.f90.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_num2strint.f90.html</loc>
    </url>
    <url>
@@ -32,6 +35,9 @@
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/prec_m.f90.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_skewness.f90.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_num2strreal.f90.html</loc>
@@ -67,6 +73,9 @@
       <loc>https://ecasglez.github.io/FortranUtilities/interface/pvariance.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/skewness.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/str2num.html</loc>
    </url>
    <url>
@@ -95,6 +104,9 @@
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/median.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/pskewness.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/pstdev.html</loc>
