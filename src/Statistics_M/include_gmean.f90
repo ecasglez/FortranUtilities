@@ -1,1 +1,1 @@
-res = PRODUCT(values)**(1._prec/REAL(SIZE(values),prec))
+res = PRODUCT(x)**(1._prec/REAL(SIZE(x),prec))

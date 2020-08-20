@@ -138,6 +138,12 @@ PROGRAM FortranUtilitiesTest
    CALL test('median',ABS(median(vec2Dp) - 6.2500000000000000) < 1E-10)
    CALL test('median',ABS(median(vec2Sp(:SIZE(vec2Sp) - 1)) - 4.30000019) < 1E-10)
    CALL test('median',ABS(median(vec2Dp(:SIZE(vec2Sp) - 1)) - 4.3000001907348633) < 1E-10)
+   CALL test('skewness',ABS(skewness(vec1Sp) - (-7.22614899E-02)) < 1E10)
+   CALL test('skewness',ABS(skewness(vec1Dp) - (-7.2262060797200045E-002)) < 1E10)
+   CALL test('skewness',ABS(skewness(vec1Qp) - (-7.22620607971998014386482122745445625E-0002)) < 1E10)
+   CALL test('pskewness',ABS(pskewness(vec1Sp) - (-5.27723245E-02)) < 1E10)
+   CALL test('pskewness',ABS(pskewness(vec1Dp) - (-5.2772747667248286E-002)) < 1E10)
+   CALL test('pskewness',ABS(pskewness(vec1Qp) - (-5.27727476672481041162418142064811042E-0002)) < 1E10)
    CALL test('is_nan',.NOT.is_nan(5._sp))
    CALL test('is_nan',.NOT.is_nan(5._dp))
    CALL test('is_nan',.NOT.is_nan(5._qp))
@@ -267,7 +273,6 @@ PROGRAM FortranUtilitiesTest
 #endif
 
    CALL test('summary',.TRUE.)
-
 
    CONTAINS
       SUBROUTINE test(testname, testRes)
