@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>stdev &ndash; ecasglez's FortranUtilities</title>
+    <title>cistrcmp &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -104,8 +104,8 @@
     
   
   <div class="row">
-    <h1>stdev
-   <small>Interface</small>
+    <h1>cistrcmp
+      <small>Function</small>
     
     </h1>
     
@@ -117,7 +117,7 @@
      <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
-    <li><i class="fa fa-calendar-o"></i> 09/06/2020.</li>
+    <li><i class="fa fa-calendar-o"></i> 20/08/2020.</li>
      
      
     <li><i class="fa fa-legal"></i> MIT.</li>
@@ -130,24 +130,24 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.4% of total for procedures.</p>Including implementation: 23 statements,  6.6% of total for procedures.">5 statements</a>
+    title=" 2.0% of total for procedures.">7 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Statistics_M.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Strings_M.f90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/statistics_m.f90.html'>Statistics_M.f90</a></li>
+     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.f90</a></li>
     
-     <li><a href='../module/fu_statistics.html'>FU_Statistics</a></li>
+     <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
     
   
-     <li class="active">stdev</li>
+     <li class="active">cistrcmp</li>
   </ol>
 </div>
 </div>
@@ -162,7 +162,7 @@
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-      
+    
 <div id="sidebar">
   
 <h3>Contents</h3>
@@ -187,22 +187,8 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-0">Module Procedures</a></h3></div>
-  <div id="modprocs-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../interface/stdev.html#moduleprocedure-stdev_sp">stdev_sp</a>
-      
-      <a class="list-group-item" href="../interface/stdev.html#moduleprocedure-stdev_dp">stdev_dp</a>
-      
-      <a class="list-group-item" href="../interface/stdev.html#moduleprocedure-stdev_qp">stdev_qp</a>
-      
-    </div>
-  </div>
-</div>
 
-
+<em>None</em>
 
 
 </div>
@@ -210,24 +196,83 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface stdev</h2>
-   <p>Calculates the sample standard deviation of a set of values given in a vector
- of any size with one dimension applying the following equation:</p>
-<p>
-<script type="math/tex; mode=display">\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n}\left(x_{i} -
-              \overline{x}\right)^2}{n-1}}</script>
-</p>
-<p>where:</p>
-<ul>
-<li>x is a vector with real numbers.</li>
-<li>n is how many numbers are included in x.</li>
-</ul>
-     
+    <h2>
+public pure function cistrcmp(str1, str2) result(res)
+    
+    
+   
+</h2>
+    
+  
+
+
+    
+    <p>Case-independent string comparison (Only works with ASCII characters).</p>
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-str1"></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str1</strong></td><td><p>First string to compare.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-str2"></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str2</strong></td><td><p>Second string to compare</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+    
+    
+    
+    
+   <h3>Return Value <small><span class="anchor" id="variable-res%7E7"></span>logical
+  </small></h3>
+    <p>True if both strings are equal independently of the case. False otherwise.</p>
+    
+    
+    
      
     <br>
 
-     <section class="visible-xs visible-sm hidden-md">
-       
+    <section class="visible-xs visible-sm hidden-md">
+      
 <h3>Contents</h3>
  
 
@@ -250,221 +295,34 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-1">Module Procedures</a></h3></div>
-  <div id="modprocs-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../interface/stdev.html#moduleprocedure-stdev_sp">stdev_sp</a>
-      
-      <a class="list-group-item" href="../interface/stdev.html#moduleprocedure-stdev_dp">stdev_dp</a>
-      
-      <a class="list-group-item" href="../interface/stdev.html#moduleprocedure-stdev_qp">stdev_qp</a>
-      
+
+<em>None</em>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
     </div>
   </div>
-</div>
-
-
-
-
-     </section>
-     <br class="visible-xs visible-sm hidden-md">
-     
-  
-
-  
-
-  
-   <h2>Module Procedures</h2>
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-stdev_sp"></span><h3>
-private pure function stdev_sp(x) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the sample standard deviation.
- It can have any size and it must have one dimension.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=sp)
-  </small></h4>
-  <p>Real number with the sample standard deviation of x.</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-stdev_dp"></span><h3>
-private pure function stdev_dp(x) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the sample standard deviation.
- It can have any size and it must have one dimension.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=dp)
-  </small></h4>
-  <p>Real number with the sample standard deviation of x.</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-stdev_qp"></span><h3>
-private pure function stdev_qp(x) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the sample standard deviation.
- It can have any size and it must have one dimension.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=qp)
-  </small></h4>
-  <p>Real number with the sample standard deviation of x.</p>
-    
-
-  </div>
-  </div>
-
-   
-     
-
- </div>
-</div>
 
 
     <hr>    

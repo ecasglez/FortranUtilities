@@ -17,6 +17,7 @@ MODULE FU_Strings
    PRIVATE
    PUBLIC :: num2str, int2str00000, str2num
    PUBLIC :: startsWith, endsWith, splitstr, replace, mergeChars
+   PUBLIC :: upper, lower, cistrcmp
 
 
 
@@ -603,6 +604,76 @@ CONTAINS
       res = str
       FORALL (i=1:len(res)) res(i:i) = res(len(res)-i+1:len(res)-i+1)
    END FUNCTION strReverse
+
+
+
+   PURE FUNCTION upper(str) RESULT(res)
+      !! author: Emilio Castro.
+      !! date: 20/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Converts a string to uppercase characters.
+      !! Converts a string to uppercase characters.
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)  :: str
+      !! String to convert to uppercase characters (Only works with ASCII characters).
+      CHARACTER(LEN=:), ALLOCATABLE :: res
+      !! String converted to uppercase characters (Only works with ASCII characters).
+      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'abcdefghijklmnopqrstuvwxyz'
+      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      INTEGER :: i, pos
+      res = str
+      DO i = 1, LEN(res)
+         pos = INDEX(lowercase,res(i:i))
+         IF (pos /= 0) THEN
+            res(i:i) = uppercase(pos:pos)
+         END IF
+      END DO
+   END FUNCTION upper
+
+
+
+   PURE FUNCTION lower(str) RESULT(res)
+      !! author: Emilio Castro.
+      !! date: 20/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Converts a string to lowercase characters (Only works with ASCII characters).
+      !! Converts a string to lowercase characters (Only works with ASCII characters).
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)  :: str
+      !! String to convert to lowercase characters.
+      CHARACTER(LEN=:), ALLOCATABLE :: res
+      !! String converted to lowercase characters.
+      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'abcdefghijklmnopqrstuvwxyz'
+      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      INTEGER :: i, pos
+      res = str
+      DO i = 1, LEN(res)
+         pos = INDEX(uppercase,res(i:i))
+         IF (pos /= 0) THEN
+            res(i:i) = lowercase(pos:pos)
+         END IF
+      END DO
+   END FUNCTION lower
+
+
+   PURE FUNCTION cistrcmp(str1, str2) RESULT(res)
+      !! author: Emilio Castro.
+      !! date: 20/08/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Case-independent string comparison (Only works with ASCII characters).
+      !! Case-independent string comparison (Only works with ASCII characters).
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN) :: str1
+      !! First string to compare.
+      CHARACTER(LEN=*), INTENT(IN) :: str2
+      !! Second string to compare
+      LOGICAL                      :: res
+      !! True if both strings are equal independently of the case. False otherwise.
+      res = upper(str1) == upper(str2)
+   END FUNCTION cistrcmp
 
 
 

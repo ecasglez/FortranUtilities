@@ -130,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="37.7% of total for modules and submodules.">489 statements</a>
+    title="39.4% of total for modules and submodules.">527 statements</a>
      </li> 
      
      
@@ -208,6 +208,12 @@
       <a class="list-group-item" href="../module/fu_strings.html#proc-endswith">endsWith</a>
       
       <a class="list-group-item" href="../module/fu_strings.html#proc-replace">replace</a>
+      
+      <a class="list-group-item" href="../module/fu_strings.html#proc-upper">upper</a>
+      
+      <a class="list-group-item" href="../module/fu_strings.html#proc-lower">lower</a>
+      
+      <a class="list-group-item" href="../module/fu_strings.html#proc-cistrcmp">cistrcmp</a>
       
     </div>
   </div>
@@ -304,6 +310,12 @@
       <a class="list-group-item" href="../module/fu_strings.html#proc-endswith">endsWith</a>
       
       <a class="list-group-item" href="../module/fu_strings.html#proc-replace">replace</a>
+      
+      <a class="list-group-item" href="../module/fu_strings.html#proc-upper">upper</a>
+      
+      <a class="list-group-item" href="../module/fu_strings.html#proc-lower">lower</a>
+      
+      <a class="list-group-item" href="../module/fu_strings.html#proc-cistrcmp">cistrcmp</a>
       
     </div>
   </div>
@@ -2560,6 +2572,273 @@ public pure function <a href='../proc/replace.html'>replace</a>(str, search, rep
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>Modified string.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-upper"></span><h3>
+public pure function <a href='../proc/upper.html'>upper</a>(str) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>20/08/2020.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Converts a string to uppercase characters.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str</strong></td><td><p>String to convert to uppercase characters (Only works with ASCII characters).</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  ALLOCATABLE</small></h4>
+  <p>String converted to uppercase characters (Only works with ASCII characters).</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-lower"></span><h3>
+public pure function <a href='../proc/lower.html'>lower</a>(str) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>20/08/2020.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Converts a string to lowercase characters (Only works with ASCII characters).</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str</strong></td><td><p>String to convert to lowercase characters.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  ALLOCATABLE</small></h4>
+  <p>String converted to lowercase characters.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-cistrcmp"></span><h3>
+public pure function <a href='../proc/cistrcmp.html'>cistrcmp</a>(str1, str2) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>20/08/2020.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Case-independent string comparison (Only works with ASCII characters).</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str1</strong></td><td><p>First string to compare.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str2</strong></td><td><p>Second string to compare</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if both strings are equal independently of the case. False otherwise.</p>
     
 
   </div>

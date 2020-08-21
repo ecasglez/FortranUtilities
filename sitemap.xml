@@ -169,7 +169,13 @@
       <loc>https://ecasglez.github.io/FortranUtilities/proc/is_path_absolute.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/proc/cistrcmp.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/mergechars.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/proc/upper.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/stem.html</loc>
@@ -188,6 +194,9 @@
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/rm.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/proc/lower.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/mkdir.html</loc>
