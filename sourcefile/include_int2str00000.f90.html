@@ -122,7 +122,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.4% of total for source files.">5 statements</a>
+    title=" 0.1% of total for source files.">2 statements</a>
      </li> 
      
      
@@ -233,13 +233,9 @@
 
     <section>
       <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="n">num_digits</span> <span class="o">=</span> <span class="n">count_digits_integer</span> <span class="p">(</span><span class="n">integ</span><span class="p">)</span>
-<a name="ln-2"></a><span class="n">num_zeros</span> <span class="o">=</span> <span class="n">total_length</span> <span class="o">-</span> <span class="n">num_digits</span>
-<a name="ln-3"></a>
-<a name="ln-4"></a><span class="c">!Automatic allocation is not allowed in the write statements.</span>
-<a name="ln-5"></a><span class="k">ALLOCATE</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">total_length</span><span class="p">)</span> <span class="kd">::</span> <span class="n">str</span><span class="p">)</span>
-<a name="ln-6"></a><span class="n">str</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">num_zeros</span><span class="p">)</span> <span class="o">=</span> <span class="nb">REPEAT</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="n">num_zeros</span><span class="p">)</span>
-<a name="ln-7"></a><span class="k">WRITE</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">num_zeros</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="s1">&#39;(I0)&#39;</span><span class="p">)</span> <span class="n">integ</span>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="c">!Automatic allocation is not allowed in the write statements.</span>
+<a name="ln-2"></a><span class="k">ALLOCATE</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">total_length</span><span class="p">)</span> <span class="kd">::</span> <span class="n">str</span><span class="p">)</span>
+<a name="ln-3"></a><span class="k">WRITE</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="s1">&#39;(I0.&#39;</span><span class="o">//</span><span class="n">num2str</span><span class="p">(</span><span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;)&#39;</span><span class="p">)</span> <span class="n">integ</span>
 </pre></div>
 
     </section>
