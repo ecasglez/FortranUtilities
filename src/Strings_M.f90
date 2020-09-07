@@ -388,8 +388,6 @@ CONTAINS
       !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
-      !local
-      INTEGER(KIND=i8)             :: num_digits, num_zeros
 
       INCLUDE 'Strings_M/include_int2str00000.f90' 
 
@@ -404,8 +402,6 @@ CONTAINS
       !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
-      !local
-      INTEGER(KIND=i16)            :: num_digits, num_zeros
 
       INCLUDE 'Strings_M/include_int2str00000.f90' 
 
@@ -420,8 +416,6 @@ CONTAINS
       !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
-      !local
-      INTEGER(KIND=i32)            :: num_digits, num_zeros
 
       INCLUDE 'Strings_M/include_int2str00000.f90' 
 
@@ -436,8 +430,6 @@ CONTAINS
       !! Number of digits to use, including zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
-      !local
-      INTEGER(KIND=i64)            :: num_digits, num_zeros
 
       INCLUDE 'Strings_M/include_int2str00000.f90' 
 

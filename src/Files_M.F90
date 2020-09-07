@@ -24,7 +24,7 @@ MODULE FU_Files
 
 
 #ifdef WIN_CPP
-         CHARACTER,PARAMETER :: filesep = '\'
+         CHARACTER,PARAMETER :: filesep = ACHAR(92)
          !! Path separator: '\' for Windows and '/' for Linux, MacOS and other OS.
 #elif LIN_CPP
          CHARACTER,PARAMETER :: filesep = '/'
