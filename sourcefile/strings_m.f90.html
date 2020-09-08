@@ -864,72 +864,75 @@
 <a name="ln-605"></a>      <span class="c">!! version: 1.0.</span>
 <a name="ln-606"></a>      <span class="c">!! license: MIT.</span>
 <a name="ln-607"></a>      <span class="c">!! summary: Converts a string to uppercase characters.</span>
-<a name="ln-608"></a>      <span class="c">!! Converts a string to uppercase characters.</span>
-<a name="ln-609"></a>      <span class="k">IMPLICIT NONE</span>
-<a name="ln-610"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
-<a name="ln-611"></a>      <span class="c">!! String to convert to uppercase characters (Only works with ASCII characters).</span>
-<a name="ln-612"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">res</span>
-<a name="ln-613"></a>      <span class="c">!! String converted to uppercase characters (Only works with ASCII characters).</span>
-<a name="ln-614"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">lowercase</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
-<a name="ln-615"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">uppercase</span> <span class="o">=</span> <span class="s1">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>
-<a name="ln-616"></a>      <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">pos</span>
-<a name="ln-617"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
-<a name="ln-618"></a>      <span class="k">DO </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">LEN</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="ln-619"></a>         <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">lowercase</span><span class="p">,</span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">))</span>
-<a name="ln-620"></a>         <span class="k">IF</span> <span class="p">(</span><span class="n">pos</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-621"></a><span class="k">            </span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">uppercase</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="p">)</span>
-<a name="ln-622"></a>         <span class="k">END IF</span>
-<a name="ln-623"></a><span class="k">      END DO</span>
-<a name="ln-624"></a><span class="k">   END FUNCTION </span><span class="n">upper</span>
-<a name="ln-625"></a>
+<a name="ln-608"></a>      <span class="c">!! Converts a string to uppercase characters. It works with this dataset:</span>
+<a name="ln-609"></a>      <span class="c">!! &#39;aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz&#39;</span>
+<a name="ln-610"></a>      <span class="k">IMPLICIT NONE</span>
+<a name="ln-611"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
+<a name="ln-612"></a>      <span class="c">!! String to convert to uppercase characters.</span>
+<a name="ln-613"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">res</span>
+<a name="ln-614"></a>      <span class="c">!! String converted to uppercase characters.</span>
+<a name="ln-615"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">lowercase</span> <span class="o">=</span> <span class="s1">&#39;aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz&#39;</span>
+<a name="ln-616"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">uppercase</span> <span class="o">=</span> <span class="s1">&#39;AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ&#39;</span>
+<a name="ln-617"></a>      <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">pos</span>
+<a name="ln-618"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
+<a name="ln-619"></a>      <span class="k">DO </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">LEN</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-620"></a>         <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">lowercase</span><span class="p">,</span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">))</span>
+<a name="ln-621"></a>         <span class="k">IF</span> <span class="p">(</span><span class="n">pos</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-622"></a><span class="k">            </span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">uppercase</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="p">)</span>
+<a name="ln-623"></a>         <span class="k">END IF</span>
+<a name="ln-624"></a><span class="k">      END DO</span>
+<a name="ln-625"></a><span class="k">   END FUNCTION </span><span class="n">upper</span>
 <a name="ln-626"></a>
 <a name="ln-627"></a>
-<a name="ln-628"></a>   <span class="k">PURE FUNCTION </span><span class="n">lower</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="ln-629"></a>      <span class="c">!! author: Emilio Castro.</span>
-<a name="ln-630"></a>      <span class="c">!! date: 20/08/2020.</span>
-<a name="ln-631"></a>      <span class="c">!! version: 1.0.</span>
-<a name="ln-632"></a>      <span class="c">!! license: MIT.</span>
-<a name="ln-633"></a>      <span class="c">!! summary: Converts a string to lowercase characters (Only works with ASCII characters).</span>
-<a name="ln-634"></a>      <span class="c">!! Converts a string to lowercase characters (Only works with ASCII characters).</span>
-<a name="ln-635"></a>      <span class="k">IMPLICIT NONE</span>
-<a name="ln-636"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
-<a name="ln-637"></a>      <span class="c">!! String to convert to lowercase characters.</span>
-<a name="ln-638"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">res</span>
-<a name="ln-639"></a>      <span class="c">!! String converted to lowercase characters.</span>
-<a name="ln-640"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">lowercase</span> <span class="o">=</span> <span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
-<a name="ln-641"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">uppercase</span> <span class="o">=</span> <span class="s1">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>
-<a name="ln-642"></a>      <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">pos</span>
-<a name="ln-643"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
-<a name="ln-644"></a>      <span class="k">DO </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">LEN</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="ln-645"></a>         <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">uppercase</span><span class="p">,</span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">))</span>
-<a name="ln-646"></a>         <span class="k">IF</span> <span class="p">(</span><span class="n">pos</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
-<a name="ln-647"></a><span class="k">            </span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">lowercase</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="p">)</span>
-<a name="ln-648"></a>         <span class="k">END IF</span>
-<a name="ln-649"></a><span class="k">      END DO</span>
-<a name="ln-650"></a><span class="k">   END FUNCTION </span><span class="n">lower</span>
-<a name="ln-651"></a>
-<a name="ln-652"></a>
-<a name="ln-653"></a>   <span class="k">PURE FUNCTION </span><span class="n">cistrcmp</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="n">str2</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<a name="ln-654"></a>      <span class="c">!! author: Emilio Castro.</span>
-<a name="ln-655"></a>      <span class="c">!! date: 20/08/2020.</span>
-<a name="ln-656"></a>      <span class="c">!! version: 1.0.</span>
-<a name="ln-657"></a>      <span class="c">!! license: MIT.</span>
-<a name="ln-658"></a>      <span class="c">!! summary: Case-independent string comparison (Only works with ASCII characters).</span>
-<a name="ln-659"></a>      <span class="c">!! Case-independent string comparison (Only works with ASCII characters).</span>
-<a name="ln-660"></a>      <span class="k">IMPLICIT NONE</span>
-<a name="ln-661"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">str1</span>
-<a name="ln-662"></a>      <span class="c">!! First string to compare.</span>
-<a name="ln-663"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">str2</span>
-<a name="ln-664"></a>      <span class="c">!! Second string to compare</span>
-<a name="ln-665"></a>      <span class="kt">LOGICAL</span>                      <span class="kd">::</span> <span class="n">res</span>
-<a name="ln-666"></a>      <span class="c">!! True if both strings are equal independently of the case. False otherwise.</span>
-<a name="ln-667"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">upper</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span> <span class="o">==</span> <span class="n">upper</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
-<a name="ln-668"></a>   <span class="k">END FUNCTION </span><span class="n">cistrcmp</span>
-<a name="ln-669"></a>
-<a name="ln-670"></a>
-<a name="ln-671"></a>
+<a name="ln-628"></a>
+<a name="ln-629"></a>   <span class="k">PURE FUNCTION </span><span class="n">lower</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-630"></a>      <span class="c">!! author: Emilio Castro.</span>
+<a name="ln-631"></a>      <span class="c">!! date: 20/08/2020.</span>
+<a name="ln-632"></a>      <span class="c">!! version: 1.0.</span>
+<a name="ln-633"></a>      <span class="c">!! license: MIT.</span>
+<a name="ln-634"></a>      <span class="c">!! summary: Converts a string to lowercase characters.</span>
+<a name="ln-635"></a>      <span class="c">!! Converts a string to lowercase characters. It works with this dataset</span>
+<a name="ln-636"></a>      <span class="c">!! &#39;aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz&#39;</span>
+<a name="ln-637"></a>      <span class="k">IMPLICIT NONE</span>
+<a name="ln-638"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">str</span>
+<a name="ln-639"></a>      <span class="c">!! String to convert to lowercase characters.</span>
+<a name="ln-640"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">res</span>
+<a name="ln-641"></a>      <span class="c">!! String converted to lowercase characters.</span>
+<a name="ln-642"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">lowercase</span> <span class="o">=</span> <span class="s1">&#39;aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz&#39;</span>
+<a name="ln-643"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">PARAMETER</span>  <span class="kd">::</span> <span class="n">uppercase</span> <span class="o">=</span> <span class="s1">&#39;AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ&#39;</span>
+<a name="ln-644"></a>      <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">pos</span>
+<a name="ln-645"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">str</span>
+<a name="ln-646"></a>      <span class="k">DO </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">LEN</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-647"></a>         <span class="n">pos</span> <span class="o">=</span> <span class="nb">INDEX</span><span class="p">(</span><span class="n">uppercase</span><span class="p">,</span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">))</span>
+<a name="ln-648"></a>         <span class="k">IF</span> <span class="p">(</span><span class="n">pos</span> <span class="o">/=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">THEN</span>
+<a name="ln-649"></a><span class="k">            </span><span class="n">res</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">lowercase</span><span class="p">(</span><span class="n">pos</span><span class="p">:</span><span class="n">pos</span><span class="p">)</span>
+<a name="ln-650"></a>         <span class="k">END IF</span>
+<a name="ln-651"></a><span class="k">      END DO</span>
+<a name="ln-652"></a><span class="k">   END FUNCTION </span><span class="n">lower</span>
+<a name="ln-653"></a>
+<a name="ln-654"></a>
+<a name="ln-655"></a>   <span class="k">PURE FUNCTION </span><span class="n">cistrcmp</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="n">str2</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<a name="ln-656"></a>      <span class="c">!! author: Emilio Castro.</span>
+<a name="ln-657"></a>      <span class="c">!! date: 20/08/2020.</span>
+<a name="ln-658"></a>      <span class="c">!! version: 1.0.</span>
+<a name="ln-659"></a>      <span class="c">!! license: MIT.</span>
+<a name="ln-660"></a>      <span class="c">!! summary: Case-independent string comparison.</span>
+<a name="ln-661"></a>      <span class="c">!! Case-independent string comparison. It works with this dataset: </span>
+<a name="ln-662"></a>      <span class="c">!! &#39;aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz&#39;</span>
+<a name="ln-663"></a>      <span class="k">IMPLICIT NONE</span>
+<a name="ln-664"></a><span class="k">      </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">str1</span>
+<a name="ln-665"></a>      <span class="c">!! First string to compare.</span>
+<a name="ln-666"></a>      <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=*</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">str2</span>
+<a name="ln-667"></a>      <span class="c">!! Second string to compare</span>
+<a name="ln-668"></a>      <span class="kt">LOGICAL</span>                      <span class="kd">::</span> <span class="n">res</span>
+<a name="ln-669"></a>      <span class="c">!! True if both strings are equal independently of the case. False otherwise.</span>
+<a name="ln-670"></a>      <span class="n">res</span> <span class="o">=</span> <span class="n">upper</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span> <span class="o">==</span> <span class="n">upper</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span>
+<a name="ln-671"></a>   <span class="k">END FUNCTION </span><span class="n">cistrcmp</span>
 <a name="ln-672"></a>
-<a name="ln-673"></a><span class="k">END MODULE </span><span class="n">FU_Strings</span>
+<a name="ln-673"></a>
+<a name="ln-674"></a>
+<a name="ln-675"></a>
+<a name="ln-676"></a><span class="k">END MODULE </span><span class="n">FU_Strings</span>
 </pre></div>
 
     </section>

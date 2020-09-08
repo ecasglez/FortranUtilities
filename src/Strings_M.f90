@@ -605,14 +605,15 @@ CONTAINS
       !! version: 1.0.
       !! license: MIT.
       !! summary: Converts a string to uppercase characters.
-      !! Converts a string to uppercase characters.
+      !! Converts a string to uppercase characters. It works with this dataset:
+      !! 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
-      !! String to convert to uppercase characters (Only works with ASCII characters).
+      !! String to convert to uppercase characters.
       CHARACTER(LEN=:), ALLOCATABLE :: res
-      !! String converted to uppercase characters (Only works with ASCII characters).
-      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'abcdefghijklmnopqrstuvwxyz'
-      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      !! String converted to uppercase characters.
+      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
+      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ'
       INTEGER :: i, pos
       res = str
       DO i = 1, LEN(res)
@@ -630,15 +631,16 @@ CONTAINS
       !! date: 20/08/2020.
       !! version: 1.0.
       !! license: MIT.
-      !! summary: Converts a string to lowercase characters (Only works with ASCII characters).
-      !! Converts a string to lowercase characters (Only works with ASCII characters).
+      !! summary: Converts a string to lowercase characters.
+      !! Converts a string to lowercase characters. It works with this dataset
+      !! 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to lowercase characters.
       CHARACTER(LEN=:), ALLOCATABLE :: res
       !! String converted to lowercase characters.
-      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'abcdefghijklmnopqrstuvwxyz'
-      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
+      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ'
       INTEGER :: i, pos
       res = str
       DO i = 1, LEN(res)
@@ -655,8 +657,9 @@ CONTAINS
       !! date: 20/08/2020.
       !! version: 1.0.
       !! license: MIT.
-      !! summary: Case-independent string comparison (Only works with ASCII characters).
-      !! Case-independent string comparison (Only works with ASCII characters).
+      !! summary: Case-independent string comparison.
+      !! Case-independent string comparison. It works with this dataset: 
+      !! 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str1
       !! First string to compare.
