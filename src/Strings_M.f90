@@ -19,7 +19,8 @@ MODULE FU_Strings
    PUBLIC :: startsWith, endsWith, splitstr, replace, mergeChars
    PUBLIC :: upper, lower, cistrcmp
 
-
+   CHARACTER(LEN=*), PARAMETER  :: lowercase = 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
+   CHARACTER(LEN=*), PARAMETER  :: uppercase = 'AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ'
 
    INTERFACE splitstr
       !! author: Emilio Castro.
@@ -437,19 +438,6 @@ CONTAINS
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
    PURE FUNCTION str2num_i8(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
@@ -612,8 +600,6 @@ CONTAINS
       !! String to convert to uppercase characters.
       CHARACTER(LEN=:), ALLOCATABLE :: res
       !! String converted to uppercase characters.
-      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
-      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ'
       INTEGER :: i, pos
       res = str
       DO i = 1, LEN(res)
@@ -639,8 +625,6 @@ CONTAINS
       !! String to convert to lowercase characters.
       CHARACTER(LEN=:), ALLOCATABLE :: res
       !! String converted to lowercase characters.
-      CHARACTER(LEN=*), PARAMETER  :: lowercase = 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
-      CHARACTER(LEN=*), PARAMETER  :: uppercase = 'AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ'
       INTEGER :: i, pos
       res = str
       DO i = 1, LEN(res)

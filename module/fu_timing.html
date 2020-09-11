@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>num2str &ndash; ecasglez's FortranUtilities</title>
+    <title>FU_Timing &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -104,8 +104,8 @@
     
   
   <div class="row">
-    <h1>num2str
-   <small>Interface</small>
+    <h1>FU_Timing 
+    <small>Module</small>
     
     </h1>
     
@@ -117,7 +117,7 @@
      <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
-    <li><i class="fa fa-calendar-o"></i> 07/05/2020.</li>
+    <li><i class="fa fa-calendar-o"></i> 10/09/2020.</li>
      
      
     <li><i class="fa fa-legal"></i> MIT.</li>
@@ -130,24 +130,22 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 2.5% of total for procedures.</p>Including implementation: 87 statements, 24.4% of total for procedures.">9 statements</a>
+    title=" 5.7% of total for modules and submodules.">80 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Strings_M.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Timing_M.f90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.f90</a></li>
-    
-     <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
+     <li><a href='../sourcefile/timing_m.f90.html'>Timing_M.f90</a></li>
     
   
-     <li class="active">num2str</li>
+     <li class="active">FU_Timing</li>
   </ol>
 </div>
 </div>
@@ -162,7 +160,7 @@
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-      
+    
 <div id="sidebar">
   
 <h3>Contents</h3>
@@ -177,10 +175,18 @@
 
 
 
-
-
-
-
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
+  <div id="inters-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/fu_timing.html#interface-totaltime">TotalTime</a>
+      
+      <a class="list-group-item" href="../module/fu_timing.html#interface-intervaltime">IntervalTime</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -188,27 +194,21 @@
 
 
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-0">Module Procedures</a></h3></div>
-  <div id="modprocs-0" class="panel-collapse collapse">
-    <div class="list-group">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i8">num2str_i8</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i16">num2str_i16</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i32">num2str_i32</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i64">num2str_i64</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_sp">num2str_sp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_dp">num2str_dp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_qp">num2str_qp</a>
+      <a class="list-group-item" href="../module/fu_timing.html#proc-resettotaltime">ResetTotalTime</a>
       
     </div>
   </div>
 </div>
+
+
+
+
+
+
 
 
 
@@ -218,15 +218,42 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface num2str</h2>
-   <p>Converts an integer or real variable into a string variable.
- Useful to open files named sequentially.</p>
-     
-     
+    <p>Tools to measure time spent by functions in Fortran programs.
+ The user can use IntervalTime to get the time since the last measure or the time
+ since the begining of the execution if no previous measuement is available. This point
+ will be used as a starting point for the next interval.
+ Use TotalTime to get the time since the beginning of the program or since the last time
+ resetTotalTime is executed.</p>
+      <br>
+    
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+  <ul class="list-inline">
+    
+    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
+    
+  </ul>
+      </li>
+      
+      
+      
+      </ul>
+    </div>
+    
+
+    
+    
+
     <br>
 
-     <section class="visible-xs visible-sm hidden-md">
-       
+    <section class="visible-xs visible-sm hidden-md">
+      
 <h3>Contents</h3>
  
 
@@ -239,34 +266,14 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-1">Module Procedures</a></h3></div>
-  <div id="modprocs-1" class="panel-collapse collapse">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
+  <div id="inters-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i8">num2str_i8</a>
+      <a class="list-group-item" href="../module/fu_timing.html#interface-totaltime">TotalTime</a>
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i16">num2str_i16</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i32">num2str_i32</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i64">num2str_i64</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_sp">num2str_sp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_dp">num2str_dp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_qp">num2str_qp</a>
+      <a class="list-group-item" href="../module/fu_timing.html#interface-intervaltime">IntervalTime</a>
       
     </div>
   </div>
@@ -275,60 +282,70 @@
 
 
 
-     </section>
-     <br class="visible-xs visible-sm hidden-md">
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/fu_timing.html#proc-resettotaltime">ResetTotalTime</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+    <section>
+   <h2>Interfaces</h2>
+   
      
-  
-
-  
-
-  
-   <h2>Module Procedures</h2>
-   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-totaltime"></span><h3>public interface <a href='../interface/totaltime.html'>TotalTime</a>
     
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i8"></span><h3>
-private pure function num2str_i8(num) result(str)
-    
-    
-   
-</h3></div>
+  </h3></div>
+  
   <div class="panel-body">
-       
+    
+    <p>Gets the time in seconds since the beginning of the program or since the last time resetTotalTime is executed.</p><a href="../interface/totaltime.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function TotalTime_def() result(res)
+    
+    
+   
+</h3>
     
     
     <h4>Arguments</h4>
     
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
+      <em>None</em>
     
     
 
@@ -336,205 +353,23 @@ private pure function num2str_i8(num) result(str)
   
   
   
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
+     <h4>Return Value <small>real
+  </small></h4>
+  <p>Total time spent in seconds since the begining of the program or since the last
+ time ResetTotalTime has been used. Uses default precision of the compiler used.</p>
     
 
-  </div>
-  </div>
-
-   
+    </li>
+  
+    <li class="list-group-item">
     
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i16"></span><h3>
-private pure function num2str_i16(num) result(str)
+    
+    <h3>
+private function TotalTime_sp(mold) result(res)
     
     
    
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i32"></span><h3>
-private pure function num2str_i32(num) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i64"></span><h3>
-private pure function num2str_i64(num) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_sp"></span><h3>
-private pure function num2str_sp(num, formato) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
+</h3>
     
     
     <h4>Arguments</h4>
@@ -561,22 +396,8 @@ private pure function num2str_sp(num, formato) result(str)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
+  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
+ It is only used to set the kind of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -591,25 +412,23 @@ private pure function num2str_sp(num, formato) result(str)
   
   
   
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
+     <h4>Return Value <small>real(kind=sp)
+  </small></h4>
+  <p>Total time spent in seconds since the begining of the program or since the last
+ time ResetTotalTime has been used. Uses precision set by mold.</p>
     
 
-  </div>
-  </div>
-
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function TotalTime_dp(mold) result(res)
+    
+    
    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_dp"></span><h3>
-private pure function num2str_dp(num, formato) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
+</h3>
     
     
     <h4>Arguments</h4>
@@ -636,22 +455,8 @@ private pure function num2str_dp(num, formato) result(str)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
+  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
+ It is only used to set the kind of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -666,25 +471,72 @@ private pure function num2str_dp(num, formato) result(str)
   
   
   
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
+     <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Total time spent in seconds since the begining of the program or since the last
+ time ResetTotalTime has been used. Uses precision set by mold.</p>
     
 
-  </div>
-  </div>
+    </li>
+  
+  
+  </ul>
+</div>
 
-   
     
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_qp"></span><h3>
-private pure function num2str_qp(num, formato) result(str)
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-intervaltime"></span><h3>public interface <a href='../interface/intervaltime.html'>IntervalTime</a>
     
-    
-   
-</h3></div>
+  </h3></div>
+  
   <div class="panel-body">
-       
+    
+    <p>Gets the time in seconds since the last measurement.</p><a href="../interface/intervaltime.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function IntervalTime_def() result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      <em>None</em>
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real
+  </small></h4>
+  <p>Time spent in seconds since the last measurement or since the begining of the program 
+ if no previous measurement is available. Uses default precision of the compiler used.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function IntervalTime_sp(mold) result(res)
+    
+    
+   
+</h3>
     
     
     <h4>Arguments</h4>
@@ -706,27 +558,13 @@ private pure function num2str_qp(num, formato) result(str)
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td><span class="anchor" ></span>real(kind=sp),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
+  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
+ It is only used to set the kind of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -741,21 +579,147 @@ private pure function num2str_qp(num, formato) result(str)
   
   
   
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
+     <h4>Return Value <small>real(kind=sp)
+  </small></h4>
+  <p>Time spent in seconds since the last measurement or since the begining of the program 
+ if no previous measurement is available. Uses precision set by mold. </p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function IntervalTime_dp(mold) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
+ It is only used to set the kind of the return value, so it can be any value.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Time spent in seconds since the last measurement or since the begining of the program 
+ if no previous measurement is available. Uses precision set by mold. </p>
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+    </section>
+  <br>
+    
+
+    
+    
+    
+    
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-resettotaltime"></span><h3>
+public subroutine <a href='../proc/resettotaltime.html'>ResetTotalTime</a>()
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>10/09/2020.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Sets the starting point to count the total time.</p>
+    
+    <h4>Arguments</h4>
+    
+      <em>None</em>
+    
     
 
   </div>
   </div>
 
-   
-     
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
 
- </div>
-</div>
-
-
+  
     <hr>    
     </div> <!-- /container -->
     <footer>
