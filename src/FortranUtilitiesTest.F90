@@ -5,6 +5,7 @@ PROGRAM FortranUtilitiesTest
    USE FU_Statistics
    USE FU_Numbers
    USE FU_Files
+   USE FU_Timing
 
    IMPLICIT NONE
 
@@ -25,6 +26,7 @@ PROGRAM FortranUtilitiesTest
    INTEGER :: u
 
 
+   CALL sleep(1) !For later testing timing functions
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=1_i8) == 'campo1')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=2_i16) == 'campo2')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=3_i32) == 'campo3')
@@ -277,8 +279,23 @@ PROGRAM FortranUtilitiesTest
    CALL test('parent_path',parent_path("/ho.me/user/file.dat") == '/ho.me/user')
    CALL test('parent_path',parent_path("/ho.me/user/.") == '/ho.me/user')
 #endif
+   CALL sleep(3)
+   CALL test('TotalTime',INT(TotalTime()) == 4)
+   CALL test('IntervalTime',INT(IntervalTime()) == 4)
+   CALL sleep(1)
+   CALL test('TotalTime',INT(TotalTime(1._sp)) == 5)
+   CALL test('IntervalTime',INT(IntervalTime(1._sp)) == 1)
+   CALL ResetTotalTime()
+   CALL sleep(1)
+   CALL test('TotalTime',INT(TotalTime(1._dp)) == 1)
+   CALL test('IntervalTime',INT(IntervalTime(1._dp)) == 1)
 
    CALL test('summary',.TRUE.)
+
+
+
+
+
 
    CONTAINS
       SUBROUTINE test(testname, testRes)
