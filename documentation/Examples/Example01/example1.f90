@@ -36,9 +36,9 @@ PROGRAM FU_example1
          mediana(i) = median(matrix(:,i))
       END DO
 !$OMP END PARALLEL DO
-      WRITE(*,'(A,I0,A,F7.3,A)') 'Number of threads: ', k, '. Time spent: ', IntervalTime(), ' s.'
+      WRITE(*,'(A,I0,A,F7.3,A)') 'Number of threads: ', k, '. Elapsed time: ', IntervalTime(), ' s.'
    END DO
-   WRITE(*,'(A,F7.3,A)') 'Total time spent: ', TotalTime(), ' s.'
+   WRITE(*,'(A,F7.3,A)') 'Total elapsed time: ', TotalTime(), ' s.'
 
    DEALLOCATE(matrix)
 
