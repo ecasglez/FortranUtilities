@@ -197,9 +197,9 @@
          <span class="n">mediana</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span>
       <span class="k">END DO</span>
 <span class="c">!$OMP END PARALLEL DO</span>
-      <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,I0,A,F7.3,A)&#39;</span><span class="p">)</span> <span class="s1">&#39;Number of threads: &#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;. Time spent: &#39;</span><span class="p">,</span> <span class="n">IntervalTime</span><span class="p">(),</span> <span class="s1">&#39; s.&#39;</span>
+      <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,I0,A,F7.3,A)&#39;</span><span class="p">)</span> <span class="s1">&#39;Number of threads: &#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;. Elapsed time: &#39;</span><span class="p">,</span> <span class="n">IntervalTime</span><span class="p">(),</span> <span class="s1">&#39; s.&#39;</span>
    <span class="k">END DO</span>
-<span class="k">   WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F7.3,A)&#39;</span><span class="p">)</span> <span class="s1">&#39;Total time spent: &#39;</span><span class="p">,</span> <span class="n">TotalTime</span><span class="p">(),</span> <span class="s1">&#39; s.&#39;</span>
+<span class="k">   WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F7.3,A)&#39;</span><span class="p">)</span> <span class="s1">&#39;Total elapsed time: &#39;</span><span class="p">,</span> <span class="n">TotalTime</span><span class="p">(),</span> <span class="s1">&#39; s.&#39;</span>
 
    <span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 

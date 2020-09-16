@@ -227,6 +227,15 @@
 <li>
 <script type="math/tex">\Sigma^{x}</script> is the covariance matrix of the parameters in X.</li>
 </ul>
+<p>Usage:</p>
+<p><code>y = lin_error_propagation(s,m)</code></p>
+<p>where:</p>
+<ul>
+<li><code>s</code> = vector of rank 1 with real numbers containing the sensitivity coefficients.</li>
+<li><code>m</code> = array of rank 2 containing the covariance matrix.</li>
+<li><code>y</code> = real number of the same kind as <code>s</code> and <code>m</code> with the
+ error or uncertainty propagated to this new variable.</li>
+</ul>
      
      
     <br>

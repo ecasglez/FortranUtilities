@@ -55,6 +55,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = mean(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the mean value of ```x```.
       MODULE PROCEDURE mean_sp
       MODULE PROCEDURE mean_dp
       MODULE PROCEDURE mean_qp
@@ -78,6 +90,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = gmean(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the geometric mean of ```x```.
       MODULE PROCEDURE gmean_sp
       MODULE PROCEDURE gmean_dp
       MODULE PROCEDURE gmean_qp
@@ -100,6 +124,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = variance(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the sample variance of ```x```.
       MODULE PROCEDURE variance_sp
       MODULE PROCEDURE variance_dp
       MODULE PROCEDURE variance_qp
@@ -123,6 +159,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = stdev(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the sample standard deviation of ```x```.
       MODULE PROCEDURE stdev_sp
       MODULE PROCEDURE stdev_dp
       MODULE PROCEDURE stdev_qp
@@ -145,6 +193,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = pvariance(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the population variance of ```x```.
       MODULE PROCEDURE pvariance_sp
       MODULE PROCEDURE pvariance_dp
       MODULE PROCEDURE pvariance_qp
@@ -168,6 +228,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = pstdev(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the population standard deviation of ```x```.
       MODULE PROCEDURE pstdev_sp
       MODULE PROCEDURE pstdev_dp
       MODULE PROCEDURE pstdev_qp
@@ -192,6 +264,18 @@ MODULE FU_Statistics
       !!
       !! * x and y are vectors with real numbers.
       !! * n is how many numbers are included in x and y.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! z = covariance(x,y)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the sample covariance of ```x``` and ```y```.
       MODULE PROCEDURE covariance_sp
       MODULE PROCEDURE covariance_dp
       MODULE PROCEDURE covariance_qp
@@ -216,6 +300,18 @@ MODULE FU_Statistics
       !!
       !! * x and y are vectors with real numbers.
       !! * n is how many numbers are included in x and y.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! z = pcovariance(x,y)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the population covariance of ```x``` and ```y```.
       MODULE PROCEDURE pcovariance_sp
       MODULE PROCEDURE pcovariance_dp
       MODULE PROCEDURE pcovariance_qp
@@ -239,6 +335,18 @@ MODULE FU_Statistics
       !!
       !! * x and y are vectors with real numbers.
       !! * n is how many numbers are included in x and y.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! z = correlation(x,y)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the correlation coefficient of ```x``` and ```y```.
       MODULE PROCEDURE correlation_sp
       MODULE PROCEDURE correlation_dp
       MODULE PROCEDURE correlation_qp
@@ -264,6 +372,19 @@ MODULE FU_Statistics
       !! * S is the vector of sensitivity coefficients of y with respect to the
       !!   different parameters in X.
       !! * \(\Sigma^{x}\) is the covariance matrix of the parameters in X.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = lin_error_propagation(s,m)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```s``` = vector of rank 1 with real numbers containing the sensitivity coefficients.
+      !! * ```m``` = array of rank 2 containing the covariance matrix.
+      !! * ```y``` = real number of the same kind as ```s``` and ```m``` with the
+      !! error or uncertainty propagated to this new variable.
       MODULE PROCEDURE lin_error_propagation_sp
       MODULE PROCEDURE lin_error_propagation_dp
       MODULE PROCEDURE lin_error_propagation_qp
@@ -279,6 +400,18 @@ MODULE FU_Statistics
       !! Calculates the median value.
       !! This function does not work with quadruple precision numbers
       !! because of the ordering subroutine written in C++.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = median(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the median of ```x```.
       MODULE PROCEDURE median_sp
       MODULE PROCEDURE median_dp
    END INTERFACE median
@@ -303,6 +436,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = skewness(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the sample skewness of ```x```.
       MODULE PROCEDURE skewness_sp
       MODULE PROCEDURE skewness_dp
       MODULE PROCEDURE skewness_qp
@@ -327,6 +472,18 @@ MODULE FU_Statistics
       !!
       !! * x is a vector with real numbers.
       !! * n is how many numbers are included in x.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! y = pskewness(x)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```y``` = real number of the same kind as ```x``` with the population skewness of ```x```.
       MODULE PROCEDURE pskewness_sp
       MODULE PROCEDURE pskewness_dp
       MODULE PROCEDURE pskewness_qp
