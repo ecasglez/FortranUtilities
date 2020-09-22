@@ -80,7 +80,7 @@ Then you have to link to the library when compiling. For example:
 1. To use the static library:
 
       ```
-      g++ program.f90 -o program -lgfortran -lFortranUtilitiesStatic -L/path/to/the/library/folder -I/path/to/include/folder -lstdc++fs
+      gfortran program.f90 -o program -lFortranUtilitiesStatic -L/path/to/the/library/folder -I/path/to/include/folder -lstdc++
       ```
 
 2. To use the shared library:
