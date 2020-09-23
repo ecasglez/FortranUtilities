@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_regression.f90.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_mean.f90.html</loc>
    </url>
    <url>
@@ -70,6 +73,9 @@
       <loc>https://ecasglez.github.io/FortranUtilities/interface/count_digits_integer.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/potreg.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/is_inf.html</loc>
    </url>
    <url>
@@ -94,10 +100,16 @@
       <loc>https://ecasglez.github.io/FortranUtilities/interface/lin_error_propagation.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/logreg.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/pcovariance.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/variance.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/expreg.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/intervaltime.html</loc>
@@ -125,6 +137,9 @@
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/is_nan.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/linreg.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/index.html</loc>
