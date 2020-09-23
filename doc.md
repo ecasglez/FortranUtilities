@@ -7,7 +7,6 @@ author: Emilio Castro
 github: https://github.com/ecasglez
 linkedin: https://www.linkedin.com/in/emilio-castro-gonz%C3%A1lez-797707162/ 
 display: public
-        private
 source: false
 graph: false
 hide_undoc: true

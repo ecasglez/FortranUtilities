@@ -17,7 +17,7 @@ MODULE FU_Statistics
    PRIVATE
    PUBLIC :: mean, gmean, variance, stdev, pvariance, pstdev, &
       covariance, pcovariance, correlation, lin_error_propagation, median, &
-      skewness, pskewness
+      skewness, pskewness, linreg, logreg, expreg, potreg
 
    INTERFACE c_sort
       !To sort the array of values using c++ functions in order
@@ -53,8 +53,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -88,8 +88,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -122,8 +122,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -157,8 +157,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -191,8 +191,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -226,8 +226,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -262,8 +262,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x and y are vectors with real numbers.
-      !! * n is how many numbers are included in x and y.
+      !! * \(x\) and \(y\) are vectors with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\) and \(y\).
       !!
       !! Usage:
       !!
@@ -298,8 +298,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x and y are vectors with real numbers.
-      !! * n is how many numbers are included in x and y.
+      !! * \(x\) and \(y\) are vectors with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\) and \(y\).
       !!
       !! Usage:
       !!
@@ -333,8 +333,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x and y are vectors with real numbers.
-      !! * n is how many numbers are included in x and y.
+      !! * \(x\) and \(y\) are vectors with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\) and \(y\).
       !!
       !! Usage:
       !!
@@ -367,11 +367,11 @@ MODULE FU_Statistics
       !! $$\sigma^2_{y} = S \Sigma^{X} S^\intercal$$
       !! where:
       !!
-      !! * y is the response whose uncertainty is to be calculated.
-      !! * X is a set of input parameters to propagate their uncertainty to y.
-      !! * S is the vector of sensitivity coefficients of y with respect to the
-      !!   different parameters in X.
-      !! * \(\Sigma^{x}\) is the covariance matrix of the parameters in X.
+      !! * \(y\) is the response whose uncertainty is to be calculated.
+      !! * \(X\) is a set of input parameters to propagate their uncertainty to \(y\).
+      !! * \(S\) is the vector of sensitivity coefficients of \(y\) with respect to the
+      !!   different parameters in \(X\).
+      !! * \(\Sigma^{x}\) is the covariance matrix of the parameters in \(X\).
       !!
       !! Usage:
       !!
@@ -434,8 +434,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -470,8 +470,8 @@ MODULE FU_Statistics
       !!
       !! where:
       !!
-      !! * x is a vector with real numbers.
-      !! * n is how many numbers are included in x.
+      !! * \(x\) is a vector with real numbers.
+      !! * \(n\) is how many numbers are included in \(x\).
       !!
       !! Usage:
       !!
@@ -491,6 +491,173 @@ MODULE FU_Statistics
 
 
 
+
+
+   INTERFACE regression
+      !! author: Emilio Castro.
+      !! date: 23/09/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Performs different types of regression between two sets of values.
+      !! Performs different types of regression between two sets of values. This is a
+      !! private subroutine accesible by using one of [[linreg]], [[logreg]], [[expreg]] or [[potreg]].
+      MODULE PROCEDURE regression_sp
+      MODULE PROCEDURE regression_dp
+      MODULE PROCEDURE regression_qp
+   END INTERFACE regression
+
+   INTEGER, PARAMETER :: linreg_id = 1
+   !! Selector flag for linear regression in function [[regression]].
+   INTEGER, PARAMETER :: logreg_id = 2
+   !! Selector flag for logarithmic regression in function [[regression]].
+   INTEGER, PARAMETER :: expreg_id = 3
+   !! Selector flag for exponential regression in function [[regression]].
+   INTEGER, PARAMETER :: potreg_id = 4
+   !! Selector flag for potential regression in function [[regression]].
+
+
+   INTERFACE linreg
+      !! author: Emilio Castro.
+      !! date: 23/09/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Performs linear regression between two sets of values.
+      !! Performs linear regression between two sets of values,
+      !! obtaining parameters \(a\) and \(b\) of the following equation.
+      !!
+      !! $$y = a \cdot x+b$$
+      !!
+      !! where:
+      !!
+      !! * \(x\) and \(y\) are vectors with real numbers.
+      !! * \(a\) and \(b\) are the regression coefficients.
+      !!
+      !! Parameter \(R^2\) is also calculated to measure the goodness of fit.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! CALL linreg(x,y,a,b,R2)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
+      !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      MODULE PROCEDURE linreg_sp
+      MODULE PROCEDURE linreg_dp
+      MODULE PROCEDURE linreg_qp
+   END INTERFACE linreg
+
+
+   INTERFACE logreg
+      !! author: Emilio Castro.
+      !! date: 23/09/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Performs logarithmic regression between two sets of values.
+      !! Performs logarithmic regression between two sets of values,
+      !! obtaining parameters \(a\) and \(b\) of the following equation.
+      !!
+      !! $$y = a \cdot ln(x)+b$$
+      !!
+      !! where:
+      !!
+      !! * \(x\) and \(y\) are vectors with real numbers.
+      !! * \(a\) and \(b\) are the regression coefficients.
+      !!
+      !! Parameter \(R^2\) is also calculated to determine the goodness of fit.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! CALL logreg(x,y,a,b,R2)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
+      !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      MODULE PROCEDURE logreg_sp
+      MODULE PROCEDURE logreg_dp
+      MODULE PROCEDURE logreg_qp
+   END INTERFACE logreg
+
+
+   INTERFACE expreg
+      !! author: Emilio Castro.
+      !! date: 23/09/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Performs exponential regression between two sets of values.
+      !! Performs exponential regression between two sets of values,
+      !! obtaining parameters \(a\) and \(b\) of the following equation.
+      !!
+      !! $$y = b \cdot e^{(a \cdot x)}$$
+      !!
+      !! where:
+      !!
+      !! * \(x\) and \(y\) are vectors with real numbers.
+      !! * \(a\) and \(b\) are the regression coefficients.
+      !!
+      !! Parameter \(R^2\) is also calculated to determine the goodness of fit.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! CALL expreg(x,y,a,b,R2)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
+      !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      MODULE PROCEDURE expreg_sp
+      MODULE PROCEDURE expreg_dp
+      MODULE PROCEDURE expreg_qp
+   END INTERFACE expreg
+
+
+   INTERFACE potreg
+      !! author: Emilio Castro.
+      !! date: 23/09/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Performs potential regression between two sets of values.
+      !! Performs potential regression between two sets of values,
+      !! obtaining parameters \(a\) and \(b\) of the following equation.
+      !!
+      !! $$y = b \cdot x^a$$
+      !!
+      !! where:
+      !!
+      !! * \(x\) and \(y\) are vectors with real numbers.
+      !! * \(a\) and \(b\) are the regression coefficients.
+      !!
+      !! Parameter \(R^2\) is also calculated to determine the goodness of fit.
+      !!
+      !! Usage:
+      !!
+      !! ```
+      !! CALL potreg(x,y,a,b,R2)
+      !! ```
+      !!
+      !! where:
+      !!
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! rank larger than 1.
+      !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
+      !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      MODULE PROCEDURE potreg_sp
+      MODULE PROCEDURE potreg_dp
+      MODULE PROCEDURE potreg_qp
+   END INTERFACE potreg
 
    CONTAINS
 
@@ -1071,5 +1238,314 @@ MODULE FU_Statistics
 
       END FUNCTION pskewness_qp
 
+
+
+
+      PURE SUBROUTINE linreg_sp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(linreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE linreg_sp
+
+      PURE SUBROUTINE linreg_dp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(linreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE linreg_dp
+
+      PURE SUBROUTINE linreg_qp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(linreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE linreg_qp
+
+
+      PURE SUBROUTINE logreg_sp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(logreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE logreg_sp
+
+      PURE SUBROUTINE logreg_dp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(logreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE logreg_dp
+
+      PURE SUBROUTINE logreg_qp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(logreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE logreg_qp
+
+
+      PURE SUBROUTINE expreg_sp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(expreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE expreg_sp
+
+      PURE SUBROUTINE expreg_dp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(expreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE expreg_dp
+
+      PURE SUBROUTINE expreg_qp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(expreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE expreg_qp
+
+
+      PURE SUBROUTINE potreg_sp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(potreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE potreg_sp
+
+      PURE SUBROUTINE potreg_dp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(potreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE potreg_dp
+
+      PURE SUBROUTINE potreg_qp(x,y,a,b,R2)
+         IMPLICIT NONE
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+
+         CALL regression(potreg_id,x,y,a,b,R2)
+
+      END SUBROUTINE potreg_qp
+
+
+
+      PURE SUBROUTINE regression_sp(typeRegression,x,y,a,b,R2)
+         IMPLICIT NONE
+         INTEGER, INTENT(IN) :: typeRegression
+         !! Flag to select the type of regression.
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=sp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=sp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+         REAL(KIND=sp), DIMENSION(SIZE(x)) :: x_cp
+         REAL(KIND=sp), DIMENSION(SIZE(y)) :: y_cp
+         REAL(KIND=sp) :: var_x, var_y, covar_xy
+
+         INCLUDE 'Statistics_M/include_regression.f90'
+
+      END SUBROUTINE regression_sp
+
+
+      PURE SUBROUTINE regression_dp(typeRegression,x,y,a,b,R2)
+         IMPLICIT NONE
+         INTEGER, INTENT(IN) :: typeRegression
+         !! Flag to select the type of regression.
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=dp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=dp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+         REAL(KIND=dp), DIMENSION(SIZE(x)) :: x_cp
+         REAL(KIND=dp), DIMENSION(SIZE(y)) :: y_cp
+         REAL(KIND=dp) :: var_x, var_y, covar_xy
+
+         INCLUDE 'Statistics_M/include_regression.f90'
+
+      END SUBROUTINE regression_dp
+
+
+      PURE SUBROUTINE regression_qp(typeRegression,x,y,a,b,R2)
+         IMPLICIT NONE
+         INTEGER, INTENT(IN) :: typeRegression
+         !! Flag to select the type of regression.
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
+         !! Vector of real numbers with the values of the first variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: y
+         !! Vector of real numbers with the values of the second variable. It can
+         !! have any size and it must have one dimension.
+         REAL(KIND=qp), INTENT(OUT) :: a
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: b
+         !! Regression coefficient.
+         REAL(KIND=qp), INTENT(OUT) :: R2
+         !! Determination coefficient.
+         REAL(KIND=qp), DIMENSION(SIZE(x)) :: x_cp
+         REAL(KIND=qp), DIMENSION(SIZE(y)) :: y_cp
+         REAL(KIND=qp) :: var_x, var_y, covar_xy
+
+         INCLUDE 'Statistics_M/include_regression.f90'
+
+      END SUBROUTINE regression_qp
 
 END MODULE FU_Statistics
