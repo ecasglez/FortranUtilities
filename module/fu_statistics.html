@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="30.5% of total for modules and submodules.">426 statements</a>
+    title="41.2% of total for modules and submodules.">680 statements</a>
      </li> 
      
      
@@ -207,6 +207,14 @@
       <a class="list-group-item" href="../module/fu_statistics.html#interface-skewness">skewness</a>
       
       <a class="list-group-item" href="../module/fu_statistics.html#interface-pskewness">pskewness</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-linreg">linreg</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-logreg">logreg</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-expreg">expreg</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-potreg">potreg</a>
       
     </div>
   </div>
@@ -303,6 +311,14 @@
       <a class="list-group-item" href="../module/fu_statistics.html#interface-skewness">skewness</a>
       
       <a class="list-group-item" href="../module/fu_statistics.html#interface-pskewness">pskewness</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-linreg">linreg</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-logreg">logreg</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-expreg">expreg</a>
+      
+      <a class="list-group-item" href="../module/fu_statistics.html#interface-potreg">potreg</a>
       
     </div>
   </div>
@@ -2981,6 +2997,1406 @@ private pure function pskewness_qp(x) result(res)
      <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the population skewness of the x.</p>
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-linreg"></span><h3>public interface <a href='../interface/linreg.html'>linreg</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Performs linear regression between two sets of values.</p><a href="../interface/linreg.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine linreg_sp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine linreg_dp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine linreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-logreg"></span><h3>public interface <a href='../interface/logreg.html'>logreg</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Performs logarithmic regression between two sets of values.</p><a href="../interface/logreg.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine logreg_sp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine logreg_dp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine logreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-expreg"></span><h3>public interface <a href='../interface/expreg.html'>expreg</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Performs exponential regression between two sets of values.</p><a href="../interface/expreg.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine expreg_sp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine expreg_dp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine expreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-potreg"></span><h3>public interface <a href='../interface/potreg.html'>potreg</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Performs potential regression between two sets of values.</p><a href="../interface/potreg.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine potreg_sp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine potreg_dp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine potreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
     
 
     </li>

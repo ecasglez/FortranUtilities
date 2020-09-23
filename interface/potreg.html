@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>num2str &ndash; ecasglez's FortranUtilities</title>
+    <title>potreg &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -106,7 +106,7 @@
     
   
   <div class="row">
-    <h1>num2str
+    <h1>potreg
    <small>Interface</small>
     
     </h1>
@@ -119,7 +119,7 @@
      <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
-    <li><i class="fa fa-calendar-o"></i> 07/05/2020.</li>
+    <li><i class="fa fa-calendar-o"></i> 23/09/2020.</li>
      
      
     <li><i class="fa fa-legal"></i> MIT.</li>
@@ -132,24 +132,24 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 2.4% of total for procedures.</p>Including implementation: 87 statements, 23.1% of total for procedures.">9 statements</a>
+    title="<p> 1.3% of total for procedures.</p>Including implementation: 32 statements,  8.5% of total for procedures.">5 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Strings_M.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Statistics_M.f90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.f90</a></li>
+     <li><a href='../sourcefile/statistics_m.f90.html'>Statistics_M.f90</a></li>
     
-     <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
+     <li><a href='../module/fu_statistics.html'>FU_Statistics</a></li>
     
   
-     <li class="active">num2str</li>
+     <li class="active">potreg</li>
   </ol>
 </div>
 </div>
@@ -194,19 +194,11 @@
   <div id="modprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i8">num2str_i8</a>
+      <a class="list-group-item" href="../interface/potreg.html#moduleprocedure-potreg_sp">potreg_sp</a>
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i16">num2str_i16</a>
+      <a class="list-group-item" href="../interface/potreg.html#moduleprocedure-potreg_dp">potreg_dp</a>
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i32">num2str_i32</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i64">num2str_i64</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_sp">num2str_sp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_dp">num2str_dp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_qp">num2str_qp</a>
+      <a class="list-group-item" href="../interface/potreg.html#moduleprocedure-potreg_qp">potreg_qp</a>
       
     </div>
   </div>
@@ -220,9 +212,29 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface num2str</h2>
-   <p>Converts an integer or real variable into a string variable.
- Useful to open files named sequentially.</p>
+      <h2>public interface potreg</h2>
+   <p>Performs potential regression between two sets of values,
+ obtaining parameters <script type="math/tex">a</script> and <script type="math/tex">b</script> of the following equation.</p>
+<p>
+<script type="math/tex; mode=display">y = b \cdot x^a</script>
+</p>
+<p>where:</p>
+<ul>
+<li>
+<script type="math/tex">x</script> and <script type="math/tex">y</script> are vectors with real numbers.</li>
+<li>
+<script type="math/tex">a</script> and <script type="math/tex">b</script> are the regression coefficients.</li>
+</ul>
+<p>Parameter <script type="math/tex">R^2</script> is also calculated to determine the goodness of fit.</p>
+<p>Usage:</p>
+<p><code>CALL potreg(x,y,a,b,R2)</code></p>
+<p>where:</p>
+<ul>
+<li><code>x</code> and <code>y</code> = vectors of rank 1 with real numbers. See examples to use an array of
+ rank larger than 1.</li>
+<li><code>a</code>, <code>b</code> = regression coefficients calculated by the subroutine.</li>
+<li><code>R2</code> = the determination coefficient to measure the goodness of fit, calculated by the subroutine.</li>
+</ul>
      
      
     <br>
@@ -256,19 +268,11 @@
   <div id="modprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i8">num2str_i8</a>
+      <a class="list-group-item" href="../interface/potreg.html#moduleprocedure-potreg_sp">potreg_sp</a>
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i16">num2str_i16</a>
+      <a class="list-group-item" href="../interface/potreg.html#moduleprocedure-potreg_dp">potreg_dp</a>
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i32">num2str_i32</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_i64">num2str_i64</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_sp">num2str_sp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_dp">num2str_dp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_qp">num2str_qp</a>
+      <a class="list-group-item" href="../interface/potreg.html#moduleprocedure-potreg_qp">potreg_qp</a>
       
     </div>
   </div>
@@ -289,248 +293,8 @@
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i8"></span><h3>
-private pure function num2str_i8(num) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i16"></span><h3>
-private pure function num2str_i16(num) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i32"></span><h3>
-private pure function num2str_i32(num) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_i64"></span><h3>
-private pure function num2str_i64(num) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_sp"></span><h3>
-private pure function num2str_sp(num, formato) result(str)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-potreg_sp"></span><h3>
+private subroutine potreg_sp(x, y, a, b, R2)
     
     
    
@@ -559,11 +323,12 @@ private pure function num2str_sp(num, formato) result(str)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(in)</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -573,12 +338,58 @@ private pure function num2str_sp(num, formato) result(str)
   
 <tr>
   
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
   
 </tr>
 
@@ -589,23 +400,14 @@ private pure function num2str_sp(num, formato) result(str)
     
     
 
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
   </div>
   </div>
 
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_dp"></span><h3>
-private pure function num2str_dp(num, formato) result(str)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-potreg_dp"></span><h3>
+private subroutine potreg_dp(x, y, a, b, R2)
     
     
    
@@ -634,11 +436,12 @@ private pure function num2str_dp(num, formato) result(str)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -648,12 +451,58 @@ private pure function num2str_dp(num, formato) result(str)
   
 <tr>
   
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
   
 </tr>
 
@@ -664,23 +513,14 @@ private pure function num2str_dp(num, formato) result(str)
     
     
 
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
   </div>
   </div>
 
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_qp"></span><h3>
-private pure function num2str_qp(num, formato) result(str)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-potreg_qp"></span><h3>
+private subroutine potreg_qp(x, y, a, b, R2)
     
     
    
@@ -709,11 +549,12 @@ private pure function num2str_qp(num, formato) result(str)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in)</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -723,12 +564,58 @@ private pure function num2str_qp(num, formato) result(str)
   
 <tr>
   
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
   
 </tr>
 
@@ -737,15 +624,6 @@ private pure function num2str_qp(num, formato) result(str)
 
       
     
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
     
 
   </div>
