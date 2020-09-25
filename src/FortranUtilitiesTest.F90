@@ -283,47 +283,47 @@ PROGRAM FortranUtilitiesTest
    BLOCK
       REAL(KIND=sp) :: a, b, R2
       CALL linreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('linreg', a == 1.91524588E-02_sp .AND. &
-         b == 6.06490707_sp .AND. R2 == 3.66816646E-04_sp)
+      CALL test('linreg', cRs(a,1.91524588E-02_sp) .AND. &
+         cRs(b,6.06490707_sp) .AND. cRs(R2,3.66816646E-04_sp))
       CALL logreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('logreg', a == -0.613968790_sp .AND. &
-         b == 7.11681414_sp .AND. R2 == 2.03586817E-02_sp)
+      CALL test('logreg', cRs(a,-0.613968790_sp) .AND. &
+         cRs(b,7.11681414_sp) .AND. cRs(R2,2.03586817E-02_sp))
       CALL expreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('expreg', a == 3.06743123E-02_sp .AND. &
-         b == 3.78382611_sp .AND. R2 == 1.74217839E-02_sp)
+      CALL test('expreg', cRs(a, 3.06743123E-02_sp) .AND. &
+         cRs(b,3.78382611_sp) .AND. cRs(R2,1.74217839E-02_sp))
       CALL potreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('potreg', a == -1.72789115E-02_sp .AND. &
-         b == 4.69583559_sp .AND. R2 == 2.98560743E-04_sp)
+      CALL test('potreg', cRs(a, -1.72789115E-02_sp) .AND. &
+         cRs(b, 4.69583559_sp) .AND. cRs(R2, 2.98560743E-04_sp))
    END BLOCK
    BLOCK
       REAL(KIND=dp) :: a, b, R2
       CALL linreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('linreg', a == 1.9152457421550508E-002_dp .AND. &
-         b == 6.0649073478163302_dp .AND. R2 == 3.6681662528430503E-004_dp)
+      CALL test('linreg', cRd(a, 1.9152457421550508E-002_dp) .AND. &
+         cRd(b, 6.0649073478163302_dp) .AND. cRd(R2, 3.6681662528430503E-004_dp))
       CALL logreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('logreg', a == -0.61396915025911369_dp .AND. &
-         b == 7.1168151736358585_dp .AND. R2 == 2.0358702706984266E-002_dp)
+      CALL test('logreg', cRd(a, -0.61396915025911369_dp) .AND. &
+         cRd(b, 7.1168151736358585_dp) .AND. cRd(R2, 2.0358702706984266E-002_dp))
       CALL expreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('expreg', a == 3.0674307466084936E-002_dp .AND. &
-         b == 3.7838256737292624_dp .AND. R2 == 1.7421780282640000E-002_dp)
+      CALL test('expreg', cRd(a, 3.0674307466084936E-002_dp) .AND. &
+         cRd(b, 3.7838256737292624_dp) .AND. cRd(R2, 1.7421780282640000E-002_dp))
       CALL potreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('potreg', a == -1.7278895501656680E-002_dp .AND. &
-         b == 4.6958351143312553_dp .AND. R2 == 2.9856022975717142E-004_dp)
+      CALL test('potreg', cRd(a, -1.7278895501656680E-002_dp) .AND. &
+         cRd(b, 4.6958351143312553_dp) .AND. cRd(R2, 2.9856022975717142E-004_dp))
    END BLOCK
    BLOCK
       REAL(KIND=qp) :: a, b, R2
       CALL linreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('linreg', a == 1.91524574215504391728990839762617023E-0002_qp .AND. &
-         b == 6.06490734781633064419667328817424442_qp .AND. R2 == 3.66816625284302496884903309253573062E-0004_qp)
+      CALL test('linreg', cRq(a, 1.91524574215504391728990839762617023E-0002_qp) .AND. &
+         cRq(b, 6.06490734781633064419667328817424442_qp) .AND. cRq(R2, 3.66816625284302496884903309253573062E-0004_qp))
       CALL logreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('logreg', a == -0.613969150259113476418879831643327107_qp .AND. &
-         b == 7.11681517363585798700524653428860835_qp .AND. R2 == 2.03587027069842497190441285013442309E-0002_qp)
+      CALL test('logreg', cRq(a, -0.613969150259113476418879831643327107_qp) .AND. &
+         cRq(b, 7.11681517363585798700524653428860835_qp) .AND. cRq(R2, 2.03587027069842497190441285013442309E-0002_qp))
       CALL expreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('expreg', a == 3.06743074660849355769293512171716035E-0002_qp .AND. &
-         b == 3.78382567372926279146815783938640435_qp .AND. R2 == 1.74217802826400032248230923507079901E-0002_qp)
+      CALL test('expreg', cRq(a, 3.06743074660849355769293512171716035E-0002_qp) .AND. &
+         cRq(b, 3.78382567372926279146815783938640435_qp) .AND. cRq(R2, 1.74217802826400032248230923507079901E-0002_qp))
       CALL potreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('potreg', a == -1.72788955016566840961205556717785084E-0002_qp .AND. &
-         b == 4.69583511433125501102239312634619302_qp .AND. R2 == 2.98560229757171592749502675903525136E-0004_qp)
+      CALL test('potreg', cRq(a, -1.72788955016566840961205556717785084E-0002_qp) .AND. &
+         cRq(b, 4.69583511433125501102239312634619302_qp) .AND. cRq(R2, 2.98560229757171592749502675903525136E-0004_qp))
    END BLOCK
    CALL sleep(3)
    CALL test('TotalTime',INT(TotalTime()) == 4)
@@ -361,5 +361,33 @@ PROGRAM FortranUtilitiesTest
             END IF
          END IF
       END SUBROUTINE test
+
+      FUNCTION cRs(a,b) RESULT(res)
+         !Compare equality of real numbers according to a tolerance. Single precision
+         IMPLICIT NONE
+         REAL(KIND=sp), INTENT(IN) :: a, b
+         LOGICAL :: res
+         REAL(KIND=sp), PARAMETER :: tol = 1E-5
+         res = ABS(a-b) < tol
+      END FUNCTION cRs
+
+      FUNCTION cRd(a,b) RESULT(res)
+         !Compare equality of real numbers according to a tolerance. Double precision
+         IMPLICIT NONE
+         REAL(KIND=dp), INTENT(IN) :: a, b
+         LOGICAL :: res
+         REAL(KIND=dp), PARAMETER :: tol = 1E-10
+         res = ABS(a-b) < tol
+      END FUNCTION cRd
+
+      FUNCTION cRq(a,b) RESULT(res)
+         !Compare equality of real numbers according to a tolerance. Quadruple precision
+         IMPLICIT NONE
+         REAL(KIND=qp), INTENT(IN) :: a, b
+         LOGICAL :: res
+         REAL(KIND=qp), PARAMETER :: tol = 1E-10
+         res = ABS(a-b) < tol
+      END FUNCTION cRq
+
 
 END PROGRAM FortranUtilitiesTest

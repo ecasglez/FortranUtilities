@@ -19,6 +19,11 @@
  *        it is not required.
 */
 
+#ifdef ICC
+#include <experimental/filesystem>
+namespace fs = std::experimental::filesystem;
+#endif
+
 #ifdef GCC7
 #include <experimental/filesystem>
 namespace fs = std::experimental::filesystem;
