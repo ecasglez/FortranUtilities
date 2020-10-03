@@ -25,6 +25,8 @@ target_link_libraries(FortranUtilitiesTest FortranUtilities)
 set_target_properties(objlib objtests
 	PROPERTIES Fortran_MODULE_DIRECTORY ${LIB_MOD_DIR})
 
+set_property(TARGET FortranUtilitiesTest PROPERTY LINKER_LANGUAGE Fortran)
+set_property(TARGET FortranUtilitiesTestStatic PROPERTY LINKER_LANGUAGE Fortran)
 
 install(TARGETS FortranUtilities FortranUtilitiesStatic 
 	FortranUtilitiesTestStatic FortranUtilitiesTest
