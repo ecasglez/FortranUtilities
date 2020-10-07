@@ -1,5 +1,5 @@
 
-set(LibrarySources Strings_M.f90 Prec_M.f90 Statistics_M.f90 Numbers_M.f90 Files_M.F90
+set(LibrarySources Strings_M.F90 Prec_M.F90 Statistics_M.F90 Numbers_M.F90 Files_M.F90
     Timing_M.f90 cfiles.cpp csort.cpp ctiming.cpp)
 set(TestSources FortranUtilitiesTest.F90)
 

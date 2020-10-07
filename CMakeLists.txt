@@ -29,18 +29,14 @@ if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
   endif()
   set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -Wall -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans")
   set (CMAKE_Fortran_FLAGS_RELEASE "-O2")
-  set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+  set (CMAKE_Fortran_FLAGS_RELWITHDEBINFO "-O2 -g")
   set (CMAKE_Fortran_FLAGS_DEBUG "-g")
+  add_definitions(-DQPREC_FPP)
 endif()
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "7.5.0")
 	message(FATAL_ERROR "GNU G++ 7.5.0 or newer required")
-  endif()
-  if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS "8.0.")
-     add_definitions(-DGCC7)
-  else ()
-     add_definitions(-DGCC8)
   endif()
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans")
   set (CMAKE_CXX_FLAGS_RELEASE "-O2")
@@ -58,8 +54,9 @@ if (CMAKE_Fortran_COMPILER_ID STREQUAL "Intel")
   endif()
   set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -warn all")
   set (CMAKE_Fortran_FLAGS_RELEASE "-O2")
-  set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+  set (CMAKE_Fortran_FLAGS_RELWITHDEBINFO "-O2 -g")
   set (CMAKE_Fortran_FLAGS_DEBUG "-g")
+  add_definitions(-DQPREC_FPP)
 endif()
 
 #Tested with Intel C++ Compiler 19. Could work with older versions
@@ -67,7 +64,6 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Intel")
   if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "19")
      message(FATAL_ERROR "Intel C++ Compiler 19 or newer required")
   endif()
-  add_definitions(-DICC)
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -diag-disable:remark -pedantic")
   set (CMAKE_CXX_FLAGS_RELEASE "-O2")
   set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
@@ -75,15 +71,49 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "Intel")
 endif()
 
 #
-#Check for Clang compilers
+# Check for Clang compilers
 #
-# Tested with Clang 6 and 10
+# Tested with Flang from AMD AOCC.
+if(CMAKE_Fortran_COMPILER_ID STREQUAL "Flang")
+  if(CMAKE_Fortran_COMPILER_VERSION VERSION_LESS "10")
+     message(FATAL_ERROR "Flang 10 or newer required")
+  endif()
+  set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -Wall -fno-unsafe-math-optimizations -frounding-math")
+  set (CMAKE_Fortran_FLAGS_RELEASE "-O2")
+  set (CMAKE_Fortran_FLAGS_RELWITHDEBINFO "-O2 -g")
+  set (CMAKE_Fortran_FLAGS_DEBUG "-g")
+endif()
+
+# Tested with Clang 6 and 10, and Clang from AMD AOCC.
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "6")
      message(FATAL_ERROR "Clang++ 6 or newer required")
   endif()
-  add_definitions(-DCLANG)
-  #  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans")
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-unsafe-math-optimizations -frounding-math")
+  set (CMAKE_CXX_FLAGS_RELEASE "-O2")
+  set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+  set (CMAKE_CXX_FLAGS_DEBUG "-g")
+endif()
+
+#
+#Check for PGI compilers, now nvfortran
+#
+#Only tested with PGI 20.7
+if(CMAKE_Fortran_COMPILER_ID STREQUAL "PGI")
+  if(CMAKE_Fortran_COMPILER_VERSION VERSION_LESS "20.7")
+     message(FATAL_ERROR "PGI Fortran compiler 20.7 or newer required")
+  endif()
+  set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -Wall")
+  set (CMAKE_Fortran_FLAGS_RELEASE "-O2")
+  set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
+  set (CMAKE_Fortran_FLAGS_DEBUG "-g")
+endif()
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "PGI")
+  if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "20.7")
+     message(FATAL_ERROR "PGI C++ compiler 20.7 or newer required")
+  endif()
+  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
   set (CMAKE_CXX_FLAGS_RELEASE "-O2")
   set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
   set (CMAKE_CXX_FLAGS_DEBUG "-g")

@@ -49,7 +49,9 @@ MODULE FU_Numbers
       !! Determines if the value of the input variable is NaN.
       MODULE PROCEDURE is_nan_sp
       MODULE PROCEDURE is_nan_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE is_nan_qp
+#endif
    END INTERFACE is_nan
 
 
@@ -62,7 +64,9 @@ MODULE FU_Numbers
       !! Determines if the value of the input variable is NaN.
       MODULE PROCEDURE is_inf_sp
       MODULE PROCEDURE is_inf_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE is_inf_qp
+#endif
    END INTERFACE is_inf
 
 
@@ -152,6 +156,7 @@ MODULE FU_Numbers
 
       END FUNCTION is_nan_dp
 
+#ifdef QPREC_FPP
       ELEMENTAL FUNCTION is_nan_qp(val) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp), INTENT(IN) :: val
@@ -163,6 +168,7 @@ MODULE FU_Numbers
          res = ieee_is_nan(val)
 
       END FUNCTION is_nan_qp
+#endif
 
       ELEMENTAL FUNCTION is_inf_sp(val) RESULT(res)
          IMPLICIT NONE
@@ -188,6 +194,7 @@ MODULE FU_Numbers
 
       END FUNCTION is_inf_dp
 
+#ifdef QPREC_FPP
       ELEMENTAL FUNCTION is_inf_qp(val) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp), INTENT(IN) :: val
@@ -199,5 +206,6 @@ MODULE FU_Numbers
          res = .NOT.ieee_is_finite(val)
 
       END FUNCTION is_inf_qp
+#endif
 
 END MODULE FU_Numbers

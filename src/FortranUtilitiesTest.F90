@@ -11,19 +11,29 @@ PROGRAM FortranUtilitiesTest
 
    REAL(KIND=sp),DIMENSION(6) :: vecSp = (/1., 2., 3., 4., 5., 6./)
    REAL(KIND=dp),DIMENSION(6) :: vecDp = (/1., 2., 3., 4., 5., 6./)
+#ifdef QPREC_FPP
    REAL(KIND=qp),DIMENSION(6) :: vecQp = (/1., 2., 3., 4., 5., 6./)
+#endif
    REAL(KIND=sp),DIMENSION(6) :: vec1Sp = (/0.9, 2.6, 4.3, 8.2, 10.0, 11.1/)
    REAL(KIND=dp),DIMENSION(6) :: vec1Dp = (/0.9, 2.6, 4.3, 8.2, 10.0, 11.1/)
+#ifdef QPREC_FPP
    REAL(KIND=qp),DIMENSION(6) :: vec1Qp = (/0.9, 2.6, 4.3, 8.2, 10.0, 11.1/)
+#endif
    REAL(KIND=sp),DIMENSION(6) :: vec2Sp = (/10.0, 0.9, 8.2, 4.3, 2.6, 11.1/)
    REAL(KIND=dp),DIMENSION(6) :: vec2Dp = (/10.0, 0.9, 8.2, 4.3, 2.6, 11.1/)
+#ifdef QPREC_FPP
    REAL(KIND=qp),DIMENSION(6) :: vec2Qp = (/10.0, 0.9, 8.2, 4.3, 2.6, 11.1/)
+#endif
    REAL(KIND=sp),DIMENSION(3,3) :: matSp = RESHAPE((/0.5, 2., 3., 2., 5.4, 6., 3., 6., 3.3/),SHAPE(matSp))
    REAL(KIND=dp),DIMENSION(3,3) :: matDp = RESHAPE((/0.5, 2., 3., 2., 5.4, 6., 3., 6., 3.3/),SHAPE(matDp))
+#ifdef QPREC_FPP
    REAL(KIND=qp),DIMENSION(3,3) :: matQp = RESHAPE((/0.5, 2., 3., 2., 5.4, 6., 3., 6., 3.3/),SHAPE(matQp))
+#endif
    REAL(KIND=sp) :: zero_sp = 0.0
    REAL(KIND=dp) :: zero_dp = 0.0
+#ifdef QPREC_FPP
    REAL(KIND=qp) :: zero_qp = 0.0
+#endif
    INTEGER :: u
 
 
@@ -108,76 +118,120 @@ PROGRAM FortranUtilitiesTest
    CALL test('cistrcmp',.NOT.cistrcmp('FortranoUtilities','fortran uTILITIES'))
    CALL test('mean',ABS(mean((/4.2_sp/)) - 4.2_sp) < 1E-10)
    CALL test('mean',ABS(mean((/4.2_dp/)) - 4.2_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('mean',ABS(mean((/4.2_qp/)) - 4.2_qp) < 1E-10)
+#endif
    CALL test('mean',ABS(mean(vecSp) - 3.5_sp) < 1E-10)
    CALL test('mean',ABS(mean(vecDp) - 3.5_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('mean',ABS(mean(vecQp) - 3.5_qp) < 1E-10)
+#endif
    CALL test('gmean',ABS(gmean((/4.2_sp/)) - 4.2_sp) < 1E-10)
    CALL test('gmean',ABS(gmean((/4.2_dp/)) - 4.2_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('gmean',ABS(gmean((/4.2_qp/)) - 4.2_qp) < 1E-10)
+#endif
    CALL test('gmean',ABS(gmean(vecSp) - 2.99379516_sp) < 1E-10)
    CALL test('gmean',ABS(gmean(vecDp) - 2.9937951655239088_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('gmean',ABS(gmean(vecQp) - 2.99379516552390895491016056788943720_qp) < 1E-10)
+#endif
    CALL test('variance',ABS(variance(vecSp) - 3.5_sp) < 1E-10)
    CALL test('variance',ABS(variance(vecDp) - 3.5_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('variance',ABS(variance(vecQp) - 3.5_qp) < 1E-10)
+#endif
    CALL test('stdev',ABS(stdev(vecSp) - 1.87082875_sp) < 1E-10)
    CALL test('stdev',ABS(stdev(vecDp) - 1.8708286933869707_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('stdev',ABS(stdev(vecQp) - 1.87082869338697069279187436615827459_qp) < 1E-10)
+#endif
    CALL test('pvariance',ABS(pvariance(vecSp) - 2.91666675_sp) < 1E-10)
    CALL test('pvariance',ABS(pvariance(vecDp) - 2.9166666666666665_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('pvariance',ABS(pvariance(vecQp) - 2.91666666666666666666666666666666654_qp) < 1E-10)
+#endif
    CALL test('pstdev',ABS(pstdev(vecSp) - 1.70782518_sp) < 1E-10)
    CALL test('pstdev',ABS(pstdev(vecDp) - 1.7078251276599330_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('pstdev',ABS(pstdev(vecQp) - 1.70782512765993306387017311342017542_qp) < 1E-10)
+#endif
    CALL test('covariance',ABS(covariance(vecSp, vec1Sp) - 7.71000004_sp) < 1E-10)
    CALL test('covariance',ABS(covariance(vecDp, vec1Dp) - 7.7100001931190487_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('covariance',ABS(covariance(vecQp, vec1Qp) - 7.71000019311904907226562499999999969_qp) < 1E-10)
+#endif
    CALL test('pcovariance',ABS(pcovariance(vecSp, vec1Sp) - 6.42499971_sp) < 1E-10)
    CALL test('pcovariance',ABS(pcovariance(vecDp, vec1Dp) - 6.4250001609325409_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('pcovariance',ABS(pcovariance(vecQp, vec1Qp) - 6.42500016093254089355468750000000000_qp) < 1E-10)
+#endif
    CALL test('correlation',ABS(correlation(vecSp, vec1Sp) - 0.987359941_sp) < 1E-10)
    CALL test('correlation',ABS(correlation(vecDp, vec1Dp) - 0.98735995385629849_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('correlation',ABS(correlation(vecQp, vec1Qp) - 0.987359953856298526574298348025205074_qp) < 1E-10)
+#endif
    CALL test('lin_error_propagation',ABS(lin_error_propagation(vecSp(1:3),matSp) - 149.799988_sp) < 1E-10)
    CALL test('lin_error_propagation',ABS(lin_error_propagation(vecDp(1:3),matDp) - 149.79999995231628_dp) < 1E-10)
+#ifdef QPREC_FPP
    CALL test('lin_error_propagation',ABS(lin_error_propagation(vecQp(1:3),matQp) -  &
                                  149.799999952316284179687500000000000_qp) < 1E-10)
+#endif
    CALL test('median',ABS(median(vec2Sp) - 6.25000000) < 1E-10)
    CALL test('median',ABS(median(vec2Dp) - 6.2500000000000000) < 1E-10)
    CALL test('median',ABS(median(vec2Sp(:SIZE(vec2Sp) - 1)) - 4.30000019) < 1E-10)
    CALL test('median',ABS(median(vec2Dp(:SIZE(vec2Sp) - 1)) - 4.3000001907348633) < 1E-10)
    CALL test('skewness',ABS(skewness(vec1Sp) - (-7.22614899E-02)) < 1E10)
    CALL test('skewness',ABS(skewness(vec1Dp) - (-7.2262060797200045E-002)) < 1E10)
+#ifdef QPREC_FPP
    CALL test('skewness',ABS(skewness(vec1Qp) - (-7.22620607971998014386482122745445625E-0002)) < 1E10)
+#endif
    CALL test('pskewness',ABS(pskewness(vec1Sp) - (-5.27723245E-02)) < 1E10)
    CALL test('pskewness',ABS(pskewness(vec1Dp) - (-5.2772747667248286E-002)) < 1E10)
+#ifdef QPREC_FPP
    CALL test('pskewness',ABS(pskewness(vec1Qp) - (-5.27727476672481041162418142064811042E-0002)) < 1E10)
+#endif
    CALL test('is_nan',.NOT.is_nan(5._sp))
    CALL test('is_nan',.NOT.is_nan(5._dp))
+#ifdef QPREC_FPP
    CALL test('is_nan',.NOT.is_nan(5._qp))
+#endif
    CALL test('is_nan',is_nan(zero_sp/zero_sp))
    CALL test('is_nan',is_nan(zero_dp/zero_dp))
+#ifdef QPREC_FPP
    CALL test('is_nan',is_nan(zero_qp/zero_qp))
+#endif
    CALL test('is_nan',ALL(.NOT.is_nan(vecSp)))
    CALL test('is_nan',ALL(.NOT.is_nan(vecDp)))
+#ifdef QPREC_FPP
    CALL test('is_nan',ALL(.NOT.is_nan(vecQp)))
+#endif
    !Falta comprobar is_nan a true con un vector de zeros.
    CALL test('is_inf',.NOT.is_inf(5._sp))
    CALL test('is_inf',.NOT.is_inf(5._dp))
+#ifdef QPREC_FPP
    CALL test('is_inf',.NOT.is_inf(5._qp))
+#endif
    CALL test('is_inf',is_inf(5._sp/zero_sp))
    CALL test('is_inf',is_inf(5._dp/zero_dp))
+#ifdef QPREC_FPP
    CALL test('is_inf',is_inf(5._qp/zero_qp))
+#endif
    CALL test('is_inf',is_inf(-5._sp/zero_sp))
    CALL test('is_inf',is_inf(-5._dp/zero_dp))
+#ifdef QPREC_FPP
    CALL test('is_inf',is_inf(-5._qp/zero_qp))
+#endif
    CALL test('is_inf',ALL(.NOT.is_inf(vecSp)))
    CALL test('is_inf',ALL(.NOT.is_inf(vecDp)))
+#ifdef QPREC_FPP
    CALL test('is_inf',ALL(.NOT.is_inf(vecQp)))
+#endif
    CALL test('is_inf',ALL(is_inf(vecSp/zero_sp)))
    CALL test('is_inf',ALL(is_inf(vecDp/zero_dp)))
+#ifdef QPREC_FPP
    CALL test('is_inf',ALL(is_inf(vecQp/zero_qp)))
+#endif
    CALL test('mkdir',mkdir("testdir32"))
    CALL test('is_empty',is_empty("testdir32"))
    OPEN(NEWUNIT=u,FILE="testfile32",STATUS="REPLACE")
@@ -310,6 +364,7 @@ PROGRAM FortranUtilitiesTest
       CALL test('potreg', cRd(a, -1.7278895501656680E-002_dp) .AND. &
          cRd(b, 4.6958351143312553_dp) .AND. cRd(R2, 2.9856022975717142E-004_dp))
    END BLOCK
+#ifdef QPREC_FPP
    BLOCK
       REAL(KIND=qp) :: a, b, R2
       CALL linreg(vec1Qp,vec2Qp,a,b,R2)
@@ -325,6 +380,7 @@ PROGRAM FortranUtilitiesTest
       CALL test('potreg', cRq(a, -1.72788955016566840961205556717785084E-0002_qp) .AND. &
          cRq(b, 4.69583511433125501102239312634619302_qp) .AND. cRq(R2, 2.98560229757171592749502675903525136E-0004_qp))
    END BLOCK
+#endif
    CALL sleep(3)
    CALL test('TotalTime',INT(TotalTime()) == 4)
    CALL test('IntervalTime',INT(IntervalTime()) == 4)
@@ -380,6 +436,7 @@ PROGRAM FortranUtilitiesTest
          res = ABS(a-b) < tol
       END FUNCTION cRd
 
+#ifdef QPREC_FPP
       FUNCTION cRq(a,b) RESULT(res)
          !Compare equality of real numbers according to a tolerance. Quadruple precision
          IMPLICIT NONE
@@ -388,6 +445,7 @@ PROGRAM FortranUtilitiesTest
          REAL(KIND=qp), PARAMETER :: tol = 1E-10
          res = ABS(a-b) < tol
       END FUNCTION cRq
+#endif
 
 
 END PROGRAM FortranUtilitiesTest

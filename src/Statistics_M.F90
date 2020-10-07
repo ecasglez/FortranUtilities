@@ -32,11 +32,6 @@ MODULE FU_Statistics
          INTEGER(C_INT)    ,         VALUE         :: n
          REAL(C_DOUBLE),DIMENSION(n),INTENT(INOUT) :: x
       END SUBROUTINE c_sort_double
-      SUBROUTINE c_sort_long_double(x, n) BIND(c,name='c_sort_long_double')
-         USE iso_c_binding
-         INTEGER(C_INT)    ,              VALUE         :: n
-         REAL(C_LONG_DOUBLE),DIMENSION(n),INTENT(INOUT) :: x
-      END SUBROUTINE c_sort_long_double
    END INTERFACE c_sort
 
 
@@ -69,7 +64,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the mean value of ```x```.
       MODULE PROCEDURE mean_sp
       MODULE PROCEDURE mean_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE mean_qp
+#endif
    END INTERFACE mean
 
 
@@ -104,7 +101,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the geometric mean of ```x```.
       MODULE PROCEDURE gmean_sp
       MODULE PROCEDURE gmean_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE gmean_qp
+#endif
    END INTERFACE gmean
 
 
@@ -138,7 +137,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the sample variance of ```x```.
       MODULE PROCEDURE variance_sp
       MODULE PROCEDURE variance_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE variance_qp
+#endif
    END INTERFACE variance
 
 
@@ -173,7 +174,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the sample standard deviation of ```x```.
       MODULE PROCEDURE stdev_sp
       MODULE PROCEDURE stdev_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE stdev_qp
+#endif
    END INTERFACE stdev
 
 
@@ -207,7 +210,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the population variance of ```x```.
       MODULE PROCEDURE pvariance_sp
       MODULE PROCEDURE pvariance_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE pvariance_qp
+#endif
    END INTERFACE pvariance
 
 
@@ -242,7 +247,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the population standard deviation of ```x```.
       MODULE PROCEDURE pstdev_sp
       MODULE PROCEDURE pstdev_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE pstdev_qp
+#endif
    END INTERFACE pstdev
 
 
@@ -278,7 +285,9 @@ MODULE FU_Statistics
       !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the sample covariance of ```x``` and ```y```.
       MODULE PROCEDURE covariance_sp
       MODULE PROCEDURE covariance_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE covariance_qp
+#endif
    END INTERFACE covariance
 
 
@@ -314,7 +323,9 @@ MODULE FU_Statistics
       !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the population covariance of ```x``` and ```y```.
       MODULE PROCEDURE pcovariance_sp
       MODULE PROCEDURE pcovariance_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE pcovariance_qp
+#endif
    END INTERFACE pcovariance
 
 
@@ -349,7 +360,9 @@ MODULE FU_Statistics
       !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the correlation coefficient of ```x``` and ```y```.
       MODULE PROCEDURE correlation_sp
       MODULE PROCEDURE correlation_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE correlation_qp
+#endif
    END INTERFACE correlation
 
 
@@ -387,7 +400,9 @@ MODULE FU_Statistics
       !! error or uncertainty propagated to this new variable.
       MODULE PROCEDURE lin_error_propagation_sp
       MODULE PROCEDURE lin_error_propagation_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE lin_error_propagation_qp
+#endif
    END INTERFACE lin_error_propagation
 
 
@@ -450,7 +465,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the sample skewness of ```x```.
       MODULE PROCEDURE skewness_sp
       MODULE PROCEDURE skewness_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE skewness_qp
+#endif
    END INTERFACE skewness
 
 
@@ -486,7 +503,9 @@ MODULE FU_Statistics
       !! * ```y``` = real number of the same kind as ```x``` with the population skewness of ```x```.
       MODULE PROCEDURE pskewness_sp
       MODULE PROCEDURE pskewness_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE pskewness_qp
+#endif
    END INTERFACE pskewness
 
 
@@ -503,7 +522,9 @@ MODULE FU_Statistics
       !! private subroutine accesible by using one of [[linreg]], [[logreg]], [[expreg]] or [[potreg]].
       MODULE PROCEDURE regression_sp
       MODULE PROCEDURE regression_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE regression_qp
+#endif
    END INTERFACE regression
 
    INTEGER, PARAMETER :: linreg_id = 1
@@ -548,7 +569,9 @@ MODULE FU_Statistics
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
       MODULE PROCEDURE linreg_sp
       MODULE PROCEDURE linreg_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE linreg_qp
+#endif
    END INTERFACE linreg
 
 
@@ -584,7 +607,9 @@ MODULE FU_Statistics
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
       MODULE PROCEDURE logreg_sp
       MODULE PROCEDURE logreg_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE logreg_qp
+#endif
    END INTERFACE logreg
 
 
@@ -620,7 +645,9 @@ MODULE FU_Statistics
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
       MODULE PROCEDURE expreg_sp
       MODULE PROCEDURE expreg_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE expreg_qp
+#endif
    END INTERFACE expreg
 
 
@@ -656,7 +683,9 @@ MODULE FU_Statistics
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
       MODULE PROCEDURE potreg_sp
       MODULE PROCEDURE potreg_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE potreg_qp
+#endif
    END INTERFACE potreg
 
    CONTAINS
@@ -688,6 +717,7 @@ MODULE FU_Statistics
 
       END FUNCTION mean_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION mean_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -700,6 +730,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_mean.f90'
 
       END FUNCTION mean_qp
+#endif
 
       PURE FUNCTION gmean_sp(x) RESULT(res)
          IMPLICIT NONE
@@ -727,6 +758,7 @@ MODULE FU_Statistics
 
       END FUNCTION gmean_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION gmean_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -739,6 +771,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_gmean.f90'
 
       END FUNCTION gmean_qp
+#endif
 
 
       PURE FUNCTION variance_sp(x) RESULT(res)
@@ -769,6 +802,7 @@ MODULE FU_Statistics
 
       END FUNCTION variance_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION variance_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -782,6 +816,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_variance.f90'
 
       END FUNCTION variance_qp
+#endif
 
 
       PURE FUNCTION stdev_sp(x) RESULT(res)
@@ -808,6 +843,7 @@ MODULE FU_Statistics
 
       END FUNCTION stdev_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION stdev_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -819,6 +855,7 @@ MODULE FU_Statistics
          res = SQRT(variance(x))
 
       END FUNCTION stdev_qp
+#endif
 
 
 
@@ -848,6 +885,7 @@ MODULE FU_Statistics
 
       END FUNCTION pvariance_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION pvariance_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -860,6 +898,7 @@ MODULE FU_Statistics
          res = variance(x) * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pvariance_qp
+#endif
 
 
       PURE FUNCTION pstdev_sp(x) RESULT(res)
@@ -886,6 +925,7 @@ MODULE FU_Statistics
 
       END FUNCTION pstdev_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION pstdev_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -897,6 +937,7 @@ MODULE FU_Statistics
          res = SQRT(pvariance(x))
 
       END FUNCTION pstdev_qp
+#endif
 
 
       PURE FUNCTION covariance_sp(x,y) RESULT(res)
@@ -933,6 +974,7 @@ MODULE FU_Statistics
 
       END FUNCTION covariance_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION covariance_qp(x,y) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -949,6 +991,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_covariance.f90'
 
       END FUNCTION covariance_qp
+#endif
 
 
 
@@ -986,6 +1029,7 @@ MODULE FU_Statistics
 
       END FUNCTION pcovariance_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION pcovariance_qp(x,y) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -1002,6 +1046,7 @@ MODULE FU_Statistics
             * REAL(SIZE(x) - 1, prec) / REAL(SIZE(x),prec)
 
       END FUNCTION pcovariance_qp
+#endif
 
 
 
@@ -1037,6 +1082,7 @@ MODULE FU_Statistics
 
       END FUNCTION correlation_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION correlation_qp(x,y) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -1052,6 +1098,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_correlation.f90'
 
       END FUNCTION correlation_qp
+#endif
 
 
 
@@ -1085,6 +1132,7 @@ MODULE FU_Statistics
 
       END FUNCTION lin_error_propagation_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION lin_error_propagation_qp(sensitivities,matcovar) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: sensitivities
@@ -1099,6 +1147,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_lin_error_propagation.f90'
 
       END FUNCTION lin_error_propagation_qp
+#endif
 
 
       FUNCTION median_sp(x) RESULT(res)
@@ -1168,6 +1217,7 @@ MODULE FU_Statistics
 
       END FUNCTION skewness_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION skewness_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -1184,6 +1234,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_skewness.f90'
 
       END FUNCTION skewness_qp
+#endif
 
 
 
@@ -1221,6 +1272,7 @@ MODULE FU_Statistics
 
       END FUNCTION pskewness_dp
 
+#ifdef QPREC_FPP
       PURE FUNCTION pskewness_qp(x) RESULT(res)
          IMPLICIT NONE
          REAL(KIND=qp),DIMENSION(:),INTENT(IN) :: x
@@ -1237,6 +1289,7 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_pskewness.f90'
 
       END FUNCTION pskewness_qp
+#endif
 
 
 
@@ -1279,6 +1332,7 @@ MODULE FU_Statistics
 
       END SUBROUTINE linreg_dp
 
+#ifdef QPREC_FPP
       PURE SUBROUTINE linreg_qp(x,y,a,b,R2)
          IMPLICIT NONE
          REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
@@ -1297,6 +1351,7 @@ MODULE FU_Statistics
          CALL regression(linreg_id,x,y,a,b,R2)
 
       END SUBROUTINE linreg_qp
+#endif
 
 
       PURE SUBROUTINE logreg_sp(x,y,a,b,R2)
@@ -1337,6 +1392,7 @@ MODULE FU_Statistics
 
       END SUBROUTINE logreg_dp
 
+#ifdef QPREC_FPP
       PURE SUBROUTINE logreg_qp(x,y,a,b,R2)
          IMPLICIT NONE
          REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
@@ -1355,6 +1411,7 @@ MODULE FU_Statistics
          CALL regression(logreg_id,x,y,a,b,R2)
 
       END SUBROUTINE logreg_qp
+#endif
 
 
       PURE SUBROUTINE expreg_sp(x,y,a,b,R2)
@@ -1395,6 +1452,7 @@ MODULE FU_Statistics
 
       END SUBROUTINE expreg_dp
 
+#ifdef QPREC_FPP
       PURE SUBROUTINE expreg_qp(x,y,a,b,R2)
          IMPLICIT NONE
          REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
@@ -1413,6 +1471,7 @@ MODULE FU_Statistics
          CALL regression(expreg_id,x,y,a,b,R2)
 
       END SUBROUTINE expreg_qp
+#endif
 
 
       PURE SUBROUTINE potreg_sp(x,y,a,b,R2)
@@ -1453,6 +1512,7 @@ MODULE FU_Statistics
 
       END SUBROUTINE potreg_dp
 
+#ifdef QPREC_FPP
       PURE SUBROUTINE potreg_qp(x,y,a,b,R2)
          IMPLICIT NONE
          REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: x
@@ -1471,6 +1531,7 @@ MODULE FU_Statistics
          CALL regression(potreg_id,x,y,a,b,R2)
 
       END SUBROUTINE potreg_qp
+#endif
 
 
 
@@ -1524,6 +1585,7 @@ MODULE FU_Statistics
       END SUBROUTINE regression_dp
 
 
+#ifdef QPREC_FPP
       PURE SUBROUTINE regression_qp(typeRegression,x,y,a,b,R2)
          IMPLICIT NONE
          INTEGER, INTENT(IN) :: typeRegression
@@ -1547,5 +1609,6 @@ MODULE FU_Statistics
          INCLUDE 'Statistics_M/include_regression.f90'
 
       END SUBROUTINE regression_qp
+#endif
 
 END MODULE FU_Statistics

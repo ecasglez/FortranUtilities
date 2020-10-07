@@ -13,30 +13,31 @@
  * VERSION 1.0.
  *
  * Copyright: See LICENSE file that comes with this distribution.
+ *            A portion of the file is released with a license CC BY-SA 4.0.
  *
  * NOTES: If compiler is gcc 8 the following compilation
  *        flag must be used: -lstdc++fs. From gcc 9 onwards
  *        it is not required.
 */
 
-#ifdef ICC
-#include <experimental/filesystem>
-namespace fs = std::experimental::filesystem;
-#endif
-
-#ifdef GCC7
-#include <experimental/filesystem>
-namespace fs = std::experimental::filesystem;
-#endif
-
-#ifdef GCC8
-#include <filesystem>
-namespace fs = std::filesystem;
-#endif
-
-#ifdef CLANG
-#include <experimental/filesystem>
-namespace fs = std::experimental::filesystem;
+//Detecting if the compiler uses filesystem or experimental/filesystem.
+#if defined(__cpp_lib_filesystem)
+#   include <filesystem>
+    namespace fs = std::filesystem;
+#elif defined(__cpp_lib_experimental_filesystem)
+#   include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
+#elif !defined(__has_include)
+#   include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
+#elif __has_include(<filesystem>)
+#   include <filesystem>
+    namespace fs = std::filesystem;
+#elif __has_include(<experimental/filesystem>)
+#   include <experimental/filesystem>
+    namespace fs = std::experimental::filesystem;
+#else
+#   error "Could not find filesystem nor experimental/filesystem support."
 #endif
 
 #include <cstring>
