@@ -38,15 +38,15 @@ MODULE FU_Files
    INTERFACE
       FUNCTION c_createdir(dir, ign) RESULT(res) BIND(c,name='c_createdir')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE :: dir
-         LOGICAL(C_BOOL)          :: ign
-         LOGICAL(C_BOOL)          :: res
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: dir
+         LOGICAL(C_BOOL),INTENT(IN) :: ign
+         LOGICAL(C_BOOL)            :: res
       END FUNCTION c_createdir
 #ifdef LIN_CPP
       FUNCTION c_create_symlink(src, dest, ignoreErrors) RESULT(res) BIND(c,name='c_create_symlink')
          USE iso_c_binding
          IMPLICIT NONE
-         CHARACTER(C_CHAR), VALUE :: src, dest
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: src, dest
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_create_symlink
@@ -54,75 +54,75 @@ MODULE FU_Files
       FUNCTION c_copy_file(src, dest, ignoreErrors) RESULT(res) BIND(c,name='c_copy_file')
          USE iso_c_binding
          IMPLICIT NONE
-         CHARACTER(C_CHAR), VALUE :: src, dest
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: src, dest
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_copy_file
       FUNCTION c_move_file(src, dest, ignoreErrors) RESULT(res) BIND(c,name='c_move_file')
          USE iso_c_binding
          IMPLICIT NONE
-         CHARACTER(C_CHAR), VALUE :: src, dest
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: src, dest
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_move_file
       FUNCTION c_remove(fname, ignoreErrors) RESULT(res) BIND(c,name='c_remove')
          USE iso_c_binding
          IMPLICIT NONE
-         CHARACTER(C_CHAR), VALUE :: fname
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: fname
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_remove
       FUNCTION c_is_directory(fname, ignoreErrors) RESULT(res) BIND(c,name='c_is_directory')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE :: fname
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: fname
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_directory
       FUNCTION c_is_empty(fname, ignoreErrors) RESULT(res) BIND(c,name='c_is_empty')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE :: fname
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN)  :: fname
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_empty
       FUNCTION c_is_regular_file(fname, ignoreErrors) RESULT(res) BIND(c,name='c_is_regular_file')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE :: fname
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: fname
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_regular_file
 #ifdef LIN_CPP
       FUNCTION c_is_symlink(fname, ignoreErrors) RESULT(res) BIND(c,name='c_is_symlink')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE :: fname
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: fname
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_symlink
 #endif
       FUNCTION c_is_absolute(fname) RESULT(res) BIND(c,name='c_is_absolute')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE :: fname
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: fname
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_absolute
       FUNCTION c_is_relative(fname) RESULT(res) BIND(c,name='c_is_relative')
          USE iso_c_binding
-         CHARACTER(C_CHAR), VALUE :: fname
+         CHARACTER(C_CHAR), DIMENSION(*) :: fname
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_is_relative
       SUBROUTINE c_extension(fname) BIND(c,name='c_extension')
          USE iso_c_binding
-         CHARACTER(C_CHAR)   :: fname(*)
+         CHARACTER(C_CHAR),DIMENSION(*)   :: fname
       END SUBROUTINE c_extension
       SUBROUTINE c_stem(fname) BIND(c,name='c_stem')
          USE iso_c_binding
-         CHARACTER(C_CHAR)   :: fname(*)
+         CHARACTER(C_CHAR),DIMENSION(*)   :: fname
       END SUBROUTINE c_stem
       SUBROUTINE c_filename(fname) BIND(c,name='c_filename')
          USE iso_c_binding
-         CHARACTER(C_CHAR)   :: fname(*)
+         CHARACTER(C_CHAR),DIMENSION(*)   :: fname
       END SUBROUTINE c_filename
       SUBROUTINE c_parent_path(fname) BIND(c,name='c_parent_path')
          USE iso_c_binding
-         CHARACTER(C_CHAR)   :: fname(*)
+         CHARACTER(C_CHAR),DIMENSION(*)   :: fname
       END SUBROUTINE c_parent_path
    END INTERFACE
 

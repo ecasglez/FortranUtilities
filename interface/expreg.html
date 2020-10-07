@@ -132,19 +132,19 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.3% of total for procedures.</p>Including implementation: 32 statements,  8.5% of total for procedures.">5 statements</a>
+    title="<p> 1.1% of total for procedures.</p>Including implementation: 22 statements,  6.2% of total for procedures.">4 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Statistics_M.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Statistics_M.F90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/statistics_m.f90.html'>Statistics_M.f90</a></li>
+     <li><a href='../sourcefile/statistics_m.f90.html'>Statistics_M.F90</a></li>
     
      <li><a href='../module/fu_statistics.html'>FU_Statistics</a></li>
     
@@ -197,8 +197,6 @@
       <a class="list-group-item" href="../interface/expreg.html#moduleprocedure-expreg_sp">expreg_sp</a>
       
       <a class="list-group-item" href="../interface/expreg.html#moduleprocedure-expreg_dp">expreg_dp</a>
-      
-      <a class="list-group-item" href="../interface/expreg.html#moduleprocedure-expreg_qp">expreg_qp</a>
       
     </div>
   </div>
@@ -271,8 +269,6 @@
       <a class="list-group-item" href="../interface/expreg.html#moduleprocedure-expreg_sp">expreg_sp</a>
       
       <a class="list-group-item" href="../interface/expreg.html#moduleprocedure-expreg_dp">expreg_dp</a>
-      
-      <a class="list-group-item" href="../interface/expreg.html#moduleprocedure-expreg_qp">expreg_qp</a>
       
     </div>
   </div>
@@ -498,119 +494,6 @@ private subroutine expreg_dp(x, y, a, b, R2)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(out)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-expreg_qp"></span><h3>
-private subroutine expreg_qp(x, y, a, b, R2)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
- have any size and it must have one dimension.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
- have any size and it must have one dimension.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(out)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(out)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(out)</td>
   <td></td>
   

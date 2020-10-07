@@ -15,8 +15,10 @@ MODULE FU_Prec
    !! Kind parameter to specify a real type with a storage size of 32 bits.
    INTEGER, PARAMETER :: dp  = REAL64
    !! Kind parameter to specify a real type with a storage size of 64 bits.
+#ifdef QPREC_FPP
    INTEGER, PARAMETER :: qp  = REAL128
    !! Kind parameter to specify a real type with a storage size of 128 bits.
+#endif
    INTEGER, PARAMETER :: i8  = INT8
    !! Kind parameter to specify an integer type with a storage size of 8 bits.
    INTEGER, PARAMETER :: i16 = INT16

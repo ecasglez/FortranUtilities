@@ -51,7 +51,9 @@ MODULE FU_Strings
       MODULE PROCEDURE num2str_i64
       MODULE PROCEDURE num2str_sp
       MODULE PROCEDURE num2str_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE num2str_qp
+#endif
    END INTERFACE num2str
 
 
@@ -86,7 +88,9 @@ MODULE FU_Strings
       MODULE PROCEDURE str2num_i64
       MODULE PROCEDURE str2num_sp
       MODULE PROCEDURE str2num_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE str2num_qp
+#endif
    END INTERFACE str2num
 
 
@@ -359,6 +363,7 @@ CONTAINS
 
    END FUNCTION num2str_dp
 
+#ifdef QPREC_FPP
    PURE FUNCTION num2str_qp(num,formato) RESULT(str)
       IMPLICIT NONE
       REAL(KIND=qp)   ,INTENT(IN)   :: num
@@ -372,6 +377,7 @@ CONTAINS
       INCLUDE 'Strings_M/include_num2strReal.f90'
 
    END FUNCTION num2str_qp
+#endif
 
 
 
@@ -522,6 +528,7 @@ CONTAINS
 
    END FUNCTION str2num_dp
 
+#ifdef QPREC_FPP
    PURE FUNCTION str2num_qp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
@@ -535,6 +542,7 @@ CONTAINS
       INCLUDE 'Strings_M/include_str2num.f90'
 
    END FUNCTION str2num_qp
+#endif
 
 
 
@@ -582,7 +590,9 @@ CONTAINS
       CHARACTER(LEN=:), ALLOCATABLE :: res
       INTEGER                       :: i
       res = str
-      FORALL (i=1:len(res)) res(i:i) = res(len(res)-i+1:len(res)-i+1)
+      DO i = 1, LEN(str)
+         res(i:i) = str(len(str)-i+1:len(str)-i+1)
+      END DO
    END FUNCTION strReverse
 
 

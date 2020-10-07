@@ -132,19 +132,19 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 2.4% of total for procedures.</p>Including implementation: 87 statements, 23.1% of total for procedures.">9 statements</a>
+    title="<p> 2.2% of total for procedures.</p>Including implementation: 72 statements, 20.2% of total for procedures.">8 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Strings_M.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Strings_M.F90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.f90</a></li>
+     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.F90</a></li>
     
      <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
     
@@ -206,8 +206,6 @@
       
       <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_dp">num2str_dp</a>
       
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_qp">num2str_qp</a>
-      
     </div>
   </div>
 </div>
@@ -267,8 +265,6 @@
       <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_sp">num2str_sp</a>
       
       <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_dp">num2str_dp</a>
-      
-      <a class="list-group-item" href="../interface/num2str.html#moduleprocedure-num2str_qp">num2str_qp</a>
       
     </div>
   </div>
@@ -634,81 +630,6 @@ private pure function num2str_dp(num, formato) result(str)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-num2str_qp"></span><h3>
-private pure function num2str_qp(num, formato) result(str)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(in)</td>
   <td></td>
   

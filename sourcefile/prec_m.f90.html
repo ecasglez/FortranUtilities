@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>Prec_M.f90 &ndash; ecasglez's FortranUtilities</title>
+    <title>Prec_M.F90 &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -106,7 +106,7 @@
     
   
   <div class="row">
-    <h1>Prec_M.f90
+    <h1>Prec_M.F90
     <small>Source File</small>
     
     </h1>
@@ -124,12 +124,12 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.6% of total for source files.">11 statements</a>
+    title=" 0.7% of total for source files.">10 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Prec_M.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Prec_M.F90"> Source File</a></li>
      
      
   </ul>
@@ -137,7 +137,7 @@
   
     
   
-     <li class="active">Prec_M.f90</li>
+     <li class="active">Prec_M.F90</li>
   </ol>
 </div>
 </div>
@@ -192,7 +192,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/prec_m.f90.html#src">Prec_M.f90</a>
+    <a class="list-group-item" href="../sourcefile/prec_m.f90.html#src">Prec_M.F90</a>
   </div>
 </div>
 
@@ -248,7 +248,7 @@
 <div class="panel panel-primary">
   <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
   <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/prec_m.f90.html#src">Prec_M.f90</a>
+    <a class="list-group-item" href="../sourcefile/prec_m.f90.html#src">Prec_M.F90</a>
   </div>
 </div>
 
@@ -276,17 +276,19 @@
 <a name="ln-15"></a>   <span class="c">!! Kind parameter to specify a real type with a storage size of 32 bits.</span>
 <a name="ln-16"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">dp</span>  <span class="o">=</span> <span class="n">REAL64</span>
 <a name="ln-17"></a>   <span class="c">!! Kind parameter to specify a real type with a storage size of 64 bits.</span>
-<a name="ln-18"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">qp</span>  <span class="o">=</span> <span class="n">REAL128</span>
-<a name="ln-19"></a>   <span class="c">!! Kind parameter to specify a real type with a storage size of 128 bits.</span>
-<a name="ln-20"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i8</span>  <span class="o">=</span> <span class="n">INT8</span>
-<a name="ln-21"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 8 bits.</span>
-<a name="ln-22"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i16</span> <span class="o">=</span> <span class="n">INT16</span>
-<a name="ln-23"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 16 bits.</span>
-<a name="ln-24"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i32</span> <span class="o">=</span> <span class="n">INT32</span>
-<a name="ln-25"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 32 bits.</span>
-<a name="ln-26"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i64</span> <span class="o">=</span> <span class="n">INT64</span>
-<a name="ln-27"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 64 bits.</span>
-<a name="ln-28"></a><span class="k">END MODULE </span><span class="n">FU_Prec</span>
+<a name="ln-18"></a><span class="cp">#ifdef QPREC_FPP</span>
+<a name="ln-19"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">qp</span>  <span class="o">=</span> <span class="n">REAL128</span>
+<a name="ln-20"></a>   <span class="c">!! Kind parameter to specify a real type with a storage size of 128 bits.</span>
+<a name="ln-21"></a><span class="cp">#endif</span>
+<a name="ln-22"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i8</span>  <span class="o">=</span> <span class="n">INT8</span>
+<a name="ln-23"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 8 bits.</span>
+<a name="ln-24"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i16</span> <span class="o">=</span> <span class="n">INT16</span>
+<a name="ln-25"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 16 bits.</span>
+<a name="ln-26"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i32</span> <span class="o">=</span> <span class="n">INT32</span>
+<a name="ln-27"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 32 bits.</span>
+<a name="ln-28"></a>   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">i64</span> <span class="o">=</span> <span class="n">INT64</span>
+<a name="ln-29"></a>   <span class="c">!! Kind parameter to specify an integer type with a storage size of 64 bits.</span>
+<a name="ln-30"></a><span class="k">END MODULE </span><span class="n">FU_Prec</span>
 </pre></div>
 
     </section>
