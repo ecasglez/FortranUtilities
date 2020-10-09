@@ -133,6 +133,18 @@ bool c_remove(const char * fname, const bool * ignoreErrors)
 
 extern "C"
 {
+   bool c_exists(const char *);
+}
+
+bool c_exists(const char * kkname)
+{
+   const fs::path& p = kkname;
+   fs::file_status s = fs::file_status{};
+   return (fs::status_known(s) ? fs::exists(s) : fs::exists(p));
+}
+
+extern "C"
+{
    bool c_is_directory(const char *, const bool *);
 }
 
