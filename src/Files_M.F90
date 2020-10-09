@@ -72,6 +72,12 @@ MODULE FU_Files
          LOGICAL(C_BOOL)  , VALUE :: ignoreErrors
          LOGICAL(C_BOOL)          :: res
       END FUNCTION c_remove
+      FUNCTION c_exists(fname) RESULT(res) BIND(c,name='c_exists')
+         USE iso_c_binding
+         IMPLICIT NONE
+         CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: fname
+         LOGICAL(C_BOOL)          :: res
+      END FUNCTION c_exists
       FUNCTION c_is_directory(fname, ignoreErrors) RESULT(res) BIND(c,name='c_is_directory')
          USE iso_c_binding
          CHARACTER(C_CHAR), DIMENSION(*), INTENT(IN) :: fname
@@ -281,7 +287,7 @@ MODULE FU_Files
          !! Name of the file to be check for existence.
          LOGICAL                      :: res
          !! True if the file exists. False otherwise.
-         INQUIRE(FILE=fname,EXIST=res)
+         res = c_exists(fname//C_NULL_CHAR)
       END FUNCTION exists
 
 
