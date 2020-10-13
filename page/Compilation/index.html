@@ -133,7 +133,81 @@
   
   <div class="row">
     <div class="col-md-9 col-md-push-3" id='text'>
-      <p>To do. See the main page or README.md for more information in the meantime</p>
+      <p>Ecasglez's FortranUitilities has been tested in both Windows and Linux platforms using different compilers.</p>
+<h2>Linux</h2>
+<h4>Requirements</h4>
+<ul>
+<li>cmake 3.11 or newer.</li>
+<li>A Fortran compiler compatible with Fortran 2008. Tested with:<ul>
+<li>Gfortran 7.5 or newer.</li>
+<li>Intel Fortran compiler 16 or newer.</li>
+<li>Flang compiler from AMD AOCC.</li>
+<li>PGI compiler 20 or newer from nvfortran.</li>
+</ul>
+</li>
+<li>A C++ compiler compatible with C++ 17. Tested with:<ul>
+<li>G++ 7.5 or newer.</li>
+<li>Intel C++ compiler 19 or newer.</li>
+<li>Clang 6 or neweri, oficial clang or clang from AMD AOCC.</li>
+<li>PGI compiler 20 or newer from nvfortran.</li>
+</ul>
+</li>
+</ul>
+<h4>Compilation</h4>
+<ol>
+<li>
+<p>Download the sources and enter directory FortranUtilities. Then create a build directory and enter that directory:</p>
+<p><code>mkdir build</code></p>
+<p><code>cd build</code></p>
+</li>
+<li>
+<p>Prepare compilation files. To use default options and compiler on your system type:</p>
+<p><code>cmake ..</code></p>
+<p>Optionally you can select an install directory by typing:</p>
+<p><code>cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/</code></p>
+<p>You can specify a different compiler by typing:</p>
+<p><code>CC=icc CXX=icc FC=ifort cmake ..</code></p>
+<p>You can use a Fortran compiler and a C++ compiler from a different vendor. For example, to use Intel Fortran compiler and G++, type:</p>
+<p><code>CC=gcc CXX=g++ FC=ifort cmake ..</code></p>
+</li>
+<li>
+<p>Compile typing:</p>
+<p><code>make</code></p>
+</li>
+<li>
+<p>Install:</p>
+<p><code>make install</code></p>
+</li>
+</ol>
+<p>A static and a shared library are created. Tests programs for both libraries are created too.</p>
+<h2>Windows</h2>
+<h4>Requirements</h4>
+<ul>
+<li>cmake 3.11 or newer.</li>
+<li>MSYS2-Mingw-w64 environment with Gfortran and G++ compilers installed.</li>
+</ul>
+<h4>Compilation</h4>
+<ol>
+<li>
+<p>Download the sources, open MSYS2-Mingw terminal and enter directory FortranUtilities. Then create a build directory and enter that directory:</p>
+<p><code>mkdir build</code></p>
+<p><code>cd build</code></p>
+</li>
+<li>
+<p>Prepare compilation files. To use default options and compiler on your system type:</p>
+<p><code>cmake ..</code></p>
+<p>Optionally you can select an install directory by typing:</p>
+<p><code>cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/</code></p>
+</li>
+<li>
+<p>Compile typing:</p>
+<p><code>make</code></p>
+</li>
+<li>
+<p>Install:</p>
+<p><code>make install</code></p>
+</li>
+</ol>
     </div>
     
     <div class="col-md-3 col-md-pull-9">
