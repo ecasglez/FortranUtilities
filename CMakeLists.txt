@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.11)
 
 project (FortranUtilities VERSION 1.0 DESCRIPTION "Useful functions for Fortran programs")
 
