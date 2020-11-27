@@ -444,7 +444,7 @@ CONTAINS
 
 
 
-   PURE FUNCTION str2num_i8(str,mold) RESULT(res)
+   ELEMENTAL FUNCTION str2num_i8(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.
@@ -458,7 +458,7 @@ CONTAINS
 
    END FUNCTION str2num_i8
 
-   PURE FUNCTION str2num_i16(str,mold) RESULT(res)
+   ELEMENTAL FUNCTION str2num_i16(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to number.
@@ -472,7 +472,7 @@ CONTAINS
 
    END FUNCTION str2num_i16
 
-   PURE FUNCTION str2num_i32(str,mold) RESULT(res)
+   ELEMENTAL FUNCTION str2num_i32(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to number.
@@ -486,7 +486,7 @@ CONTAINS
 
    END FUNCTION str2num_i32
 
-   PURE FUNCTION str2num_i64(str,mold) RESULT(res)
+   ELEMENTAL FUNCTION str2num_i64(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to number.
@@ -500,7 +500,7 @@ CONTAINS
 
    END FUNCTION str2num_i64
 
-   PURE FUNCTION str2num_sp(str,mold) RESULT(res)
+   ELEMENTAL FUNCTION str2num_sp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.
@@ -514,7 +514,7 @@ CONTAINS
 
    END FUNCTION str2num_sp
 
-   PURE FUNCTION str2num_dp(str,mold) RESULT(res)
+   ELEMENTAL FUNCTION str2num_dp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.
@@ -529,7 +529,7 @@ CONTAINS
    END FUNCTION str2num_dp
 
 #ifdef QPREC_FPP
-   PURE FUNCTION str2num_qp(str,mold) RESULT(res)
+   ELEMENTAL FUNCTION str2num_qp(str,mold) RESULT(res)
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String to convert to number.

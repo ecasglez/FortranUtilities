@@ -13,12 +13,12 @@ Ecasglez's FortranUitilities has been tested in both Windows and Linux platforms
     * Gfortran 7.5 or newer.
     * Intel Fortran compiler 16 or newer.
     * Flang compiler from AMD AOCC.
-    * PGI compiler 20 or newer from nvfortran.
+    * PGI compiler 20 or newer from Nvidia HPC-SDK.
 * A C++ compiler compatible with C++ 17. Tested with:
     * G++ 7.5 or newer.
     * Intel C++ compiler 19 or newer.
-    * Clang 6 or neweri, oficial clang or clang from AMD AOCC.
-    * PGI compiler 20 or newer from nvfortran.
+    * Clang 6 or newer, oficial clang or clang from AMD AOCC.
+    * PGI compiler 20 or newer from Nvidia HPC-SDK.
 
 #### Compilation ####
 

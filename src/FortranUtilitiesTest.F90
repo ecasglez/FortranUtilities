@@ -38,6 +38,11 @@ PROGRAM FortranUtilitiesTest
 
 
    CALL sleep(1) !For later testing timing functions
+
+   !
+   ! FU_Strings tests
+   !
+
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=1_i8) == 'campo1')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=2_i16) == 'campo2')
    CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',fieldNumber=3_i32) == 'campo3')
@@ -103,94 +108,154 @@ PROGRAM FortranUtilitiesTest
    CALL test('int2str00000',int2str00000(0,3) == '000')
    CALL test('replace',replace('fggasdfggre23fgg','fgg','X') == 'XasdXre23X')
    CALL test('replace',replace('fggasdfggre23fgg','Y','X') == 'fggasdfggre23fgg')
-   CALL test('count_digits_integer',count_digits_integer(824) == 3)
-   CALL test('count_digits_integer',count_digits_integer(-4421) == 5)
    CALL test('str2num',str2num('4321',1_i32) == 4321_i32)
    CALL test('str2num',str2num('-4134',1_i64) == -4134_i64)
-   CALL test('str2num',ABS(str2num('-4134.8786',1._sp) - (-4134.8786_sp)) < 1E-10)
-   CALL test('str2num',ABS(str2num('0.55',1._dp) - (0.55_dp)) < 1E-10)
-   CALL test('str2num',ABS(str2num('55E10',1._dp) - (55E10_dp)) < 1E-10)
+   CALL test('str2num',eq(str2num('-4134.8786',1._sp) ,-4134.8786_sp))
+   CALL test('str2num',eq(str2num('0.55',1._dp) , 0.55_dp))
+   CALL test('str2num',eq(str2num('55E10',1._dp), 55E10_dp))
+   CALL test('str2num',ALL(str2num(['4321','3333'],1_i32) == [4321_i32,3333_i32]))
+   CALL test('str2num',ALL(str2num(['-4134','3333 '],1_i64) == [-4134_i64,3333_i64]))
+   CALL test('str2num',ALL(str2num(['-4134',' 3333'],1_i64) == [-4134_i64,3333_i64]))
    CALL test('upper',upper('abcdefghijklmnopqrstuvwxyz') == 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')
    CALL test('upper',upper('áéíóúäëïöüàèìòùâêîôûñ') == 'ÁÉÍÓÚÄËÏÖÜÀÈÌÒÙÂÊÎÔÛÑ')
    CALL test('lower',lower('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == 'abcdefghijklmnopqrstuvwxyz')
    CALL test('lower',lower('ÁÉÍÓÚÄËÏÖÜÀÈÌÒÙÂÊÎÔÛÑ') == 'áéíóúäëïöüàèìòùâêîôûñ')
    CALL test('cistrcmp',cistrcmp('Fortran Utilities','fortran uTILITIES'))
    CALL test('cistrcmp',.NOT.cistrcmp('FortranoUtilities','fortran uTILITIES'))
-   CALL test('mean',ABS(mean((/4.2_sp/)) - 4.2_sp) < 1E-10)
-   CALL test('mean',ABS(mean((/4.2_dp/)) - 4.2_dp) < 1E-10)
+
+   !
+   ! FU_Statistics tests
+   !
+
+   CALL test('mean',eq(mean((/4.2_sp/)), 4.2_sp))
+   CALL test('mean',eq(mean((/4.2_dp/)), 4.2_dp))
 #ifdef QPREC_FPP
-   CALL test('mean',ABS(mean((/4.2_qp/)) - 4.2_qp) < 1E-10)
+   CALL test('mean',eq(mean((/4.2_qp/)), 4.2_qp))
 #endif
-   CALL test('mean',ABS(mean(vecSp) - 3.5_sp) < 1E-10)
-   CALL test('mean',ABS(mean(vecDp) - 3.5_dp) < 1E-10)
+   CALL test('mean',eq(mean(vecSp), 3.5_sp))
+   CALL test('mean',eq(mean(vecDp), 3.5_dp))
 #ifdef QPREC_FPP
-   CALL test('mean',ABS(mean(vecQp) - 3.5_qp) < 1E-10)
+   CALL test('mean',eq(mean(vecQp), 3.5_qp))
 #endif
-   CALL test('gmean',ABS(gmean((/4.2_sp/)) - 4.2_sp) < 1E-10)
-   CALL test('gmean',ABS(gmean((/4.2_dp/)) - 4.2_dp) < 1E-10)
+   CALL test('gmean',eq(gmean((/4.2_sp/)), 4.2_sp))
+   CALL test('gmean',eq(gmean((/4.2_dp/)), 4.2_dp))
 #ifdef QPREC_FPP
-   CALL test('gmean',ABS(gmean((/4.2_qp/)) - 4.2_qp) < 1E-10)
+   CALL test('gmean',eq(gmean((/4.2_qp/)), 4.2_qp))
 #endif
-   CALL test('gmean',ABS(gmean(vecSp) - 2.99379516_sp) < 1E-10)
-   CALL test('gmean',ABS(gmean(vecDp) - 2.9937951655239088_dp) < 1E-10)
+   CALL test('gmean',eq(gmean(vecSp), 2.99379516_sp))
+   CALL test('gmean',eq(gmean(vecDp), 2.9937951655239088_dp))
 #ifdef QPREC_FPP
-   CALL test('gmean',ABS(gmean(vecQp) - 2.99379516552390895491016056788943720_qp) < 1E-10)
+   CALL test('gmean',eq(gmean(vecQp), 2.99379516552390895491016056788943720_qp))
 #endif
-   CALL test('variance',ABS(variance(vecSp) - 3.5_sp) < 1E-10)
-   CALL test('variance',ABS(variance(vecDp) - 3.5_dp) < 1E-10)
+   CALL test('variance',eq(variance(vecSp), 3.5_sp))
+   CALL test('variance',eq(variance(vecDp), 3.5_dp))
 #ifdef QPREC_FPP
-   CALL test('variance',ABS(variance(vecQp) - 3.5_qp) < 1E-10)
+   CALL test('variance',eq(variance(vecQp), 3.5_qp))
 #endif
-   CALL test('stdev',ABS(stdev(vecSp) - 1.87082875_sp) < 1E-10)
-   CALL test('stdev',ABS(stdev(vecDp) - 1.8708286933869707_dp) < 1E-10)
+   CALL test('stdev',eq(stdev(vecSp), 1.87082875_sp))
+   CALL test('stdev',eq(stdev(vecDp), 1.8708286933869707_dp))
 #ifdef QPREC_FPP
-   CALL test('stdev',ABS(stdev(vecQp) - 1.87082869338697069279187436615827459_qp) < 1E-10)
+   CALL test('stdev',eq(stdev(vecQp), 1.87082869338697069279187436615827459_qp))
 #endif
-   CALL test('pvariance',ABS(pvariance(vecSp) - 2.91666675_sp) < 1E-10)
-   CALL test('pvariance',ABS(pvariance(vecDp) - 2.9166666666666665_dp) < 1E-10)
+   CALL test('pvariance',eq(pvariance(vecSp), 2.91666675_sp))
+   CALL test('pvariance',eq(pvariance(vecDp), 2.9166666666666665_dp))
 #ifdef QPREC_FPP
-   CALL test('pvariance',ABS(pvariance(vecQp) - 2.91666666666666666666666666666666654_qp) < 1E-10)
+   CALL test('pvariance',eq(pvariance(vecQp), 2.91666666666666666666666666666666654_qp))
 #endif
-   CALL test('pstdev',ABS(pstdev(vecSp) - 1.70782518_sp) < 1E-10)
-   CALL test('pstdev',ABS(pstdev(vecDp) - 1.7078251276599330_dp) < 1E-10)
+   CALL test('pstdev',eq(pstdev(vecSp), 1.70782518_sp))
+   CALL test('pstdev',eq(pstdev(vecDp), 1.7078251276599330_dp))
 #ifdef QPREC_FPP
-   CALL test('pstdev',ABS(pstdev(vecQp) - 1.70782512765993306387017311342017542_qp) < 1E-10)
+   CALL test('pstdev',eq(pstdev(vecQp), 1.70782512765993306387017311342017542_qp))
 #endif
-   CALL test('covariance',ABS(covariance(vecSp, vec1Sp) - 7.71000004_sp) < 1E-10)
-   CALL test('covariance',ABS(covariance(vecDp, vec1Dp) - 7.7100001931190487_dp) < 1E-10)
+   CALL test('covariance',eq(covariance(vecSp, vec1Sp), 7.71000004_sp))
+   CALL test('covariance',eq(covariance(vecDp, vec1Dp), 7.7100001931190487_dp))
 #ifdef QPREC_FPP
-   CALL test('covariance',ABS(covariance(vecQp, vec1Qp) - 7.71000019311904907226562499999999969_qp) < 1E-10)
+   CALL test('covariance',eq(covariance(vecQp, vec1Qp), 7.71000019311904907226562499999999969_qp))
 #endif
-   CALL test('pcovariance',ABS(pcovariance(vecSp, vec1Sp) - 6.42499971_sp) < 1E-10)
-   CALL test('pcovariance',ABS(pcovariance(vecDp, vec1Dp) - 6.4250001609325409_dp) < 1E-10)
+   CALL test('pcovariance',eq(pcovariance(vecSp, vec1Sp), 6.42499971_sp))
+   CALL test('pcovariance',eq(pcovariance(vecDp, vec1Dp), 6.4250001609325409_dp))
 #ifdef QPREC_FPP
-   CALL test('pcovariance',ABS(pcovariance(vecQp, vec1Qp) - 6.42500016093254089355468750000000000_qp) < 1E-10)
+   CALL test('pcovariance',eq(pcovariance(vecQp, vec1Qp), 6.42500016093254089355468750000000000_qp))
 #endif
-   CALL test('correlation',ABS(correlation(vecSp, vec1Sp) - 0.987359941_sp) < 1E-10)
-   CALL test('correlation',ABS(correlation(vecDp, vec1Dp) - 0.98735995385629849_dp) < 1E-10)
+   CALL test('correlation',eq(correlation(vecSp, vec1Sp), 0.987359941_sp))
+   CALL test('correlation',eq(correlation(vecDp, vec1Dp), 0.98735995385629849_dp))
 #ifdef QPREC_FPP
-   CALL test('correlation',ABS(correlation(vecQp, vec1Qp) - 0.987359953856298526574298348025205074_qp) < 1E-10)
+   CALL test('correlation',eq(correlation(vecQp, vec1Qp), 0.987359953856298526574298348025205074_qp))
 #endif
-   CALL test('lin_error_propagation',ABS(lin_error_propagation(vecSp(1:3),matSp) - 149.799988_sp) < 1E-10)
-   CALL test('lin_error_propagation',ABS(lin_error_propagation(vecDp(1:3),matDp) - 149.79999995231628_dp) < 1E-10)
+   CALL test('lin_error_propagation',eq(lin_error_propagation(vecSp(1:3),matSp), 149.799988_sp))
+   CALL test('lin_error_propagation',eq(lin_error_propagation(vecDp(1:3),matDp), 149.79999995231628_dp))
 #ifdef QPREC_FPP
-   CALL test('lin_error_propagation',ABS(lin_error_propagation(vecQp(1:3),matQp) -  &
-                                 149.799999952316284179687500000000000_qp) < 1E-10)
+   CALL test('lin_error_propagation',eq(lin_error_propagation(vecQp(1:3),matQp),  &
+                                 149.799999952316284179687500000000000_qp))
 #endif
-   CALL test('median',ABS(median(vec2Sp) - 6.25000000) < 1E-10)
-   CALL test('median',ABS(median(vec2Dp) - 6.2500000000000000) < 1E-10)
-   CALL test('median',ABS(median(vec2Sp(:SIZE(vec2Sp) - 1)) - 4.30000019) < 1E-10)
-   CALL test('median',ABS(median(vec2Dp(:SIZE(vec2Sp) - 1)) - 4.3000001907348633) < 1E-10)
-   CALL test('skewness',ABS(skewness(vec1Sp) - (-7.22614899E-02)) < 1E10)
-   CALL test('skewness',ABS(skewness(vec1Dp) - (-7.2262060797200045E-002)) < 1E10)
+   CALL test('median',eq(median(vec2Sp), 6.25000000_sp))
+   CALL test('median',eq(median(vec2Dp), 6.2500000000000000_dp))
+   CALL test('median',eq(median(vec2Sp(:SIZE(vec2Sp) - 1)), 4.30000019_sp))
+   CALL test('median',eq(median(vec2Dp(:SIZE(vec2Sp) - 1)), 4.3000001907348633_dp))
+   CALL test('skewness',eq(skewness(vec1Sp), -7.22614899E-02_sp))
+   CALL test('skewness',eq(skewness(vec1Dp), -7.2262060797200045E-002_dp))
 #ifdef QPREC_FPP
-   CALL test('skewness',ABS(skewness(vec1Qp) - (-7.22620607971998014386482122745445625E-0002)) < 1E10)
+   CALL test('skewness',eq(skewness(vec1Qp), -7.22620607971998014386482122745445625E-0002_qp))
 #endif
-   CALL test('pskewness',ABS(pskewness(vec1Sp) - (-5.27723245E-02)) < 1E10)
-   CALL test('pskewness',ABS(pskewness(vec1Dp) - (-5.2772747667248286E-002)) < 1E10)
+   CALL test('pskewness',eq(pskewness(vec1Sp), -5.27723245E-02_sp))
+   CALL test('pskewness',eq(pskewness(vec1Dp), -5.2772747667248286E-002_dp))
 #ifdef QPREC_FPP
-   CALL test('pskewness',ABS(pskewness(vec1Qp) - (-5.27727476672481041162418142064811042E-0002)) < 1E10)
+   CALL test('pskewness',eq(pskewness(vec1Qp), -5.27727476672481041162418142064811042E-0002_qp))
 #endif
+   BLOCK
+      REAL(KIND=sp) :: a, b, R2
+      CALL linreg(vec1Sp,vec2Sp,a,b,R2)
+      CALL test('linreg', eq(a,1.91524588E-02_sp) .AND. &
+         eq(b,6.06490707_sp) .AND. eq(R2,3.66816646E-04_sp))
+      CALL logreg(vec1Sp,vec2Sp,a,b,R2)
+      CALL test('logreg', eq(a,-0.613968790_sp) .AND. &
+         eq(b,7.11681414_sp) .AND. eq(R2,2.03586817E-02_sp))
+      CALL expreg(vec1Sp,vec2Sp,a,b,R2)
+      CALL test('expreg', eq(a, 3.06743123E-02_sp) .AND. &
+         eq(b,3.78382611_sp) .AND. eq(R2,1.74217839E-02_sp))
+      CALL potreg(vec1Sp,vec2Sp,a,b,R2)
+      CALL test('potreg', eq(a, -1.72789115E-02_sp) .AND. &
+         eq(b, 4.69583559_sp) .AND. eq(R2, 2.98560743E-04_sp))
+   END BLOCK
+   BLOCK
+      REAL(KIND=dp) :: a, b, R2
+      CALL linreg(vec1Dp,vec2Dp,a,b,R2)
+      CALL test('linreg', eq(a, 1.9152457421550508E-002_dp) .AND. &
+         eq(b, 6.0649073478163302_dp) .AND. eq(R2, 3.6681662528430503E-004_dp))
+      CALL logreg(vec1Dp,vec2Dp,a,b,R2)
+      CALL test('logreg', eq(a, -0.61396915025911369_dp) .AND. &
+         eq(b, 7.1168151736358585_dp) .AND. eq(R2, 2.0358702706984266E-002_dp))
+      CALL expreg(vec1Dp,vec2Dp,a,b,R2)
+      CALL test('expreg', eq(a, 3.0674307466084936E-002_dp) .AND. &
+         eq(b, 3.7838256737292624_dp) .AND. eq(R2, 1.7421780282640000E-002_dp))
+      CALL potreg(vec1Dp,vec2Dp,a,b,R2)
+      CALL test('potreg', eq(a, -1.7278895501656680E-002_dp) .AND. &
+         eq(b, 4.6958351143312553_dp) .AND. eq(R2, 2.9856022975717142E-004_dp))
+   END BLOCK
+#ifdef QPREC_FPP
+   BLOCK
+      REAL(KIND=qp) :: a, b, R2
+      CALL linreg(vec1Qp,vec2Qp,a,b,R2)
+      CALL test('linreg', eq(a, 1.91524574215504391728990839762617023E-0002_qp) .AND. &
+         eq(b, 6.06490734781633064419667328817424442_qp) .AND. eq(R2, 3.66816625284302496884903309253573062E-0004_qp))
+      CALL logreg(vec1Qp,vec2Qp,a,b,R2)
+      CALL test('logreg', eq(a, -0.613969150259113476418879831643327107_qp) .AND. &
+         eq(b, 7.11681517363585798700524653428860835_qp) .AND. eq(R2, 2.03587027069842497190441285013442309E-0002_qp))
+      CALL expreg(vec1Qp,vec2Qp,a,b,R2)
+      CALL test('expreg', eq(a, 3.06743074660849355769293512171716035E-0002_qp) .AND. &
+         eq(b, 3.78382567372926279146815783938640435_qp) .AND. eq(R2, 1.74217802826400032248230923507079901E-0002_qp))
+      CALL potreg(vec1Qp,vec2Qp,a,b,R2)
+      CALL test('potreg', eq(a, -1.72788955016566840961205556717785084E-0002_qp) .AND. &
+         eq(b, 4.69583511433125501102239312634619302_qp) .AND. eq(R2, 2.98560229757171592749502675903525136E-0004_qp))
+   END BLOCK
+#endif
+
+   !
+   ! FU_Numbers tests
+   !
+
+   CALL test('count_digits_integer',count_digits_integer(824) == 3)
+   CALL test('count_digits_integer',count_digits_integer(-4421) == 5)
    CALL test('is_nan',.NOT.is_nan(5._sp))
    CALL test('is_nan',.NOT.is_nan(5._dp))
 #ifdef QPREC_FPP
@@ -232,6 +297,29 @@ PROGRAM FortranUtilitiesTest
 #ifdef QPREC_FPP
    CALL test('is_inf',ALL(is_inf(vecQp/zero_qp)))
 #endif
+   CALL test('eq',eq(1._sp,1._sp))
+   CALL test('eq',eq(1._dp,1._dp))
+   CALL test('eq',eq(1._qp,1._qp))
+   CALL test('eq',.NOT.eq(1._sp,2._sp))
+   CALL test('eq',.NOT.eq(1._dp,2._dp))
+   CALL test('eq',.NOT.eq(1._qp,2._qp))
+   CALL test('eq',eq(1._sp,2._sp,10._sp))
+   CALL test('eq',eq(1._dp,2._dp,10._dp))
+   CALL test('eq',eq(1._qp,2._qp,10._qp))
+   CALL test('ne',.NOT.ne(1._sp,1._sp))
+   CALL test('ne',.NOT.ne(1._dp,1._dp))
+   CALL test('ne',.NOT.ne(1._qp,1._qp))
+   CALL test('ne',ne(1._sp,2._sp))
+   CALL test('ne',ne(1._dp,2._dp))
+   CALL test('ne',ne(1._qp,2._qp))
+   CALL test('ne',.NOT.ne(1._sp,2._sp,10._sp))
+   CALL test('ne',.NOT.ne(1._dp,2._dp,10._dp))
+   CALL test('ne',.NOT.ne(1._qp,2._qp,10._qp))
+
+   !
+   ! FU_Files tests
+   !
+
    CALL test('mkdir',mkdir("testdir32"))
    CALL test('is_empty',is_empty("testdir32"))
    OPEN(NEWUNIT=u,FILE="testfile32",STATUS="REPLACE")
@@ -334,53 +422,11 @@ PROGRAM FortranUtilitiesTest
    CALL test('parent_path',parent_path("/ho.me/user/file.dat") == '/ho.me/user')
    CALL test('parent_path',parent_path("/ho.me/user/.") == '/ho.me/user')
 #endif
-   BLOCK
-      REAL(KIND=sp) :: a, b, R2
-      CALL linreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('linreg', cRs(a,1.91524588E-02_sp) .AND. &
-         cRs(b,6.06490707_sp) .AND. cRs(R2,3.66816646E-04_sp))
-      CALL logreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('logreg', cRs(a,-0.613968790_sp) .AND. &
-         cRs(b,7.11681414_sp) .AND. cRs(R2,2.03586817E-02_sp))
-      CALL expreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('expreg', cRs(a, 3.06743123E-02_sp) .AND. &
-         cRs(b,3.78382611_sp) .AND. cRs(R2,1.74217839E-02_sp))
-      CALL potreg(vec1Sp,vec2Sp,a,b,R2)
-      CALL test('potreg', cRs(a, -1.72789115E-02_sp) .AND. &
-         cRs(b, 4.69583559_sp) .AND. cRs(R2, 2.98560743E-04_sp))
-   END BLOCK
-   BLOCK
-      REAL(KIND=dp) :: a, b, R2
-      CALL linreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('linreg', cRd(a, 1.9152457421550508E-002_dp) .AND. &
-         cRd(b, 6.0649073478163302_dp) .AND. cRd(R2, 3.6681662528430503E-004_dp))
-      CALL logreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('logreg', cRd(a, -0.61396915025911369_dp) .AND. &
-         cRd(b, 7.1168151736358585_dp) .AND. cRd(R2, 2.0358702706984266E-002_dp))
-      CALL expreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('expreg', cRd(a, 3.0674307466084936E-002_dp) .AND. &
-         cRd(b, 3.7838256737292624_dp) .AND. cRd(R2, 1.7421780282640000E-002_dp))
-      CALL potreg(vec1Dp,vec2Dp,a,b,R2)
-      CALL test('potreg', cRd(a, -1.7278895501656680E-002_dp) .AND. &
-         cRd(b, 4.6958351143312553_dp) .AND. cRd(R2, 2.9856022975717142E-004_dp))
-   END BLOCK
-#ifdef QPREC_FPP
-   BLOCK
-      REAL(KIND=qp) :: a, b, R2
-      CALL linreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('linreg', cRq(a, 1.91524574215504391728990839762617023E-0002_qp) .AND. &
-         cRq(b, 6.06490734781633064419667328817424442_qp) .AND. cRq(R2, 3.66816625284302496884903309253573062E-0004_qp))
-      CALL logreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('logreg', cRq(a, -0.613969150259113476418879831643327107_qp) .AND. &
-         cRq(b, 7.11681517363585798700524653428860835_qp) .AND. cRq(R2, 2.03587027069842497190441285013442309E-0002_qp))
-      CALL expreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('expreg', cRq(a, 3.06743074660849355769293512171716035E-0002_qp) .AND. &
-         cRq(b, 3.78382567372926279146815783938640435_qp) .AND. cRq(R2, 1.74217802826400032248230923507079901E-0002_qp))
-      CALL potreg(vec1Qp,vec2Qp,a,b,R2)
-      CALL test('potreg', cRq(a, -1.72788955016566840961205556717785084E-0002_qp) .AND. &
-         cRq(b, 4.69583511433125501102239312634619302_qp) .AND. cRq(R2, 2.98560229757171592749502675903525136E-0004_qp))
-   END BLOCK
-#endif
+
+   !
+   ! FU_Timing tests
+   !
+
    CALL sleep(3)
    CALL test('TotalTime',INT(TotalTime()) == 4)
    CALL test('IntervalTime',INT(IntervalTime()) == 4)
@@ -393,10 +439,6 @@ PROGRAM FortranUtilitiesTest
    CALL test('IntervalTime',INT(IntervalTime(1._dp)) == 1)
 
    CALL test('summary',.TRUE.)
-
-
-
-
 
    CONTAINS
       SUBROUTINE test(testname, testRes)
@@ -417,35 +459,6 @@ PROGRAM FortranUtilitiesTest
             END IF
          END IF
       END SUBROUTINE test
-
-      FUNCTION cRs(a,b) RESULT(res)
-         !Compare equality of real numbers according to a tolerance. Single precision
-         IMPLICIT NONE
-         REAL(KIND=sp), INTENT(IN) :: a, b
-         LOGICAL :: res
-         REAL(KIND=sp), PARAMETER :: tol = 1E-5
-         res = ABS(a-b) < tol
-      END FUNCTION cRs
-
-      FUNCTION cRd(a,b) RESULT(res)
-         !Compare equality of real numbers according to a tolerance. Double precision
-         IMPLICIT NONE
-         REAL(KIND=dp), INTENT(IN) :: a, b
-         LOGICAL :: res
-         REAL(KIND=dp), PARAMETER :: tol = 1E-10
-         res = ABS(a-b) < tol
-      END FUNCTION cRd
-
-#ifdef QPREC_FPP
-      FUNCTION cRq(a,b) RESULT(res)
-         !Compare equality of real numbers according to a tolerance. Quadruple precision
-         IMPLICIT NONE
-         REAL(KIND=qp), INTENT(IN) :: a, b
-         LOGICAL :: res
-         REAL(KIND=qp), PARAMETER :: tol = 1E-10
-         res = ABS(a-b) < tol
-      END FUNCTION cRq
-#endif
 
 
 END PROGRAM FortranUtilitiesTest
