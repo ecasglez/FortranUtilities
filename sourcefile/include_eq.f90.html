@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>cistrcmp &ndash; ecasglez's FortranUtilities</title>
+    <title>include_eq.f90 &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -106,8 +106,8 @@
     
   
   <div class="row">
-    <h1>cistrcmp
-      <small>Function</small>
+    <h1>include_eq.f90
+    <small>Source File</small>
     
     </h1>
     
@@ -116,40 +116,28 @@
 <div class="well well-sm">
   <ul class="list-inline" style="margin-bottom:0px;display:inline">
      
-     <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
-    <li><i class="fa fa-calendar-o"></i> 20/08/2020.</li>
      
-     
-    <li><i class="fa fa-legal"></i> MIT.</li>
-     
-     
-    <li><i class="fa fa-barcode"></i> 1.0.</li>
-    
     
     
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 1.9% of total for procedures.">7 statements</a>
+    title=" 0.4% of total for source files.">6 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Strings_M.F90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/include_eq.f90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.F90</a></li>
-    
-     <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
-    
   
-     <li class="active">cistrcmp</li>
+     <li class="active">include_eq.f90</li>
   </ol>
 </div>
 </div>
@@ -161,7 +149,6 @@
 </script>
 
   </div>
-  
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
     
@@ -190,89 +177,24 @@
 
 
 
-<em>None</em>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/include_eq.f90.html#src">include_eq.f90</a>
+  </div>
+</div>
+
 
 
 </div>
 
     </div>
-    
     <div class="col-md-9" id='text'>
-    <h2>
-public pure function cistrcmp(str1, str2) result(res)
-    
-    
-   
-</h2>
-    
-  
-
-
-    
-    <p>Case-independent string comparison. It works with this dataset: 
- 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'</p>
-    
-
-    <h3>Arguments</h3>
+      
+      <br>
     
       
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-str1"></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str1</strong></td><td><p>First string to compare.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-str2"></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str2</strong></td><td><p>Second string to compare</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-    
-    
-    
-    
-    
-    
-    
-   <h3>Return Value <small><span class="anchor" id="variable-res%7E7"></span>logical
-  </small></h3>
-    <p>True if both strings are equal independently of the case. False otherwise.</p>
-    
-    
-    
-     
-    <br>
+      
 
     <section class="visible-xs visible-sm hidden-md">
       
@@ -299,35 +221,33 @@ public pure function cistrcmp(str1, str2) result(res)
 
 
 
-<em>None</em>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/include_eq.f90.html#src">include_eq.f90</a>
+  </div>
+</div>
+
 
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
 
-    
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a>         <span class="k">IF</span> <span class="p">(</span><span class="nb">PRESENT</span><span class="p">(</span><span class="n">eps</span><span class="p">))</span> <span class="k">THEN</span>
+<a name="ln-2"></a><span class="k">            </span><span class="n">eps2</span> <span class="o">=</span> <span class="n">eps</span>
+<a name="ln-3"></a>         <span class="k">ELSE</span>
+<a name="ln-4"></a><span class="k">            </span><span class="n">eps2</span> <span class="o">=</span> <span class="nb">EPSILON</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<a name="ln-5"></a>         <span class="k">END IF</span>
+<a name="ln-6"></a><span class="k">         </span><span class="n">res</span> <span class="o">=</span> <span class="nb">ABS</span><span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps2</span>
+</pre></div>
 
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-
-    
-    
-    
-    
+    </section>
     </div>
   </div>
 
-
+  
     <hr>    
     </div> <!-- /container -->
     <footer>

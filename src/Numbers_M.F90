@@ -19,6 +19,7 @@ MODULE FU_Numbers
 
    PRIVATE
    PUBLIC :: is_nan, is_inf, count_digits_integer
+   PUBLIC :: eq, ne
 
 
 
@@ -61,13 +62,46 @@ MODULE FU_Numbers
       !! version: 1.0.
       !! license: MIT.
       !! summary: Determines if the value of the input variable is Infinity.
-      !! Determines if the value of the input variable is NaN.
+      !! Determines if the value of the input variable is Infinity.
       MODULE PROCEDURE is_inf_sp
       MODULE PROCEDURE is_inf_dp
 #ifdef QPREC_FPP
       MODULE PROCEDURE is_inf_qp
 #endif
    END INTERFACE is_inf
+
+
+
+   INTERFACE eq
+      !! author: Emilio Castro.
+      !! date: 14/10/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Tests two real numbers for equality.
+      !! Tests two real numberes for equality using a tolerance if provided by the user,
+      !! or selecting a tolerance automatically otherwise.
+      MODULE PROCEDURE eq_sp
+      MODULE PROCEDURE eq_dp
+#ifdef QPREC_FPP
+      MODULE PROCEDURE eq_qp
+#endif
+   END INTERFACE eq
+
+
+   INTERFACE ne
+      !! author: Emilio Castro.
+      !! date: 14/10/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Tests two real numbers for inequality.
+      !! Tests two real numberes for inequality using a tolerance if provided by the user,
+      !! or selecting a tolerance automatically otherwise.
+      MODULE PROCEDURE ne_sp
+      MODULE PROCEDURE ne_dp
+#ifdef QPREC_FPP
+      MODULE PROCEDURE ne_qp
+#endif
+   END INTERFACE ne
 
 
 
@@ -207,5 +241,124 @@ MODULE FU_Numbers
 
       END FUNCTION is_inf_qp
 #endif
+
+
+      ELEMENTAL FUNCTION eq_sp(x1,x2,eps) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp), INTENT(IN)           :: x1
+         !! First real value to compare for equality.
+         REAL(KIND=sp), INTENT(IN)           :: x2
+         !! Second real value to compare for equality.
+         REAL(KIND=sp), OPTIONAL, INTENT(IN) :: eps
+         !! User selected tolerance for the comparison. If not provided
+         !! it will be selected automatically.
+         LOGICAL                             :: res
+         !! True if both numbers are equal according to the selected tolerance.
+         !! False otherwise.
+         REAL(KIND=sp) :: eps2
+
+         INCLUDE 'Numbers_M/include_eq.f90'
+
+      END FUNCTION eq_sp
+
+      ELEMENTAL FUNCTION eq_dp(x1,x2,eps) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp), INTENT(IN)           :: x1
+         !! First real value to compare for equality.
+         REAL(KIND=dp), INTENT(IN)           :: x2
+         !! Second real value to compare for equality.
+         REAL(KIND=dp), OPTIONAL, INTENT(IN) :: eps
+         !! User selected tolerance for the comparison. If not provided
+         !! it will be selected automatically.
+         LOGICAL                             :: res
+         !! True if both numbers are equal according to the selected tolerance.
+         !! False otherwise.
+         REAL(KIND=dp) :: eps2
+
+         INCLUDE 'Numbers_M/include_eq.f90'
+
+      END FUNCTION eq_dp
+
+#ifdef QPREC_FPP
+      ELEMENTAL FUNCTION eq_qp(x1,x2,eps) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp), INTENT(IN)           :: x1
+         !! First real value to compare for equality.
+         REAL(KIND=qp), INTENT(IN)           :: x2
+         !! Second real value to compare for equality.
+         REAL(KIND=qp), OPTIONAL, INTENT(IN) :: eps
+         !! User selected tolerance for the comparison. If not provided
+         !! it will be selected automatically.
+         LOGICAL                             :: res
+         !! True if both numbers are equal according to the selected tolerance.
+         !! False otherwise.
+         REAL(KIND=qp) :: eps2
+
+         INCLUDE 'Numbers_M/include_eq.f90'
+
+      END FUNCTION eq_qp
+#endif
+
+
+      ELEMENTAL FUNCTION ne_sp(x1,x2,eps) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=sp), INTENT(IN)           :: x1
+         !! First real value to compare for inequality.
+         REAL(KIND=sp), INTENT(IN)           :: x2
+         !! Second real value to compare for inequality.
+         REAL(KIND=sp), OPTIONAL, INTENT(IN) :: eps
+         !! User selected tolerance for the comparison. If not provided
+         !! it will be selected automatically.
+         LOGICAL                             :: res
+         !! True if the numbers are not equal according to the selected tolerance.
+         !! False otherwise.
+         REAL(KIND=sp) :: eps2
+
+         INCLUDE 'Numbers_M/include_ne.f90'
+
+      END FUNCTION ne_sp
+
+      ELEMENTAL FUNCTION ne_dp(x1,x2,eps) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=dp), INTENT(IN)           :: x1
+         !! First real value to compare for inequality.
+         REAL(KIND=dp), INTENT(IN)           :: x2
+         !! Second real value to compare for inequality.
+         REAL(KIND=dp), OPTIONAL, INTENT(IN) :: eps
+         !! User selected tolerance for the comparison. If not provided
+         !! it will be selected automatically.
+         LOGICAL                             :: res
+         !! True if the numbers are not equal according to the selected tolerance.
+         !! False otherwise.
+         REAL(KIND=dp) :: eps2
+
+         INCLUDE 'Numbers_M/include_ne.f90'
+
+      END FUNCTION ne_dp
+
+#ifdef QPREC_FPP
+      ELEMENTAL FUNCTION ne_qp(x1,x2,eps) RESULT(res)
+         IMPLICIT NONE
+         REAL(KIND=qp), INTENT(IN)           :: x1
+         !! First real value to compare for inequality.
+         REAL(KIND=qp), INTENT(IN)           :: x2
+         !! Second real value to compare for inequality.
+         REAL(KIND=qp), OPTIONAL, INTENT(IN) :: eps
+         !! User selected tolerance for the comparison. If not provided
+         !! it will be selected automatically.
+         LOGICAL                             :: res
+         !! True if the numbers are not equal according to the selected tolerance.
+         !! False otherwise.
+         REAL(KIND=qp) :: eps2
+
+         INCLUDE 'Numbers_M/include_ne.f90'
+
+      END FUNCTION ne_qp
+#endif
+
+
+
+
+
 
 END MODULE FU_Numbers

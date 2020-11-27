@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 8.3% of total for modules and submodules.">118 statements</a>
+    title="12.3% of total for modules and submodules.">183 statements</a>
      </li> 
      
      
@@ -187,6 +187,10 @@
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_nan">is_nan</a>
       
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_inf">is_inf</a>
+      
+      <a class="list-group-item" href="../module/fu_numbers.html#interface-eq">eq</a>
+      
+      <a class="list-group-item" href="../module/fu_numbers.html#interface-ne">ne</a>
       
     </div>
   </div>
@@ -267,6 +271,10 @@
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_nan">is_nan</a>
       
       <a class="list-group-item" href="../module/fu_numbers.html#interface-is_inf">is_inf</a>
+      
+      <a class="list-group-item" href="../module/fu_numbers.html#interface-eq">eq</a>
+      
+      <a class="list-group-item" href="../module/fu_numbers.html#interface-ne">ne</a>
       
     </div>
   </div>
@@ -690,7 +698,7 @@ private elemental function is_nan_dp(val) result(res)
   
   <div class="panel-body">
     
-    <p>Determines if the value of the input variable is Infinity.</p><a href="../interface/is_inf.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    <p>Determines if the value of the input variable is Infinity.</p>
   </div>
   
   <ul class="list-group">
@@ -809,6 +817,402 @@ private elemental function is_inf_dp(val) result(res)
   </small></h4>
   <p>True if the variable is Inf. False otherwise. It will
  have the same rank and dimension as the input value.</p>
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-eq"></span><h3>public interface <a href='../interface/eq.html'>eq</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Tests two real numbers for equality.</p><a href="../interface/eq.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function eq_sp(x1, x2, eps) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x1</strong></td><td><p>First real value to compare for equality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x2</strong></td><td><p>Second real value to compare for equality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
+ it will be selected automatically.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if both numbers are equal according to the selected tolerance.
+ False otherwise.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function eq_dp(x1, x2, eps) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x1</strong></td><td><p>First real value to compare for equality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x2</strong></td><td><p>Second real value to compare for equality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
+ it will be selected automatically.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if both numbers are equal according to the selected tolerance.
+ False otherwise.</p>
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+     
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-ne"></span><h3>public interface <a href='../interface/ne.html'>ne</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Tests two real numbers for inequality.</p><a href="../interface/ne.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function ne_sp(x1, x2, eps) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x1</strong></td><td><p>First real value to compare for inequality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x2</strong></td><td><p>Second real value to compare for inequality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
+ it will be selected automatically.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if the numbers are not equal according to the selected tolerance.
+ False otherwise.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function ne_dp(x1, x2, eps) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x1</strong></td><td><p>First real value to compare for inequality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x2</strong></td><td><p>Second real value to compare for inequality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
+ it will be selected automatically.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if the numbers are not equal according to the selected tolerance.
+ False otherwise.</p>
     
 
     </li>
