@@ -13,6 +13,9 @@
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_splitstr.f90.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_ne.f90.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_count_digits_integer.f90.html</loc>
    </url>
    <url>
@@ -44,6 +47,9 @@
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_num2strreal.f90.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_eq.f90.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/timing_m.f90.html</loc>
@@ -94,6 +100,9 @@
       <loc>https://ecasglez.github.io/FortranUtilities/interface/mean.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/eq.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/gmean.html</loc>
    </url>
    <url>
@@ -128,6 +137,9 @@
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/pskewness.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/ne.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/pstdev.html</loc>
