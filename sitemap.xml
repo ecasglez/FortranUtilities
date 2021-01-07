@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_writematrix.f90.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_regression.f90.html</loc>
    </url>
    <url>
@@ -32,6 +35,9 @@
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_pskewness.f90.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_readmatrix.f90.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/sourcefile/include_num2strint.f90.html</loc>
@@ -151,7 +157,13 @@
       <loc>https://ecasglez.github.io/FortranUtilities/interface/is_nan.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/writematrix.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/interface/linreg.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/interface/readmatrix.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/index.html</loc>

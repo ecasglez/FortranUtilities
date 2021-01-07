@@ -150,7 +150,7 @@
 </li>
 </ul>
 <h2>Code</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example2</span>
+<div class="codehilite"><pre><span></span><span class="k">PROGRAM </span><span class="n">FU_example2</span>
    <span class="c">! Example program for FU_Prec and FU_Statistics modules of ecasglez&#39;s FortranUtilities,</span>
    <span class="c">! showing how to apply FU_Statistics functions to an array with rank larger than 1.</span>
    <span class="c">! It shows 3 examples on how to calculate the mean value of a rank 3 array.</span>
@@ -197,31 +197,31 @@
       <span class="k">END FUNCTION </span><span class="n">mean3D</span>
 
 <span class="k">END PROGRAM </span><span class="n">FU_example2</span>
-</code></pre></div>
+</pre></div>
 
 
 <h2>Compilation</h2>
 <p>Compile using the following command. Adjust paths accordingly.</p>
-<div class="codehilite"><pre><span></span><code>gfortran example2.f90 -o example2 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
-</code></pre></div>
+<div class="codehilite"><pre><span></span>gfortran example2.f90 -o example2 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
+</pre></div>
 
 
 <h2>Execution</h2>
 <p>Before running, since it has been compiled against the shared library:</p>
-<div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
-</code></pre></div>
+<div class="codehilite"><pre><span></span>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
+</pre></div>
 
 
 <p>Then run with:</p>
-<div class="codehilite"><pre><span></span><code>./example2
-</code></pre></div>
+<div class="codehilite"><pre><span></span>./example2
+</pre></div>
 
 
 <p>The output of the execution is:</p>
-<div class="codehilite"><pre><span></span><code>Mean value:   0.50046.
+<div class="codehilite"><pre><span></span>Mean value:   0.50046.
 Mean value:   0.50046.
 Mean value:   0.50046.
-</code></pre></div>
+</pre></div>
     </div>
     
     <div class="col-md-3 col-md-pull-9">
@@ -268,7 +268,7 @@ Mean value:   0.50046.
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2020 <a rel="license" href="https://opensource.org/licenses/">MIT</a>
+        <div class="col-xs-6 col-md-4"><p>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/">MIT</a>
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">

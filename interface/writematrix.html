@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>splitstr &ndash; ecasglez's FortranUtilities</title>
+    <title>writeMatrix &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -106,7 +106,7 @@
     
   
   <div class="row">
-    <h1>splitstr
+    <h1>writeMatrix
    <small>Interface</small>
     
     </h1>
@@ -119,7 +119,7 @@
      <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
      
      
-    <li><i class="fa fa-calendar-o"></i> 07/05/2020.</li>
+    <li><i class="fa fa-calendar-o"></i> 01/12/2020.</li>
      
      
     <li><i class="fa fa-legal"></i> MIT.</li>
@@ -132,24 +132,24 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.6% of total for procedures.</p>Including implementation: 210 statements, 55.1% of total for procedures.">6 statements</a>
+    title="<p> 2.1% of total for procedures.</p>Including implementation: 170 statements, 44.6% of total for procedures.">8 statements</a>
      </li> 
      
      
      
-    <li><i class="fa fa-code"></i><a href="../src/Strings_M.F90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/Files_M.F90"> Source File</a></li>
      
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
     
-     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.F90</a></li>
+     <li><a href='../sourcefile/files_m.f90.html'>Files_M.F90</a></li>
     
-     <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
+     <li><a href='../module/fu_files.html'>FU_Files</a></li>
     
   
-     <li class="active">splitstr</li>
+     <li class="active">writeMatrix</li>
   </ol>
 </div>
 </div>
@@ -194,13 +194,17 @@
   <div id="modprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i8">splitstr_i8</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i8">writeMatrix_i8</a>
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i16">splitstr_i16</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i16">writeMatrix_i16</a>
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i32">splitstr_i32</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i32">writeMatrix_i32</a>
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i64">splitstr_i64</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i64">writeMatrix_i64</a>
+      
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_sp">writeMatrix_sp</a>
+      
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_dp">writeMatrix_dp</a>
       
     </div>
   </div>
@@ -214,8 +218,13 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface splitstr</h2>
-   <p>Splits a string and returns the portion selected by the user.</p>
+      <h2>public interface writeMatrix</h2>
+   <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+ indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes.</p>
+<p>The file is then opened, written and closed.</p>
      
      
     <br>
@@ -249,13 +258,17 @@
   <div id="modprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i8">splitstr_i8</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i8">writeMatrix_i8</a>
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i16">splitstr_i16</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i16">writeMatrix_i16</a>
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i32">splitstr_i32</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i32">writeMatrix_i32</a>
       
-      <a class="list-group-item" href="../interface/splitstr.html#moduleprocedure-splitstr_i64">splitstr_i64</a>
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_i64">writeMatrix_i64</a>
+      
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_sp">writeMatrix_sp</a>
+      
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_dp">writeMatrix_dp</a>
       
     </div>
   </div>
@@ -276,8 +289,8 @@
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i8"></span><h3>
-private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-writematrix_i8"></span><h3>
+private subroutine writeMatrix_i8(filename, matrix, header, formato)
     
     
    
@@ -285,6 +298,10 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   <div class="panel-body">
        
     
+
+
+
+<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i8.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
     <h4>Arguments</h4>
     
@@ -310,7 +327,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
   
 </tr>
 
@@ -321,11 +338,11 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
 <tr>
   
   <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
   
 </tr>
 
@@ -340,8 +357,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
   
 </tr>
 
@@ -351,29 +367,12 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   
 <tr>
   
-  <td><span class="anchor" ></span>logical,</td>
+  <td><span class="anchor" ></span>character(len=*),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
   
 </tr>
 
@@ -384,24 +383,14 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
     
     
 
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
-    
-
   </div>
   </div>
 
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i16"></span><h3>
-private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-writematrix_i16"></span><h3>
+private subroutine writeMatrix_i16(filename, matrix, header, formato)
     
     
    
@@ -409,6 +398,10 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   <div class="panel-body">
        
     
+
+
+
+<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i16.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
     <h4>Arguments</h4>
     
@@ -434,7 +427,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
   
 </tr>
 
@@ -445,11 +438,11 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
 <tr>
   
   <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
   
 </tr>
 
@@ -464,8 +457,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
   
 </tr>
 
@@ -475,29 +467,12 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   
 <tr>
   
-  <td><span class="anchor" ></span>logical,</td>
+  <td><span class="anchor" ></span>character(len=*),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
   
 </tr>
 
@@ -508,24 +483,14 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
     
     
 
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
-    
-
   </div>
   </div>
 
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i32"></span><h3>
-private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-writematrix_i32"></span><h3>
+private subroutine writeMatrix_i32(filename, matrix, header, formato)
     
     
    
@@ -533,6 +498,10 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   <div class="panel-body">
        
     
+
+
+
+<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i32.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
     <h4>Arguments</h4>
     
@@ -558,7 +527,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
   
 </tr>
 
@@ -569,11 +538,11 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
 <tr>
   
   <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
   
 </tr>
 
@@ -588,8 +557,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
   
 </tr>
 
@@ -599,29 +567,12 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   
 <tr>
   
-  <td><span class="anchor" ></span>logical,</td>
+  <td><span class="anchor" ></span>character(len=*),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
   
 </tr>
 
@@ -632,24 +583,14 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
     
     
 
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
-    
-
   </div>
   </div>
 
    
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-splitstr_i64"></span><h3>
-private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-writematrix_i64"></span><h3>
+private subroutine writeMatrix_i64(filename, matrix, header, formato)
     
     
    
@@ -657,6 +598,10 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   <div class="panel-body">
        
     
+
+
+
+<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i64.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
     <h4>Arguments</h4>
     
@@ -682,7 +627,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
   
 </tr>
 
@@ -693,11 +638,11 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
 <tr>
   
   <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
+  <td>intent(in),</td>
   <td></td>
   
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
   
 </tr>
 
@@ -712,8 +657,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
   
 </tr>
 
@@ -723,29 +667,12 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   
 <tr>
   
-  <td><span class="anchor" ></span>logical,</td>
+  <td><span class="anchor" ></span>character(len=*),</td>
   <td>intent(in),</td>
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
   
 </tr>
 
@@ -756,14 +683,204 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
     
     
 
+  </div>
+  </div>
+
+   
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-writematrix_sp"></span><h3>
+private subroutine writeMatrix_sp(filename, matrix, header, formato)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Writes a matrix to a file.</p><a href="../proc/writematrix_sp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
   
   
   
   
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=sp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: F8.3</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+   
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-writematrix_dp"></span><h3>
+private subroutine writeMatrix_dp(filename, matrix, header, formato)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Writes a matrix to a file.</p><a href="../proc/writematrix_dp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: F8.3</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
     
 
   </div>

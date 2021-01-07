@@ -159,7 +159,7 @@
 </li>
 </ul>
 <h2>Code</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example1</span>
+<div class="codehilite"><pre><span></span><span class="k">PROGRAM </span><span class="n">FU_example1</span>
    <span class="c">! Example program for FU_Prec, FU_Statistics and FU_Timing modules of ecasglez&#39;s FortranUtilities.</span>
    <span class="c">! It repeats a lot of mean, variance and median calculations using random numbers.</span>
    <span class="c">! Uses OpenMP for parallel execution.</span>
@@ -204,29 +204,29 @@
    <span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 
 <span class="k">END PROGRAM </span><span class="n">FU_example1</span>
-</code></pre></div>
+</pre></div>
 
 
 <h2>Compilation</h2>
 <p>Compile using the following command. Adjust paths accordingly.</p>
-<div class="codehilite"><pre><span></span><code>gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
-</code></pre></div>
+<div class="codehilite"><pre><span></span>gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
+</pre></div>
 
 
 <p>If no OpenMP libraries are available in your system, you can remove option <code>-fopenmp</code>. The code will work but there will not be any speedup.</p>
 <h2>Execution</h2>
 <p>Before running, since it has been compiled against the shared library:</p>
-<div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
-</code></pre></div>
+<div class="codehilite"><pre><span></span>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
+</pre></div>
 
 
 <p>Then run with:</p>
-<div class="codehilite"><pre><span></span><code>./example1
-</code></pre></div>
+<div class="codehilite"><pre><span></span>./example1
+</pre></div>
 
 
 <p>The output of the execution is:</p>
-<div class="codehilite"><pre><span></span><code>Number of threads: 1. Time spent:  22.010 s.
+<div class="codehilite"><pre><span></span>Number of threads: 1. Time spent:  22.010 s.
 Number of threads: 2. Time spent:  11.440 s.
 Number of threads: 3. Time spent:   8.107 s.
 Number of threads: 4. Time spent:   6.113 s.
@@ -234,7 +234,7 @@ Number of threads: 5. Time spent:   5.887 s.
 Number of threads: 6. Time spent:   4.987 s.
 Number of threads: 7. Time spent:   4.452 s.
 Total time spent:  62.995 s.
-</code></pre></div>
+</pre></div>
     </div>
     
     <div class="col-md-3 col-md-pull-9">
@@ -281,7 +281,7 @@ Total time spent:  62.995 s.
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2020 <a rel="license" href="https://opensource.org/licenses/">MIT</a>
+        <div class="col-xs-6 col-md-4"><p>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/">MIT</a>
                                           </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">

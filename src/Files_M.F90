@@ -11,6 +11,7 @@ MODULE FU_Files
    !! Useful tools to manipulate files in Fortran programs.
 
    USE iso_c_binding
+   USE FU_Prec
 
    IMPLICIT NONE
 
@@ -20,7 +21,7 @@ MODULE FU_Files
    PUBLIC :: is_symlink, create_symlink
 #endif
    PUBLIC :: filesep, is_path_absolute, is_path_relative, extension, stem, filename, &
-             parent_path
+             parent_path, readMatrix, writeMatrix
 
 
 #ifdef WIN_CPP
@@ -131,6 +132,63 @@ MODULE FU_Files
          CHARACTER(C_CHAR),DIMENSION(*)   :: fname
       END SUBROUTINE c_parent_path
    END INTERFACE
+
+
+   INTERFACE readMatrix
+      !! author: Emilio Castro.
+      !! date: 01/12/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Reads a matrix from a file.
+      !! Reads a matrix from a file. The file must have the proper format:
+      !!
+      !! First line includes the number of rows, the number of columns and a logical
+      !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+      !!
+      !! The second row can be a header or not.
+      !!
+      !! Then the matrix comes.
+      !!
+      !! The file is then opened, read and closed. The return variable must have ALLOCATABLE attribute,
+      !! and must not be allocated (the subroutine takes care of allocation but not about deallocation).
+      MODULE PROCEDURE readMatrix_i8
+      MODULE PROCEDURE readMatrix_i16
+      MODULE PROCEDURE readMatrix_i32
+      MODULE PROCEDURE readMatrix_i64
+      MODULE PROCEDURE readMatrix_sp
+      MODULE PROCEDURE readMatrix_dp
+#ifdef QPREC_FPP
+      MODULE PROCEDURE readMatrix_qp
+#endif
+   END INTERFACE readMatrix
+
+   INTERFACE writeMatrix
+      !! author: Emilio Castro.
+      !! date: 01/12/2020.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Writes a matrix to a file.
+      !! Writes a matrix to a file. The file will have the following format:
+      !!
+      !! First line includes the number of rows, the number of columns and a logical
+      !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+      !!
+      !! The second row can be a header or not.
+      !!
+      !! Then the matrix comes.
+      !!
+      !! The file is then opened, written and closed.
+      MODULE PROCEDURE writeMatrix_i8
+      MODULE PROCEDURE writeMatrix_i16
+      MODULE PROCEDURE writeMatrix_i32
+      MODULE PROCEDURE writeMatrix_i64
+      MODULE PROCEDURE writeMatrix_sp
+      MODULE PROCEDURE writeMatrix_dp
+#ifdef QPREC_FPP
+      MODULE PROCEDURE writeMatrix_qp
+#endif
+   END INTERFACE writeMatrix
+
 
    CONTAINS
 
@@ -508,6 +566,450 @@ MODULE FU_Files
          CALL c_parent_path(c_string)
          res = c_to_f(c_string)
       END FUNCTION parent_path
+
+
+
+
+
+      SUBROUTINE readMatrix_i8(filename,res)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Reads a matrix from a file.
+         !! Reads a matrix from a file. The file must have the proper format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, read and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to read the matrix from.
+         INTEGER(KIND=i8), DIMENSION(:,:), ALLOCATABLE, INTENT(OUT) :: res
+         !! Values read from the matrix. This output variable must be allocatable but
+         !! must not be allocated prior to call readMatrix as it is allocated here. However
+         !! deallocation must be done manually by the user when finishes using the information.
+         INTEGER :: nrows, ncols, r, c, u
+         LOGICAL :: header
+         ! True if there is a line with a header to skip.
+
+         INCLUDE 'Files_M/include_readMatrix.f90'
+
+      END SUBROUTINE readMatrix_i8
+
+      SUBROUTINE readMatrix_i16(filename,res)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Reads a matrix from a file.
+         !! Reads a matrix from a file. The file must have the proper format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, read and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to read the matrix from.
+         INTEGER(KIND=i16), DIMENSION(:,:), ALLOCATABLE, INTENT(OUT) :: res
+         !! Values read from the matrix. This output variable must be allocatable but
+         !! must not be allocated prior to call readMatrix as it is allocated here. However
+         !! deallocation must be done manually by the user when finishes using the information.
+         INTEGER :: nrows, ncols, r, c, u
+         LOGICAL :: header
+         ! True if there is a line with a header to skip.
+
+         INCLUDE 'Files_M/include_readMatrix.f90'
+
+      END SUBROUTINE readMatrix_i16
+
+      SUBROUTINE readMatrix_i32(filename,res)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Reads a matrix from a file.
+         !! Reads a matrix from a file. The file must have the proper format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, read and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to read the matrix from.
+         INTEGER(KIND=i32), DIMENSION(:,:), ALLOCATABLE, INTENT(OUT) :: res
+         !! Values read from the matrix. This output variable must be allocatable but
+         !! must not be allocated prior to call readMatrix as it is allocated here. However
+         !! deallocation must be done manually by the user when finishes using the information.
+         INTEGER :: nrows, ncols, r, c, u
+         LOGICAL :: header
+         ! True if there is a line with a header to skip.
+
+         INCLUDE 'Files_M/include_readMatrix.f90'
+
+      END SUBROUTINE readMatrix_i32
+
+      SUBROUTINE readMatrix_i64(filename,res)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Reads a matrix from a file.
+         !! Reads a matrix from a file. The file must have the proper format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, read and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to read the matrix from.
+         INTEGER(KIND=i64), DIMENSION(:,:), ALLOCATABLE, INTENT(OUT) :: res
+         !! Values read from the matrix. This output variable must be allocatable but
+         !! must not be allocated prior to call readMatrix as it is allocated here. However
+         !! deallocation must be done manually by the user when finishes using the information.
+         INTEGER :: nrows, ncols, r, c, u
+         LOGICAL :: header
+         ! True if there is a line with a header to skip.
+
+         INCLUDE 'Files_M/include_readMatrix.f90'
+
+      END SUBROUTINE readMatrix_i64
+
+      SUBROUTINE readMatrix_sp(filename,res)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Reads a matrix from a file.
+         !! Reads a matrix from a file. The file must have the proper format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, read and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to read the matrix from.
+         REAL(KIND=sp), DIMENSION(:,:), ALLOCATABLE, INTENT(OUT) :: res
+         !! Values read from the matrix. This output variable must be allocatable but
+         !! must not be allocated prior to call readMatrix as it is allocated here. However
+         !! deallocation must be done manually by the user when finishes using the information.
+         INTEGER :: nrows, ncols, r, c, u
+         LOGICAL :: header
+         ! True if there is a line with a header to skip.
+
+         INCLUDE 'Files_M/include_readMatrix.f90'
+
+      END SUBROUTINE readMatrix_sp
+
+      SUBROUTINE readMatrix_dp(filename,res)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Reads a matrix from a file.
+         !! Reads a matrix from a file. The file must have the proper format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, read and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to read the matrix from.
+         REAL(KIND=dp), DIMENSION(:,:), ALLOCATABLE, INTENT(OUT) :: res
+         !! Values read from the matrix. This output variable must be allocatable but
+         !! must not be allocated prior to call readMatrix as it is allocated here. However
+         !! deallocation must be done manually by the user when finishes using the information.
+         INTEGER :: nrows, ncols, r, c, u
+         LOGICAL :: header
+         ! True if there is a line with a header to skip.
+
+         INCLUDE 'Files_M/include_readMatrix.f90'
+
+      END SUBROUTINE readMatrix_dp
+
+#ifdef QPREC_FPP
+      SUBROUTINE readMatrix_qp(filename,res)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Reads a matrix from a file.
+         !! Reads a matrix from a file. The file must have the proper format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, read and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to read the matrix from.
+         REAL(KIND=qp), DIMENSION(:,:), ALLOCATABLE, INTENT(OUT) :: res
+         !! Values read from the matrix. This output variable must be allocatable but
+         !! must not be allocated prior to call readMatrix as it is allocated here. However
+         !! deallocation must be done manually by the user when finishes using the information.
+         INTEGER :: nrows, ncols, r, c, u
+         LOGICAL :: header
+         ! True if there is a line with a header to skip.
+
+         INCLUDE 'Files_M/include_readMatrix.f90'
+
+      END SUBROUTINE readMatrix_qp
+#endif
+
+
+      SUBROUTINE writeMatrix_i8(filename,matrix,header,formato)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Writes a matrix to a file.
+         !! Writes a matrix to a file. The file will have the following format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, written and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to write the matrix to.
+         INTEGER(KIND=i8), DIMENSION(:,:), INTENT(IN) :: matrix
+         !! Values of the matrix to write to the file.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: header
+         !! Header to be writen in the second line.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: formato
+         !! Format to use for the numbers without parenthesis. Example: I3
+         INTEGER :: nrows, ncols, r, c, u
+
+         INCLUDE 'Files_M/include_writeMatrix.f90'
+
+      END SUBROUTINE writeMatrix_i8
+
+      SUBROUTINE writeMatrix_i16(filename,matrix,header,formato)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Writes a matrix to a file.
+         !! Writes a matrix to a file. The file will have the following format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, written and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to write the matrix to.
+         INTEGER(KIND=i16), DIMENSION(:,:), INTENT(IN) :: matrix
+         !! Values of the matrix to write to the file.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: header
+         !! Header to be writen in the second line.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: formato
+         !! Format to use for the numbers without parenthesis. Example: I3
+         INTEGER :: nrows, ncols, r, c, u
+
+         INCLUDE 'Files_M/include_writeMatrix.f90'
+
+      END SUBROUTINE writeMatrix_i16
+
+      SUBROUTINE writeMatrix_i32(filename,matrix,header,formato)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Writes a matrix to a file.
+         !! Writes a matrix to a file. The file will have the following format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, written and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to write the matrix to.
+         INTEGER(KIND=i32), DIMENSION(:,:), INTENT(IN) :: matrix
+         !! Values of the matrix to write to the file.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: header
+         !! Header to be writen in the second line.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: formato
+         !! Format to use for the numbers without parenthesis. Example: I3
+         INTEGER :: nrows, ncols, r, c, u
+
+         INCLUDE 'Files_M/include_writeMatrix.f90'
+
+      END SUBROUTINE writeMatrix_i32
+
+      SUBROUTINE writeMatrix_i64(filename,matrix,header,formato)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Writes a matrix to a file.
+         !! Writes a matrix to a file. The file will have the following format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, written and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to write the matrix to.
+         INTEGER(KIND=i64), DIMENSION(:,:), INTENT(IN) :: matrix
+         !! Values of the matrix to write to the file.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: header
+         !! Header to be writen in the second line.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: formato
+         !! Format to use for the numbers without parenthesis. Example: I3
+         INTEGER :: nrows, ncols, r, c, u
+
+         INCLUDE 'Files_M/include_writeMatrix.f90'
+
+      END SUBROUTINE writeMatrix_i64
+
+      SUBROUTINE writeMatrix_sp(filename,matrix,header,formato)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Writes a matrix to a file.
+         !! Writes a matrix to a file. The file will have the following format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, written and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to write the matrix to.
+         REAL(KIND=sp), DIMENSION(:,:), INTENT(IN) :: matrix
+         !! Values of the matrix to write to the file.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: header
+         !! Header to be writen in the second line.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: formato
+         !! Format to use for the numbers without parenthesis. Example: F8.3
+         INTEGER :: nrows, ncols, r, c, u
+
+         INCLUDE 'Files_M/include_writeMatrix.f90'
+
+      END SUBROUTINE writeMatrix_sp
+
+      SUBROUTINE writeMatrix_dp(filename,matrix,header,formato)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Writes a matrix to a file.
+         !! Writes a matrix to a file. The file will have the following format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, written and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to write the matrix to.
+         REAL(KIND=dp), DIMENSION(:,:), INTENT(IN) :: matrix
+         !! Values of the matrix to write to the file.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: header
+         !! Header to be writen in the second line.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: formato
+         !! Format to use for the numbers without parenthesis. Example: F8.3
+         INTEGER :: nrows, ncols, r, c, u
+
+         INCLUDE 'Files_M/include_writeMatrix.f90'
+
+      END SUBROUTINE writeMatrix_dp
+
+#ifdef QPREC_FPP
+      SUBROUTINE writeMatrix_qp(filename,matrix,header,formato)
+         !! author: Emilio Castro.
+         !! date: 01/12/2020.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Writes a matrix to a file.
+         !! Writes a matrix to a file. The file will have the following format:
+         !!
+         !! First line includes the number of rows, the number of columns and a logical
+         !! indicating if the second line is a header line to be skipped. Example: 5 9 T.
+         !!
+         !! The second row can be a header or not.
+         !!
+         !! Then the matrix comes.
+         !!
+         !! The file is then opened, written and closed.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: filename
+         !! Filename of the file to write the matrix to.
+         REAL(KIND=qp), DIMENSION(:,:), INTENT(IN) :: matrix
+         !! Values of the matrix to write to the file.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: header
+         !! Header to be writen in the second line.
+         CHARACTER(LEN=*), OPTIONAL, INTENT(IN) :: formato
+         !! Format to use for the numbers without parenthesis. Example: F8.3
+         INTEGER :: nrows, ncols, r, c, u
+
+         INCLUDE 'Files_M/include_writeMatrix.f90'
+
+      END SUBROUTINE writeMatrix_qp
+#endif
+
 
 
 
