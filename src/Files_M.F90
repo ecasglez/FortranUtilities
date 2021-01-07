@@ -157,7 +157,9 @@ MODULE FU_Files
       MODULE PROCEDURE readMatrix_i64
       MODULE PROCEDURE readMatrix_sp
       MODULE PROCEDURE readMatrix_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE readMatrix_qp
+#endif
    END INTERFACE readMatrix
 
    INTERFACE writeMatrix
@@ -182,7 +184,9 @@ MODULE FU_Files
       MODULE PROCEDURE writeMatrix_i64
       MODULE PROCEDURE writeMatrix_sp
       MODULE PROCEDURE writeMatrix_dp
+#ifdef QPREC_FPP
       MODULE PROCEDURE writeMatrix_qp
+#endif
    END INTERFACE writeMatrix
 
 
