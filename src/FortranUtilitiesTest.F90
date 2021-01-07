@@ -317,7 +317,7 @@ PROGRAM FortranUtilitiesTest
    CALL test('ne',.NOT.ne(1._qp,2._qp,10._qp))
 
    !
-   ! FU_Files tests
+   ! FU_Files tests (except writeMatrix and readMatrix, see below)
    !
 
    CALL test('mkdir',mkdir("testdir32"))
@@ -437,6 +437,100 @@ PROGRAM FortranUtilitiesTest
    CALL sleep(1)
    CALL test('TotalTime',INT(TotalTime(1._dp)) == 1)
    CALL test('IntervalTime',INT(IntervalTime(1._dp)) == 1)
+
+
+   !
+   ! FU_Files writeMatrix and readMatrix tests
+   !
+
+   BLOCK
+      INTEGER(KIND=i8) , DIMENSION(:,:), ALLOCATABLE :: matrix_i8 , matrixR_i8 
+      INTEGER(KIND=i16), DIMENSION(:,:), ALLOCATABLE :: matrix_i16, matrixR_i16
+      INTEGER(KIND=i32), DIMENSION(:,:), ALLOCATABLE :: matrix_i32, matrixR_i32
+      INTEGER(KIND=i64), DIMENSION(:,:), ALLOCATABLE :: matrix_i64, matrixR_i64
+      REAL(KIND=sp) , DIMENSION(:,:), ALLOCATABLE :: matrix_sp , matrixR_sp 
+      REAL(KIND=dp) , DIMENSION(:,:), ALLOCATABLE :: matrix_dp , matrixR_dp 
+#ifdef QPREC_FPP
+      REAL(KIND=qp) , DIMENSION(:,:), ALLOCATABLE :: matrix_qp , matrixR_qp 
+#endif
+      INTEGER :: i, j
+      LOGICAL :: l
+
+      ALLOCATE(matrix_i8 (10,10))
+      ALLOCATE(matrix_i16(10,10))
+      ALLOCATE(matrix_i32(10,10))
+      ALLOCATE(matrix_i64(10,10))
+      ALLOCATE(matrix_sp (10,10))
+      ALLOCATE(matrix_dp (10,10))
+#ifdef QPREC_FPP
+      ALLOCATE(matrix_qp (10,10))
+#endif
+
+      DO i = 1, 10
+         DO j = 1, 10
+            matrix_i8(i,j)  = INT(i*j,i8)
+            matrix_i16(i,j) = INT(i*j,i16)
+            matrix_i32(i,j) = INT(i*j,i32)
+            matrix_i64(i,j) = INT(i*j,i64)
+            matrix_sp(i,j)  = REAL(i*j,sp) / 3._sp
+            matrix_dp(i,j)  = REAL(i*j,dp) / 3._dp
+#ifdef QPREC_FPP
+            matrix_qp(i,j)  = REAL(i*j,qp) / 3._qp
+#endif
+         END DO
+      END DO
+
+      CALL writeMatrix('testi8',matrix_i8)
+      CALL readMatrix('testi8',matrixR_i8)
+      CALL test('readMatrix - writeMatrix',ALL(matrix_i8 == matrixR_i8))
+      CALL writeMatrix('testi16',matrix_i16,'my Header', 'I0')
+      CALL readMatrix('testi16',matrixR_i16)
+      CALL test('readMatrix - writeMatrix',ALL(matrix_i16 == matrixR_i16))
+      CALL writeMatrix('testi32',matrix_i32, formato='I3')
+      CALL readMatrix('testi32',matrixR_i32)
+      CALL test('readMatrix - writeMatrix',ALL(matrix_i32 == matrixR_i32))
+      CALL writeMatrix('testi64',matrix_i64)
+      CALL readMatrix('testi64',matrixR_i64)
+      CALL test('readMatrix - writeMatrix',ALL(matrix_i64 == matrixR_i64))
+      CALL writeMatrix('testsp',matrix_sp)
+      CALL readMatrix('testsp',matrixR_sp)
+      CALL test('readMatrix - writeMatrix',ALL(matrix_sp == matrixR_sp))
+      CALL writeMatrix('testdp',matrix_dp)
+      CALL readMatrix('testdp',matrixR_dp)
+      CALL test('readMatrix - writeMatrix',ALL(matrix_dp == matrixR_dp))
+#ifdef QPREC_FPP
+      CALL writeMatrix('testqp',matrix_qp)
+      CALL readMatrix('testqp',matrixR_qp)
+      CALL test('readMatrix - writeMatrix',ALL(matrix_qp == matrixR_qp))
+#endif
+
+      DEALLOCATE(matrix_i8)
+      DEALLOCATE(matrixR_i8)
+      DEALLOCATE(matrix_i16)
+      DEALLOCATE(matrixR_i16)
+      DEALLOCATE(matrix_i32)
+      DEALLOCATE(matrixR_i32)
+      DEALLOCATE(matrix_i64)
+      DEALLOCATE(matrixR_i64)
+      DEALLOCATE(matrix_sp)
+      DEALLOCATE(matrixR_sp)
+      DEALLOCATE(matrix_dp)
+      DEALLOCATE(matrixR_dp)
+#ifdef QPREC_FPP
+      DEALLOCATE(matrix_qp)
+      DEALLOCATE(matrixR_qp)
+#endif
+      l = rm('testi8')
+      l = rm('testi16')
+      l = rm('testi32')
+      l = rm('testi64')
+      l = rm('testsp')
+#ifdef QPREC_FPP
+      l = rm('testdp')
+      l = rm('testqp')
+#endif
+   END BLOCK
+
 
    CALL test('summary',.TRUE.)
 
