@@ -21,7 +21,8 @@ MODULE FU_Files
    PUBLIC :: is_symlink, create_symlink
 #endif
    PUBLIC :: filesep, is_path_absolute, is_path_relative, extension, stem, filename, &
-             parent_path, readMatrix, writeMatrix
+             parent_path, readMatrix, writeMatrix, replace_extension, replace_filename, &
+             remove_filename
 
 
 #ifdef WIN_CPP
@@ -119,6 +120,11 @@ MODULE FU_Files
          USE iso_c_binding
          CHARACTER(C_CHAR),DIMENSION(*)   :: fname
       END SUBROUTINE c_extension
+      SUBROUTINE c_replace_extension(fname,ext) BIND(c,name='c_replace_extension')
+         USE iso_c_binding
+         CHARACTER(C_CHAR),DIMENSION(*)   :: fname
+         CHARACTER(C_CHAR),DIMENSION(*)   :: ext
+      END SUBROUTINE c_replace_extension
       SUBROUTINE c_stem(fname) BIND(c,name='c_stem')
          USE iso_c_binding
          CHARACTER(C_CHAR),DIMENSION(*)   :: fname
@@ -127,6 +133,15 @@ MODULE FU_Files
          USE iso_c_binding
          CHARACTER(C_CHAR),DIMENSION(*)   :: fname
       END SUBROUTINE c_filename
+      SUBROUTINE c_replace_filename(fname,newname) BIND(c,name='c_replace_filename')
+         USE iso_c_binding
+         CHARACTER(C_CHAR),DIMENSION(*)   :: fname
+         CHARACTER(C_CHAR),DIMENSION(*)   :: newname
+      END SUBROUTINE c_replace_filename
+      SUBROUTINE c_remove_filename(fname) BIND(c,name='c_remove_filename')
+         USE iso_c_binding
+         CHARACTER(C_CHAR),DIMENSION(*)   :: fname
+      END SUBROUTINE c_remove_filename
       SUBROUTINE c_parent_path(fname) BIND(c,name='c_parent_path')
          USE iso_c_binding
          CHARACTER(C_CHAR),DIMENSION(*)   :: fname
@@ -510,6 +525,28 @@ MODULE FU_Files
       END FUNCTION extension
 
 
+      FUNCTION replace_extension(fname, ext) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 21/01/2021.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Changes the extension of a filename.
+         !! Changes the extension of a filename.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Filename or path to a file.
+         CHARACTER(LEN=*), INTENT(IN) :: ext
+         !! New extension for the fname.
+         CHARACTER(LEN=:), ALLOCATABLE :: res
+         !! The fname value with the modified extension.
+         CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string, c_string1
+         c_string = fname//C_NULL_CHAR
+         c_string1 = ext//C_NULL_CHAR
+         CALL c_replace_extension(c_string,c_string1)
+         res = c_to_f(c_string)
+      END FUNCTION replace_extension
+
+
       FUNCTION stem(fname) RESULT(res)
          !! author: Emilio Castro.
          !! date: 06/08/2020.
@@ -549,13 +586,56 @@ MODULE FU_Files
       END FUNCTION filename
 
 
+      FUNCTION replace_filename(fname, newname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 21/01/2021.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Changes the filename of a path.
+         !! Changes the filename of a path.
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Filename or path to a file.
+         CHARACTER(LEN=*), INTENT(IN) :: newname
+         !! New filename for the fname.
+         CHARACTER(LEN=:), ALLOCATABLE :: res
+         !! The fname value with the modified filename.
+         CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string, c_string1
+         c_string = fname//C_NULL_CHAR
+         c_string1 = newname//C_NULL_CHAR
+         CALL c_replace_filename(c_string,c_string1)
+         res = c_to_f(c_string)
+      END FUNCTION replace_filename
+
+
+      FUNCTION remove_filename(fname) RESULT(res)
+         !! author: Emilio Castro.
+         !! date: 21/01/2021.
+         !! version: 1.0.
+         !! license: MIT.
+         !! summary: Removes the filename from a path.
+         !! Removes the filename from a path. It is similar to function
+         !! [[parent_path]] but this one does not remove railing path separators (if any).
+         IMPLICIT NONE
+         CHARACTER(LEN=*), INTENT(IN) :: fname
+         !! Filename or path to a file.
+         CHARACTER(LEN=:), ALLOCATABLE :: res
+         !! The fname value with the filename removed.
+         CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string
+         c_string = fname//C_NULL_CHAR
+         CALL c_remove_filename(c_string)
+         res = c_to_f(c_string)
+      END FUNCTION remove_filename
+
+
       FUNCTION parent_path(fname) RESULT(res)
          !! author: Emilio Castro.
          !! date: 06/08/2020.
          !! version: 1.0.
          !! license: MIT.
          !! summary: Determines the path to the parent directory given the path to a file.
-         !! Determines the path to the parent directory given the path to a file.
+         !! Determines the path to the parent directory given the path to a file. It is similar
+         !! to function [[remove_filename]] but this one removes trailing path separators (if any).
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.

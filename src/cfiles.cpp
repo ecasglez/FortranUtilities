@@ -259,6 +259,18 @@ void c_extension(char * name)
 
 extern "C"
 {
+   void c_replace_extension(char *, char *);
+}
+
+
+void c_replace_extension(char * name, char * ext)
+{
+   strcpy(name,fs::path(name).replace_extension(ext).string().c_str());
+}
+
+
+extern "C"
+{
    void c_stem(char *);
 }
 
@@ -278,6 +290,30 @@ extern "C"
 void c_filename(char * name)
 {
    strcpy(name,fs::path(name).filename().string().c_str());
+}
+
+
+extern "C"
+{
+   void c_replace_filename(char *, char *);
+}
+
+
+void c_replace_filename(char * name, char * newname)
+{
+   strcpy(name,fs::path(name).replace_filename(newname).string().c_str());
+}
+
+
+extern "C"
+{
+   void c_remove_filename(char *);
+}
+
+
+void c_remove_filename(char * name)
+{
+   strcpy(name,fs::path(name).remove_filename().string().c_str());
 }
 
 
