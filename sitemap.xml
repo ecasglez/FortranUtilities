@@ -205,6 +205,9 @@
       <loc>https://ecasglez.github.io/FortranUtilities/page/Examples/Example01/index.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/proc/replace_extension.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/startswith.html</loc>
    </url>
    <url>
@@ -232,10 +235,16 @@
       <loc>https://ecasglez.github.io/FortranUtilities/proc/mv.html</loc>
    </url>
    <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/proc/remove_filename.html</loc>
+   </url>
+   <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/is_path_absolute.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/cistrcmp.html</loc>
+   </url>
+   <url>
+      <loc>https://ecasglez.github.io/FortranUtilities/proc/replace_filename.html</loc>
    </url>
    <url>
       <loc>https://ecasglez.github.io/FortranUtilities/proc/mergechars.html</loc>

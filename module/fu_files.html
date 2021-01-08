@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="29.8% of total for modules and submodules.">527 statements</a>
+    title="31.5% of total for modules and submodules.">572 statements</a>
      </li> 
      
      
@@ -233,9 +233,15 @@
       
       <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
       
+      <a class="list-group-item" href="../module/fu_files.html#proc-replace_extension">replace_extension</a>
+      
       <a class="list-group-item" href="../module/fu_files.html#proc-stem">stem</a>
       
       <a class="list-group-item" href="../module/fu_files.html#proc-filename">filename</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-replace_filename">replace_filename</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-remove_filename">remove_filename</a>
       
       <a class="list-group-item" href="../module/fu_files.html#proc-parent_path">parent_path</a>
       
@@ -271,9 +277,9 @@
       <li class="list-group-item">
   <ul class="list-inline">
     
-    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
-    
     <li><a href="http://fortranwiki.org/fortran/show/ISO_C_BINDING">iso_c_binding</a></li>
+    
+    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
     
   </ul>
       </li>
@@ -359,9 +365,15 @@
       
       <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
       
+      <a class="list-group-item" href="../module/fu_files.html#proc-replace_extension">replace_extension</a>
+      
       <a class="list-group-item" href="../module/fu_files.html#proc-stem">stem</a>
       
       <a class="list-group-item" href="../module/fu_files.html#proc-filename">filename</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-replace_filename">replace_filename</a>
+      
+      <a class="list-group-item" href="../module/fu_files.html#proc-remove_filename">remove_filename</a>
       
       <a class="list-group-item" href="../module/fu_files.html#proc-parent_path">parent_path</a>
       
@@ -2540,6 +2552,105 @@ public function <a href='../proc/extension.html'>extension</a>(fname) result(res
     
     
   <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-replace_extension"></span><h3>
+public function <a href='../proc/replace_extension.html'>replace_extension</a>(fname, ext) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>21/01/2021.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Changes the extension of a filename.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>ext</strong></td><td><p>New extension for the fname.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  ALLOCATABLE</small></h4>
+  <p>The fname value with the modified extension.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-stem"></span><h3>
 public function <a href='../proc/stem.html'>stem</a>(fname) result(res)
     
@@ -2709,6 +2820,189 @@ public function <a href='../proc/filename.html'>filename</a>(fname) result(res)
     
     
   <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-replace_filename"></span><h3>
+public function <a href='../proc/replace_filename.html'>replace_filename</a>(fname, newname) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>21/01/2021.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Changes the filename of a path.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>newname</strong></td><td><p>New filename for the fname.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  ALLOCATABLE</small></h4>
+  <p>The fname value with the modified filename.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-remove_filename"></span><h3>
+public function <a href='../proc/remove_filename.html'>remove_filename</a>(fname) result(res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+  <dl class="dl-horizontal">
+    
+    <dt>Author</dt><dd>Emilio Castro.</dd>
+    
+    
+    <dt>Date</dt><dd>21/01/2021.</dd>
+    
+    
+    <dt>License</dt><dd>MIT.</dd>
+    
+    
+    <dt>Version</dt><dd>1.0.</dd>
+    
+    
+  </dl>
+
+
+
+<p>Removes the filename from a path.</p><a href="../proc/remove_filename.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  ALLOCATABLE</small></h4>
+  <p>The fname value with the filename removed.</p>
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-parent_path"></span><h3>
 public function <a href='../proc/parent_path.html'>parent_path</a>(fname) result(res)
     
@@ -2741,7 +3035,7 @@ public function <a href='../proc/parent_path.html'>parent_path</a>(fname) result
 
 
 
-<p>Determines the path to the parent directory given the path to a file.</p>
+<p>Determines the path to the parent directory given the path to a file.</p><a href="../proc/parent_path.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
     <h4>Arguments</h4>
     
