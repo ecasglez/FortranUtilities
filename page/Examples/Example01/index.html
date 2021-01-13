@@ -136,8 +136,8 @@
   <div class="row">
     <div class="col-md-9 col-md-push-3" id='text'>
       <h2>Description</h2>
-<p>This example illustrate the use of <code><a href="../../../module/fu_prec.html">FU_Prec</a></code>, <code><a href="../../../module/fu_statistics.html">FU_Statistics</a></code> and <code><a href="../../../module/fu_timing.html">FU_Timing</a></code> modules using a simple program.</p>
-<p>It generates a set of random numbers and then performs a lot of mean, variance and median calculations, and measures the time needed with different number of threads (using OpenMP). </p>
+<p>This example illustrates the use of <code><a href="../../../module/fu_prec.html">FU_Prec</a></code>, <code><a href="../../../module/fu_statistics.html">FU_Statistics</a></code> and <code><a href="../../../module/fu_timing.html">FU_Timing</a></code> modules using a simple program.
+It generates a set of random numbers and then performs a lot of mean, variance and median calculations, and measures the time needed with different number of threads (using OpenMP). </p>
 <p>Uses up to 7 OpenMP threads. Change this parameter accordingly.</p>
 <h2>Functions used</h2>
 <ul>
@@ -159,7 +159,7 @@
 </li>
 </ul>
 <h2>Code</h2>
-<div class="codehilite"><pre><span></span><span class="k">PROGRAM </span><span class="n">FU_example1</span>
+<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example1</span>
    <span class="c">! Example program for FU_Prec, FU_Statistics and FU_Timing modules of ecasglez&#39;s FortranUtilities.</span>
    <span class="c">! It repeats a lot of mean, variance and median calculations using random numbers.</span>
    <span class="c">! Uses OpenMP for parallel execution.</span>
@@ -169,9 +169,9 @@
    <span class="c">! license: MIT.</span>
 
    <span class="c">!$   USE omp_lib</span>
-   <span class="k">USE </span><span class="n">FU_Prec</span>      <span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">dp</span>
-   <span class="k">USE </span><span class="n">FU_statistics</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">mean</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">median</span>
-   <span class="k">USE </span><span class="n">FU_Timing</span>    <span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">resetTotalTime</span><span class="p">,</span> <span class="n">IntervalTIme</span><span class="p">,</span> <span class="n">TotalTime</span>
+   <span class="k">USE </span><span class="n">FU_Prec</span>      <span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">dp</span>
+   <span class="k">USE </span><span class="n">FU_statistics</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">mean</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">median</span>
+   <span class="k">USE </span><span class="n">FU_Timing</span>    <span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">resetTotalTime</span><span class="p">,</span> <span class="n">IntervalTIme</span><span class="p">,</span> <span class="n">TotalTime</span>
 
    <span class="k">IMPLICIT NONE</span>
 
@@ -204,29 +204,29 @@
    <span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
 
 <span class="k">END PROGRAM </span><span class="n">FU_example1</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2>Compilation</h2>
 <p>Compile using the following command. Adjust paths accordingly.</p>
-<div class="codehilite"><pre><span></span>gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
-</pre></div>
+<div class="codehilite"><pre><span></span><code>gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
+</code></pre></div>
 
 
 <p>If no OpenMP libraries are available in your system, you can remove option <code>-fopenmp</code>. The code will work but there will not be any speedup.</p>
 <h2>Execution</h2>
 <p>Before running, since it has been compiled against the shared library:</p>
-<div class="codehilite"><pre><span></span>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
-</pre></div>
+<div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
+</code></pre></div>
 
 
 <p>Then run with:</p>
-<div class="codehilite"><pre><span></span>./example1
-</pre></div>
+<div class="codehilite"><pre><span></span><code>./example1
+</code></pre></div>
 
 
 <p>The output of the execution is:</p>
-<div class="codehilite"><pre><span></span>Number of threads: 1. Time spent:  22.010 s.
+<div class="codehilite"><pre><span></span><code>Number of threads: 1. Time spent:  22.010 s.
 Number of threads: 2. Time spent:  11.440 s.
 Number of threads: 3. Time spent:   8.107 s.
 Number of threads: 4. Time spent:   6.113 s.
@@ -234,7 +234,7 @@ Number of threads: 5. Time spent:   5.887 s.
 Number of threads: 6. Time spent:   4.987 s.
 Number of threads: 7. Time spent:   4.452 s.
 Total time spent:  62.995 s.
-</pre></div>
+</code></pre></div>
     </div>
     
     <div class="col-md-3 col-md-pull-9">
@@ -263,6 +263,11 @@ Total time spent:  62.995 s.
             
             <li role="presentation">
             <a href='../../../page/Examples/Example02/index.html'>Calculate mean value of a rank 3 array.</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../../../page/Examples/Example03/index.html'>Load data and calculate regression coefficients.</a>
             
             </li>
             

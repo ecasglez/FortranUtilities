@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <meta name="description" content="ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.">
+    
+    <meta name="author" content="Emilio Castro" >
+    <link rel="icon" href="../../../favicon.png">
+
+    <title>Load data and calculate regression coefficients. &ndash; ecasglez's FortranUtilities</title>
+
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../css/pygments.css" rel="stylesheet">
+    <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../../css/local.css" rel="stylesheet">
+    
+    <link  href="../../../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../../js/jquery-2.1.3.min.js"></script>
+    <script src="../../../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../../index.html">ecasglez's FortranUtilities </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+        
+            <li><a href='../../../page/index.html'>General documentation</a></li>
+      
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+              
+            <li><a href="../../../lists/files.html">Source Files</a></li>
+        
+        
+        
+            <li><a href="../../../lists/modules.html">Modules</a></li>
+        
+            
+                                
+            <li><a href="../../../lists/procedures.html">Procedures</a></li>
+        
+               
+        
+            </ul>
+            </li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../../../lists/files.html">Source Files</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../../../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../../../lists/procedures.html">Procedures</a></li>
+
+                             
+
+          </ul>
+        
+        <form action="../../../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  <div class="row">
+    <h1>Load data and calculate regression coefficients.</h1>
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="well well-sm" style="min-height: 40px;">
+      <ul class="list-inline" style="margin-bottom:0px; display:inline">
+         
+        <li><i class="fa fa-pencil"></i> Emilio Castro</li>
+         
+         
+        <li><i class="fa fa-calendar-o"></i> 12/01/2021</li>
+         
+<!--
+        
+-->
+      </ul>
+        <ol class="breadcrumb in-well">
+      
+         <li><a href='../../../page/index.html'>General documentation</a></li>
+      
+         <li><a href='../../../page/Examples/index.html'>Examples</a></li>
+      
+         <li class="active">Load data and calculate regression coefficients.</li>
+      </ol>
+    </div>
+    </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-9 col-md-push-3" id='text'>
+      <h2>Description</h2>
+<p>This example illustrates the use of <code><a href="../../../module/fu_prec.html">FU_Prec</a></code>, <code><a href="../../../module/fu_files.html">FU_Files</a></code> and <code><a href="../../../module/fu_statistics.html">FU_Statistics</a></code> modules using a simple program.
+It reads a dataset from an external file with the proper format and performs different types of regressions to adjust the data.</p>
+<p>The dataset can be downloaded <a href="example3.dat">here</a>. As stated in the documentation of <code><a href="../../../interface/readmatrix.html">readMatrix</a></code> the file must have the following format:
+The first line indicates the number of rows, columns and the presence of a header line in the second line.
+In this example, the second line of the file is a header, which will be automatically skipped.
+After that, the values of the matrix are given.
+The first lines of this dataset file are:</p>
+<div class="codehilite"><pre><span></span><code>200 5 T
+#X       LINEAR                 LOG                      EXPONENTIAL             POTENTIAL
+0.1     0.718079165878583   -1.35638917702126         1.458853476235          1.8948792140233
+0.05    1.02619591597279    -2.31765310767541         1.1843683916489         1.34889955912852
+0.15    0.19591897475649    -1.82120101012939         0.595024973297403       1.23781397861872
+0.2     0.313168781703984   -1.45626913073012         0.678804329891996       1.49480956820386
+0.25    0.786822384357196   -0.799471976762694        1.11906961381613        2.0868223843572
+</code></pre></div>
+
+
+<h2>Functions used</h2>
+<ul>
+<li><code><a href="../../../module/fu_prec.html">FU_Prec</a></code>.<ul>
+<li><code>dp</code></li>
+</ul>
+</li>
+<li><code><a href="../../../module/fu_files.html">FU_Files</a></code>.<ul>
+<li><code><a href="../../../interface/readmatrix.html">readMatrix</a></code></li>
+</ul>
+</li>
+<li><code><a href="../../../module/fu_statistics.html">FU_Statistics</a></code>.<ul>
+<li><code><a href="../../../interface/linreg.html">linreg</a></code></li>
+<li><code><a href="../../../interface/logreg.html">logreg</a></code></li>
+<li><code><a href="../../../interface/expreg.html">expreg</a></code></li>
+<li><code><a href="../../../interface/potreg.html">potreg</a></code></li>
+</ul>
+</li>
+</ul>
+<h2>Code</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example3</span>
+   <span class="c">! Example program for FU_Prec, FU_Files and FU_Statistics modules of ecasglez&#39;s FortranUtilities,</span>
+   <span class="c">! showing how to load data from a file and how to perform different types of regressions.</span>
+   <span class="c">! The dataset can be downloaded from: https://ecasglez.github.io/FortranUtilities/page/Examples/Example03/example3.dat</span>
+   <span class="c">! compile using: gfortran example3.f90 -o example3 -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2</span>
+   <span class="c">! before running: export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}</span>
+   <span class="c">! run using: ./example3</span>
+   <span class="c">! license: MIT.</span>
+
+   <span class="k">USE </span><span class="n">FU_Prec</span>      <span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">dp</span>
+   <span class="k">USE </span><span class="n">FU_Files</span>     <span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">readMatrix</span>
+   <span class="k">USE </span><span class="n">FU_statistics</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">linreg</span><span class="p">,</span> <span class="n">logreg</span><span class="p">,</span> <span class="n">expreg</span><span class="p">,</span> <span class="n">potreg</span>
+
+   <span class="k">IMPLICIT NONE</span>
+
+<span class="k">   </span><span class="kt">LOGICAL</span> <span class="kd">::</span> <span class="n">exists</span>
+   <span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span> <span class="k">DIMENSION</span><span class="p">(:,:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">matrix</span>
+   <span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">r2</span>
+
+   <span class="c">!First check if the dataset exists.</span>
+   <span class="k">INQUIRE</span><span class="p">(</span><span class="k">FILE</span><span class="o">=</span><span class="s1">&#39;example3.dat&#39;</span><span class="p">,</span> <span class="n">EXIST</span><span class="o">=</span><span class="n">exists</span><span class="p">)</span>
+   <span class="k">IF</span> <span class="p">(.</span><span class="nb">NOT</span><span class="p">.</span><span class="n">exists</span><span class="p">)</span> <span class="k">THEN</span>
+<span class="k">      WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;ERROR: Dataset named &quot;example03.dat&quot; not found.&#39;</span>
+      <span class="k">STOP</span>
+<span class="k">   END IF</span>
+
+   <span class="c">!Load the data in the file.</span>
+   <span class="k">CALL </span><span class="n">readMatrix</span><span class="p">(</span><span class="s1">&#39;example3.dat&#39;</span><span class="p">,</span><span class="n">matrix</span><span class="p">)</span>
+
+   <span class="c">!Calculate regression parameters and print the results.</span>
+   <span class="k">CALL </span><span class="n">linreg</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
+   <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F6.4,A,F6.4,A,F6.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Linear regression:      f(x) = &#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39; x + &#39;</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s1">&#39;.      Determination coefficient R2 = &#39;</span><span class="p">,</span><span class="n">r2</span>
+   <span class="k">CALL </span><span class="n">logreg</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
+   <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F6.4,A,F6.4,A,F6.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Logarithmic regression: f(x) = &#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39; ln(x) + &#39;</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s1">&#39;.  Determination coefficient R2 = &#39;</span><span class="p">,</span><span class="n">r2</span>
+   <span class="k">CALL </span><span class="n">expreg</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">4</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
+   <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F6.4,A,F6.4,A,F6.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Exponential regression: f(x) = &#39;</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s1">&#39; exp(&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;x).    Determination coefficient R2 = &#39;</span><span class="p">,</span><span class="n">r2</span>
+   <span class="k">CALL </span><span class="n">potreg</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">matrix</span><span class="p">(:,</span><span class="mi">5</span><span class="p">),</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">r2</span><span class="p">)</span>
+   <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F6.4,A,F6.4,A,F6.4)&#39;</span><span class="p">)</span> <span class="s1">&#39;Potential regression:   f(x) = &#39;</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="s1">&#39; x^&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;.        Determination coefficient R2 = &#39;</span><span class="p">,</span><span class="n">r2</span>
+
+   <span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="k">END PROGRAM </span><span class="n">FU_example3</span>
+</code></pre></div>
+
+
+<h2>Compilation</h2>
+<p>Compile using the following command. Adjust paths accordingly.</p>
+<div class="codehilite"><pre><span></span><code>gfortran example3.f90 -o example3 -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
+</code></pre></div>
+
+
+<h2>Execution</h2>
+<p>Before running, since it has been compiled against the shared library:</p>
+<div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
+</code></pre></div>
+
+
+<p>Then run with:</p>
+<div class="codehilite"><pre><span></span><code>./example3
+</code></pre></div>
+
+
+<p>The output of the execution is:</p>
+<div class="codehilite"><pre><span></span><code>Linear regression:      f(x) = 0.7948 x + 0.5358.      Determination coefficient R2 = 0.9846
+Logarithmic regression: f(x) = 0.9877 ln(x) + 0.5260.  Determination coefficient R2 = 0.9150
+Exponential regression: f(x) = 0.8921 exp(0.1926x).    Determination coefficient R2 = 0.9214
+Potential regression:   f(x) = 3.6021 x^0.4330.        Determination coefficient R2 = 0.9764
+</code></pre></div>
+
+
+<p>This results and the dataset can be plotted using a external tool to see the adjustment:</p>
+<p><img alt="Regression plots" src="example3.png"></p>
+    </div>
+    
+    <div class="col-md-3 col-md-pull-9">
+      <hr class="visible-xs visible-sm">
+        <div class="well toc">
+          <ul class="nav nav-stacked nav-pills">
+            <li role="presentation" class="title"><a href='../../../page/index.html'>General documentation</a></li>
+          </ul>
+          <hr>
+          <ul class="nav nav-stacked nav-pills">
+            
+            <li role="presentation">
+            <a href='../../../page/Compilation/index.html'>Compilation</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../../../page/Examples/index.html'>Examples</a>
+            
+            <ul class="nav nav-stacked nav-pills">
+              
+            <li role="presentation">
+            <a href='../../../page/Examples/Example01/index.html'>Timing and Statistics usage (with OpenMP)</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../../../page/Examples/Example02/index.html'>Calculate mean value of a rank 3 array.</a>
+            
+            </li>
+            
+            <li role="presentation" class="disabled">
+            <a href='../../../page/Examples/Example03/index.html'>Load data and calculate regression coefficients.</a>
+            
+            </li>
+            
+            </ul>
+            
+            </li>
+            
+          </ul>
+        </div>
+    </div>
+    
+  </div>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/">MIT</a>
+                                          </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> ecasglez's FortranUtilities was developed by Emilio Castro</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../../../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    <script src="../../../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../../../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../../../tipuesearch/tipuesearch.js"></script>
+    
+    
+  </body>
+</html>

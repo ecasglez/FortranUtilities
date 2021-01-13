@@ -124,7 +124,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="24.8% of total for source files.">487 statements</a>
+    title="22.5% of total for source files.">511 statements</a>
      </li> 
      
      
@@ -545,7 +545,7 @@
 <a name="ln-284"></a>
 <a name="ln-285"></a>
 <a name="ln-286"></a>   <span class="k">PURE FUNCTION </span><span class="n">num2str_i8</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-287"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-287"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-288"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-289"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i8</span><span class="p">),</span> <span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">num</span>
 <a name="ln-290"></a>      <span class="c">!! Number to convert to string.</span>
@@ -558,7 +558,7 @@
 <a name="ln-297"></a>   <span class="k">END FUNCTION </span><span class="n">num2str_i8</span>
 <a name="ln-298"></a>
 <a name="ln-299"></a>   <span class="k">PURE FUNCTION </span><span class="n">num2str_i16</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-300"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-300"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-301"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-302"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i16</span><span class="p">),</span><span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">num</span>
 <a name="ln-303"></a>      <span class="c">!! Number to convert to string.</span>
@@ -571,7 +571,7 @@
 <a name="ln-310"></a>   <span class="k">END FUNCTION </span><span class="n">num2str_i16</span>
 <a name="ln-311"></a>
 <a name="ln-312"></a>   <span class="k">PURE FUNCTION </span><span class="n">num2str_i32</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-313"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-313"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-314"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-315"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i32</span><span class="p">),</span><span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">num</span>
 <a name="ln-316"></a>      <span class="c">!! Number to convert to string.</span>
@@ -584,7 +584,7 @@
 <a name="ln-323"></a>   <span class="k">END FUNCTION </span><span class="n">num2str_i32</span>
 <a name="ln-324"></a>
 <a name="ln-325"></a>   <span class="k">PURE FUNCTION </span><span class="n">num2str_i64</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-326"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-326"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-327"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-328"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i64</span><span class="p">),</span><span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">num</span>
 <a name="ln-329"></a>      <span class="c">!! Number to convert to string.</span>
@@ -648,7 +648,7 @@
 <a name="ln-387"></a>
 <a name="ln-388"></a>
 <a name="ln-389"></a>   <span class="k">PURE FUNCTION </span><span class="n">int2str00000_i8</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="n">total_length</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-390"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-390"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-391"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-392"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i8</span><span class="p">),</span><span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span>  <span class="kd">::</span> <span class="n">integ</span>
 <a name="ln-393"></a>      <span class="c">!! Integer number to convert. This number MUST be positive.</span>
@@ -662,7 +662,7 @@
 <a name="ln-401"></a>   <span class="k">END FUNCTION </span><span class="n">int2str00000_i8</span>
 <a name="ln-402"></a>
 <a name="ln-403"></a>   <span class="k">PURE FUNCTION </span><span class="n">int2str00000_i16</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="n">total_length</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-404"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-404"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-405"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-406"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i16</span><span class="p">),</span><span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">integ</span>
 <a name="ln-407"></a>      <span class="c">!! Integer number to convert. This number MUST be positive.</span>
@@ -676,7 +676,7 @@
 <a name="ln-415"></a>   <span class="k">END FUNCTION </span><span class="n">int2str00000_i16</span>
 <a name="ln-416"></a>
 <a name="ln-417"></a>   <span class="k">PURE FUNCTION </span><span class="n">int2str00000_i32</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="n">total_length</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-418"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-418"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-419"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-420"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i32</span><span class="p">),</span><span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">integ</span>
 <a name="ln-421"></a>      <span class="c">!! Integer number to convert. This number MUST be positive.</span>
@@ -690,7 +690,7 @@
 <a name="ln-429"></a>   <span class="k">END FUNCTION </span><span class="n">int2str00000_i32</span>
 <a name="ln-430"></a>
 <a name="ln-431"></a>   <span class="k">PURE FUNCTION </span><span class="n">int2str00000_i64</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="n">total_length</span><span class="p">)</span> <span class="k">RESULT</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
-<a name="ln-432"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="n">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
+<a name="ln-432"></a>      <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">count_digits_integer</span>
 <a name="ln-433"></a>      <span class="k">IMPLICIT NONE</span>
 <a name="ln-434"></a><span class="k">      </span><span class="kt">INTEGER</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">i64</span><span class="p">),</span><span class="k">INTENT</span><span class="p">(</span><span class="n">IN</span><span class="p">)</span> <span class="kd">::</span> <span class="n">integ</span>
 <a name="ln-435"></a>      <span class="c">!! Integer number to convert. This number MUST be positive.</span>
