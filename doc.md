@@ -11,8 +11,7 @@ source: false
 graph: false
 hide_undoc: true
 search: true
-macro: TEST
-       LOGIC=.true.
+macro: QPREC_FPP
 license: MIT
 exclude: FortranUtilitiesTest.F90
 exclude: include_median.f90

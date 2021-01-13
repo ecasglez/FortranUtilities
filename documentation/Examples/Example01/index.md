@@ -4,8 +4,7 @@ date: 13/09/2020
 
 ## Description ##
 
-This example illustrate the use of ```[[FU_Prec]]```, ```[[FU_Statistics]]``` and ```[[FU_Timing]]``` modules using a simple program.
-
+This example illustrates the use of ```[[FU_Prec]]```, ```[[FU_Statistics]]``` and ```[[FU_Timing]]``` modules using a simple program.
 It generates a set of random numbers and then performs a lot of mean, variance and median calculations, and measures the time needed with different number of threads (using OpenMP). 
 
 Uses up to 7 OpenMP threads. Change this parameter accordingly.

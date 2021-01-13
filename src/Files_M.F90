@@ -162,7 +162,7 @@ MODULE FU_Files
       !!
       !! The second row can be a header or not.
       !!
-      !! Then the matrix comes.
+      !! Then the matrix comes. The different columns must be separated using blanks.
       !!
       !! The file is then opened, read and closed. The return variable must have ALLOCATABLE attribute,
       !! and must not be allocated (the subroutine takes care of allocation but not about deallocation).
@@ -190,7 +190,7 @@ MODULE FU_Files
       !!
       !! The second row can be a header or not.
       !!
-      !! Then the matrix comes.
+      !! Then the matrix comes. The different columns are separated using blanks.
       !!
       !! The file is then opened, written and closed.
       MODULE PROCEDURE writeMatrix_i8
@@ -664,7 +664,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns must be separated using blanks.
          !!
          !! The file is then opened, read and closed.
          IMPLICIT NONE
@@ -695,7 +695,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns must be separated using blanks.
          !!
          !! The file is then opened, read and closed.
          IMPLICIT NONE
@@ -726,7 +726,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns must be separated using blanks.
          !!
          !! The file is then opened, read and closed.
          IMPLICIT NONE
@@ -757,7 +757,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns must be separated using blanks.
          !!
          !! The file is then opened, read and closed.
          IMPLICIT NONE
@@ -788,7 +788,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns must be separated using blanks.
          !!
          !! The file is then opened, read and closed.
          IMPLICIT NONE
@@ -819,7 +819,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns must be separated using blanks.
          !!
          !! The file is then opened, read and closed.
          IMPLICIT NONE
@@ -851,7 +851,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns must be separated using blanks.
          !!
          !! The file is then opened, read and closed.
          IMPLICIT NONE
@@ -884,7 +884,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns are separated using blanks.
          !!
          !! The file is then opened, written and closed.
          IMPLICIT NONE
@@ -915,7 +915,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns are separated using blanks.
          !!
          !! The file is then opened, written and closed.
          IMPLICIT NONE
@@ -946,7 +946,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns are separated using blanks.
          !!
          !! The file is then opened, written and closed.
          IMPLICIT NONE
@@ -977,7 +977,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns are separated using blanks.
          !!
          !! The file is then opened, written and closed.
          IMPLICIT NONE
@@ -1008,7 +1008,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns are separated using blanks.
          !!
          !! The file is then opened, written and closed.
          IMPLICIT NONE
@@ -1039,7 +1039,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns are separated using blanks.
          !!
          !! The file is then opened, written and closed.
          IMPLICIT NONE
@@ -1071,7 +1071,7 @@ MODULE FU_Files
          !!
          !! The second row can be a header or not.
          !!
-         !! Then the matrix comes.
+         !! Then the matrix comes. The different columns are separated using blanks.
          !!
          !! The file is then opened, written and closed.
          IMPLICIT NONE

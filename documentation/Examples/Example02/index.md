@@ -4,9 +4,9 @@ date: 13/09/2020
 
 ## Description ##
 
-This example illustrate the use of ```[[FU_Prec]]``` and ```[[FU_Statistics]]``` modules using a simple program.
-
-It generates an array with rank 3 filled with random numbers showing 3 examples on how to apply function ```[[mean]]``` (or any other function from [[FU_Statistics]]) to an array of size larger than 1.
+This examples illustrate the use of ```[[FU_Prec]]``` and ```[[FU_Statistics]]``` modules using a simple program.
+It generates an array with rank 3 filled with random numbers showing 3 examples on how to apply function ```[[mean]]```
+(or any other function from [[FU_Statistics]]) to an array of size larger than 1.
 
 ## Functions used ##
 
