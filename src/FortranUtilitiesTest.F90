@@ -299,22 +299,24 @@ PROGRAM FortranUtilitiesTest
 #endif
    CALL test('eq',eq(1._sp,1._sp))
    CALL test('eq',eq(1._dp,1._dp))
-   CALL test('eq',eq(1._qp,1._qp))
    CALL test('eq',.NOT.eq(1._sp,2._sp))
    CALL test('eq',.NOT.eq(1._dp,2._dp))
-   CALL test('eq',.NOT.eq(1._qp,2._qp))
    CALL test('eq',eq(1._sp,2._sp,10._sp))
    CALL test('eq',eq(1._dp,2._dp,10._dp))
-   CALL test('eq',eq(1._qp,2._qp,10._qp))
    CALL test('ne',.NOT.ne(1._sp,1._sp))
    CALL test('ne',.NOT.ne(1._dp,1._dp))
-   CALL test('ne',.NOT.ne(1._qp,1._qp))
    CALL test('ne',ne(1._sp,2._sp))
    CALL test('ne',ne(1._dp,2._dp))
-   CALL test('ne',ne(1._qp,2._qp))
    CALL test('ne',.NOT.ne(1._sp,2._sp,10._sp))
    CALL test('ne',.NOT.ne(1._dp,2._dp,10._dp))
+#ifdef QPREC_FPP
+   CALL test('eq',eq(1._qp,1._qp))
+   CALL test('eq',.NOT.eq(1._qp,2._qp))
+   CALL test('eq',eq(1._qp,2._qp,10._qp))
+   CALL test('ne',.NOT.ne(1._qp,1._qp))
+   CALL test('ne',ne(1._qp,2._qp))
    CALL test('ne',.NOT.ne(1._qp,2._qp,10._qp))
+#endif
 
    !
    ! FU_Files tests (except writeMatrix and readMatrix, see below)
