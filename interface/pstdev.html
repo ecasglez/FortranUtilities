@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.1% of total for procedures.</p>Including implementation: 23 statements,  5.3% of total for procedures.">5 statements</a>
+    title="<p> 1.0% of total for procedures.</p>Including implementation: 16 statements,  3.9% of total for procedures.">4 statements</a>
      </li> 
      
      
@@ -197,8 +197,6 @@
       <a class="list-group-item" href="../interface/pstdev.html#moduleprocedure-pstdev_sp">pstdev_sp</a>
       
       <a class="list-group-item" href="../interface/pstdev.html#moduleprocedure-pstdev_dp">pstdev_dp</a>
-      
-      <a class="list-group-item" href="../interface/pstdev.html#moduleprocedure-pstdev_qp">pstdev_qp</a>
       
     </div>
   </div>
@@ -270,8 +268,6 @@
       <a class="list-group-item" href="../interface/pstdev.html#moduleprocedure-pstdev_sp">pstdev_sp</a>
       
       <a class="list-group-item" href="../interface/pstdev.html#moduleprocedure-pstdev_dp">pstdev_dp</a>
-      
-      <a class="list-group-item" href="../interface/pstdev.html#moduleprocedure-pstdev_qp">pstdev_qp</a>
       
     </div>
   </div>
@@ -404,67 +400,6 @@ private pure function pstdev_dp(x) result(res)
   
   
      <h4>Return Value <small>real(kind=dp)
-  </small></h4>
-  <p>Real number with the population standard deviation of x.</p>
-    
-
-  </div>
-  </div>
-
-   
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-pstdev_qp"></span><h3>
-private pure function pstdev_qp(x) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:)</td><td>::</td>
-  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the population standard deviation. 
- It can have any size and it must have one dimension.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the population standard deviation of x.</p>
     
