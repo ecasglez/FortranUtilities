@@ -4,6 +4,7 @@ output_dir: ./doc
 project_github: https://github.com/ecasglez/FortranUtilities
 summary: ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.
 author: Emilio Castro
+email: ecasglez@protonmail.com
 github: https://github.com/ecasglez
 linkedin: https://www.linkedin.com/in/emilio-castro-gonz%C3%A1lez-797707162/ 
 display: public
