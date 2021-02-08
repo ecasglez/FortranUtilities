@@ -574,7 +574,11 @@ PROGRAM FortranUtilitiesTest
             WRITE(*,'(A,2(1X,I0,1X,A))') 'Total:', tests_ok, 'tests OK.', tests_failed, 'tests failed.'
          ELSE
             i = i + 1
-            WRITE(*,'(A,1X,I3,1X,L,1X,A)') 'Test' , i, testRes, testName
+            IF (testRes) THEN
+               WRITE(*,'(A,1X,I3,1X,A,1X,A)') 'Test' , i, CHAR(27)//'[32mPASS'//CHAR(27)//'[0m', testName
+            ELSE
+               WRITE(*,'(A,1X,I3,1X,A,1X,A)') 'Test' , i, CHAR(27)//'[31mFAIL'//CHAR(27)//'[0m', testName
+            END IF
             IF (testRes) THEN
                tests_ok = tests_ok + 1
             ELSE
