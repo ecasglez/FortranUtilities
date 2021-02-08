@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.9% of total for procedures.</p>Including implementation: 110 statements, 26.7% of total for procedures.">8 statements</a>
+    title="<p> 2.1% of total for procedures.</p>Including implementation: 128 statements, 29.4% of total for procedures.">9 statements</a>
      </li> 
      
      
@@ -206,6 +206,8 @@
       
       <a class="list-group-item" href="../interface/readmatrix.html#moduleprocedure-readmatrix_dp">readMatrix_dp</a>
       
+      <a class="list-group-item" href="../interface/readmatrix.html#moduleprocedure-readmatrix_qp">readMatrix_qp</a>
+      
     </div>
   </div>
 </div>
@@ -270,6 +272,8 @@
       <a class="list-group-item" href="../interface/readmatrix.html#moduleprocedure-readmatrix_sp">readMatrix_sp</a>
       
       <a class="list-group-item" href="../interface/readmatrix.html#moduleprocedure-readmatrix_dp">readMatrix_dp</a>
+      
+      <a class="list-group-item" href="../interface/readmatrix.html#moduleprocedure-readmatrix_qp">readMatrix_qp</a>
       
     </div>
   </div>
@@ -699,6 +703,78 @@ private subroutine readMatrix_dp(filename, res)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out),</td>
+  <td></td>
+  
+  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
+  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
+ must not be allocated prior to call readMatrix as it is allocated here. However
+ deallocation must be done manually by the user when finishes using the information.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+   
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-readmatrix_qp"></span><h3>
+private subroutine readMatrix_qp(filename, res)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_qp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(out),</td>
   <td></td>
   

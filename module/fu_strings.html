@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="26.9% of total for modules and submodules.">487 statements</a>
+    title="24.1% of total for modules and submodules.">511 statements</a>
      </li> 
      
      
@@ -1237,6 +1237,78 @@ private pure function num2str_dp(num, formato) result(str)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function num2str_qp(num, formato) result(str)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>character(len=:),
+  ALLOCATABLE</small></h4>
+  <p>String containing the number</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -1997,6 +2069,79 @@ private elemental function str2num_dp(str, mold) result(res)
   
   
      <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>The number of the input string.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function str2num_qp(str, mold) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
+ It is only used to set the type of the return value, so it can be any value.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>The number of the input string.</p>
     

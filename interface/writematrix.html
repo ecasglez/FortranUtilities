@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 1.9% of total for procedures.</p>Including implementation: 170 statements, 41.3% of total for procedures.">8 statements</a>
+    title="<p> 2.1% of total for procedures.</p>Including implementation: 198 statements, 45.4% of total for procedures.">9 statements</a>
      </li> 
      
      
@@ -206,6 +206,8 @@
       
       <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_dp">writeMatrix_dp</a>
       
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_qp">writeMatrix_qp</a>
+      
     </div>
   </div>
 </div>
@@ -269,6 +271,8 @@
       <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_sp">writeMatrix_sp</a>
       
       <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_dp">writeMatrix_dp</a>
+      
+      <a class="list-group-item" href="../interface/writematrix.html#moduleprocedure-writematrix_qp">writeMatrix_qp</a>
       
     </div>
   </div>
@@ -838,6 +842,106 @@ private subroutine writeMatrix_dp(filename, matrix, header, formato)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: F8.3</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+   
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-writematrix_qp"></span><h3>
+private subroutine writeMatrix_qp(filename, matrix, header, formato)
+    
+    
+   
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Writes a matrix to a file.</p><a href="../proc/writematrix_qp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>character(len=*),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(in),</td>
   <td></td>
   

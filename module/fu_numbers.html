@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="10.1% of total for modules and submodules.">183 statements</a>
+    title="10.7% of total for modules and submodules.">227 statements</a>
      </li> 
      
      
@@ -685,6 +685,64 @@ private elemental function is_nan_dp(val) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function is_nan_qp(val) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong></td><td><p>Value to analize. It can have any rank and dimension</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if the variable is NaN. False otherwise. It will
+ have the same rank and dimension as the input value.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -794,6 +852,64 @@ private elemental function is_inf_dp(val) result(res)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong></td><td><p>Value to analize. It can have any rank and dimension</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if the variable is Inf. False otherwise. It will
+ have the same rank and dimension as the input value.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function is_inf_qp(val) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(in)</td>
   <td></td>
   
@@ -1019,6 +1135,95 @@ private elemental function eq_dp(x1, x2, eps) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function eq_qp(x1, x2, eps) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x1</strong></td><td><p>First real value to compare for equality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x2</strong></td><td><p>Second real value to compare for equality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
+ it will be selected automatically.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if both numbers are equal according to the selected tolerance.
+ False otherwise.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -1189,6 +1394,95 @@ private elemental function ne_dp(x1, x2, eps) result(res)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
+ it will be selected automatically.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>logical
+  </small></h4>
+  <p>True if the numbers are not equal according to the selected tolerance.
+ False otherwise.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private elemental function ne_qp(x1, x2, eps) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x1</strong></td><td><p>First real value to compare for inequality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x2</strong></td><td><p>Second real value to compare for inequality.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(in),</td>
   <td>optional</td>
   

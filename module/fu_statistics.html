@@ -132,7 +132,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="26.5% of total for modules and submodules.">481 statements</a>
+    title="31.8% of total for modules and submodules.">675 statements</a>
      </li> 
      
      
@@ -481,6 +481,64 @@ private pure function mean_dp(x) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function mean_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the mean value. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
+  </small></h4>
+  <p>Real number with the average of x.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -611,6 +669,64 @@ private pure function gmean_dp(x) result(res)
   
   
      <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Real number with the geometric mean of the x.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function gmean_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the geometric mean of the x.</p>
     
@@ -753,6 +869,64 @@ private pure function variance_dp(x) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function variance_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the sample variance. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
+  </small></h4>
+  <p>Real number with the sample variance of x.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -883,6 +1057,64 @@ private pure function stdev_dp(x) result(res)
   
   
      <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Real number with the sample standard deviation of x.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function stdev_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the sample standard deviation.
+ It can have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the sample standard deviation of x.</p>
     
@@ -1025,6 +1257,64 @@ private pure function pvariance_dp(x) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function pvariance_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the population variance.
+ It can have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
+  </small></h4>
+  <p>Real number with the variance of x.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -1155,6 +1445,64 @@ private pure function pstdev_dp(x) result(res)
   
   
      <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Real number with the population standard deviation of x.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function pstdev_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the population standard deviation. 
+ It can have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the population standard deviation of x.</p>
     
@@ -1329,6 +1677,80 @@ private pure function covariance_dp(x, y) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function covariance_qp(x, y) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
+  </small></h4>
+  <p>Real number with the sample covariance between both variables.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -1491,6 +1913,80 @@ private pure function pcovariance_dp(x, y) result(res)
   
   
      <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Real number with the population covariance between both variables.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function pcovariance_qp(x, y) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the population covariance between both variables.</p>
     
@@ -1665,6 +2161,80 @@ private pure function correlation_dp(x, y) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function correlation_qp(x, y) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
+  </small></h4>
+  <p>Real number with the population covariance between both variables.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -1827,6 +2397,80 @@ private pure function lin_error_propagation_dp(sensitivities, matcovar) result(r
   
   
      <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Real number with the error or uncertainty (variance) propagated to the new variable.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function lin_error_propagation_qp(sensitivities, matcovar) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>sensitivities</strong></td><td><p>Vector of sensitivity coefficients of the new variable with the respect the prior variable.
+ It can have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:,:)</td><td>::</td>
+  <td><strong>matcovar</strong></td><td><p>Covariance matrix with the error or uncertainty of the prior variable.
+ Dimensions of sensitivities and matcovar must be in agreement.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the error or uncertainty (variance) propagated to the new variable.</p>
     
@@ -2105,6 +2749,64 @@ private pure function skewness_dp(x) result(res)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function skewness_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the sample skewness.
+ It can have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
+  </small></h4>
+  <p>Real number with the sample skewness of the x.</p>
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -2235,6 +2937,64 @@ private pure function pskewness_dp(x) result(res)
   
   
      <h4>Return Value <small>real(kind=dp)
+  </small></h4>
+  <p>Real number with the population skewness of the x.</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private pure function pskewness_qp(x) result(res)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the population skewness.
+ It can have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=qp)
   </small></h4>
   <p>Real number with the population skewness of the x.</p>
     
@@ -2464,6 +3224,116 @@ private subroutine linreg_dp(x, y, a, b, R2)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine linreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(out)</td>
   <td></td>
   
@@ -2721,6 +3591,116 @@ private subroutine logreg_dp(x, y, a, b, R2)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine logreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -2961,6 +3941,116 @@ private subroutine expreg_dp(x, y, a, b, R2)
 
     </li>
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine expreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
   
   </ul>
 </div>
@@ -3184,6 +4274,116 @@ private subroutine potreg_dp(x, y, a, b, R2)
 <tr>
   
   <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>R2</strong></td><td><p>Determination coefficient.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private subroutine potreg_qp(x, y, a, b, R2)
+    
+    
+   
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>DIMENSION(:)</td><td>::</td>
+  <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
+ have any size and it must have one dimension.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>a</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>b</strong></td><td><p>Regression coefficient.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=qp),</td>
   <td>intent(out)</td>
   <td></td>
   
