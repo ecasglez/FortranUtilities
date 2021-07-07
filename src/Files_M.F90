@@ -166,6 +166,47 @@ MODULE FU_Files
       !!
       !! The file is then opened, read and closed. The return variable must have ALLOCATABLE attribute,
       !! and must not be allocated (the subroutine takes care of allocation but not about deallocation).
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! call readMatrix(filename, matrix)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `filename`: string of any length with the path to the file to read. If the file does not exist or
+      !! it is empty a Fortran runtime error is raised. If the file does not have the proper format
+      !! the behaviour is undefined.
+      !! * `matrix`: an allocatable array of rank 2 of any of the integer or real kinds supported.
+      !! It will be allocated automatically in the subroutine, but the user must deallocate matrix
+      !! manually after use.
+      !!
+      !!### Example
+      !!
+      !! The following example program loads values from a file named matrix.txt:
+      !!
+      !!```Fortran
+      !! PROGRAM readMatrixExample
+      !!    USE FU_Files, ONLY: readMatrix
+      !!    USE FU_Prec, ONLY: dp
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: matrixFileName
+      !!    REAL(KIND=dp), DIMENSION(:,:), ALLOCATABLE :: matrix
+      !!    matrixFileName = 'matrix.txt'
+      !!    CALL readMatrix(matrixFileName, matrix)
+      !!    WRITE(*,*) matrix
+      !!    DEALLOCATE(matrix)
+      !! END PROGRAM readMatrixExample
+      !!```
+      !!
+      !! File matrix.txt contains the following information:
+      !!
+      !!```
+      !! 2 3 F 
+      !! 1.1 1.2 1.3 
+      !! 2.1 2.2 2.3
+      !!```
       MODULE PROCEDURE readMatrix_i8
       MODULE PROCEDURE readMatrix_i16
       MODULE PROCEDURE readMatrix_i32
@@ -193,6 +234,51 @@ MODULE FU_Files
       !! Then the matrix comes. The different columns are separated using blanks.
       !!
       !! The file is then opened, written and closed.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! call writeMatrix(filename, matrix, header, formato)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `filename`: string of any length with the path to the file to write.
+      !! * `matrix`: an array of rank 2 of any of the integer or real kinds supported.
+      !! * `header`: optional character variable of any length to write in the second line
+      !! of the file.
+      !! * `formato`: optional character variable with the format to use for the numbers (without
+      !! parenthesis.
+      !!
+      !!### Example
+      !!
+      !! The following example program writes values to a file named matrix.txt:
+      !!
+      !!```Fortran
+      !! PROGRAM writeMatrixExample
+      !!    USE FU_Files, ONLY: writeMatrix
+      !!    USE FU_Prec, ONLY: dp
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: matrixFileName
+      !!    REAL(KIND=dp), DIMENSION(2,3) :: matrix
+      !!    matrixFileName = 'matrix.txt'
+      !!    matrix(1,1) = 1.1 
+      !!    matrix(1,2) = 1.2 
+      !!    matrix(1,3) = 1.3 
+      !!    matrix(2,1) = 2.1 
+      !!    matrix(2,2) = 2.2 
+      !!    matrix(2,3) = 2.3 
+      !!    CALL writeMatrix(matrixFileName, matrix, formato='F3.1')
+      !! END PROGRAM writeMatrixExample
+      !!```
+      !!
+      !! After execution file matrix.txt contains the following information:
+      !!
+      !!```
+      !!        2           3 F
+      !! 1.1 1.2 1.3
+      !! 2.1 2.2 2.3
+      !!```
       MODULE PROCEDURE writeMatrix_i8
       MODULE PROCEDURE writeMatrix_i16
       MODULE PROCEDURE writeMatrix_i32
@@ -214,11 +300,44 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Creates a directory.
          !! Creates a directory.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! call mkdir(dir, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `dir`: Path and name of the directory to be created.
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if the process has been succesful or False in case of error.
+         !!
+         !!### Example
+         !!
+         !! The following program creates folder tmp:
+         !!
+         !!```Fortran
+         !! PROGRAM mkdirExample
+         !!    USE FU_Files, ONLY: mkdir
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='tmp'
+         !!    IF (mkdir(path)) THEN
+         !!       WRITE(*,*) 'Success'
+         !!    ELSE
+         !!       WRITE(*,*) 'Error'
+         !!    END IF
+         !! END PROGRAM mkdirExample
+         !!```
+
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: dir
          !! Path and name of the directory to be created.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message.
+         !! False to print a detailed description of the error message.
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if the process has been succesful. False in case of error.
@@ -247,7 +366,7 @@ MODULE FU_Files
          CHARACTER(LEN=*), INTENT(IN) :: dest
          !! Name of the destination link.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if the process has been succesful. False in case of error.
@@ -271,13 +390,48 @@ MODULE FU_Files
          !! summary: Copies a file or directory.
          !! Copies a file or directory. Directories are copied recursively.
          !! Existing files are overwritten.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! call cp(src, dest, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `src`: Name of the file or folder to copy.
+         !! * `dest`: Name of the destination 
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if the process has been succesful or False in case of error.
+         !!
+         !!### Example
+         !!
+         !! The following program copies file1 to file2:
+         !!
+         !!```Fortran
+         !! PROGRAM cpExample
+         !!    USE FU_Files, ONLY: cp
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path1, path2
+         !!    path1='file1'
+         !!    path2='file2'
+         !!    IF (cp(path1, path2)) THEN
+         !!       WRITE(*,*) 'Success'
+         !!    ELSE
+         !!       WRITE(*,*) 'Error'
+         !!    END IF
+         !! END PROGRAM cpExample
+         !!```
+
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: src
          !! Name of the file to be copied. 
          CHARACTER(LEN=*), INTENT(IN) :: dest
          !! Name of the destination file.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if the process has been succesful. False in case of error.
@@ -301,13 +455,47 @@ MODULE FU_Files
          !! Moves or renames a file or directory. When moving a directory if the 
          !! destination is an already existing directory which is not empty an error is shown
          !! and nothing is done. The destination folder must be removed first using function rm.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! call mv(src, dest, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `src`: Name of the file or folder to move.
+         !! * `dest`: Name of the destination 
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if the process has been succesful or False in case of error.
+         !!
+         !!### Example
+         !!
+         !! The following program moves or renames file1 to file2:
+         !!
+         !!```Fortran
+         !! PROGRAM mvExample
+         !!    USE FU_Files, ONLY: mv
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path1, path2
+         !!    path1='file1'
+         !!    path2='file2'
+         !!    IF (mv(path1, path2)) THEN
+         !!       WRITE(*,*) 'Success'
+         !!    ELSE
+         !!       WRITE(*,*) 'Error'
+         !!    END IF
+         !! END PROGRAM mvExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: src
          !! Name of the file to be moved. 
          CHARACTER(LEN=*), INTENT(IN) :: dest
          !! Name of the destination file.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if the process has been succesful. False in case of error.
@@ -329,11 +517,43 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Removes a file or directory.
          !! Removes a file or directory.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! call rm(fname, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the file or folder to remove.
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if the process has been succesful or False in case of error.
+         !!
+         !!### Example
+         !!
+         !! The following program removes file1:
+         !!
+         !!```Fortran
+         !! PROGRAM rmExample
+         !!    USE FU_Files, ONLY: rm
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1'
+         !!    IF (rm(path)) THEN
+         !!       WRITE(*,*) 'Success'
+         !!    ELSE
+         !!       WRITE(*,*) 'Error'
+         !!    END IF
+         !! END PROGRAM rmExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the file or directory to be removed.
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if the process has been succesful. False in case of error.
@@ -355,6 +575,36 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Checks if a file or directory exists.
          !! Checks if a file or directory exists.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! call exists(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the file to be checked for existence.
+         !! 
+         !! It returns True if the file exists and False otherwhise.
+         !!
+         !!### Example
+         !!
+         !! The following program check if file1 exists:
+         !!
+         !!```Fortran
+         !! PROGRAM existsExample
+         !!    USE FU_Files, ONLY: exists
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1'
+         !!    IF (exists(path)) THEN
+         !!       WRITE(*,*) 'File exists'
+         !!    ELSE
+         !!       WRITE(*,*) 'File does not exist'
+         !!    END IF
+         !! END PROGRAM existsExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the file to be check for existence.
@@ -376,7 +626,7 @@ MODULE FU_Files
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the directory to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if fname is a directory. False otherwise.
@@ -402,7 +652,7 @@ MODULE FU_Files
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the file to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if fname is an empty file. False otherwise.
@@ -428,7 +678,7 @@ MODULE FU_Files
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the file to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if fname is a regular file. False otherwise.
@@ -455,7 +705,7 @@ MODULE FU_Files
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the symlink to be checked. 
          LOGICAL,OPTIONAL, INTENT(IN) :: ignoreErrors
-         !! True to print a detailed description of the error message. 
+         !! False to print a detailed description of the error message. 
          !! Optional parameter. Default is False.
          LOGICAL                      :: res
          !! True if fname is a symlink. False otherwise.

@@ -227,6 +227,45 @@
 <p>The second row can be a header or not.</p>
 <p>Then the matrix comes. The different columns are separated using blanks.</p>
 <p>The file is then opened, written and closed.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="k">call </span><span class="n">writeMatrix</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">formato</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>filename</code>: string of any length with the path to the file to write.</li>
+<li><code>matrix</code>: an array of rank 2 of any of the integer or real kinds supported.</li>
+<li><code>header</code>: optional character variable of any length to write in the second line
+ of the file.</li>
+<li><code>formato</code>: optional character variable with the format to use for the numbers (without
+ parenthesis.</li>
+</ul>
+<h3>Example</h3>
+<p>The following example program writes values to a file named matrix.txt:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">writeMatrixExample</span>
+    <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">writeMatrix</span>
+    <span class="k">USE </span><span class="n">FU_Prec</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">dp</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">matrixFileName</span>
+    <span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="kd">::</span> <span class="n">matrix</span>
+    <span class="n">matrixFileName</span> <span class="o">=</span> <span class="s1">&#39;matrix.txt&#39;</span>
+    <span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.1</span> 
+    <span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.2</span> 
+    <span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.3</span> 
+    <span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.1</span> 
+    <span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.2</span> 
+    <span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.3</span> 
+    <span class="k">CALL </span><span class="n">writeMatrix</span><span class="p">(</span><span class="n">matrixFileName</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">formato</span><span class="o">=</span><span class="s1">&#39;F3.1&#39;</span><span class="p">)</span>
+ <span class="k">END PROGRAM </span><span class="n">writeMatrixExample</span>
+</code></pre></div>
+
+
+<p>After execution file matrix.txt contains the following information:</p>
+<div class="codehilite"><pre><span></span><code>        2           3 F
+ 1.1 1.2 1.3
+ 2.1 2.2 2.3
+</code></pre></div>
      
      
     <br>

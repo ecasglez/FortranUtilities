@@ -210,6 +210,30 @@ public function exists(fname) result(res)
 
     
     <p>Checks if a file or directory exists.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="k">call </span><span class="n">exists</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>fname</code>: Name of the file to be checked for existence.</li>
+</ul>
+<p>It returns True if the file exists and False otherwhise.</p>
+<h3>Example</h3>
+<p>The following program check if file1 exists:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">existsExample</span>
+    <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">exists</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">path</span>
+    <span class="n">path</span><span class="o">=</span><span class="s1">&#39;file1&#39;</span>
+    <span class="k">IF</span> <span class="p">(</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;File exists&#39;</span>
+    <span class="k">ELSE</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;File does not exist&#39;</span>
+    <span class="k">END IF</span>
+<span class="k"> END PROGRAM </span><span class="n">existsExample</span>
+</code></pre></div>
     
 
     <h3>Arguments</h3>

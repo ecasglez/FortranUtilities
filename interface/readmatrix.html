@@ -228,6 +228,41 @@
 <p>Then the matrix comes. The different columns must be separated using blanks.</p>
 <p>The file is then opened, read and closed. The return variable must have ALLOCATABLE attribute,
  and must not be allocated (the subroutine takes care of allocation but not about deallocation).</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="k">call </span><span class="n">readMatrix</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>filename</code>: string of any length with the path to the file to read. If the file does not exist or
+ it is empty a Fortran runtime error is raised. If the file does not have the proper format
+ the behaviour is undefined.</li>
+<li><code>matrix</code>: an allocatable array of rank 2 of any of the integer or real kinds supported.
+ It will be allocated automatically in the subroutine, but the user must deallocate matrix
+ manually after use.</li>
+</ul>
+<h3>Example</h3>
+<p>The following example program loads values from a file named matrix.txt:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">readMatrixExample</span>
+    <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">readMatrix</span>
+    <span class="k">USE </span><span class="n">FU_Prec</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">dp</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">matrixFileName</span>
+    <span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span> <span class="k">DIMENSION</span><span class="p">(:,:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">matrix</span>
+    <span class="n">matrixFileName</span> <span class="o">=</span> <span class="s1">&#39;matrix.txt&#39;</span>
+    <span class="k">CALL </span><span class="n">readMatrix</span><span class="p">(</span><span class="n">matrixFileName</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">matrix</span>
+    <span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+ <span class="k">END PROGRAM </span><span class="n">readMatrixExample</span>
+</code></pre></div>
+
+
+<p>File matrix.txt contains the following information:</p>
+<div class="codehilite"><pre><span></span><code> 2 3 F 
+ 1.1 1.2 1.3 
+ 2.1 2.2 2.3
+</code></pre></div>
      
      
     <br>

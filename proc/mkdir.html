@@ -210,6 +210,32 @@ public function mkdir(dir, ignoreErrors) result(res)
 
     
     <p>Creates a directory.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="k">call </span><span class="n">mkdir</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">ignoreErrors</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>dir</code>: Path and name of the directory to be created.</li>
+<li><code>ignoreErrors</code>: False to print a detailed description of the error message.
+ Optional parameter. Default is False.</li>
+</ul>
+<p>It returns True if the process has been succesful or False in case of error.</p>
+<h3>Example</h3>
+<p>The following program creates folder tmp:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">mkdirExample</span>
+    <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">mkdir</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">path</span>
+    <span class="n">path</span><span class="o">=</span><span class="s1">&#39;tmp&#39;</span>
+    <span class="k">IF</span> <span class="p">(</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Success&#39;</span>
+    <span class="k">ELSE</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Error&#39;</span>
+    <span class="k">END IF</span>
+<span class="k"> END PROGRAM </span><span class="n">mkdirExample</span>
+</code></pre></div>
     
 
     <h3>Arguments</h3>
@@ -250,7 +276,7 @@ public function mkdir(dir, ignoreErrors) result(res)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>True to print a detailed description of the error message.
+  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message.
  Optional parameter. Default is False.</p></td>
   
 </tr>
