@@ -304,7 +304,7 @@ MODULE FU_Files
          !!### Syntax
          !!
          !!```Fortran
-         !! call mkdir(dir, ignoreErrors)
+         !! l = mkdir(dir, ignoreErrors)
          !!```
          !!
          !! Where:
@@ -360,6 +360,40 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Creates a symlink to a file or directory (Linux only).
          !! Creates a symlink to a file or directory (Linux only).
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = create_symlink(src, dest, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `src`: Name of the file or directory to be linked.
+         !! * `dest`: Name of the destination link
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if the process has been succesful or False in case of error.
+         !!
+         !!### Example
+         !!
+         !! The following program creates folder tmp:
+         !!
+         !!```Fortran
+         !! PROGRAM create_symlinkExample
+         !!    USE FU_Files, ONLY: create_symlink
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: src, dest
+         !!    src = 'file1'
+         !!    dest = 'file2'
+         !!    IF (create_symlink(src, dest)) THEN
+         !!       WRITE(*,*) 'Success'
+         !!    ELSE
+         !!       WRITE(*,*) 'Error'
+         !!    END IF
+         !! END PROGRAM create_symlinkExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: src
          !! Name of the file or directory to be linked. 
@@ -394,7 +428,7 @@ MODULE FU_Files
          !!### Syntax
          !!
          !!```Fortran
-         !! call cp(src, dest, ignoreErrors)
+         !! l = cp(src, dest, ignoreErrors)
          !!```
          !!
          !! Where:
@@ -459,7 +493,7 @@ MODULE FU_Files
          !!### Syntax
          !!
          !!```Fortran
-         !! call mv(src, dest, ignoreErrors)
+         !! l = mv(src, dest, ignoreErrors)
          !!```
          !!
          !! Where:
@@ -521,7 +555,7 @@ MODULE FU_Files
          !!### Syntax
          !!
          !!```Fortran
-         !! call rm(fname, ignoreErrors)
+         !! l = rm(fname, ignoreErrors)
          !!```
          !!
          !! Where:
@@ -579,7 +613,7 @@ MODULE FU_Files
          !!### Syntax
          !!
          !!```Fortran
-         !! call exists(fname)
+         !! l = exists(fname)
          !!```
          !!
          !! Where:
@@ -622,6 +656,38 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Checks if a directory exists.
          !! Checks if a directory exists.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = is_directory(fname, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the direcory to be checked.
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if fname is a directory and false otherwise.
+         !!
+         !!### Example
+         !!
+         !! The following program checks the existance of a folder:
+         !!
+         !!```Fortran
+         !! PROGRAM is_directoryExample
+         !!    USE FU_Files, ONLY: is_directory
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='/tmp'
+         !!    IF (is_directory(path)) THEN
+         !!       WRITE(*,*) 'It is a directory'
+         !!    ELSE
+         !!       WRITE(*,*) 'It is not a directory'
+         !!    END IF
+         !! END PROGRAM is_directoryExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the directory to be checked. 
@@ -648,6 +714,38 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Checks if a file is empty.
          !! Checks if a file is empty.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = is_empty(fname, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the file to be checked.
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if fname is an empty file and false otherwise.
+         !!
+         !!### Example
+         !!
+         !! The following program checks the if a file is empty:
+         !!
+         !!```Fortran
+         !! PROGRAM is_emptyExample
+         !!    USE FU_Files, ONLY: is_empty
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1'
+         !!    IF (is_empty(path)) THEN
+         !!       WRITE(*,*) 'Empty'
+         !!    ELSE
+         !!       WRITE(*,*) 'Has data'
+         !!    END IF
+         !! END PROGRAM is_emptyExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the file to be checked. 
@@ -672,8 +770,40 @@ MODULE FU_Files
          !! date: 16/06/2020.
          !! version: 1.0.
          !! license: MIT.
-         !! summary: Checks if a regular file exists: it is not a directory, symlink, etc.
-         !! Checks if a regular file exists: it is not a directory, symlink, etc.
+         !! summary: Checks if a regular file exists and it is not a directory, etc.
+         !! Checks if a regular file exists and it is not a directory, etc. It follows symlinks.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = is_regular_file(fname, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the file to be checked.
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if fname is a regular file and false otherwise.
+         !!
+         !!### Example
+         !!
+         !! The following program checks the if a file is a regular file or not:
+         !!
+         !!```Fortran
+         !! PROGRAM is_regular_fileExample
+         !!    USE FU_Files, ONLY: is_regular_file
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1'
+         !!    IF (is_regular_file(path)) THEN
+         !!       WRITE(*,*) 'It is a file'
+         !!    ELSE
+         !!       WRITE(*,*) 'It is not a file'
+         !!    END IF
+         !! END PROGRAM is_regular_fileExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the file to be checked. 
@@ -701,6 +831,38 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Checks if a symlink exists (Linux only).
          !! Checks if a symlink exists (Linux only).
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = is_symlink(fname, ignoreErrors)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the file to be checked.
+         !! * `ignoreErrors`: False to print a detailed description of the error message.
+         !! Optional parameter. Default is False.
+         !! 
+         !! It returns True if fname is a symlink and false otherwise.
+         !!
+         !!### Example
+         !!
+         !! The following program checks the if a file is a symlink or not:
+         !!
+         !!```Fortran
+         !! PROGRAM is_symlinkExample
+         !!    USE FU_Files, ONLY: is_symlink
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1'
+         !!    IF (is_symlink(path)) THEN
+         !!       WRITE(*,*) 'It is a symlink'
+         !!    ELSE
+         !!       WRITE(*,*) 'It is not a symlink'
+         !!    END IF
+         !! END PROGRAM is_symlinkExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Name of the symlink to be checked. 
@@ -728,6 +890,36 @@ MODULE FU_Files
          !! summary: Determines if a path is absolute or not
          !! Determines if a path is absolute or not. Returns True if path is absolute
          !! and False if path is relative.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = is_path_absolute(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the path to be checked.
+         !! 
+         !! It returns True if fname is an absolute path and false otherwise.
+         !!
+         !!### Example
+         !!
+         !! The following program checks the if some paths are absolute or not:
+         !!
+         !!```Fortran
+         !! PROGRAM is_path_absoluteExample
+         !!    USE FU_Files, ONLY: is_path_absolute
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1'
+         !!    WRITE(*,*) path, is_path_absolute(path)
+         !!    path='./file1'
+         !!    WRITE(*,*) path, is_path_absolute(path)
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, is_path_absolute(path)
+         !! END PROGRAM is_path_absoluteExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Path to a file.
@@ -746,6 +938,36 @@ MODULE FU_Files
          !! summary: Determines if a path is relative or not
          !! Determines if a path is relative or not. Returns True if path is relative
          !! and False if path is absolute.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = is_path_relative(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name of the path to be checked.
+         !! 
+         !! It returns True if fname is a relative path and false otherwise.
+         !!
+         !!### Example
+         !!
+         !! The following program checks the if some paths are relative or not:
+         !!
+         !!```Fortran
+         !! PROGRAM is_path_relativeExample
+         !!    USE FU_Files, ONLY: is_path_relative
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1'
+         !!    WRITE(*,*) path, is_path_relative(path)
+         !!    path='./file1'
+         !!    WRITE(*,*) path, is_path_relative(path)
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, is_path_relative(path)
+         !! END PROGRAM is_path_relativeExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Path to a file.
@@ -763,6 +985,39 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Determines the extension of a file.
          !! Determines the extension of a file given its name or path.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = extension(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name or path of the file the determine the extension.
+         !! 
+         !! It returns the extension of the file including the "dot". Empty path is
+         !! returned if no extension is found.
+         !!
+         !!### Example
+         !!
+         !! The following program gets the extensions of some files
+         !!
+         !!```Fortran
+         !! PROGRAM extensionExample
+         !!    USE FU_Files, ONLY: extension
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1.txt'
+         !!    WRITE(*,*) path, ' ', extension(path)
+         !!    path='./file1.txt'
+         !!    WRITE(*,*) path, ' ', extension(path)
+         !!    path='/tmp/file1.txt'
+         !!    WRITE(*,*) path, ' ', extension(path)
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, ' ', extension(path)
+         !! END PROGRAM extensionExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.
@@ -782,6 +1037,41 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Changes the extension of a filename.
          !! Changes the extension of a filename.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = replace_extension(fname, ext)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name or path of the file.
+         !! * `ext`: New extension for the name
+         !! 
+         !! It returns the fname value with the modified extension.
+         !!
+         !!### Example
+         !!
+         !! The following program changes the extensions of some filenames.
+         !!
+         !!```Fortran
+         !! PROGRAM replace_extensionExample
+         !!    USE FU_Files, ONLY: replace_extension
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1.txt'
+         !!    WRITE(*,*) path, ' ', replace_extension(path, 'dat')
+         !!    path='./file1.txt'
+         !!    WRITE(*,*) path, ' ', replace_extension(path, 'dat')
+         !!    path='/tmp/file1.txt'
+         !!    WRITE(*,*) path, ' ', replace_extension(path, 'dat')
+         !!    path='/tmp/file1.dat'
+         !!    WRITE(*,*) path, ' ', replace_extension(path, '')
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, ' ', replace_extension(path, 'dat')
+         !! END PROGRAM replace_extensionExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.
@@ -802,14 +1092,46 @@ MODULE FU_Files
          !! date: 06/08/2020.
          !! version: 1.0.
          !! license: MIT.
-         !! summary: Determines the filename without the final extension given a path.
-         !! Determines the filename without the final extension given a path.
+         !! summary: Determines the filename without the path and without the final extension given a path.
+         !! Determines the filename without the path and without the final extension given a path.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = stem(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name or path of the file the determine the filename without the final extension and the path.
+         !! 
+         !! It returns the filename of the file without the extension and without path.
+         !!
+         !!### Example
+         !!
+         !! The following program gets the filenames of some files
+         !!
+         !!```Fortran
+         !! PROGRAM stemExample
+         !!    USE FU_Files, ONLY: stem
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1.txt'
+         !!    WRITE(*,*) path, ' ', stem(path)
+         !!    path='./file1.txt'
+         !!    WRITE(*,*) path, ' ', stem(path)
+         !!    path='/tmp/file1.txt'
+         !!    WRITE(*,*) path, ' ', stem(path)
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, ' ', stem(path)
+         !! END PROGRAM stemExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.
          CHARACTER(LEN=:), ALLOCATABLE :: res
-         !! Filename without the final extension. If filename consists of an extension only, the
-         !! extension is returned.
+         !! Filename without the final extension and without the path.
+         !! If filename consists of an extension only, the extension is returned.
          CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string
          c_string = fname//C_NULL_CHAR
          CALL c_stem(c_string)
@@ -824,6 +1146,38 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Determines the full filename given a path.
          !! Determines the full filename given a path.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = filename(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name or path of the file the determine the filename.
+         !! 
+         !! It returns the filename of the given path.
+         !!
+         !!### Example
+         !!
+         !! The following program gets the filenames of some files
+         !!
+         !!```Fortran
+         !! PROGRAM filenameExample
+         !!    USE FU_Files, ONLY: filename
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1.txt'
+         !!    WRITE(*,*) path, ' ', filename(path)
+         !!    path='./file1.txt'
+         !!    WRITE(*,*) path, ' ', filename(path)
+         !!    path='/tmp/file1.txt'
+         !!    WRITE(*,*) path, ' ', filename(path)
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, ' ', filename(path)
+         !! END PROGRAM filenameExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.
@@ -841,13 +1195,48 @@ MODULE FU_Files
          !! date: 21/01/2021.
          !! version: 1.0.
          !! license: MIT.
-         !! summary: Changes the filename of a path.
-         !! Changes the filename of a path.
+         !! summary: Changes the filename of a path (keeping the path).
+         !! Changes the filename of a path (keeping the path).
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = replace_filename(fname, newname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name or path of the file.
+         !! * `newname`: New name for the name filename (including extension).
+         !! 
+         !! It returns the fname value with the modified name.
+         !!
+         !!### Example
+         !!
+         !! The following program changes the filename of some paths.
+         !!
+         !!```Fortran
+         !! PROGRAM replace_filenameExample
+         !!    USE FU_Files, ONLY: replace_filename
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1.txt'
+         !!    WRITE(*,*) path, ' ', replace_filename(path, 'file2')
+         !!    path='./file1.txt'
+         !!    WRITE(*,*) path, ' ', replace_filename(path, 'file2')
+         !!    path='/tmp/file1.txt'
+         !!    WRITE(*,*) path, ' ', replace_filename(path, 'file2')
+         !!    path='/tmp/file1.dat'
+         !!    WRITE(*,*) path, ' ', replace_filename(path, '')
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, ' ', replace_filename(path, 'file2')
+         !! END PROGRAM replace_filenameExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.
          CHARACTER(LEN=*), INTENT(IN) :: newname
-         !! New filename for the fname.
+         !! New filename for the fname (including extension).
          CHARACTER(LEN=:), ALLOCATABLE :: res
          !! The fname value with the modified filename.
          CHARACTER(LEN=:, KIND = C_CHAR), ALLOCATABLE :: c_string, c_string1
@@ -865,7 +1254,41 @@ MODULE FU_Files
          !! license: MIT.
          !! summary: Removes the filename from a path.
          !! Removes the filename from a path. It is similar to function
-         !! [[parent_path]] but this one does not remove railing path separators (if any).
+         !! [[parent_path]] but this one does not remove trailing path separators (if any).
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = remove_filename(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name or path of the file.
+         !! 
+         !! It returns the fname value with the filename removed.
+         !!
+         !!### Example
+         !!
+         !! The following program removes the filename of some paths.
+         !!
+         !!```Fortran
+         !! PROGRAM remove_filenameExample
+         !!    USE FU_Files, ONLY: remove_filename
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1.txt'
+         !!    WRITE(*,*) path, ' ', remove_filename(path)
+         !!    path='./file1.txt'
+         !!    WRITE(*,*) path, ' ', remove_filename(path)
+         !!    path='/tmp/file1.txt'
+         !!    WRITE(*,*) path, ' ', remove_filename(path)
+         !!    path='/tmp/file1.dat'
+         !!    WRITE(*,*) path, ' ', remove_filename(path)
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, ' ', remove_filename(path)
+         !! END PROGRAM remove_filenameExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.
@@ -886,6 +1309,40 @@ MODULE FU_Files
          !! summary: Determines the path to the parent directory given the path to a file.
          !! Determines the path to the parent directory given the path to a file. It is similar
          !! to function [[remove_filename]] but this one removes trailing path separators (if any).
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! l = parent_path(fname)
+         !!```
+         !!
+         !! Where:
+         !!
+         !! * `fname`: Name or path of the file.
+         !! 
+         !! It returns the path to the parent directory given the path to a file.
+         !!
+         !!### Example
+         !!
+         !! The following program returns the parent paths of some files.
+         !!
+         !!```Fortran
+         !! PROGRAM parent_pathExample
+         !!    USE FU_Files, ONLY: parent_path
+         !!    IMPLICIT NONE
+         !!    CHARACTER(LEN=:), ALLOCATABLE :: path
+         !!    path='file1.txt'
+         !!    WRITE(*,*) path, ' ', parent_path(path)
+         !!    path='./file1.txt'
+         !!    WRITE(*,*) path, ' ', parent_path(path)
+         !!    path='/tmp/file1.txt'
+         !!    WRITE(*,*) path, ' ', parent_path(path)
+         !!    path='/tmp/file1.dat'
+         !!    WRITE(*,*) path, ' ', parent_path(path)
+         !!    path='/tmp/file1'
+         !!    WRITE(*,*) path, ' ', parent_path(path)
+         !! END PROGRAM parent_pathExample
+         !!```
          IMPLICIT NONE
          CHARACTER(LEN=*), INTENT(IN) :: fname
          !! Filename or path to a file.

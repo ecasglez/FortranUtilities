@@ -51,10 +51,39 @@ MODULE FU_Timing
       !! license: MIT.
       !! summary: Gets the time in seconds since the beginning of the program or since the last time resetTotalTime is executed.
       !! TotalTime gets the time in seconds (with a precision of microseconds)
-      !! since the beginning of the program or since the last time resetTotalTime is executed.
+      !! since the beginning of the program or since the last time [[ResetTotalTime]] is executed.
       !!
       !! You can use mold input argument to indicate the precision of the output number. Default precision
       !! is the default precision of your compiler.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = TotalTime(mold)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `mold`: Real value to identify the kind of the output. Optional.
+      !! It is only used to set the kind of the return value, so it can be any value.
+      !! 
+      !! Total time spent in seconds since the begining of the program or since the last
+      !! time [[ResetTotalTime]] has been used. Uses precision set by mold.
+      !!
+      !!### Example
+      !!
+      !! The following program prints the total time since the start of the program.
+      !! A more detailed example can be found at [here](../page/Examples/Example01/index.html).
+      !!
+      !!```Fortran
+      !! PROGRAM totalTimeExample
+      !!    USE FU_Timing, ONLY: TotalTime
+      !!    USE FU_Prec, ONLY:dp
+      !!    IMPLICIT NONE
+      !!    WRITE(*,*) TotalTime()
+      !!    WRITE(*,*) TotalTime(1._dp)
+      !! END PROGRAM totalTimeExample
+      !!```
       MODULE PROCEDURE TotalTime_def
       MODULE PROCEDURE TotalTime_sp
       MODULE PROCEDURE TotalTime_dp
@@ -69,9 +98,41 @@ MODULE FU_Timing
       !! IntervalTime gets the time in seconds (with a precision of microseconds) 
       !! since the last measurement or the time since the begining of the execution if no previous 
       !! measuement is available. This point will be used as a starting point for the next interval.
+      !! The starting point can be reset using [[ResetTotalTime]].
       !!
       !! You can use mold input argument to indicate the precision of the output number. Default precision
       !! is the default precision of your compiler.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = IntervalTime(mold)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `mold`: Real value to identify the kind of the output. Optional.
+      !! It is only used to set the kind of the return value, so it can be any value.
+      !! 
+      !! Time spent in seconds since the last measurement, or since the begining of the program 
+      !! if no previous measurement is available, or since the last time
+      !! [[ResetTotalTime]] has been used. Uses precision set by mold. 
+      !!
+      !!### Example
+      !!
+      !! The following program prints the time since the start of the program and since
+      !! the previous measurement.
+      !! A more detailed example can be found at [here](../page/Examples/Example01/index.html).
+      !!
+      !!```Fortran
+      !! PROGRAM intervalTimeExample
+      !!    USE FU_Timing, ONLY: IntervalTime
+      !!    USE FU_Prec, ONLY:dp
+      !!    IMPLICIT NONE
+      !!    WRITE(*,*) IntervalTime()
+      !!    WRITE(*,*) IntervalTime(1._dp)
+      !! END PROGRAM intervalTimeExample
+      !!```
       MODULE PROCEDURE IntervalTime_def
       MODULE PROCEDURE IntervalTime_sp
       MODULE PROCEDURE IntervalTime_dp
@@ -86,7 +147,30 @@ MODULE FU_Timing
          !! version: 1.0.
          !! license: MIT.
          !! summary: Sets the starting point to count the total time.
-         !! Sets the starting point to count the total time.
+         !! Sets the starting point to count the total time. [[IntervalTime]] and
+         !! [[TotalTime]] are reset.
+         !!
+         !!### Syntax
+         !!
+         !!```Fortran
+         !! CALL ResetTotalTime()
+         !!```
+         !!### Example
+         !!
+         !! The following program prints the total time since the start of the program, resets
+         !! the total time counter and then measures it again.
+         !! A more detailed example can be found at [here](../page/Examples/Example01/index.html).
+         !!
+         !!```Fortran
+         !! PROGRAM resetTotalTimeExample
+         !!    USE FU_Timing, ONLY: TotalTime, ResetTotalTime
+         !!    USE FU_Prec, ONLY:dp
+         !!    IMPLICIT NONE
+         !!    WRITE(*,*) TotalTime()
+         !!    CALL ResetTotalTime()
+         !!    WRITE(*,*) TotalTime()
+         !! END PROGRAM resetTotalTimeExample
+         !!```
          IMPLICIT NONE
          CALL c_ResetTotalTime()
       END SUBROUTINE ResetTotalTime
