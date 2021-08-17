@@ -31,6 +31,32 @@ MODULE FU_Numbers
       !! summary: Counts the number of digits of an integer.
       !! Counts the number of digits of an integer, including the - sign 
       !! in case it is a negative value.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! n = count_digits_integer(i)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `i`: Integer number whose digits are to be counted
+      !! 
+      !! It returns the number of digits of the input number, including the - sign
+      !! in case it is a negative value.
+      !!
+      !!### Example
+      !!
+      !! The following program prints the number of digits of some integer numbers:
+      !!
+      !!```Fortran
+      !! PROGRAM count_digits_integerExample
+      !!    USE FU_Numbers, ONLY: count_digits_integer
+      !!    IMPLICIT NONE
+      !!    WRITE(*,*) count_digits_integer(1234)
+      !!    WRITE(*,*) count_digits_integer(-1234)
+      !! END PROGRAM count_digits_integerExample
+      !!```
       MODULE PROCEDURE count_digits_integer_i8
       MODULE PROCEDURE count_digits_integer_i16
       MODULE PROCEDURE count_digits_integer_i32
@@ -48,6 +74,34 @@ MODULE FU_Numbers
       !! license: MIT.
       !! summary: Determines if the value of the input variable is NaN.
       !! Determines if the value of the input variable is NaN.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! n = is_nan(f)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `f`: Real number to check if it is NaN.
+      !! 
+      !! It returns True if the number is NaN and False otherwise.
+      !!
+      !!### Example
+      !!
+      !! The following program checks some real numbers to see if they are NaN:
+      !!
+      !!```Fortran
+      !! PROGRAM is_nanExample
+      !!    USE FU_Numbers, ONLY: is_nan
+      !!    IMPLICIT NONE
+      !!    REAL :: f
+      !!    WRITE(*,*) is_nan(5.)
+      !!    f = 0.
+      !!    WRITE(*,*) is_nan(1/f)
+      !!    WRITE(*,*) is_nan(f/f)
+      !! END PROGRAM is_nanExample
+      !!```
       MODULE PROCEDURE is_nan_sp
       MODULE PROCEDURE is_nan_dp
 #ifdef QPREC_FPP
@@ -63,6 +117,34 @@ MODULE FU_Numbers
       !! license: MIT.
       !! summary: Determines if the value of the input variable is Infinity.
       !! Determines if the value of the input variable is Infinity.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! n = is_inf(f)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `f`: Real number to check if it is Infinity.
+      !! 
+      !! It returns True if the number is Infinity and False otherwise.
+      !!
+      !!### Example
+      !!
+      !! The following program checks some real numbers to see if they are Infinity:
+      !!
+      !!```Fortran
+      !! PROGRAM is_infExample
+      !!    USE FU_Numbers, ONLY: is_inf
+      !!    IMPLICIT NONE
+      !!    REAL :: f
+      !!    WRITE(*,*) is_inf(5.)
+      !!    f = 0.
+      !!    WRITE(*,*) is_inf(1./f)
+      !!    WRITE(*,*) is_inf(f/f)
+      !! END PROGRAM is_infExample
+      !!```
       MODULE PROCEDURE is_inf_sp
       MODULE PROCEDURE is_inf_dp
 #ifdef QPREC_FPP
@@ -80,6 +162,36 @@ MODULE FU_Numbers
       !! summary: Tests two real numbers for equality.
       !! Tests two real numberes for equality using a tolerance if provided by the user,
       !! or selecting a tolerance automatically otherwise.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! n = eq(f1, f2, eps)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `f1`: First real number to compare for equality.
+      !! * `f2`: Second real to compare for equality.
+      !! * `eps`: User selected tolerance for the comparison. If not provided it
+      !! will be selected automatically.
+      !! 
+      !! It returns True both numbers are equal according to the selected tolerance and
+      !! False otherwise
+      !!
+      !!### Example
+      !!
+      !! The following program tests if two real numbers are equal: 
+      !!
+      !!```Fortran
+      !! PROGRAM eqExample
+      !!    USE FU_Numbers, ONLY: eq
+      !!    IMPLICIT NONE
+      !!    WRITE(*,*) eq(5., 5.00001, 0.000000001)
+      !!    WRITE(*,*) eq(5., 5.00001, 0.001)
+      !!    WRITE(*,*) eq(5., 5.00001)
+      !! END PROGRAM eqExample
+      !!```
       MODULE PROCEDURE eq_sp
       MODULE PROCEDURE eq_dp
 #ifdef QPREC_FPP
@@ -96,6 +208,36 @@ MODULE FU_Numbers
       !! summary: Tests two real numbers for inequality.
       !! Tests two real numberes for inequality using a tolerance if provided by the user,
       !! or selecting a tolerance automatically otherwise.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! n = ne(f1, f2, eps)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `f1`: First real number to compare for inequality.
+      !! * `f2`: Second real to compare for inequality.
+      !! * `eps`: User selected tolerance for the comparison. If not provided it
+      !! will be selected automatically.
+      !! 
+      !! It returns True both numbers are not equal according to the selected tolerance and
+      !! False otherwise
+      !!
+      !!### Example
+      !!
+      !! The following program tests if two real numbers are not equal: 
+      !!
+      !!```Fortran
+      !! PROGRAM neExample
+      !!    USE FU_Numbers, ONLY: ne
+      !!    IMPLICIT NONE
+      !!    WRITE(*,*) ne(5., 5.00001, 0.000000001)
+      !!    WRITE(*,*) ne(5., 5.00001, 0.001)
+      !!    WRITE(*,*) ne(5., 5.00001)
+      !! END PROGRAM neExample
+      !!```
       MODULE PROCEDURE ne_sp
       MODULE PROCEDURE ne_dp
 #ifdef QPREC_FPP
