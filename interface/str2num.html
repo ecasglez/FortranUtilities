@@ -228,6 +228,30 @@
     <div class="col-md-9" id='text'>
       <h2>public interface str2num</h2>
    <p>Converts a string into an integer or real number as specified by the type of variable mold.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="n">t</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">mold</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>str</code>: String to convert to number</li>
+<li><code>mold</code>: Real or integer value to identify the type and kind of the output.
+ It is only used to set the type of the return value, so it can be any value.</li>
+</ul>
+<p>It returns an integer or real with the number contained in the string.</p>
+<h3>Example</h3>
+<p>The following program converts a string to a real number</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">str2numExample</span>
+    <span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">str2num</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">REAL</span> <span class="kd">::</span> <span class="n">f</span>
+    <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">s</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;293.75&#39;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">str2num</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">f</span>
+ <span class="k">END PROGRAM </span><span class="n">str2numExample</span>
+</code></pre></div>
      
      
     <br>

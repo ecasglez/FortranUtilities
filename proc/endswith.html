@@ -216,6 +216,34 @@ public elemental function endsWith(str, substr) result(res)
 
     
     <p>Checks if a string ends with a given substring. It can be an array of string.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="n">l</span> <span class="o">=</span> <span class="n">endsWith</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">substr</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>str</code>: String that the user wants to check how it ends. It can be an array.</li>
+<li><code>substr</code>: Substring to search for to check if str ends with it.</li>
+</ul>
+<p>It returns True if the string ends with the substring and False otherwise. If
+ substr is empty it returns True. If the input is an array, the returned
+ values will also be in an array.</p>
+<h3>Example</h3>
+<p>The following program checks if a string ends with a substring:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">endsWithExample</span>
+    <span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">endsWith</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">text1</span><span class="p">,</span> <span class="n">text2</span>
+    <span class="n">text1</span> <span class="o">=</span> <span class="s1">&#39;String1&#39;</span>
+    <span class="n">text2</span> <span class="o">=</span> <span class="s1">&#39;g1&#39;</span>
+    <span class="k">IF</span> <span class="p">(</span><span class="n">endsWith</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;String ends with g1&#39;</span>
+    <span class="k">ELSE</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;String does not end with g1&#39;</span>
+    <span class="k">END IF</span>
+<span class="k"> END PROGRAM </span><span class="n">endsWithExample</span>
+</code></pre></div>
     
 
     <h3>Arguments</h3>

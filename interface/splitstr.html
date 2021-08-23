@@ -222,6 +222,51 @@
     <div class="col-md-9" id='text'>
       <h2>public interface splitstr</h2>
    <p>Splits a string and returns the portion selected by the user.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="n">t</span> <span class="o">=</span> <span class="n">splitstr</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">fieldNumber</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">rev</span><span class="p">,</span> <span class="n">mergedelim</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>str</code>: String that the user whants to split.</li>
+<li><code>fieldNumber</code>: Integer indicating which of the divisions to return.</li>
+<li><code>delimiter</code>: String that the user wants to use as a delimiter for splitting.
+ Optional parameter. Default is Space.</li>
+<li><code>rev</code>: If true start spliting by the end of the string.
+ Optional parameter. Default is False.</li>
+<li><code>mergedelim</code>: If true, contiguous delimiters in the string are merged before splitting.
+ Optional parameter. Default is False.</li>
+</ul>
+<p>It returns a string with the selected part of str. If the fieldNumber does not exists
+ or if the delimiter does not exists it returns an empty string.</p>
+<h3>Example</h3>
+<p>The following program extracts some portions of a text:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">splitstrExample</span>
+    <span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">splitstr</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">text</span>
+    <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">portion</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &amp;</span>
+<span class="s2">       &amp;sed do eiusmod tempor incididunt ut labore et dolore magna al&amp;</span>
+<span class="s2">       &amp;iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&amp;</span>
+<span class="s2">       &amp;mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&amp;</span>
+<span class="s2">       &amp;e irure dolor in reprehenderit in voluptate velit esse cillum&amp;</span>
+<span class="s2">       &amp; dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&amp;</span>
+<span class="s2">       &amp;idatat non proident, sunt in culpa qui officia deserunt molli&amp;</span>
+<span class="s2">       &amp;t anim id est laborum.&quot;</span>
+    <span class="n">portion</span> <span class="o">=</span> <span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">portion</span>
+    <span class="n">portion</span> <span class="o">=</span> <span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">rev</span> <span class="o">=</span> <span class="p">.</span><span class="n">True</span><span class="p">.)</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">portion</span>
+    <span class="n">portion</span> <span class="o">=</span> <span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">portion</span>
+    <span class="n">portion</span> <span class="o">=</span> <span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">portion</span>
+    <span class="n">portion</span> <span class="o">=</span> <span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="n">mergedelim</span> <span class="o">=</span> <span class="p">.</span><span class="n">True</span><span class="p">.)</span>  
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">portion</span>
+ <span class="k">END PROGRAM </span><span class="n">splitstrExample</span>
+</code></pre></div>
      
      
     <br>

@@ -217,6 +217,33 @@ public pure function cistrcmp(str1, str2) result(res)
     
     <p>Case-independent string comparison. It works with this dataset: 
  'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="n">l</span> <span class="o">=</span> <span class="n">cistrcmp</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="n">str2</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>str1</code>: First string to compare.</li>
+<li><code>str2</code>: Second string to compare.</li>
+</ul>
+<p>It returns True if both strings are equal independently of the case and
+ False otherwise.</p>
+<h3>Example</h3>
+<p>The following program performs a case-independent string comparison:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">cistrcmpExample</span>
+    <span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">cistrcmp</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">text1</span><span class="p">,</span> <span class="n">text2</span>
+    <span class="n">text1</span> <span class="o">=</span> <span class="s1">&#39;String1&#39;</span>
+    <span class="n">text2</span> <span class="o">=</span> <span class="s1">&#39;string1&#39;</span>
+    <span class="k">IF</span> <span class="p">(</span><span class="n">cistrcmp</span><span class="p">(</span><span class="n">text1</span><span class="p">,</span> <span class="n">text2</span><span class="p">))</span> <span class="k">THEN</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Both strings are equal&#39;</span>
+    <span class="k">ELSE</span>
+<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Both strings are not equal&#39;</span>
+    <span class="k">END IF</span>
+<span class="k"> END PROGRAM </span><span class="n">cistrcmpExample</span>
+</code></pre></div>
     
 
     <h3>Arguments</h3>

@@ -217,6 +217,39 @@ public pure function replace(str, search, repla) result(res)
     
     <p>Searches and replaces a substring in a string. It replaces 
  all occurences.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="n">t</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">search</span><span class="p">,</span> <span class="n">repla</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>str</code>: String to modify.</li>
+<li><code>search</code>: String to search for in str.</li>
+<li><code>repla</code>: String to replace in str..</li>
+</ul>
+<p>It returns the modified modified string.</p>
+<h3>Example</h3>
+<p>The following program searches and replaces in a string:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">replaceExample</span>
+    <span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">replace</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">text</span>
+    <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">modified_text</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &amp;</span>
+<span class="s2">       &amp;sed do eiusmod tempor incididunt ut labore et dolore magna al&amp;</span>
+<span class="s2">       &amp;iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&amp;</span>
+<span class="s2">       &amp;mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&amp;</span>
+<span class="s2">       &amp;e irure dolor in reprehenderit in voluptate velit esse cillum&amp;</span>
+<span class="s2">       &amp; dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&amp;</span>
+<span class="s2">       &amp;idatat non proident, sunt in culpa qui officia deserunt molli&amp;</span>
+<span class="s2">       &amp;t anim id est laborum.&quot;</span>
+    <span class="n">modified_text</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">)</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">modified_text</span>
+    <span class="n">modified_text</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39; ad &#39;</span><span class="p">,</span> <span class="s1">&#39; AD &#39;</span><span class="p">)</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">modified_text</span>
+ <span class="k">END PROGRAM </span><span class="n">replaceExample</span>
+</code></pre></div>
     
 
     <h3>Arguments</h3>
@@ -257,7 +290,7 @@ public pure function replace(str, search, repla) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>search</strong></td><td><p>String to search in str.</p></td>
+  <td><strong>search</strong></td><td><p>String to search for in str.</p></td>
   
 </tr>
 

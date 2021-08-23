@@ -224,6 +224,33 @@
    <p>Converts an integer variable into a string variable,
  filling with leading zeros up to the limit imposed by the user.
  Useful to open files named sequentially with leading zeros in the name.</p>
+<h3>Syntax</h3>
+<div class="codehilite"><pre><span></span><code> <span class="n">t</span> <span class="o">=</span> <span class="n">int2str</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span> <span class="n">total_length</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>Where:</p>
+<ul>
+<li><code>integ</code>: Integer number to convert. This number MUST be positive.</li>
+<li><code>format</code>: Number of digits to use, including leading zeros. This number MUST be positive.</li>
+</ul>
+<p>It returns a string containing the number.</p>
+<h3>Example</h3>
+<p>The following program a converts an integer to a number with leading zeros
+ to create sequential filenames</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">int2str00000Example</span>
+    <span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">int2str00000</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">i</span>
+    <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">total_length</span>
+    <span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">filename</span>
+    <span class="n">total_length</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="k">DO </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">25</span>
+       <span class="n">filename</span> <span class="o">=</span> <span class="n">int2str00000</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;.dat&#39;</span>
+       <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">filename</span>
+    <span class="k">END DO</span>
+<span class="k"> END PROGRAM </span><span class="n">int2str00000Example</span>
+</code></pre></div>
      
      
     <br>
@@ -333,7 +360,7 @@ private pure function int2str00000_i8(integ, total_length) result(str)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including zeros. This number MUST be positive.</p></td>
+  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
   
 </tr>
 
@@ -408,7 +435,7 @@ private pure function int2str00000_i16(integ, total_length) result(str)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including zeros. This number MUST be positive.</p></td>
+  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
   
 </tr>
 
@@ -483,7 +510,7 @@ private pure function int2str00000_i32(integ, total_length) result(str)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including zeros. This number MUST be positive.</p></td>
+  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
   
 </tr>
 
@@ -558,7 +585,7 @@ private pure function int2str00000_i64(integ, total_length) result(str)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including zeros. This number MUST be positive.</p></td>
+  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
   
 </tr>
 
