@@ -29,6 +29,57 @@ MODULE FU_Strings
       !! license: MIT.
       !! summary: Splits a string.
       !! Splits a string and returns the portion selected by the user.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = splitstr(str, fieldNumber, delimiter, rev, mergedelim)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String that the user whants to split.
+      !! * `fieldNumber`: Integer indicating which of the divisions to return.
+      !! * `delimiter`: String that the user wants to use as a delimiter for splitting.
+      !! Optional parameter. Default is Space.
+      !! * `rev`: If true start spliting by the end of the string.
+      !! Optional parameter. Default is False.
+      !! * `mergedelim`: If true, contiguous delimiters in the string are merged before splitting.
+      !! Optional parameter. Default is False.
+      !! 
+      !! It returns a string with the selected part of str. If the fieldNumber does not exists
+      !! or if the delimiter does not exists it returns an empty string.
+      !!
+      !!### Example
+      !!
+      !! The following program extracts some portions of a text:
+      !!
+      !!```Fortran
+      !! PROGRAM splitstrExample
+      !!    USE FU_Strings, ONLY: splitstr
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: portion
+      !!    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, &
+      !!       &sed do eiusmod tempor incididunt ut labore et dolore magna al&
+      !!       &iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&
+      !!       &mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&
+      !!       &e irure dolor in reprehenderit in voluptate velit esse cillum&
+      !!       & dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&
+      !!       &idatat non proident, sunt in culpa qui officia deserunt molli&
+      !!       &t anim id est laborum."
+      !!    portion = splitstr(text, 1)
+      !!    WRITE(*,*) portion
+      !!    portion = splitstr(text, 2, rev = .True.)
+      !!    WRITE(*,*) portion
+      !!    portion = splitstr(text, 6, delimiter = "l"
+      !!    WRITE(*,*) portion
+      !!    portion = splitstr(text, 7, delimiter = "l"
+      !!    WRITE(*,*) portion
+      !!    portion = splitstr(text, 7, delimiter = "l", mergedelim = .True.)  
+      !!    WRITE(*,*) portion
+      !! END PROGRAM splitstrExample
+      !!```
       MODULE PROCEDURE splitstr_i8
       MODULE PROCEDURE splitstr_i16
       MODULE PROCEDURE splitstr_i32
@@ -45,6 +96,39 @@ MODULE FU_Strings
       !! summary: Converts number into a string.
       !! Converts an integer or real variable into a string variable.
       !! Useful to open files named sequentially.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = num2str(num, format)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `num`: Real or Integer to convert to a string.
+      !! * `format`: Format to use in the string variable. Only for real numbers.
+      !! 
+      !! It returns a string containing the number.
+      !!
+      !!### Example
+      !!
+      !! The following program a converts an integer and a real to a
+      !! string, using them to create a filename:
+      !!
+      !!```Fortran
+      !! PROGRAM num2strExample
+      !!    USE FU_Strings, ONLY: num2str
+      !!    IMPLICIT NONE
+      !!    REAL :: temperature
+      !!    INTEGER :: case_number
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: filename
+      !!    temperature = 293.75
+      !!    case_number = 17
+      !!    filename = 'Case_'//num2str(case_number)// &
+      !!       '_Temp_'//num2str(temperature, "F4.0")//'txt'
+      !!    WRITE(*,*) filename
+      !! END PROGRAM num2strExample
+      !!```
       MODULE PROCEDURE num2str_i8
       MODULE PROCEDURE num2str_i16
       MODULE PROCEDURE num2str_i32
@@ -66,6 +150,39 @@ MODULE FU_Strings
       !! Converts an integer variable into a string variable,
       !! filling with leading zeros up to the limit imposed by the user.
       !! Useful to open files named sequentially with leading zeros in the name.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = int2str(integ, total_length)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `integ`: Integer number to convert. This number MUST be positive.
+      !! * `format`: Number of digits to use, including leading zeros. This number MUST be positive.
+      !! 
+      !! It returns a string containing the number.
+      !!
+      !!### Example
+      !!
+      !! The following program a converts an integer to a number with leading zeros
+      !! to create sequential filenames
+      !!
+      !!```Fortran
+      !! PROGRAM int2str00000Example
+      !!    USE FU_Strings, ONLY: int2str00000
+      !!    IMPLICIT NONE
+      !!    INTEGER :: i
+      !!    INTEGER :: total_length
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: filename
+      !!    total_length = 5
+      !!    DO i = 1, 25
+      !!       filename = int2str00000(i, total_length)//'.dat'
+      !!       WRITE(*,*) filename
+      !!    END DO
+      !! END PROGRAM int2str00000Example
+      !!```
       MODULE PROCEDURE int2str00000_i8
       MODULE PROCEDURE int2str00000_i16
       MODULE PROCEDURE int2str00000_i32
@@ -82,6 +199,36 @@ MODULE FU_Strings
       !! license: MIT.
       !! summary: Converts a string into an integer or real.
       !! Converts a string into an integer or real number as specified by the type of variable mold.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = str2num(str, mold)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String to convert to number
+      !! * `mold`: Real or integer value to identify the type and kind of the output.
+      !! It is only used to set the type of the return value, so it can be any value.
+      !! 
+      !! It returns an integer or real with the number contained in the string.
+      !!
+      !!### Example
+      !!
+      !! The following program converts a string to a real number
+      !!
+      !!```Fortran
+      !! PROGRAM str2numExample
+      !!    USE FU_Strings, ONLY: str2num
+      !!    IMPLICIT NONE
+      !!    REAL :: f
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: s
+      !!    s = '293.75'
+      !!    f = str2num(s, f)
+      !!    WRITE(*,*) f
+      !! END PROGRAM str2numExample
+      !!```
       MODULE PROCEDURE str2num_i8
       MODULE PROCEDURE str2num_i16
       MODULE PROCEDURE str2num_i32
@@ -213,6 +360,42 @@ CONTAINS
       !! license: MIT.
       !! summary: Merge characters in a string if they are contiguous.
       !! Merge characters in a string if they are contiguous.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! s = mergeChars(str, c)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String to search inside for contiguous duplicated characters.
+      !! * `substr`: Character to search for contiguous duplications.
+      !! 
+      !! String with the selected character contiguous duplications removed.
+      !!
+      !!### Example
+      !!
+      !! The following program removes contiguos characters:
+      !!
+      !!```Fortran
+      !! PROGRAM mergeCharsExample
+      !!    USE FU_Strings, ONLY: mergeChars
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: modified_text
+      !!    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, &
+      !!       &sed do eiusmod tempor incididunt ut labore et dolore magna al&
+      !!       &iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&
+      !!       &mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&
+      !!       &e irure dolor in reprehenderit in voluptate velit esse cillum&
+      !!       & dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&
+      !!       &idatat non proident, sunt in culpa qui officia deserunt molli&
+      !!       &t anim id est                       laborum."
+      !!     modified_text = mergeChars(text, ' ')
+      !!     WRITE(*,*) modified_text
+      !! END PROGRAM mergeCharsExample
+      !!```
       IMPLICIT NONE
       CHARACTER(LEN=*),INTENT(IN)  :: str
       !! String to search inside for contiguous duplicated characters.
@@ -248,6 +431,40 @@ CONTAINS
       !! license: MIT.
       !! summary: Checks if a string starts with a given substring.
       !! Checks if a string starts with a given substring. It can be an array of string.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! l = startsWith(str, substr)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String that the user wants to check how it starts. It can be an array.
+      !! * `substr`: Substring to search for to check if str starts with it.
+      !! 
+      !! It returns True if the string starts with the substring and False otherwise. If
+      !! substr is empty it returns True. If the input is an array, the returned
+      !! values will also be in an array.
+      !!
+      !!### Example
+      !!
+      !! The following program checks if a string starts with a substring:
+      !!
+      !!```Fortran
+      !! PROGRAM startsWithExample
+      !!    USE FU_Strings, ONLY: startsWith
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text1, text2
+      !!    text1 = 'String1'
+      !!    text2 = 'St'
+      !!    IF (startsWith(text1, text2)) THEN
+      !!       WRITE(*,*) 'String starts with St'
+      !!    ELSE
+      !!       WRITE(*,*) 'String does not start with St'
+      !!    END IF
+      !! END PROGRAM startsWithExample
+      !!```
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String that the user wants to check how it starts. It can be an array.
       CHARACTER(LEN=*), INTENT(IN) :: substr
@@ -270,6 +487,40 @@ CONTAINS
       !! license: MIT.
       !! summary: Checks if a string ends with a given substring.
       !! Checks if a string ends with a given substring. It can be an array of string.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! l = endsWith(str, substr)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String that the user wants to check how it ends. It can be an array.
+      !! * `substr`: Substring to search for to check if str ends with it.
+      !! 
+      !! It returns True if the string ends with the substring and False otherwise. If
+      !! substr is empty it returns True. If the input is an array, the returned
+      !! values will also be in an array.
+      !!
+      !!### Example
+      !!
+      !! The following program checks if a string ends with a substring:
+      !!
+      !!```Fortran
+      !! PROGRAM endsWithExample
+      !!    USE FU_Strings, ONLY: endsWith
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text1, text2
+      !!    text1 = 'String1'
+      !!    text2 = 'g1'
+      !!    IF (endsWith(text1, text2)) THEN
+      !!       WRITE(*,*) 'String ends with g1'
+      !!    ELSE
+      !!       WRITE(*,*) 'String does not end with g1'
+      !!    END IF
+      !! END PROGRAM endsWithExample
+      !!```
       CHARACTER(LEN=*), INTENT(IN) :: str
       !! String that the user wants to check how it ends. It can be an array.
       CHARACTER(LEN=*), INTENT(IN) :: substr
@@ -392,7 +643,7 @@ CONTAINS
       INTEGER(KIND=i8),INTENT(IN)  :: integ
       !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i8),INTENT(IN)  :: total_length
-      !! Number of digits to use, including zeros. This number MUST be positive.
+      !! Number of digits to use, including leading zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
@@ -406,7 +657,7 @@ CONTAINS
       INTEGER(KIND=i16),INTENT(IN) :: integ
       !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i16),INTENT(IN) :: total_length
-      !! Number of digits to use, including zeros. This number MUST be positive.
+      !! Number of digits to use, including leading zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
@@ -420,7 +671,7 @@ CONTAINS
       INTEGER(KIND=i32),INTENT(IN) :: integ
       !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i32),INTENT(IN) :: total_length
-      !! Number of digits to use, including zeros. This number MUST be positive.
+      !! Number of digits to use, including leading zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
@@ -434,7 +685,7 @@ CONTAINS
       INTEGER(KIND=i64),INTENT(IN) :: integ
       !! Integer number to convert. This number MUST be positive.
       INTEGER(KIND=i64),INTENT(IN) :: total_length
-      !! Number of digits to use, including zeros. This number MUST be positive.
+      !! Number of digits to use, including leading zeros. This number MUST be positive.
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
@@ -554,11 +805,50 @@ CONTAINS
       !! summary: Searches and replaces a substring in a string
       !! Searches and replaces a substring in a string. It replaces 
       !! all occurences.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = replace(str, search, repla)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String to modify.
+      !! * `search`: String to search for in str.
+      !! * `repla`: String to replace in str..
+      !! 
+      !! It returns the modified modified string.
+      !!
+      !!### Example
+      !!
+      !! The following program searches and replaces in a string:
+      !!
+      !!```Fortran
+      !! PROGRAM replaceExample
+      !!    USE FU_Strings, ONLY: replace
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: modified_text
+      !!    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, &
+      !!       &sed do eiusmod tempor incididunt ut labore et dolore magna al&
+      !!       &iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&
+      !!       &mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&
+      !!       &e irure dolor in reprehenderit in voluptate velit esse cillum&
+      !!       & dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&
+      !!       &idatat non proident, sunt in culpa qui officia deserunt molli&
+      !!       &t anim id est laborum."
+      !!    modified_text = replace(text, 'm', 'X')
+      !!    WRITE(*,*) modified_text
+      !!    modified_text = replace(text, ' ad ', ' AD ')
+      !!    WRITE(*,*) modified_text
+      !! END PROGRAM replaceExample
+      !!```
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to modify
       CHARACTER(LEN=*), INTENT(IN)  :: search
-      !! String to search in str.
+      !! String to search for in str.
       CHARACTER(LEN=*), INTENT(IN)  :: repla
       !! String to replace in str.
       CHARACTER(LEN=:), ALLOCATABLE :: res
@@ -605,6 +895,41 @@ CONTAINS
       !! summary: Converts a string to uppercase characters.
       !! Converts a string to uppercase characters. It works with this dataset:
       !! 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = upper(str)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String to convert to uppercase characters.
+      !! 
+      !! It returns the string converted to uppercase characters.
+      !!
+      !!### Example
+      !!
+      !! The following program converts a string to uppercase:
+      !
+      !!```Fortran
+      !! PROGRAM upperExample
+      !!    USE FU_Strings, ONLY: upper
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: modified_text
+      !!    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, &
+      !!       &sed do eiusmod tempor incididunt ut labore et dolore magna al&
+      !!       &iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&
+      !!       &mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&
+      !!       &e irure dolor in reprehenderit in voluptate velit esse cillum&
+      !!       & dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&
+      !!       &idatat non proident, sunt in culpa qui officia deserunt molli&
+      !!       &t anim id est laborum."
+      !!    modified_text = upper(text)
+      !!    WRITE(*,*) modified_text
+      !! END PROGRAM upperExample
+      !!```
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to uppercase characters.
@@ -630,6 +955,41 @@ CONTAINS
       !! summary: Converts a string to lowercase characters.
       !! Converts a string to lowercase characters. It works with this dataset
       !! 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! t = lower(str)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String to convert to lowercase characters.
+      !! 
+      !! It returns the string converted to lowercase characters.
+      !!
+      !!### Example
+      !!
+      !! The following program converts a string to lowercase:
+      !
+      !!```Fortran
+      !! PROGRAM lowerExample
+      !!    USE FU_Strings, ONLY: lower
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: modified_text
+      !!    text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, &
+      !!       &sed do eiusmod tempor incididunt ut labore et dolore magna al&
+      !!       &iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&
+      !!       &mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&
+      !!       &e irure dolor in reprehenderit in voluptate velit esse cillum&
+      !!       & dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&
+      !!       &idatat non proident, sunt in culpa qui officia deserunt molli&
+      !!       &t anim id est laborum."
+      !!    modified_text = lower(text)
+      !!    WRITE(*,*) modified_text
+      !! END PROGRAM lowerExample
+      !!```
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN)  :: str
       !! String to convert to lowercase characters.
@@ -654,6 +1014,39 @@ CONTAINS
       !! summary: Case-independent string comparison.
       !! Case-independent string comparison. It works with this dataset: 
       !! 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! l = cistrcmp(str1, str2)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str1`: First string to compare.
+      !! * `str2`: Second string to compare.
+      !! 
+      !! It returns True if both strings are equal independently of the case and
+      !! False otherwise.
+      !!
+      !!### Example
+      !!
+      !! The following program performs a case-independent string comparison:
+      !!
+      !!```Fortran
+      !! PROGRAM cistrcmpExample
+      !!    USE FU_Strings, ONLY: cistrcmp
+      !!    IMPLICIT NONE
+      !!    CHARACTER(LEN=:), ALLOCATABLE :: text1, text2
+      !!    text1 = 'String1'
+      !!    text2 = 'string1'
+      !!    IF (cistrcmp(text1, text2)) THEN
+      !!       WRITE(*,*) 'Both strings are equal'
+      !!    ELSE
+      !!       WRITE(*,*) 'Both strings are not equal'
+      !!    END IF
+      !! END PROGRAM cistrcmpExample
+      !!```
       IMPLICIT NONE
       CHARACTER(LEN=*), INTENT(IN) :: str1
       !! First string to compare.

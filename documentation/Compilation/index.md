@@ -81,7 +81,7 @@ A static and a shared library are created. Tests programs for both libraries are
 
 #### Compilation ####
 
-1. Download the sources, open MSYS2-Mingw terminal and enter directory FortranUtilities. Then create a build directory and enter that directory:
+1. Download the sources, open MSYS2-Mingw-w64 terminal and enter directory FortranUtilities. Then create a build directory and enter that directory:
 
       ```
       mkdir build

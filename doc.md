@@ -21,6 +21,6 @@ project_download: https://github.com/ecasglez/FortranUtilities/archive/master.zi
 page_dir: documentation
 
 @Note
-This is Work-in-Progress. More functions are being added. 
+This is Work-in-Progress. More functions are being added and documentation is being improved.
 
 {!README.md!}
