@@ -25,18 +25,17 @@ message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 #
 if(CMAKE_Fortran_COMPILER_ID STREQUAL "GNU")
   if(CMAKE_Fortran_COMPILER_VERSION VERSION_LESS "7.5.0")
-	message(FATAL_ERROR "GNU fortran 7.5.0 or newer required")
+     message(FATAL_ERROR "GNU fortran 7.5.0 or newer required")
   endif()
   set (CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -Wall -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans")
   set (CMAKE_Fortran_FLAGS_RELEASE "-O2")
   set (CMAKE_Fortran_FLAGS_RELWITHDEBINFO "-O2 -g")
   set (CMAKE_Fortran_FLAGS_DEBUG "-g")
-  add_definitions(-DQPREC_FPP)
 endif()
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS "7.5.0")
-	message(FATAL_ERROR "GNU G++ 7.5.0 or newer required")
+     message(FATAL_ERROR "GNU G++ 7.5.0 or newer required")
   endif()
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -fno-unsafe-math-optimizations -frounding-math -fsignaling-nans")
   set (CMAKE_CXX_FLAGS_RELEASE "-O2")
@@ -56,7 +55,6 @@ if (CMAKE_Fortran_COMPILER_ID STREQUAL "Intel")
   set (CMAKE_Fortran_FLAGS_RELEASE "-O2")
   set (CMAKE_Fortran_FLAGS_RELWITHDEBINFO "-O2 -g")
   set (CMAKE_Fortran_FLAGS_DEBUG "-g")
-  add_definitions(-DQPREC_FPP)
 endif()
 
 #Tested with Intel C++ Compiler 19. Could work with older versions
@@ -117,6 +115,23 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "PGI")
   set (CMAKE_CXX_FLAGS_RELEASE "-O2")
   set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
   set (CMAKE_CXX_FLAGS_DEBUG "-g")
+endif()
+
+#
+#Check if the selected compiler can handle 128 bits real numbers
+#
+include(CheckFortranSourceCompiles)
+check_fortran_source_compiles("use ISO_FORTRAN_ENV
+                               real(kind=REAL128) :: a
+                               a = 0.
+                               write(*,*) a
+                               end"
+            f03real128 SRC_EXT F90)
+if (f03real128)
+    message(STATUS "Compiler supports cuadruple precision functions. Enabling them.")
+    add_definitions(-DQPREC_FPP)
+else()
+    message(STATUS "Compiler does not support cuadruple precision functions. Not enabling them.")
 endif()
 
 #
