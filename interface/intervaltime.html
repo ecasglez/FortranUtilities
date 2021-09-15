@@ -225,7 +225,7 @@
  The starting point can be reset using <a href="../proc/resettotaltime.html">ResetTotalTime</a>.</p>
 <p>You can use mold input argument to indicate the precision of the output number. Default precision
  is the default precision of your compiler.</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="n">t</span> <span class="o">=</span> <span class="n">IntervalTime</span><span class="p">(</span><span class="n">mold</span><span class="p">)</span>
 </code></pre></div>
 
@@ -238,7 +238,7 @@
 <p>Time spent in seconds since the last measurement, or since the begining of the program 
  if no previous measurement is available, or since the last time
  <a href="../proc/resettotaltime.html">ResetTotalTime</a> has been used. Uses precision set by mold. </p>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following program prints the time since the start of the program and since
  the previous measurement.
  A more detailed example can be found at <a href="../page/Examples/Example01/index.html">here</a>.</p>
@@ -331,7 +331,7 @@ private function IntervalTime_def() result(res)
      <h4>Return Value <small>real
   </small></h4>
   <p>Time spent in seconds since the last measurement or since the begining of the program 
- if no previous measurement is available. Uses default precision of the compiler used.</p>
+if no previous measurement is available. Uses default precision of the compiler used.</p>
     
 
   </div>
@@ -375,7 +375,7 @@ private function IntervalTime_sp(mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
- It is only used to set the kind of the return value, so it can be any value.</p></td>
+It is only used to set the kind of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -393,7 +393,7 @@ private function IntervalTime_sp(mold) result(res)
      <h4>Return Value <small>real(kind=sp)
   </small></h4>
   <p>Time spent in seconds since the last measurement or since the begining of the program 
- if no previous measurement is available. Uses precision set by mold. </p>
+if no previous measurement is available. Uses precision set by mold. </p>
     
 
   </div>
@@ -437,7 +437,7 @@ private function IntervalTime_dp(mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
- It is only used to set the kind of the return value, so it can be any value.</p></td>
+It is only used to set the kind of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -455,7 +455,7 @@ private function IntervalTime_dp(mold) result(res)
      <h4>Return Value <small>real(kind=dp)
   </small></h4>
   <p>Time spent in seconds since the last measurement or since the begining of the program 
- if no previous measurement is available. Uses precision set by mold. </p>
+if no previous measurement is available. Uses precision set by mold. </p>
     
 
   </div>

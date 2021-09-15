@@ -140,7 +140,7 @@
   
   <div class="row">
     <div class="col-md-9 col-md-push-3" id='text'>
-      <h2>Description</h2>
+      <h2 id="description">Description</h2>
 <p>This example illustrates the use of <code><a href="../../../module/fu_prec.html">FU_Prec</a></code>, <code><a href="../../../module/fu_files.html">FU_Files</a></code> and <code><a href="../../../module/fu_statistics.html">FU_Statistics</a></code> modules using a simple program.
 It reads a dataset from an external file with the proper format and performs different types of regressions to adjust the data.</p>
 <p>The dataset can be downloaded <a href="example3.dat">here</a>. As stated in the documentation of <code><a href="../../../interface/readmatrix.html">readMatrix</a></code> the file must have the following format:
@@ -158,7 +158,7 @@ The first lines of this dataset file are:</p>
 </code></pre></div>
 
 
-<h2>Functions used</h2>
+<h2 id="functions-used">Functions used</h2>
 <ul>
 <li><code><a href="../../../module/fu_prec.html">FU_Prec</a></code>.<ul>
 <li><code>dp</code></li>
@@ -176,7 +176,7 @@ The first lines of this dataset file are:</p>
 </ul>
 </li>
 </ul>
-<h2>Code</h2>
+<h2 id="code">Code</h2>
 <div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example3</span>
    <span class="c">! Example program for FU_Prec, FU_Files and FU_Statistics modules of ecasglez&#39;s FortranUtilities,</span>
    <span class="c">! showing how to load data from a file and how to perform different types of regressions.</span>
@@ -222,13 +222,13 @@ The first lines of this dataset file are:</p>
 </code></pre></div>
 
 
-<h2>Compilation</h2>
+<h2 id="compilation">Compilation</h2>
 <p>Compile using the following command. Adjust paths accordingly.</p>
 <div class="codehilite"><pre><span></span><code>gfortran example3.f90 -o example3 -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
 </code></pre></div>
 
 
-<h2>Execution</h2>
+<h2 id="execution">Execution</h2>
 <p>Before running, since it has been compiled against the shared library:</p>
 <div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
 </code></pre></div>
@@ -261,7 +261,26 @@ Potential regression:   f(x) = 3.6021 x^0.4330.        Determination coefficient
           <ul class="nav nav-stacked nav-pills">
             
             <li role="presentation">
+            <a href='../../../page/./license.html'>License</a>
+            
+            </li>
+            
+            <li role="presentation">
             <a href='../../../page/Compilation/index.html'>Compilation</a>
+            
+            <ul class="nav nav-stacked nav-pills">
+              
+            <li role="presentation">
+            <a href='../../../page/Compilation/Linux.html'>Compilation on Linux</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../../../page/Compilation/Windows.html'>Compilation on Windows</a>
+            
+            </li>
+            
+            </ul>
             
             </li>
             

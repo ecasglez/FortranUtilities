@@ -218,14 +218,17 @@
     <div class="col-md-9" id='text'>
       <h2>public interface median</h2>
    <p>Calculates the median value.
- This function does not work with quadruple precision numbers
- because of the ordering subroutine written in C++.</p>
+This function does not work with quadruple precision numbers
+because of the ordering subroutine written in C++.</p>
 <p>Usage:</p>
-<p><code>y = median(x)</code></p>
+<div class="codehilite"><pre><span></span><code>y = median(x)
+</code></pre></div>
+
+
 <p>where:</p>
 <ul>
 <li><code>x</code> = vector of rank 1 with real numbers. See examples to use an array of
- rank larger than 1.</li>
+rank larger than 1.</li>
 <li><code>y</code> = real number of the same kind as <code>x</code> with the median of <code>x</code>.</li>
 </ul>
      
@@ -319,7 +322,7 @@ private function median_sp(x) result(res)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the median. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -380,7 +383,7 @@ private function median_dp(x) result(res)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the median. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 

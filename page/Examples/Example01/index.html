@@ -140,11 +140,11 @@
   
   <div class="row">
     <div class="col-md-9 col-md-push-3" id='text'>
-      <h2>Description</h2>
+      <h2 id="description">Description</h2>
 <p>This example illustrates the use of <code><a href="../../../module/fu_prec.html">FU_Prec</a></code>, <code><a href="../../../module/fu_statistics.html">FU_Statistics</a></code> and <code><a href="../../../module/fu_timing.html">FU_Timing</a></code> modules using a simple program.
 It generates a set of random numbers and then performs a lot of mean, variance and median calculations, and measures the time needed with different number of threads (using OpenMP). </p>
 <p>Uses up to 7 OpenMP threads. Change this parameter accordingly.</p>
-<h2>Functions used</h2>
+<h2 id="functions-used">Functions used</h2>
 <ul>
 <li><code><a href="../../../module/fu_prec.html">FU_Prec</a></code>.<ul>
 <li><code>dp</code></li>
@@ -163,7 +163,7 @@ It generates a set of random numbers and then performs a lot of mean, variance a
 </ul>
 </li>
 </ul>
-<h2>Code</h2>
+<h2 id="code">Code</h2>
 <div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example1</span>
    <span class="c">! Example program for FU_Prec, FU_Statistics and FU_Timing modules of ecasglez&#39;s FortranUtilities.</span>
    <span class="c">! It repeats a lot of mean, variance and median calculations using random numbers.</span>
@@ -212,14 +212,14 @@ It generates a set of random numbers and then performs a lot of mean, variance a
 </code></pre></div>
 
 
-<h2>Compilation</h2>
+<h2 id="compilation">Compilation</h2>
 <p>Compile using the following command. Adjust paths accordingly.</p>
 <div class="codehilite"><pre><span></span><code>gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
 </code></pre></div>
 
 
 <p>If no OpenMP libraries are available in your system, you can remove option <code>-fopenmp</code>. The code will work but there will not be any speedup.</p>
-<h2>Execution</h2>
+<h2 id="execution">Execution</h2>
 <p>Before running, since it has been compiled against the shared library:</p>
 <div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
 </code></pre></div>
@@ -252,7 +252,26 @@ Total time spent:  62.995 s.
           <ul class="nav nav-stacked nav-pills">
             
             <li role="presentation">
+            <a href='../../../page/./license.html'>License</a>
+            
+            </li>
+            
+            <li role="presentation">
             <a href='../../../page/Compilation/index.html'>Compilation</a>
+            
+            <ul class="nav nav-stacked nav-pills">
+              
+            <li role="presentation">
+            <a href='../../../page/Compilation/Linux.html'>Compilation on Linux</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../../../page/Compilation/Windows.html'>Compilation on Windows</a>
+            
+            </li>
+            
+            </ul>
             
             </li>
             

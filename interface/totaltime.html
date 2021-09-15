@@ -223,7 +223,7 @@
  since the beginning of the program or since the last time <a href="../proc/resettotaltime.html">ResetTotalTime</a> is executed.</p>
 <p>You can use mold input argument to indicate the precision of the output number. Default precision
  is the default precision of your compiler.</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="n">t</span> <span class="o">=</span> <span class="n">TotalTime</span><span class="p">(</span><span class="n">mold</span><span class="p">)</span>
 </code></pre></div>
 
@@ -235,7 +235,7 @@
 </ul>
 <p>Total time spent in seconds since the begining of the program or since the last
  time <a href="../proc/resettotaltime.html">ResetTotalTime</a> has been used. Uses precision set by mold.</p>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following program prints the total time since the start of the program.
  A more detailed example can be found at <a href="../page/Examples/Example01/index.html">here</a>.</p>
 <div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">totalTimeExample</span>
@@ -327,7 +327,7 @@ private function TotalTime_def() result(res)
      <h4>Return Value <small>real
   </small></h4>
   <p>Total time spent in seconds since the begining of the program or since the last
- time ResetTotalTime has been used. Uses default precision of the compiler used.</p>
+time ResetTotalTime has been used. Uses default precision of the compiler used.</p>
     
 
   </div>
@@ -371,7 +371,7 @@ private function TotalTime_sp(mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
- It is only used to set the kind of the return value, so it can be any value.</p></td>
+It is only used to set the kind of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -389,7 +389,7 @@ private function TotalTime_sp(mold) result(res)
      <h4>Return Value <small>real(kind=sp)
   </small></h4>
   <p>Total time spent in seconds since the begining of the program or since the last
- time ResetTotalTime has been used. Uses precision set by mold.</p>
+time ResetTotalTime has been used. Uses precision set by mold.</p>
     
 
   </div>
@@ -433,7 +433,7 @@ private function TotalTime_dp(mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
- It is only used to set the kind of the return value, so it can be any value.</p></td>
+It is only used to set the kind of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -451,7 +451,7 @@ private function TotalTime_dp(mold) result(res)
      <h4>Return Value <small>real(kind=dp)
   </small></h4>
   <p>Total time spent in seconds since the begining of the program or since the last
- time ResetTotalTime has been used. Uses precision set by mold.</p>
+time ResetTotalTime has been used. Uses precision set by mold.</p>
     
 
   </div>

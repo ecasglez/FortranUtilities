@@ -140,11 +140,11 @@
   
   <div class="row">
     <div class="col-md-9 col-md-push-3" id='text'>
-      <h2>Description</h2>
+      <h2 id="description">Description</h2>
 <p>This examples illustrate the use of <code><a href="../../../module/fu_prec.html">FU_Prec</a></code> and <code><a href="../../../module/fu_statistics.html">FU_Statistics</a></code> modules using a simple program.
 It generates an array with rank 3 filled with random numbers showing 3 examples on how to apply function <code><a href="../../../interface/mean.html">mean</a></code>
 (or any other function from <a href="../../../module/fu_statistics.html">FU_Statistics</a>) to an array of size larger than 1.</p>
-<h2>Functions used</h2>
+<h2 id="functions-used">Functions used</h2>
 <ul>
 <li><code><a href="../../../module/fu_prec.html">FU_Prec</a></code>.<ul>
 <li><code>dp</code></li>
@@ -155,7 +155,7 @@ It generates an array with rank 3 filled with random numbers showing 3 examples 
 </ul>
 </li>
 </ul>
-<h2>Code</h2>
+<h2 id="code">Code</h2>
 <div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example2</span>
    <span class="c">! Example program for FU_Prec and FU_Statistics modules of ecasglez&#39;s FortranUtilities,</span>
    <span class="c">! showing how to apply FU_Statistics functions to an array with rank larger than 1.</span>
@@ -206,13 +206,13 @@ It generates an array with rank 3 filled with random numbers showing 3 examples 
 </code></pre></div>
 
 
-<h2>Compilation</h2>
+<h2 id="compilation">Compilation</h2>
 <p>Compile using the following command. Adjust paths accordingly.</p>
 <div class="codehilite"><pre><span></span><code>gfortran example2.f90 -o example2 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
 </code></pre></div>
 
 
-<h2>Execution</h2>
+<h2 id="execution">Execution</h2>
 <p>Before running, since it has been compiled against the shared library:</p>
 <div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
 </code></pre></div>
@@ -240,7 +240,26 @@ Mean value:   0.50046.
           <ul class="nav nav-stacked nav-pills">
             
             <li role="presentation">
+            <a href='../../../page/./license.html'>License</a>
+            
+            </li>
+            
+            <li role="presentation">
             <a href='../../../page/Compilation/index.html'>Compilation</a>
+            
+            <ul class="nav nav-stacked nav-pills">
+              
+            <li role="presentation">
+            <a href='../../../page/Compilation/Linux.html'>Compilation on Linux</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../../../page/Compilation/Windows.html'>Compilation on Windows</a>
+            
+            </li>
+            
+            </ul>
             
             </li>
             

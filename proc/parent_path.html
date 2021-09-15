@@ -217,7 +217,7 @@ public function parent_path(fname) result(res)
     
     <p>Determines the path to the parent directory given the path to a file. It is similar
  to function <a href="../proc/remove_filename.html">remove_filename</a> but this one removes trailing path separators (if any).</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="n">l</span> <span class="o">=</span> <span class="n">parent_path</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 </code></pre></div>
 
@@ -227,7 +227,7 @@ public function parent_path(fname) result(res)
 <li><code>fname</code>: Name or path of the file.</li>
 </ul>
 <p>It returns the path to the parent directory given the path to a file.</p>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following program returns the parent paths of some files.</p>
 <div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">parent_pathExample</span>
     <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">parent_path</span>

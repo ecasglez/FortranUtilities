@@ -221,8 +221,8 @@
     
     <div class="col-md-9" id='text'>
     <p>Functions to analyze numbers in Fortran programs. Some of these functions (is_nan and is_inf)
- are now available in the intrinsics module IEEE_ARITHMETIC and
- are provided here only for compatibility with some old programs that use them. </p>
+are now available in the intrinsics module IEEE_ARITHMETIC and
+are provided here only for compatibility with some old programs that use them. </p>
       <br>
     
   
@@ -235,9 +235,9 @@
       <li class="list-group-item">
   <ul class="list-inline">
     
-    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
-    
     <li><a href="http://fortranwiki.org/fortran/show/ieee_arithmetic">ieee_arithmetic</a></li>
+    
+    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
     
   </ul>
       </li>
@@ -628,7 +628,7 @@ private elemental function is_nan_sp(val) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the variable is NaN. False otherwise. It will
- have the same rank and dimension as the input value.</p>
+have the same rank and dimension as the input value.</p>
     
 
     </li>
@@ -686,7 +686,7 @@ private elemental function is_nan_dp(val) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the variable is NaN. False otherwise. It will
- have the same rank and dimension as the input value.</p>
+have the same rank and dimension as the input value.</p>
     
 
     </li>
@@ -744,7 +744,7 @@ private elemental function is_nan_qp(val) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the variable is NaN. False otherwise. It will
- have the same rank and dimension as the input value.</p>
+have the same rank and dimension as the input value.</p>
     
 
     </li>
@@ -822,7 +822,7 @@ private elemental function is_inf_sp(val) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the variable is Inf. False otherwise. It will
- have the same rank and dimension as the input value.</p>
+have the same rank and dimension as the input value.</p>
     
 
     </li>
@@ -880,7 +880,7 @@ private elemental function is_inf_dp(val) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the variable is Inf. False otherwise. It will
- have the same rank and dimension as the input value.</p>
+have the same rank and dimension as the input value.</p>
     
 
     </li>
@@ -938,7 +938,7 @@ private elemental function is_inf_qp(val) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the variable is Inf. False otherwise. It will
- have the same rank and dimension as the input value.</p>
+have the same rank and dimension as the input value.</p>
     
 
     </li>
@@ -1029,7 +1029,7 @@ private elemental function eq_sp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -1047,7 +1047,7 @@ private elemental function eq_sp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if both numbers are equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
     </li>
@@ -1118,7 +1118,7 @@ private elemental function eq_dp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -1136,7 +1136,7 @@ private elemental function eq_dp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if both numbers are equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
     </li>
@@ -1207,7 +1207,7 @@ private elemental function eq_qp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -1225,7 +1225,7 @@ private elemental function eq_qp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if both numbers are equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
     </li>
@@ -1316,7 +1316,7 @@ private elemental function ne_sp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -1334,7 +1334,7 @@ private elemental function ne_sp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the numbers are not equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
     </li>
@@ -1405,7 +1405,7 @@ private elemental function ne_dp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -1423,7 +1423,7 @@ private elemental function ne_dp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the numbers are not equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
     </li>
@@ -1494,7 +1494,7 @@ private elemental function ne_qp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -1512,7 +1512,7 @@ private elemental function ne_qp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the numbers are not equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
     </li>

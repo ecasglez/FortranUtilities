@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../../favicon.png">
 
-    <title>Compilation &ndash; ecasglez's FortranUtilities</title>
+    <title>Compilation on Windows &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/pygments.css" rel="stylesheet">
@@ -110,7 +110,7 @@
     <div class="container">
     
   <div class="row">
-    <h1>Compilation</h1>
+    <h1>Compilation on Windows</h1>
     <div class="row">
     <div class="col-lg-12">
     <div class="well well-sm" style="min-height: 40px;">
@@ -123,20 +123,15 @@
          
 <!--
         
-        <li><i class="fa fa-sitemap"></i> Subsections:</li>
-        
-        <li><a href='../../page/Compilation/Linux.html'>Compilation on Linux</a></li>
-        
-        <li><a href='../../page/Compilation/Windows.html'>Compilation on Windows</a></li>
-        
-        
 -->
       </ul>
         <ol class="breadcrumb in-well">
       
          <li><a href='../../page/index.html'>General documentation</a></li>
       
-         <li class="active">Compilation</li>
+         <li><a href='../../page/Compilation/index.html'>Compilation</a></li>
+      
+         <li class="active">Compilation on Windows</li>
       </ol>
     </div>
     </div>
@@ -145,7 +140,64 @@
   
   <div class="row">
     <div class="col-md-9 col-md-push-3" id='text'>
-      <p>Ecasglez's FortranUitilities has been tested in both <a href="Linux.html">Linux</a> and <a href="Windows.html">Windows</a> and platforms using different compilers. MacOS has not been tested.</p>
+      <h3 id="requirements">Requirements</h3>
+<ul>
+<li>cmake 3.11 or newer.</li>
+<li>Only tested on Windows 10.</li>
+<li>One of the following options:<ul>
+<li><a href="#compilation-using-msys2-environment">MSYS2-Mingw-w64</a> environment with Gfortran and G++ compilers installed.</li>
+<li><a href="#compilation-using-equationcom-tools">equation.com</a> compilers Gfortran, G++ and make and the Windows command prompt.</li>
+<li>Other options and combinations could work but have not been tested.</li>
+</ul>
+</li>
+</ul>
+<h3 id="compilation-using-msys2-environment">Compilation using MSYS2 environment</h3>
+<p>MSYS2 can be downloaded <a href="https://www.msys2.org/">here</a>.</p>
+<ol>
+<li>
+<p>Download the sources, open MSYS2-Mingw-w64 terminal and enter directory FortranUtilities. Then create a build directory and enter that directory:</p>
+<p><code>mkdir build</code></p>
+<p><code>cd build</code></p>
+</li>
+<li>
+<p>Prepare compilation files. To use default options and compiler on your system type:</p>
+<p><code>cmake ..</code></p>
+<p>Optionally you can select an install directory by typing:</p>
+<p><code>cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/</code></p>
+</li>
+<li>
+<p>Compile typing:</p>
+<p><code>make</code></p>
+</li>
+<li>
+<p>Install:</p>
+<p><code>make install</code></p>
+</li>
+</ol>
+<h3 id="compilation-using-equationcom-tools">Compilation using equation.com tools</h3>
+<p>Binaries for Gfortran and G++ can be downloaded <a href="http://equation.com">here</a>.</p>
+<ol>
+<li>
+<p>Download the sources, open a Windows command prompt and enter directory FortranUtilities. Then create a build directory and enter that directory:</p>
+<p><code>mkdir build</code></p>
+<p><code>cd build</code></p>
+</li>
+<li>
+<p>Prepare compilation files. If cmake, gfortran, gcc and g++ are in your PATH, to use default options on your system type:</p>
+<p><code>cmake .. -DCMAKE_Fortran_COMPILER=gfortran -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -G "Unix Makefiles"</code></p>
+<p>If any of the tools if not in your PATH, you must type the full path for it.</p>
+<p>Optionally you can select an install directory by typing:</p>
+<p><code>cmake .. -DCMAKE_Fortran_COMPILER=gfortran -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=C:\FortranUtilities</code></p>
+</li>
+<li>
+<p>Compile typing:</p>
+<p><code>make</code></p>
+</li>
+<li>
+<p>Install:</p>
+<p><code>make install</code></p>
+</li>
+</ol>
     </div>
     
     <div class="col-md-3 col-md-pull-9">
@@ -162,7 +214,7 @@
             
             </li>
             
-            <li role="presentation" class="disabled">
+            <li role="presentation">
             <a href='../../page/Compilation/index.html'>Compilation</a>
             
             <ul class="nav nav-stacked nav-pills">
@@ -172,7 +224,7 @@
             
             </li>
             
-            <li role="presentation">
+            <li role="presentation" class="disabled">
             <a href='../../page/Compilation/Windows.html'>Compilation on Windows</a>
             
             </li>

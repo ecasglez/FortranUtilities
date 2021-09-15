@@ -216,7 +216,7 @@ public function stem(fname) result(res)
 
     
     <p>Determines the filename without the path and without the final extension given a path.</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="n">l</span> <span class="o">=</span> <span class="n">stem</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
 </code></pre></div>
 
@@ -226,7 +226,7 @@ public function stem(fname) result(res)
 <li><code>fname</code>: Name or path of the file the determine the filename without the final extension and the path.</li>
 </ul>
 <p>It returns the filename of the file without the extension and without path.</p>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following program gets the filenames of some files</p>
 <div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">stemExample</span>
     <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">stem</span>
@@ -284,7 +284,7 @@ public function stem(fname) result(res)
    <h3>Return Value <small><span class="anchor" id="variable-res%7E20"></span>character(len=:),
   ALLOCATABLE</small></h3>
     <p>Filename without the final extension and without the path.
- If filename consists of an extension only, the extension is returned.</p>
+If filename consists of an extension only, the extension is returned.</p>
     
     
     

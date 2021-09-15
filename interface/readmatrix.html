@@ -234,7 +234,7 @@
 <p>Then the matrix comes. The different columns must be separated using blanks.</p>
 <p>The file is then opened, read and closed. The return variable must have ALLOCATABLE attribute,
  and must not be allocated (the subroutine takes care of allocation but not about deallocation).</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="k">call </span><span class="n">readMatrix</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">matrix</span><span class="p">)</span>
 </code></pre></div>
 
@@ -248,7 +248,7 @@
  It will be allocated automatically in the subroutine, but the user must deallocate matrix
  manually after use.</li>
 </ul>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following example program loads values from a file named matrix.txt:</p>
 <div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">readMatrixExample</span>
     <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">readMatrix</span>
@@ -389,8 +389,8 @@ private subroutine readMatrix_i8(filename, res)
   
   <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
   <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
- must not be allocated prior to call readMatrix as it is allocated here. However
- deallocation must be done manually by the user when finishes using the information.</p></td>
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p></td>
   
 </tr>
 
@@ -461,8 +461,8 @@ private subroutine readMatrix_i16(filename, res)
   
   <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
   <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
- must not be allocated prior to call readMatrix as it is allocated here. However
- deallocation must be done manually by the user when finishes using the information.</p></td>
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p></td>
   
 </tr>
 
@@ -533,8 +533,8 @@ private subroutine readMatrix_i32(filename, res)
   
   <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
   <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
- must not be allocated prior to call readMatrix as it is allocated here. However
- deallocation must be done manually by the user when finishes using the information.</p></td>
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p></td>
   
 </tr>
 
@@ -605,8 +605,8 @@ private subroutine readMatrix_i64(filename, res)
   
   <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
   <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
- must not be allocated prior to call readMatrix as it is allocated here. However
- deallocation must be done manually by the user when finishes using the information.</p></td>
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p></td>
   
 </tr>
 
@@ -677,8 +677,8 @@ private subroutine readMatrix_sp(filename, res)
   
   <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
   <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
- must not be allocated prior to call readMatrix as it is allocated here. However
- deallocation must be done manually by the user when finishes using the information.</p></td>
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p></td>
   
 </tr>
 
@@ -749,8 +749,8 @@ private subroutine readMatrix_dp(filename, res)
   
   <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
   <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
- must not be allocated prior to call readMatrix as it is allocated here. However
- deallocation must be done manually by the user when finishes using the information.</p></td>
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p></td>
   
 </tr>
 
@@ -821,8 +821,8 @@ private subroutine readMatrix_qp(filename, res)
   
   <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
   <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
- must not be allocated prior to call readMatrix as it is allocated here. However
- deallocation must be done manually by the user when finishes using the information.</p></td>
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p></td>
   
 </tr>
 

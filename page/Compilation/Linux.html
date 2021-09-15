@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../../favicon.png">
 
-    <title>Compilation &ndash; ecasglez's FortranUtilities</title>
+    <title>Compilation on Linux &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/pygments.css" rel="stylesheet">
@@ -110,7 +110,7 @@
     <div class="container">
     
   <div class="row">
-    <h1>Compilation</h1>
+    <h1>Compilation on Linux</h1>
     <div class="row">
     <div class="col-lg-12">
     <div class="well well-sm" style="min-height: 40px;">
@@ -123,20 +123,15 @@
          
 <!--
         
-        <li><i class="fa fa-sitemap"></i> Subsections:</li>
-        
-        <li><a href='../../page/Compilation/Linux.html'>Compilation on Linux</a></li>
-        
-        <li><a href='../../page/Compilation/Windows.html'>Compilation on Windows</a></li>
-        
-        
 -->
       </ul>
         <ol class="breadcrumb in-well">
       
          <li><a href='../../page/index.html'>General documentation</a></li>
       
-         <li class="active">Compilation</li>
+         <li><a href='../../page/Compilation/index.html'>Compilation</a></li>
+      
+         <li class="active">Compilation on Linux</li>
       </ol>
     </div>
     </div>
@@ -145,7 +140,51 @@
   
   <div class="row">
     <div class="col-md-9 col-md-push-3" id='text'>
-      <p>Ecasglez's FortranUitilities has been tested in both <a href="Linux.html">Linux</a> and <a href="Windows.html">Windows</a> and platforms using different compilers. MacOS has not been tested.</p>
+      <h3 id="requirements">Requirements</h3>
+<ul>
+<li>cmake 3.11 or newer.</li>
+<li>A Fortran compiler compatible with Fortran 2008. Tested with:<ul>
+<li>Gfortran 7.5 or newer.</li>
+<li>Intel Fortran compiler 16 or newer.</li>
+<li>Flang compiler from AMD AOCC.</li>
+<li>PGI compiler 20 or newer from Nvidia HPC-SDK.</li>
+</ul>
+</li>
+<li>A C++ compiler compatible with C++ 17. Tested with:<ul>
+<li>G++ 7.5 or newer.</li>
+<li>Intel C++ compiler 19 or newer.</li>
+<li>Clang 6 or newer, oficial clang or clang from AMD AOCC.</li>
+<li>PGI compiler 20 or newer from Nvidia HPC-SDK.</li>
+</ul>
+</li>
+</ul>
+<h3 id="compilation">Compilation</h3>
+<ol>
+<li>
+<p>Download the sources and enter directory FortranUtilities. Then create a build directory and enter that directory:</p>
+<p><code>mkdir build</code></p>
+<p><code>cd build</code></p>
+</li>
+<li>
+<p>Prepare compilation files. To use default options and compiler on your system type:</p>
+<p><code>cmake ..</code></p>
+<p>Optionally you can select an install directory by typing:</p>
+<p><code>cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/</code></p>
+<p>You can specify a different compiler by typing:</p>
+<p><code>CC=icc CXX=icc FC=ifort cmake ..</code></p>
+<p>You can use a Fortran compiler and a C++ compiler from a different vendor. For example, to use Intel Fortran compiler and G++, type:</p>
+<p><code>CC=gcc CXX=g++ FC=ifort cmake ..</code></p>
+</li>
+<li>
+<p>Compile typing:</p>
+<p><code>make</code></p>
+</li>
+<li>
+<p>Install:</p>
+<p><code>make install</code></p>
+</li>
+</ol>
+<p>A static and a shared library are created. Tests programs for both libraries are created too.</p>
     </div>
     
     <div class="col-md-3 col-md-pull-9">
@@ -162,12 +201,12 @@
             
             </li>
             
-            <li role="presentation" class="disabled">
+            <li role="presentation">
             <a href='../../page/Compilation/index.html'>Compilation</a>
             
             <ul class="nav nav-stacked nav-pills">
               
-            <li role="presentation">
+            <li role="presentation" class="disabled">
             <a href='../../page/Compilation/Linux.html'>Compilation on Linux</a>
             
             </li>

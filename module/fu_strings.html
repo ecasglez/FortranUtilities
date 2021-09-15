@@ -433,7 +433,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -449,7 +449,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -465,7 +465,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -483,7 +483,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
     </li>
@@ -554,7 +554,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -570,7 +570,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -586,7 +586,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -604,7 +604,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
     </li>
@@ -675,7 +675,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -691,7 +691,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -707,7 +707,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -725,7 +725,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
     </li>
@@ -796,7 +796,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -812,7 +812,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -828,7 +828,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -846,7 +846,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
     </li>
@@ -1694,7 +1694,7 @@ private elemental function str2num_i8(str, mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
- It is only used to set the type of the return value, so it can be any value.</p></td>
+It is only used to set the type of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -1767,7 +1767,7 @@ private elemental function str2num_i16(str, mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
- It is only used to set the type of the return value, so it can be any value.</p></td>
+It is only used to set the type of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -1840,7 +1840,7 @@ private elemental function str2num_i32(str, mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
- It is only used to set the type of the return value, so it can be any value.</p></td>
+It is only used to set the type of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -1913,7 +1913,7 @@ private elemental function str2num_i64(str, mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
- It is only used to set the type of the return value, so it can be any value.</p></td>
+It is only used to set the type of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -1986,7 +1986,7 @@ private elemental function str2num_sp(str, mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
- It is only used to set the type of the return value, so it can be any value.</p></td>
+It is only used to set the type of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -2059,7 +2059,7 @@ private elemental function str2num_dp(str, mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
- It is only used to set the type of the return value, so it can be any value.</p></td>
+It is only used to set the type of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -2132,7 +2132,7 @@ private elemental function str2num_qp(str, mold) result(res)
   
   <td></td><td>::</td>
   <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
- It is only used to set the type of the return value, so it can be any value.</p></td>
+It is only used to set the type of the return value, so it can be any value.</p></td>
   
 </tr>
 
@@ -2365,8 +2365,8 @@ public elemental function <a href='../proc/startswith.html'>startsWith</a>(str, 
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the string starts with the substring and False otherwise. If
- substr is empty it returns True. If the input is an array, the returned
- values will also be in an array.</p>
+substr is empty it returns True. If the input is an array, the returned
+values will also be in an array.</p>
     
 
   </div>
@@ -2467,8 +2467,8 @@ public elemental function <a href='../proc/endswith.html'>endsWith</a>(str, subs
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the string ends with the substring and False otherwise. If 
- substr is empty it returns True. If the input is an array, the returned
- values will also be in an array.</p>
+substr is empty it returns True. If the input is an array, the returned
+values will also be in an array.</p>
     
 
   </div>

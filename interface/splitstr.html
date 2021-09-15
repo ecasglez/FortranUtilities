@@ -222,7 +222,7 @@
     <div class="col-md-9" id='text'>
       <h2>public interface splitstr</h2>
    <p>Splits a string and returns the portion selected by the user.</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="n">t</span> <span class="o">=</span> <span class="n">splitstr</span><span class="p">(</span><span class="n">str</span><span class="p">,</span> <span class="n">fieldNumber</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">rev</span><span class="p">,</span> <span class="n">mergedelim</span><span class="p">)</span>
 </code></pre></div>
 
@@ -240,7 +240,7 @@
 </ul>
 <p>It returns a string with the selected part of str. If the fieldNumber does not exists
  or if the delimiter does not exists it returns an empty string.</p>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following program extracts some portions of a text:</p>
 <div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">splitstrExample</span>
     <span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">splitstr</span>
@@ -392,7 +392,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -408,7 +408,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -424,7 +424,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -442,7 +442,7 @@ private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) 
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
   </div>
@@ -516,7 +516,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -532,7 +532,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -548,7 +548,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -566,7 +566,7 @@ private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim)
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
   </div>
@@ -640,7 +640,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -656,7 +656,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -672,7 +672,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -690,7 +690,7 @@ private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim)
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
   </div>
@@ -764,7 +764,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
- Optional parameter. Default is Space.</p></td>
+Optional parameter. Default is Space.</p></td>
   
 </tr>
 
@@ -780,7 +780,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -796,7 +796,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
   
   <td></td><td>::</td>
   <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 
@@ -814,7 +814,7 @@ private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim)
      <h4>Return Value <small>character(len=:),
   ALLOCATABLE</small></h4>
   <p>A string with the selected part of str. If the fieldNumber does not exists
- or if the delimiter does not exists it returns an empty string.</p>
+or if the delimiter does not exists it returns an empty string.</p>
     
 
   </div>

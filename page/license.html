@@ -10,7 +10,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>mkdir &ndash; ecasglez's FortranUtilities</title>
+    <title>License &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -109,256 +109,116 @@
 
     <div class="container">
     
-  
   <div class="row">
-    <h1>mkdir
-      <small>Function</small>
-    
-    </h1>
-    
-<div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     
-     <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
-     
-     
-    <li><i class="fa fa-calendar-o"></i> 16/06/2020.</li>
-     
-     
-    <li><i class="fa fa-legal"></i> MIT.</li>
-     
-     
-     
-    <li><i class="fa fa-barcode"></i> 1.0.</li>
-    
-    
-    
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 3.0% of total for procedures.">13 statements</a>
-     </li> 
-     
-     
-     
-    <li><i class="fa fa-code"></i><a href="../src/Files_M.F90"> Source File</a></li>
-     
-     
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-  
-    
-     <li><a href='../sourcefile/files_m.f90.html'>Files_M.F90</a></li>
-    
-     <li><a href='../module/fu_files.html'>FU_Files</a></li>
-    
-  
-     <li class="active">mkdir</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
-
+    <h1>License</h1>
+    <div class="row">
+    <div class="col-lg-12">
+    <div class="well well-sm" style="min-height: 40px;">
+      <ul class="list-inline" style="margin-bottom:0px; display:inline">
+         
+        <li><i class="fa fa-pencil"></i> Emilio Castro</li>
+         
+         
+        <li><i class="fa fa-calendar-o"></i> 9/09/2021</li>
+         
+<!--
+        
+-->
+      </ul>
+        <ol class="breadcrumb in-well">
+      
+         <li><a href='../page/index.html'>General documentation</a></li>
+      
+         <li class="active">License</li>
+      </ol>
+    </div>
+    </div>
+    </div>
   </div>
   
   <div class="row">
-    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    
-<div id="sidebar">
-  
-<h3>Contents</h3>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<em>None</em>
-
-
-</div>
-
+    <div class="col-md-9 col-md-push-3" id='text'>
+      <p>MIT License</p>
+<p>Copyright (c) 2020-2021 Emilio Castro</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
     </div>
     
-    <div class="col-md-9" id='text'>
-    <h2>
-public function mkdir(dir, ignoreErrors) result(res)
-    
-    
-   
-</h2>
-    
-  
-
-
-    
-    <p>Creates a directory.</p>
-<h3 id="syntax">Syntax</h3>
-<div class="codehilite"><pre><span></span><code> <span class="n">l</span> <span class="o">=</span> <span class="n">mkdir</span><span class="p">(</span><span class="n">dir</span><span class="p">,</span> <span class="n">ignoreErrors</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p>Where:</p>
-<ul>
-<li><code>dir</code>: Path and name of the directory to be created.</li>
-<li><code>ignoreErrors</code>: False to print a detailed description of the error message.
- Optional parameter. Default is False.</li>
-</ul>
-<p>It returns True if the process has been succesful or False in case of error.</p>
-<h3 id="example">Example</h3>
-<p>The following program creates folder tmp:</p>
-<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">mkdirExample</span>
-    <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">mkdir</span>
-    <span class="k">IMPLICIT NONE</span>
-<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span> <span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">path</span>
-    <span class="n">path</span><span class="o">=</span><span class="s1">&#39;tmp&#39;</span>
-    <span class="k">IF</span> <span class="p">(</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="k">THEN</span>
-<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Success&#39;</span>
-    <span class="k">ELSE</span>
-<span class="k">       WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Error&#39;</span>
-    <span class="k">END IF</span>
-<span class="k"> END PROGRAM </span><span class="n">mkdirExample</span>
-</code></pre></div>
-    
-
-    <h3>Arguments</h3>
-    
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-dir"></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>dir</strong></td><td><p>Path and name of the directory to be created.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-ignoreerrors"></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-    
-    
-    
-    
-    
-    
-    
-   <h3>Return Value <small><span class="anchor" id="variable-res%7E8"></span>logical
-  </small></h3>
-    <p>True if the process has been succesful. False in case of error.</p>
-    
-    
-    
-     
-    <br>
-
-    <section class="visible-xs visible-sm hidden-md">
-      
-<h3>Contents</h3>
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<em>None</em>
-
-
-    </section>
-    <br class="visible-xs visible-sm hidden-md">
-
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-
-    
-    
-    
-    
+    <div class="col-md-3 col-md-pull-9">
+      <hr class="visible-xs visible-sm">
+        <div class="well toc">
+          <ul class="nav nav-stacked nav-pills">
+            <li role="presentation" class="title"><a href='../page/index.html'>General documentation</a></li>
+          </ul>
+          <hr>
+          <ul class="nav nav-stacked nav-pills">
+            
+            <li role="presentation" class="disabled">
+            <a href='../page/./license.html'>License</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../page/Compilation/index.html'>Compilation</a>
+            
+            <ul class="nav nav-stacked nav-pills">
+              
+            <li role="presentation">
+            <a href='../page/Compilation/Linux.html'>Compilation on Linux</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../page/Compilation/Windows.html'>Compilation on Windows</a>
+            
+            </li>
+            
+            </ul>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../page/Examples/index.html'>Examples</a>
+            
+            <ul class="nav nav-stacked nav-pills">
+              
+            <li role="presentation">
+            <a href='../page/Examples/Example01/index.html'>Timing and Statistics usage (with OpenMP)</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../page/Examples/Example02/index.html'>Calculate mean value of a rank 3 array.</a>
+            
+            </li>
+            
+            <li role="presentation">
+            <a href='../page/Examples/Example03/index.html'>Load data and calculate regression coefficients.</a>
+            
+            </li>
+            
+            </ul>
+            
+            </li>
+            
+          </ul>
+        </div>
     </div>
+    
   </div>
-
 
     <hr>    
     </div> <!-- /container -->

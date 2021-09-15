@@ -218,7 +218,7 @@ public function mv(src, dest, ignoreErrors) result(res)
     <p>Moves or renames a file or directory. When moving a directory if the 
  destination is an already existing directory which is not empty an error is shown
  and nothing is done. The destination folder must be removed first using function rm.</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="n">l</span> <span class="o">=</span> <span class="n">mv</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">,</span> <span class="n">ignoreErrors</span><span class="p">)</span>
 </code></pre></div>
 
@@ -231,7 +231,7 @@ public function mv(src, dest, ignoreErrors) result(res)
  Optional parameter. Default is False.</li>
 </ul>
 <p>It returns True if the process has been succesful or False in case of error.</p>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following program moves or renames file1 to file2:</p>
 <div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">mvExample</span>
     <span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">mv</span>
@@ -302,7 +302,7 @@ public function mv(src, dest, ignoreErrors) result(res)
   
   <td></td><td>::</td>
   <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message. 
- Optional parameter. Default is False.</p></td>
+Optional parameter. Default is False.</p></td>
   
 </tr>
 

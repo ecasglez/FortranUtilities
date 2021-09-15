@@ -221,7 +221,7 @@
       <h2>public interface ne</h2>
    <p>Tests two real numberes for inequality using a tolerance if provided by the user,
  or selecting a tolerance automatically otherwise.</p>
-<h3>Syntax</h3>
+<h3 id="syntax">Syntax</h3>
 <div class="codehilite"><pre><span></span><code> <span class="n">n</span> <span class="o">=</span> <span class="n">ne</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
 </code></pre></div>
 
@@ -235,7 +235,7 @@
 </ul>
 <p>It returns True both numbers are not equal according to the selected tolerance and
  False otherwise</p>
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 <p>The following program tests if two real numbers are not equal: </p>
 <div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">neExample</span>
     <span class="k">USE </span><span class="n">FU_Numbers</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">ne</span>
@@ -368,7 +368,7 @@ private elemental function ne_sp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -386,7 +386,7 @@ private elemental function ne_sp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the numbers are not equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
   </div>
@@ -460,7 +460,7 @@ private elemental function ne_dp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -478,7 +478,7 @@ private elemental function ne_dp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the numbers are not equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
   </div>
@@ -552,7 +552,7 @@ private elemental function ne_qp(x1, x2, eps) result(res)
   
   <td></td><td>::</td>
   <td><strong>eps</strong></td><td><p>User selected tolerance for the comparison. If not provided
- it will be selected automatically.</p></td>
+it will be selected automatically.</p></td>
   
 </tr>
 
@@ -570,7 +570,7 @@ private elemental function ne_qp(x1, x2, eps) result(res)
      <h4>Return Value <small>logical
   </small></h4>
   <p>True if the numbers are not equal according to the selected tolerance.
- False otherwise.</p>
+False otherwise.</p>
     
 
   </div>

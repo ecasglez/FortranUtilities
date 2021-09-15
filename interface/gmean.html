@@ -220,10 +220,10 @@
     <div class="col-md-9" id='text'>
       <h2>public interface gmean</h2>
    <p>Calculates the geometric mean of a set of values given in a vector
- of any size with one dimension applying the following equation:</p>
+of any size with one dimension applying the following equation:</p>
 <p>
 <script type="math/tex; mode=display">\overline{x} = \left(\prod\limits_{i=1}^{n}x_{i}\right)^\frac{1}{n}
- = \sqrt[n]{x_{1} \times x_{2} \times \dots \times x_{n}}</script>
+= \sqrt[n]{x_{1} \times x_{2} \times \dots \times x_{n}}</script>
 </p>
 <p>where:</p>
 <ul>
@@ -233,11 +233,14 @@
 <script type="math/tex">n</script> is how many numbers are included in <script type="math/tex">x</script>.</li>
 </ul>
 <p>Usage:</p>
-<p><code>y = gmean(x)</code></p>
+<div class="codehilite"><pre><span></span><code>y = gmean(x)
+</code></pre></div>
+
+
 <p>where:</p>
 <ul>
 <li><code>x</code> = vector of rank 1 with real numbers. See examples to use an array of
- rank larger than 1.</li>
+rank larger than 1.</li>
 <li><code>y</code> = real number of the same kind as <code>x</code> with the geometric mean of <code>x</code>.</li>
 </ul>
      
@@ -333,7 +336,7 @@ private pure function gmean_sp(x) result(res)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -394,7 +397,7 @@ private pure function gmean_dp(x) result(res)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -455,7 +458,7 @@ private pure function gmean_qp(x) result(res)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers to calculate the geometric mean. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 

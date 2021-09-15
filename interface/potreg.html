@@ -220,7 +220,7 @@
     <div class="col-md-9" id='text'>
       <h2>public interface potreg</h2>
    <p>Performs potential regression between two sets of values,
- obtaining parameters <script type="math/tex">a</script> and <script type="math/tex">b</script> of the following equation.</p>
+obtaining parameters <script type="math/tex">a</script> and <script type="math/tex">b</script> of the following equation.</p>
 <p>
 <script type="math/tex; mode=display">y = b \cdot x^a</script>
 </p>
@@ -233,11 +233,14 @@
 </ul>
 <p>Parameter <script type="math/tex">R^2</script> is also calculated to determine the goodness of fit.</p>
 <p>Usage:</p>
-<p><code>CALL potreg(x,y,a,b,R2)</code></p>
+<div class="codehilite"><pre><span></span><code><span class="n">CALL</span> <span class="n">potreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">R2</span><span class="p">)</span>
+</code></pre></div>
+
+
 <p>where:</p>
 <ul>
 <li><code>x</code> and <code>y</code> = vectors of rank 1 with real numbers. See examples to use an array of
- rank larger than 1.</li>
+rank larger than 1.</li>
 <li><code>a</code>, <code>b</code> = regression coefficients calculated by the subroutine.</li>
 <li><code>R2</code> = the determination coefficient to measure the goodness of fit, calculated by the subroutine.</li>
 </ul>
@@ -300,7 +303,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-potreg_sp"></span><h3>
-private subroutine potreg_sp(x, y, a, b, R2)
+private pure subroutine potreg_sp(x, y, a, b, R2)
     
     
    
@@ -334,7 +337,7 @@ private subroutine potreg_sp(x, y, a, b, R2)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -350,7 +353,7 @@ private subroutine potreg_sp(x, y, a, b, R2)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -413,7 +416,7 @@ private subroutine potreg_sp(x, y, a, b, R2)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-potreg_dp"></span><h3>
-private subroutine potreg_dp(x, y, a, b, R2)
+private pure subroutine potreg_dp(x, y, a, b, R2)
     
     
    
@@ -447,7 +450,7 @@ private subroutine potreg_dp(x, y, a, b, R2)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -463,7 +466,7 @@ private subroutine potreg_dp(x, y, a, b, R2)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -526,7 +529,7 @@ private subroutine potreg_dp(x, y, a, b, R2)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-potreg_qp"></span><h3>
-private subroutine potreg_qp(x, y, a, b, R2)
+private pure subroutine potreg_qp(x, y, a, b, R2)
     
     
    
@@ -560,7 +563,7 @@ private subroutine potreg_qp(x, y, a, b, R2)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>x</strong></td><td><p>Vector of real numbers with the values of the first variable. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
@@ -576,7 +579,7 @@ private subroutine potreg_qp(x, y, a, b, R2)
   
   <td>DIMENSION(:)</td><td>::</td>
   <td><strong>y</strong></td><td><p>Vector of real numbers with the values of the second variable. It can
- have any size and it must have one dimension.</p></td>
+have any size and it must have one dimension.</p></td>
   
 </tr>
 
