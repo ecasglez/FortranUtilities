@@ -19,6 +19,7 @@ exclude: include_median.f90
 sort: permission
 project_download: https://github.com/ecasglez/FortranUtilities/archive/master.zip
 page_dir: documentation
+md_extensions: markdown.extensions.toc
 
 @Note
 This is Work-in-Progress. More functions are being added and documentation is being improved.

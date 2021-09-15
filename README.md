@@ -6,7 +6,7 @@ This is a BETA version. All functions work properly on Linux using gfortran 7.5 
 
 ## Download
 
-   The latest version of this library can be obtained from the GitHub repository located [here](https://github.com/ecasglez/FortranUtilities).
+The latest version of this library can be obtained from the GitHub repository located [here](https://github.com/ecasglez/FortranUtilities).
 
 ## Compilation
 
