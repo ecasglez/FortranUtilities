@@ -46,22 +46,36 @@ MODULE FU_Statistics
       !!
       !! $$\overline{x} = \frac{\sum\limits_{i=1}^n x_{i}}{n}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = mean(x)
-      !! ```
+      !!```Fortran
+      !!y = mean(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the mean value of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the mean value of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM meanExample
+      !!    USE FU_Statistics, ONLY: mean
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) mean(x)
+      !! END PROGRAM meanExample
+      !!```
       MODULE PROCEDURE mean_sp
       MODULE PROCEDURE mean_dp
 #ifdef QPREC_FPP
@@ -83,22 +97,36 @@ MODULE FU_Statistics
       !! $$\overline{x} = \left(\prod\limits_{i=1}^{n}x_{i}\right)^\frac{1}{n}
       !! = \sqrt[n]{x_{1} \times x_{2} \times \dots \times x_{n}}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = gmean(x)
-      !! ```
+      !!```Fortran
+      !!y = gmean(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the geometric mean of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the geometric mean value of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM gmeanExample
+      !!    USE FU_Statistics, ONLY: gmean
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) gmean(x)
+      !! END PROGRAM gmeanExample
+      !!```
       MODULE PROCEDURE gmean_sp
       MODULE PROCEDURE gmean_dp
 #ifdef QPREC_FPP
@@ -119,22 +147,36 @@ MODULE FU_Statistics
       !! $$\sigma^{2} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
       !!              \overline{x}\right)^2}{n-1}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = variance(x)
-      !! ```
+      !!```Fortran
+      !!y = variance(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the sample variance of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the variance of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM varianceExample
+      !!    USE FU_Statistics, ONLY: variance
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) variance(x)
+      !! END PROGRAM varianceExample
+      !!```
       MODULE PROCEDURE variance_sp
       MODULE PROCEDURE variance_dp
 #ifdef QPREC_FPP
@@ -156,22 +198,36 @@ MODULE FU_Statistics
       !! $$\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n}\left(x_{i} -
       !!              \overline{x}\right)^2}{n-1}}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = stdev(x)
-      !! ```
+      !!```Fortran
+      !!y = stdev(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the sample standard deviation of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the sample standard deviation of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM stdevExample
+      !!    USE FU_Statistics, ONLY: stdev
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) stdev(x)
+      !! END PROGRAM stdevExample
+      !!```
       MODULE PROCEDURE stdev_sp
       MODULE PROCEDURE stdev_dp
 #ifdef QPREC_FPP
@@ -192,22 +248,36 @@ MODULE FU_Statistics
       !! $$\sigma^{2} = \frac{\sum\limits_{i=1}^{n}\left(x_{i} -
       !!              \overline{x}\right)^2}{n}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = pvariance(x)
-      !! ```
+      !!```Fortran
+      !!y = pvariance(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the population variance of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the population variance of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM pvarianceExample
+      !!    USE FU_Statistics, ONLY: pvariance
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) pvariance(x)
+      !! END PROGRAM pvarianceExample
+      !!```
       MODULE PROCEDURE pvariance_sp
       MODULE PROCEDURE pvariance_dp
 #ifdef QPREC_FPP
@@ -229,22 +299,36 @@ MODULE FU_Statistics
       !! $$\sigma = \sqrt{\frac{\sum\limits_{i=1}^{n}\left(x_{i} -
       !!              \overline{x}\right)^2}{n}}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = pstdev(x)
-      !! ```
+      !!```Fortran
+      !!y = pstdev(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the population standard deviation of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the population standard deviation of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM pstdevExample
+      !!    USE FU_Statistics, ONLY: pstdev
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) pstdev(x)
+      !! END PROGRAM pstdevExample
+      !!```
       MODULE PROCEDURE pstdev_sp
       MODULE PROCEDURE pstdev_dp
 #ifdef QPREC_FPP
@@ -267,22 +351,37 @@ MODULE FU_Statistics
       !!              \overline{x}\right)\left(y_{i} -
       !!              \overline{y}\right)}{n-1}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) and \(y\) are vectors with real numbers.
       !! * \(n\) is how many numbers are included in \(x\) and \(y\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! z = covariance(x,y)
-      !! ```
+      !!```Fortran
+      !!z = covariance(x,y)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the sample covariance of ```x``` and ```y```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the covariance between two variables:
+      !!
+      !!```Fortran
+      !! PROGRAM covarianceExample
+      !!    USE FU_Statistics, ONLY: covariance
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    REAL, DIMENSION(5) :: y = [6., 7., 8., 9., 10.]
+      !!    WRITE(*,*) covariance(x, y)
+      !! END PROGRAM covarianceExample
+      !!```
       MODULE PROCEDURE covariance_sp
       MODULE PROCEDURE covariance_dp
 #ifdef QPREC_FPP
@@ -305,22 +404,37 @@ MODULE FU_Statistics
       !!              \overline{x}\right)\left(y_{i} -
       !!              \overline{y}\right)}{n}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) and \(y\) are vectors with real numbers.
       !! * \(n\) is how many numbers are included in \(x\) and \(y\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! z = pcovariance(x,y)
-      !! ```
+      !!```Fortran
+      !!z = pcovariance(x,y)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the population covariance of ```x``` and ```y```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the population covariance between two variables:
+      !!
+      !!```Fortran
+      !! PROGRAM pcovarianceExample
+      !!    USE FU_Statistics, ONLY: pcovariance
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    REAL, DIMENSION(5) :: y = [6., 7., 8., 9., 10.]
+      !!    WRITE(*,*) pcovariance(x, y)
+      !! END PROGRAM pcovarianceExample
+      !!```
       MODULE PROCEDURE pcovariance_sp
       MODULE PROCEDURE pcovariance_dp
 #ifdef QPREC_FPP
@@ -342,22 +456,37 @@ MODULE FU_Statistics
       !! $$\rho_{xy} = \frac{\sigma_{xy}
       !!                 }{\sigma_{x} \sigma_{y}}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) and \(y\) are vectors with real numbers.
       !! * \(n\) is how many numbers are included in \(x\) and \(y\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! z = correlation(x,y)
-      !! ```
+      !!```Fortran
+      !!z = correlation(x,y)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```z``` = real number of the same kind as ```x``` and ```y``` with the correlation coefficient of ```x``` and ```y```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the correlation coefficient between two variables:
+      !!
+      !!```Fortran
+      !! PROGRAM correlationExample
+      !!    USE FU_Statistics, ONLY: correlation
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    REAL, DIMENSION(5) :: y = [6., 7., 8., 9., 10.]
+      !!    WRITE(*,*) correlation(x, y)
+      !! END PROGRAM correlationExample
+      !!```
       MODULE PROCEDURE correlation_sp
       MODULE PROCEDURE correlation_dp
 #ifdef QPREC_FPP
@@ -378,7 +507,8 @@ MODULE FU_Statistics
       !! formula is applied:
       !!
       !! $$\sigma^2_{y} = S \Sigma^{X} S^\intercal$$
-      !! where:
+      !!
+      !! Where:
       !!
       !! * \(y\) is the response whose uncertainty is to be calculated.
       !! * \(X\) is a set of input parameters to propagate their uncertainty to \(y\).
@@ -386,18 +516,33 @@ MODULE FU_Statistics
       !!   different parameters in \(X\).
       !! * \(\Sigma^{x}\) is the covariance matrix of the parameters in \(X\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = lin_error_propagation(s,m)
-      !! ```
+      !!```Fortran
+      !!y = lin_error_propagation(s,m)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
       !! * ```s``` = vector of rank 1 with real numbers containing the sensitivity coefficients.
       !! * ```m``` = array of rank 2 containing the covariance matrix.
       !! * ```y``` = real number of the same kind as ```s``` and ```m``` with the
       !! error or uncertainty propagated to this new variable.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the linearly propagated error:
+      !!
+      !!```Fortran
+      !! PROGRAM lin_error_propagationExample
+      !!    USE FU_Statistics, ONLY: lin_error_propagation
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(3) :: s = [1., 2., 3.]
+      !!    REAL, DIMENSION(3,3) :: m = &
+      !!       RESHAPE((/0.5, 2., 3., 2., 5.4, 6., 3., 6., 3.3/),SHAPE(m))
+      !!    WRITE(*,*) lin_error_propagation(s, m)
+      !! END PROGRAM lin_error_propagationExample
+      !!```
       MODULE PROCEDURE lin_error_propagation_sp
       MODULE PROCEDURE lin_error_propagation_dp
 #ifdef QPREC_FPP
@@ -416,17 +561,31 @@ MODULE FU_Statistics
       !! This function does not work with quadruple precision numbers
       !! because of the ordering subroutine written in C++.
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = median(x)
-      !! ```
+      !!```Fortran
+      !!y = median(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the median of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the median of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM medianExample
+      !!    USE FU_Statistics, ONLY: median
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) median(x)
+      !! END PROGRAM medianExample
+      !!```
       MODULE PROCEDURE median_sp
       MODULE PROCEDURE median_dp
    END INTERFACE median
@@ -447,22 +606,36 @@ MODULE FU_Statistics
       !!               }\sum\limits_{i=1}^{n}\left( \frac{x_{i}-\overline{x}
       !!               }{\sigma_{x}} \right)^3$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = skewness(x)
-      !! ```
+      !!```Fortran
+      !!y = skewness(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the sample skewness of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the sample skewness of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM skewnessExample
+      !!    USE FU_Statistics, ONLY: skewness
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) skewness(x)
+      !! END PROGRAM skewnessExample
+      !!```
       MODULE PROCEDURE skewness_sp
       MODULE PROCEDURE skewness_dp
 #ifdef QPREC_FPP
@@ -485,22 +658,36 @@ MODULE FU_Statistics
       !!               }\sum\limits_{i=1}^{n}\left( \frac{x_{i}-\overline{x}
       !!               }{\sigma_{x}} \right)^3$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) is a vector with real numbers.
       !! * \(n\) is how many numbers are included in \(x\).
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! y = pskewness(x)
-      !! ```
+      !!```Fortran
+      !!y = pskewness(x)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` = vector of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` = vector of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```y``` = real number of the same kind as ```x``` with the population skewness of ```x```.
+      !!
+      !!### Example
+      !!
+      !! The following program calculates the population skewness of a vector:
+      !!
+      !!```Fortran
+      !! PROGRAM pskewnessExample
+      !!    USE FU_Statistics, ONLY: pskewness
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    WRITE(*,*) pskewness(x)
+      !! END PROGRAM pskewnessExample
+      !!```
       MODULE PROCEDURE pskewness_sp
       MODULE PROCEDURE pskewness_dp
 #ifdef QPREC_FPP
@@ -548,25 +735,42 @@ MODULE FU_Statistics
       !!
       !! $$y = a \cdot x+b$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) and \(y\) are vectors with real numbers.
       !! * \(a\) and \(b\) are the regression coefficients.
       !!
       !! Parameter \(R^2\) is also calculated to measure the goodness of fit.
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! CALL linreg(x,y,a,b,R2)
-      !! ```
+      !!```Fortran
+      !!CALL linreg(x,y,a,b,R2)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      !!
+      !!### Example
+      !!
+      !! The following program performs a linear regression of two variables:
+      !!
+      !!```Fortran
+      !! PROGRAM linregExample
+      !!    USE FU_Statistics, ONLY: linreg
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    REAL, DIMENSION(5) :: y = [3., 4., 5., 6., 7.]
+      !!    REAL :: a, b, R2
+      !!    CALL linreg(x, y, a, b, R2)
+      !!    WRITE(*,*) a, b, R2
+      !! END PROGRAM linregExample
+      !!```
       MODULE PROCEDURE linreg_sp
       MODULE PROCEDURE linreg_dp
 #ifdef QPREC_FPP
@@ -586,25 +790,42 @@ MODULE FU_Statistics
       !!
       !! $$y = a \cdot ln(x)+b$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) and \(y\) are vectors with real numbers.
       !! * \(a\) and \(b\) are the regression coefficients.
       !!
       !! Parameter \(R^2\) is also calculated to determine the goodness of fit.
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! CALL logreg(x,y,a,b,R2)
-      !! ```
+      !!```Fortran
+      !!CALL logreg(x,y,a,b,R2)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      !!
+      !!### Example
+      !!
+      !! The following program performs a logarithmic regression of two variables:
+      !!
+      !!```Fortran
+      !! PROGRAM logregExample
+      !!    USE FU_Statistics, ONLY: logreg
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    REAL, DIMENSION(5) :: y = [3., 4., 5., 6., 7.]
+      !!    REAL :: a, b, R2
+      !!    CALL logreg(x, y, a, b, R2)
+      !!    WRITE(*,*) a, b, R2
+      !! END PROGRAM logregExample
+      !!```
       MODULE PROCEDURE logreg_sp
       MODULE PROCEDURE logreg_dp
 #ifdef QPREC_FPP
@@ -624,25 +845,42 @@ MODULE FU_Statistics
       !!
       !! $$y = b \cdot e^{(a \cdot x)}$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) and \(y\) are vectors with real numbers.
       !! * \(a\) and \(b\) are the regression coefficients.
       !!
       !! Parameter \(R^2\) is also calculated to determine the goodness of fit.
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! CALL expreg(x,y,a,b,R2)
-      !! ```
+      !!```Fortran
+      !!CALL expreg(x,y,a,b,R2)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      !!
+      !!### Example
+      !!
+      !! The following program performs a exponential regression of two variables:
+      !!
+      !!```Fortran
+      !! PROGRAM expregExample
+      !!    USE FU_Statistics, ONLY: expreg
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    REAL, DIMENSION(5) :: y = [3., 4., 5., 6., 7.]
+      !!    REAL :: a, b, R2
+      !!    CALL expreg(x, y, a, b, R2)
+      !!    WRITE(*,*) a, b, R2
+      !! END PROGRAM expregExample
+      !!```
       MODULE PROCEDURE expreg_sp
       MODULE PROCEDURE expreg_dp
 #ifdef QPREC_FPP
@@ -662,25 +900,42 @@ MODULE FU_Statistics
       !!
       !! $$y = b \cdot x^a$$
       !!
-      !! where:
+      !! Where:
       !!
       !! * \(x\) and \(y\) are vectors with real numbers.
       !! * \(a\) and \(b\) are the regression coefficients.
       !!
       !! Parameter \(R^2\) is also calculated to determine the goodness of fit.
       !!
-      !! Usage:
+      !!### Syntax
       !!
-      !! ```
-      !! CALL potreg(x,y,a,b,R2)
-      !! ```
+      !!```Fortran
+      !!CALL potreg(x,y,a,b,R2)
+      !!```
       !!
-      !! where:
+      !! Where:
       !!
-      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers. See examples to use an array of
+      !! * ```x``` and ```y``` = vectors of rank 1 with real numbers.
+      !! See [this example](../page/Examples/Example02/index.html) to use an array of
       !! rank larger than 1.
       !! * ```a```, ```b``` = regression coefficients calculated by the subroutine.
       !! * ```R2``` = the determination coefficient to measure the goodness of fit, calculated by the subroutine.
+      !!
+      !!### Example
+      !!
+      !! The following program performs a potential regression of two variables:
+      !!
+      !!```Fortran
+      !! PROGRAM potregExample
+      !!    USE FU_Statistics, ONLY: potreg
+      !!    IMPLICIT NONE
+      !!    REAL, DIMENSION(5) :: x = [1., 2., 3., 4., 5.]
+      !!    REAL, DIMENSION(5) :: y = [3., 4., 5., 6., 7.]
+      !!    REAL :: a, b, R2
+      !!    CALL potreg(x, y, a, b, R2)
+      !!    WRITE(*,*) a, b, R2
+      !! END PROGRAM potregExample
+      !!```
       MODULE PROCEDURE potreg_sp
       MODULE PROCEDURE potreg_dp
 #ifdef QPREC_FPP
