@@ -220,11 +220,11 @@
     <div class="col-md-9" id='text'>
       <h2>public interface expreg</h2>
    <p>Performs exponential regression between two sets of values,
-obtaining parameters <script type="math/tex">a</script> and <script type="math/tex">b</script> of the following equation.</p>
+ obtaining parameters <script type="math/tex">a</script> and <script type="math/tex">b</script> of the following equation.</p>
 <p>
 <script type="math/tex; mode=display">y = b \cdot e^{(a \cdot x)}</script>
 </p>
-<p>where:</p>
+<p>Where:</p>
 <ul>
 <li>
 <script type="math/tex">x</script> and <script type="math/tex">y</script> are vectors with real numbers.</li>
@@ -232,18 +232,31 @@ obtaining parameters <script type="math/tex">a</script> and <script type="math/t
 <script type="math/tex">a</script> and <script type="math/tex">b</script> are the regression coefficients.</li>
 </ul>
 <p>Parameter <script type="math/tex">R^2</script> is also calculated to determine the goodness of fit.</p>
-<p>Usage:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">CALL</span> <span class="n">expreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">R2</span><span class="p">)</span>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">CALL </span><span class="n">expreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">R2</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>where:</p>
+<p>Where:</p>
 <ul>
-<li><code>x</code> and <code>y</code> = vectors of rank 1 with real numbers. See examples to use an array of
-rank larger than 1.</li>
+<li><code>x</code> and <code>y</code> = vectors of rank 1 with real numbers.
+ See <a href="../page/Examples/Example02/index.html">this example</a> to use an array of
+ rank larger than 1.</li>
 <li><code>a</code>, <code>b</code> = regression coefficients calculated by the subroutine.</li>
 <li><code>R2</code> = the determination coefficient to measure the goodness of fit, calculated by the subroutine.</li>
 </ul>
+<h3 id="example">Example</h3>
+<p>The following program performs a exponential regression of two variables:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">expregExample</span>
+    <span class="k">USE </span><span class="n">FU_Statistics</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">expreg</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">REAL</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">]</span>
+    <span class="kt">REAL</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="kd">::</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">]</span>
+    <span class="kt">REAL</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">R2</span>
+    <span class="k">CALL </span><span class="n">expreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">R2</span><span class="p">)</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">R2</span>
+ <span class="k">END PROGRAM </span><span class="n">expregExample</span>
+</code></pre></div>
      
      
     <br>

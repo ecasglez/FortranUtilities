@@ -218,19 +218,29 @@
     <div class="col-md-9" id='text'>
       <h2>public interface median</h2>
    <p>Calculates the median value.
-This function does not work with quadruple precision numbers
-because of the ordering subroutine written in C++.</p>
-<p>Usage:</p>
-<div class="codehilite"><pre><span></span><code>y = median(x)
+ This function does not work with quadruple precision numbers
+ because of the ordering subroutine written in C++.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>where:</p>
+<p>Where:</p>
 <ul>
-<li><code>x</code> = vector of rank 1 with real numbers. See examples to use an array of
-rank larger than 1.</li>
+<li><code>x</code> = vector of rank 1 with real numbers.
+ See <a href="../page/Examples/Example02/index.html">this example</a> to use an array of
+ rank larger than 1.</li>
 <li><code>y</code> = real number of the same kind as <code>x</code> with the median of <code>x</code>.</li>
 </ul>
+<h3 id="example">Example</h3>
+<p>The following program calculates the median of a vector:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">medianExample</span>
+    <span class="k">USE </span><span class="n">FU_Statistics</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">median</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">REAL</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">]</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">median</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+ <span class="k">END PROGRAM </span><span class="n">medianExample</span>
+</code></pre></div>
      
      
     <br>

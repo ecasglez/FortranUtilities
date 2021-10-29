@@ -220,30 +220,40 @@
     <div class="col-md-9" id='text'>
       <h2>public interface skewness</h2>
    <p>Calculates the sample skewness of a set of values given in a vector
-of any size with one dimension applying the following equation:</p>
+ of any size with one dimension applying the following equation:</p>
 <p>
 <script type="math/tex; mode=display">S_{x} = \frac{n}{\left( n-1 \right)\left( n-2 \right)
-              }\sum\limits_{i=1}^{n}\left( \frac{x_{i}-\overline{x}
-              }{\sigma_{x}} \right)^3</script>
+               }\sum\limits_{i=1}^{n}\left( \frac{x_{i}-\overline{x}
+               }{\sigma_{x}} \right)^3</script>
 </p>
-<p>where:</p>
+<p>Where:</p>
 <ul>
 <li>
 <script type="math/tex">x</script> is a vector with real numbers.</li>
 <li>
 <script type="math/tex">n</script> is how many numbers are included in <script type="math/tex">x</script>.</li>
 </ul>
-<p>Usage:</p>
-<div class="codehilite"><pre><span></span><code>y = skewness(x)
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">skewness</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>where:</p>
+<p>Where:</p>
 <ul>
-<li><code>x</code> = vector of rank 1 with real numbers. See examples to use an array of
-rank larger than 1.</li>
+<li><code>x</code> = vector of rank 1 with real numbers.
+ See <a href="../page/Examples/Example02/index.html">this example</a> to use an array of
+ rank larger than 1.</li>
 <li><code>y</code> = real number of the same kind as <code>x</code> with the sample skewness of <code>x</code>.</li>
 </ul>
+<h3 id="example">Example</h3>
+<p>The following program calculates the sample skewness of a vector:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">skewnessExample</span>
+    <span class="k">USE </span><span class="n">FU_Statistics</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">skewness</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">REAL</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">]</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">skewness</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+ <span class="k">END PROGRAM </span><span class="n">skewnessExample</span>
+</code></pre></div>
      
      
     <br>

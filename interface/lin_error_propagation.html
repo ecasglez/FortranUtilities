@@ -220,11 +220,12 @@
     <div class="col-md-9" id='text'>
       <h2>public interface lin_error_propagation</h2>
    <p>Performs linear error (or uncertainties) propagation given the
-sensitivity coefficients and a covariance matrix. The following
-formula is applied:</p>
+ sensitivity coefficients and a covariance matrix. The following
+ formula is applied:</p>
 <p>
 <script type="math/tex; mode=display">\sigma^2_{y} = S \Sigma^{X} S^\intercal</script>
-where:</p>
+</p>
+<p>Where:</p>
 <ul>
 <li>
 <script type="math/tex">y</script> is the response whose uncertainty is to be calculated.</li>
@@ -232,22 +233,33 @@ where:</p>
 <script type="math/tex">X</script> is a set of input parameters to propagate their uncertainty to <script type="math/tex">y</script>.</li>
 <li>
 <script type="math/tex">S</script> is the vector of sensitivity coefficients of <script type="math/tex">y</script> with respect to the
-  different parameters in <script type="math/tex">X</script>.</li>
+   different parameters in <script type="math/tex">X</script>.</li>
 <li>
 <script type="math/tex">\Sigma^{x}</script> is the covariance matrix of the parameters in <script type="math/tex">X</script>.</li>
 </ul>
-<p>Usage:</p>
-<div class="codehilite"><pre><span></span><code>y = lin_error_propagation(s,m)
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">lin_error_propagation</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>where:</p>
+<p>Where:</p>
 <ul>
 <li><code>s</code> = vector of rank 1 with real numbers containing the sensitivity coefficients.</li>
 <li><code>m</code> = array of rank 2 containing the covariance matrix.</li>
 <li><code>y</code> = real number of the same kind as <code>s</code> and <code>m</code> with the
-error or uncertainty propagated to this new variable.</li>
+ error or uncertainty propagated to this new variable.</li>
 </ul>
+<h3 id="example">Example</h3>
+<p>The following program calculates the linearly propagated error:</p>
+<div class="codehilite"><pre><span></span><code> <span class="k">PROGRAM </span><span class="n">lin_error_propagationExample</span>
+    <span class="k">USE </span><span class="n">FU_Statistics</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">lin_error_propagation</span>
+    <span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">REAL</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="kd">::</span> <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">]</span>
+    <span class="kt">REAL</span><span class="p">,</span> <span class="k">DIMENSION</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="kd">::</span> <span class="n">m</span> <span class="o">=</span> <span class="p">&amp;</span>
+       <span class="nb">RESHAPE</span><span class="p">((</span><span class="o">/</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">5.4</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">3.3</span><span class="o">/</span><span class="p">),</span><span class="nb">SHAPE</span><span class="p">(</span><span class="n">m</span><span class="p">))</span>
+    <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">lin_error_propagation</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+ <span class="k">END PROGRAM </span><span class="n">lin_error_propagationExample</span>
+</code></pre></div>
      
      
     <br>
