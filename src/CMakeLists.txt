@@ -28,11 +28,22 @@ set_target_properties(objlib objtests
 set_property(TARGET FortranUtilitiesTest PROPERTY LINKER_LANGUAGE Fortran)
 set_property(TARGET FortranUtilitiesTestStatic PROPERTY LINKER_LANGUAGE Fortran)
 
-install(TARGETS FortranUtilities FortranUtilitiesStatic 
+#On Windows, install all files in the same folder,
+#On Linux, install files using GNU folder structure.
+if (CMAKE_SYSTEM_NAME STREQUAL "Windows")
+   install(TARGETS FortranUtilities FortranUtilitiesStatic 
+	FortranUtilitiesTestStatic FortranUtilitiesTest
+	RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}
+	ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}
+	LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}
+	)
+   install(DIRECTORY ${LIB_MOD_DIR} DESTINATION ${CMAKE_INSTALL_PREFIX})
+else ()
+   install(TARGETS FortranUtilities FortranUtilitiesStatic 
 	FortranUtilitiesTestStatic FortranUtilitiesTest
 	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 	ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 	)
-
-install(DIRECTORY ${LIB_MOD_DIR} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+   install(DIRECTORY ${LIB_MOD_DIR} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+endif ()
