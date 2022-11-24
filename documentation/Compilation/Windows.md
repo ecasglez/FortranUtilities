@@ -13,7 +13,13 @@ date: 13/09/2020
 
 ### Compilation using MSYS2 environment ###
 
-MSYS2 can be downloaded [here](https://www.msys2.org/).
+MSYS2 can be downloaded [here](https://www.msys2.org/). The following packages must be installed:
+
+* mingw-w64-x86_64-ninja **OR** mingw-w64-x86_64-make.
+* mingw-w64-x86_64-gcc-fortran **AND** mingw-w64-x86_64-gcc.
+* mingw-w64-clang-x86_64-cmake.
+
+The follow this steps to compile:
 
 1. Download the sources, open MSYS2-Mingw-w64 terminal and enter directory FortranUtilities. Then create a build directory and enter that directory:
 
@@ -37,13 +43,29 @@ MSYS2 can be downloaded [here](https://www.msys2.org/).
       cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/
       ```
 
+      By default, cmake will use ninja. If you want to use make type:
+
+      ```
+      cmake .. -G "Unix Makefiles"
+      ```
+
 3. Compile typing:
+
+      ```
+      ninja
+      ```
+
+      or
 
       ```
       make
       ```
 
 4. Install:
+
+      ```
+      ninja install
+      ```
 
       ```
       make install
