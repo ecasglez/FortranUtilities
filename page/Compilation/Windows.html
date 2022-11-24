@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <meta name="description" content="ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.">
-    
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../../favicon.png">
 
@@ -16,10 +14,7 @@
     <link href="../../css/pygments.css" rel="stylesheet">
     <link href="../../css/font-awesome.min.css" rel="stylesheet">
     <link href="../../css/local.css" rel="stylesheet">
-    
     <link  href="../../tipuesearch/tipuesearch.css" rel="stylesheet">
-    
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,52 +43,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-        
             <li><a href='../../page/index.html'>General documentation</a></li>
-      
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
-              
             <li><a href="../../lists/files.html">Source Files</a></li>
-        
-        
-        
             <li><a href="../../lists/modules.html">Modules</a></li>
-        
-            
-                                
             <li><a href="../../lists/procedures.html">Procedures</a></li>
-        
-               
-               
-        
-        
+              
             </ul>
         
             </li>
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../../lists/files.html">Source Files</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../../lists/modules.html">Modules</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../../lists/procedures.html">Procedures</a></li>
-
-                             
-
-
-
-          </ul>
-        
+                                       </ul>
         <form action="../../search.html" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
@@ -102,35 +69,25 @@
         <button type="submit" class="btn btn-default">Submit</button>
 -->
         </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-    
   <div class="row">
     <h1>Compilation on Windows</h1>
     <div class="row">
     <div class="col-lg-12">
     <div class="well well-sm" style="min-height: 40px;">
       <ul class="list-inline" style="margin-bottom:0px; display:inline">
-         
         <li><i class="fa fa-pencil"></i> Emilio Castro</li>
-         
-         
         <li><i class="fa fa-calendar-o"></i> 13/09/2020</li>
-         
 <!--
-        
 -->
       </ul>
         <ol class="breadcrumb in-well">
-      
          <li><a href='../../page/index.html'>General documentation</a></li>
-      
          <li><a href='../../page/Compilation/index.html'>Compilation</a></li>
-      
          <li class="active">Compilation on Windows</li>
       </ol>
     </div>
@@ -152,7 +109,13 @@
 </li>
 </ul>
 <h3 id="compilation-using-msys2-environment">Compilation using MSYS2 environment</h3>
-<p>MSYS2 can be downloaded <a href="https://www.msys2.org/">here</a>.</p>
+<p>MSYS2 can be downloaded <a href="https://www.msys2.org/">here</a>. The following packages must be installed:</p>
+<ul>
+<li>mingw-w64-x86_64-ninja <strong>OR</strong> mingw-w64-x86_64-make.</li>
+<li>mingw-w64-x86_64-gcc-fortran <strong>AND</strong> mingw-w64-x86_64-gcc.</li>
+<li>mingw-w64-clang-x86_64-cmake.</li>
+</ul>
+<p>The follow this steps to compile:</p>
 <ol>
 <li>
 <p>Download the sources, open MSYS2-Mingw-w64 terminal and enter directory FortranUtilities. Then create a build directory and enter that directory:</p>
@@ -164,13 +127,18 @@
 <p><code>cmake ..</code></p>
 <p>Optionally you can select an install directory by typing:</p>
 <p><code>cmake .. -DCMAKE_INSTALL_PREFIX=/installation/path/</code></p>
+<p>By default, cmake will use ninja. If you want to use make type:</p>
+<p><code>cmake .. -G "Unix Makefiles"</code></p>
 </li>
 <li>
 <p>Compile typing:</p>
+<p><code>ninja</code></p>
+<p>or</p>
 <p><code>make</code></p>
 </li>
 <li>
 <p>Install:</p>
+<p><code>ninja install</code></p>
 <p><code>make install</code></p>
 </li>
 </ol>
@@ -199,7 +167,6 @@
 </li>
 </ol>
     </div>
-    
     <div class="col-md-3 col-md-pull-9">
       <hr class="visible-xs visible-sm">
         <div class="well toc">
@@ -208,75 +175,52 @@
           </ul>
           <hr>
           <ul class="nav nav-stacked nav-pills">
-            
             <li role="presentation">
             <a href='../../page/./license.html'>License</a>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../page/Compilation/index.html'>Compilation</a>
-            
             <ul class="nav nav-stacked nav-pills">
-              
-            <li role="presentation">
+                          <li role="presentation">
             <a href='../../page/Compilation/Linux.html'>Compilation on Linux</a>
-            
             </li>
-            
             <li role="presentation" class="disabled">
             <a href='../../page/Compilation/Windows.html'>Compilation on Windows</a>
-            
             </li>
-            
+
             </ul>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../page/Examples/index.html'>Examples</a>
-            
             <ul class="nav nav-stacked nav-pills">
-              
-            <li role="presentation">
+                          <li role="presentation">
             <a href='../../page/Examples/Example01/index.html'>Timing and Statistics usage (with OpenMP)</a>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../page/Examples/Example02/index.html'>Calculate mean value of a rank 3 array.</a>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../page/Examples/Example03/index.html'>Load data and calculate regression coefficients.</a>
-            
             </li>
-            
+
             </ul>
-            
             </li>
-            
           </ul>
         </div>
     </div>
-    
   </div>
-
     <hr>    
     </div> <!-- /container -->
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
-                                          </p>
+        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2022 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
         </div>
         <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
-            
-            
           </p>
         </div>
       </div>
@@ -304,14 +248,11 @@
         extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
     
     <script src="../../tipuesearch/tipuesearch_content.js"></script>
     <script src="../../tipuesearch/tipuesearch_set.js"></script>
     <script src="../../tipuesearch/tipuesearch.js"></script>
-    
     
   </body>
 </html>

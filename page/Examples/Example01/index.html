@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <meta name="description" content="ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.">
-    
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../../../favicon.png">
 
@@ -16,10 +14,7 @@
     <link href="../../../css/pygments.css" rel="stylesheet">
     <link href="../../../css/font-awesome.min.css" rel="stylesheet">
     <link href="../../../css/local.css" rel="stylesheet">
-    
     <link  href="../../../tipuesearch/tipuesearch.css" rel="stylesheet">
-    
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,52 +43,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-        
             <li><a href='../../../page/index.html'>General documentation</a></li>
-      
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
-              
             <li><a href="../../../lists/files.html">Source Files</a></li>
-        
-        
-        
             <li><a href="../../../lists/modules.html">Modules</a></li>
-        
-            
-                                
             <li><a href="../../../lists/procedures.html">Procedures</a></li>
-        
-               
-               
-        
-        
+              
             </ul>
         
             </li>
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../../../lists/files.html">Source Files</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../../../lists/modules.html">Modules</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../../../lists/procedures.html">Procedures</a></li>
-
-                             
-
-
-
-          </ul>
-        
+                                       </ul>
         <form action="../../../search.html" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
@@ -102,35 +69,25 @@
         <button type="submit" class="btn btn-default">Submit</button>
 -->
         </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-    
   <div class="row">
     <h1>Timing and Statistics usage (with OpenMP)</h1>
     <div class="row">
     <div class="col-lg-12">
     <div class="well well-sm" style="min-height: 40px;">
       <ul class="list-inline" style="margin-bottom:0px; display:inline">
-         
         <li><i class="fa fa-pencil"></i> Emilio Castro</li>
-         
-         
         <li><i class="fa fa-calendar-o"></i> 13/09/2020</li>
-         
 <!--
-        
 -->
       </ul>
         <ol class="breadcrumb in-well">
-      
          <li><a href='../../../page/index.html'>General documentation</a></li>
-      
          <li><a href='../../../page/Examples/index.html'>Examples</a></li>
-      
          <li class="active">Timing and Statistics usage (with OpenMP)</li>
       </ol>
     </div>
@@ -164,59 +121,57 @@ It generates a set of random numbers and then performs a lot of mean, variance a
 </li>
 </ul>
 <h2 id="code">Code</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example1</span>
-   <span class="c">! Example program for FU_Prec, FU_Statistics and FU_Timing modules of ecasglez&#39;s FortranUtilities.</span>
-   <span class="c">! It repeats a lot of mean, variance and median calculations using random numbers.</span>
-   <span class="c">! Uses OpenMP for parallel execution.</span>
-   <span class="c">! compile using: gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2</span>
-   <span class="c">! before running: export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}</span>
-   <span class="c">! run using: ./example1</span>
-   <span class="c">! license: MIT.</span>
+<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">FU_example1</span><span class="w"></span>
+<span class="w">   </span><span class="c">! Example program for FU_Prec, FU_Statistics and FU_Timing modules of ecasglez&#39;s FortranUtilities.</span>
+<span class="w">   </span><span class="c">! It repeats a lot of mean, variance and median calculations using random numbers.</span>
+<span class="w">   </span><span class="c">! Uses OpenMP for parallel execution.</span>
+<span class="w">   </span><span class="c">! compile using: gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2</span>
+<span class="w">   </span><span class="c">! before running: export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}</span>
+<span class="w">   </span><span class="c">! run using: ./example1</span>
+<span class="w">   </span><span class="c">! license: MIT.</span>
 
-   <span class="c">!$   USE omp_lib</span>
-   <span class="k">USE </span><span class="n">FU_Prec</span>      <span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">dp</span>
-   <span class="k">USE </span><span class="n">FU_statistics</span><span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">mean</span><span class="p">,</span> <span class="n">variance</span><span class="p">,</span> <span class="n">median</span>
-   <span class="k">USE </span><span class="n">FU_Timing</span>    <span class="p">,</span> <span class="k">ONLY</span><span class="p">:</span> <span class="n">resetTotalTime</span><span class="p">,</span> <span class="n">IntervalTIme</span><span class="p">,</span> <span class="n">TotalTime</span>
+<span class="w">   </span><span class="c">!$   USE omp_lib</span>
+<span class="w">   </span><span class="k">USE </span><span class="n">FU_Prec</span><span class="w">      </span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="w">   </span><span class="k">USE </span><span class="n">FU_statistics</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">variance</span><span class="p">,</span><span class="w"> </span><span class="n">median</span><span class="w"></span>
+<span class="w">   </span><span class="k">USE </span><span class="n">FU_Timing</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">resetTotalTime</span><span class="p">,</span><span class="w"> </span><span class="n">IntervalTIme</span><span class="p">,</span><span class="w"> </span><span class="n">TotalTime</span><span class="w"></span>
 
-   <span class="k">IMPLICIT NONE</span>
+<span class="w">   </span><span class="k">IMPLICIT NONE</span>
 
-<span class="k">   </span><span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">max_num_threads</span> <span class="o">=</span> <span class="mi">7</span>
-   <span class="kt">INTEGER</span><span class="p">,</span> <span class="k">PARAMETER</span> <span class="kd">::</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
-   <span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">DIMENSION</span><span class="p">(:,:),</span><span class="k">ALLOCATABLE</span> <span class="kd">::</span> <span class="n">matrix</span>
-   <span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">DIMENSION</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="kd">::</span> <span class="n">media</span><span class="p">,</span> <span class="n">varianza</span><span class="p">,</span> <span class="n">mediana</span>
-   <span class="kt">INTEGER</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span>
+<span class="k">   </span><span class="kt">INTEGER</span><span class="p">,</span><span class="w"> </span><span class="k">PARAMETER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">max_num_threads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
+<span class="w">   </span><span class="kt">INTEGER</span><span class="p">,</span><span class="w"> </span><span class="k">PARAMETER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"></span>
+<span class="w">   </span><span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">DIMENSION</span><span class="p">(:,:),</span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+<span class="w">   </span><span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">DIMENSION</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">media</span><span class="p">,</span><span class="w"> </span><span class="n">varianza</span><span class="p">,</span><span class="w"> </span><span class="n">mediana</span><span class="w"></span>
+<span class="w">   </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
 
-   <span class="k">ALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="mi">300000</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="w">   </span><span class="k">ALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">(</span><span class="mi">300000</span><span class="p">,</span><span class="n">n</span><span class="p">))</span><span class="w"></span>
 
-   <span class="k">DO </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span>
-      <span class="k">CALL </span><span class="nb">random_number</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span>
-   <span class="k">END DO</span>
+<span class="w">   </span><span class="k">DO </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
+<span class="w">      </span><span class="k">CALL </span><span class="nb">random_number</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="k">END DO</span>
 
-<span class="k">   CALL </span><span class="n">resetTotalTime</span><span class="p">()</span>
-   <span class="k">DO </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">max_num_threads</span>
+<span class="k">   CALL </span><span class="n">resetTotalTime</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="k">DO </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">max_num_threads</span><span class="w"></span>
 <span class="c">!$    CALL omp_set_num_threads(k)</span>
 <span class="c">!$OMP PARALLEL DO</span>
-      <span class="k">DO </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span>
-         <span class="n">media</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span>
-         <span class="n">varianza</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">variance</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span>
-         <span class="n">mediana</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="n">median</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span>
-      <span class="k">END DO</span>
+<span class="w">      </span><span class="k">DO </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="w"></span>
+<span class="w">         </span><span class="n">media</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">varianza</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variance</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="n">mediana</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">median</span><span class="p">(</span><span class="n">matrix</span><span class="p">(:,</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="k">END DO</span><span class="w"></span>
 <span class="c">!$OMP END PARALLEL DO</span>
-      <span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,I0,A,F7.3,A)&#39;</span><span class="p">)</span> <span class="s1">&#39;Number of threads: &#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;. Elapsed time: &#39;</span><span class="p">,</span> <span class="n">IntervalTime</span><span class="p">(),</span> <span class="s1">&#39; s.&#39;</span>
-   <span class="k">END DO</span>
-<span class="k">   WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F7.3,A)&#39;</span><span class="p">)</span> <span class="s1">&#39;Total elapsed time: &#39;</span><span class="p">,</span> <span class="n">TotalTime</span><span class="p">(),</span> <span class="s1">&#39; s.&#39;</span>
+<span class="w">      </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,I0,A,F7.3,A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Number of threads: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;. Elapsed time: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">IntervalTime</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39; s.&#39;</span><span class="w"></span>
+<span class="w">   </span><span class="k">END DO</span>
+<span class="k">   WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(A,F7.3,A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s1">&#39;Total elapsed time: &#39;</span><span class="p">,</span><span class="w"> </span><span class="n">TotalTime</span><span class="p">(),</span><span class="w"> </span><span class="s1">&#39; s.&#39;</span><span class="w"></span>
 
-   <span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="w">   </span><span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span><span class="w"></span>
 
-<span class="k">END PROGRAM </span><span class="n">FU_example1</span>
+<span class="k">END PROGRAM </span><span class="n">FU_example1</span><span class="w"></span>
 </code></pre></div>
-
 
 <h2 id="compilation">Compilation</h2>
 <p>Compile using the following command. Adjust paths accordingly.</p>
 <div class="codehilite"><pre><span></span><code>gfortran example1.f90 -o example1 -fopenmp -I/path/to/include/ -lFortranUtilities -L/path/to/lib/ -O2
 </code></pre></div>
-
 
 <p>If no OpenMP libraries are available in your system, you can remove option <code>-fopenmp</code>. The code will work but there will not be any speedup.</p>
 <h2 id="execution">Execution</h2>
@@ -224,11 +179,9 @@ It generates a set of random numbers and then performs a lot of mean, variance a
 <div class="codehilite"><pre><span></span><code>export LD_LIBRARY_PATH=/path/to/lib:${LD_LIBRARY_PATH}
 </code></pre></div>
 
-
 <p>Then run with:</p>
 <div class="codehilite"><pre><span></span><code>./example1
 </code></pre></div>
-
 
 <p>The output of the execution is:</p>
 <div class="codehilite"><pre><span></span><code>Number of threads: 1. Time spent:  22.010 s.
@@ -241,7 +194,6 @@ Number of threads: 7. Time spent:   4.452 s.
 Total time spent:  62.995 s.
 </code></pre></div>
     </div>
-    
     <div class="col-md-3 col-md-pull-9">
       <hr class="visible-xs visible-sm">
         <div class="well toc">
@@ -250,75 +202,52 @@ Total time spent:  62.995 s.
           </ul>
           <hr>
           <ul class="nav nav-stacked nav-pills">
-            
             <li role="presentation">
             <a href='../../../page/./license.html'>License</a>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../../page/Compilation/index.html'>Compilation</a>
-            
             <ul class="nav nav-stacked nav-pills">
-              
-            <li role="presentation">
+                          <li role="presentation">
             <a href='../../../page/Compilation/Linux.html'>Compilation on Linux</a>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../../page/Compilation/Windows.html'>Compilation on Windows</a>
-            
             </li>
-            
+
             </ul>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../../page/Examples/index.html'>Examples</a>
-            
             <ul class="nav nav-stacked nav-pills">
-              
-            <li role="presentation" class="disabled">
+                          <li role="presentation" class="disabled">
             <a href='../../../page/Examples/Example01/index.html'>Timing and Statistics usage (with OpenMP)</a>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../../page/Examples/Example02/index.html'>Calculate mean value of a rank 3 array.</a>
-            
             </li>
-            
             <li role="presentation">
             <a href='../../../page/Examples/Example03/index.html'>Load data and calculate regression coefficients.</a>
-            
             </li>
-            
+
             </ul>
-            
             </li>
-            
           </ul>
         </div>
     </div>
-    
   </div>
-
     <hr>    
     </div> <!-- /container -->
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
-                                          </p>
+        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2022 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
         </div>
         <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
-            
-            
           </p>
         </div>
       </div>
@@ -346,14 +275,11 @@ Total time spent:  62.995 s.
         extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
     
     <script src="../../../tipuesearch/tipuesearch_content.js"></script>
     <script src="../../../tipuesearch/tipuesearch_set.js"></script>
     <script src="../../../tipuesearch/tipuesearch.js"></script>
-    
     
   </body>
 </html>

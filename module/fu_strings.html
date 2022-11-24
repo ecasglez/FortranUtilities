@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <meta name="description" content="ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.">
-    
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
@@ -16,10 +14,7 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    
     <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,52 +43,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-        
             <li><a href='../page/index.html'>General documentation</a></li>
-      
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
-              
             <li><a href="../lists/files.html">Source Files</a></li>
-        
-        
-        
             <li><a href="../lists/modules.html">Modules</a></li>
-        
-            
-                                
             <li><a href="../lists/procedures.html">Procedures</a></li>
-        
-               
-               
-        
-        
+              
             </ul>
         
             </li>
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-
-                             
-
-
-
-          </ul>
-        
+                                       </ul>
         <form action="../search.html" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
@@ -102,2789 +69,2268 @@
         <button type="submit" class="btn btn-default">Submit</button>
 -->
         </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-    
-  
   <div class="row">
     <h1>FU_Strings 
     <small>Module</small>
     
     </h1>
-    
-<div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     
-     <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
-     
-     
-    <li><i class="fa fa-calendar-o"></i> 07/05/2020.</li>
-     
-     
-    <li><i class="fa fa-legal"></i> MIT.</li>
-     
-     
-     
-    <li><i class="fa fa-barcode"></i> 1.0.</li>
-    
-    
-    
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title="24.1% of total for modules and submodules.">511 statements</a>
-     </li> 
-     
-     
-     
-    <li><i class="fa fa-code"></i><a href="../src/Strings_M.F90"> Source File</a></li>
-     
-     
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-  
-    
-     <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.F90</a></li>
-    
-  
-     <li class="active">FU_Strings</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li id="meta-author"><i class="fa fa-pencil"></i> Emilio Castro.</li>
+            <li id="meta-date"><i class="fa fa-calendar-o"></i> 07/05/2020.</li>
+            <li id="meta-license"><i class="fa fa-legal"></i> MIT.</li>
+            <li id="meta-version"><i class="fa fa-barcode"></i> 1.0.</li>
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title="24.1% of total for modules and submodules.">511 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/Strings_M.F90"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.F90</a></li>
+          <li class="active">FU_Strings</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    
-<div id="sidebar">
+      <div id="sidebar">
+      <h3>Contents</h3>
   
-<h3>Contents</h3>
- 
-
-
-
-
-
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
-  <div id="inters-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-splitstr">splitstr</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
-      
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#inters-0">Interfaces</a>
+        </h3>
+      </div>
+      <div id="inters-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_strings.html#interface-splitstr">splitstr</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-0">Functions</a></h3></div>
-  <div id="funcs-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-mergechars">mergeChars</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-startswith">startsWith</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-endswith">endsWith</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-replace">replace</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-upper">upper</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-lower">lower</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-cistrcmp">cistrcmp</a>
-      
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#funcs-0">Functions</a>
+        </h3>
+      </div>
+      <div id="funcs-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_strings.html#proc-mergechars">mergeChars</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-startswith">startsWith</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-endswith">endsWith</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-replace">replace</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-upper">upper</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-lower">lower</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-cistrcmp">cistrcmp</a>
+        </div>
+      </div>
     </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
   </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
     </div>
     
     <div class="col-md-9" id='text'>
     <p>Useful tools to manipulate strings in Fortran programs.</p>
-      <br>
-    
-  
-    <div class="panel panel-default">
+<br>        <div class="panel panel-default">
       <div class="panel-heading">
-  <h3 class="panel-title">Uses</h3>
+        <h3 class="panel-title">Uses</h3>
       </div>
       <ul class="list-group">
-      
-      <li class="list-group-item">
-  <ul class="list-inline">
-    
-    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
-    
-  </ul>
-      </li>
-      
-      
-      
+          <li class="list-group-item">
+            <ul class="list-inline">
+                <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
+            </ul>
+          </li>
       </ul>
     </div>
-    
 
     
-    
-
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      
-<h3>Contents</h3>
- 
-
-
-
-
-
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
-  <div id="inters-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-splitstr">splitstr</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
-      
+        <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#inters-1">Interfaces</a>
+        </h3>
+      </div>
+      <div id="inters-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_strings.html#interface-splitstr">splitstr</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-1">Functions</a></h3></div>
-  <div id="funcs-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-mergechars">mergeChars</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-startswith">startsWith</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-endswith">endsWith</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-replace">replace</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-upper">upper</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-lower">lower</a>
-      
-      <a class="list-group-item" href="../module/fu_strings.html#proc-cistrcmp">cistrcmp</a>
-      
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#funcs-1">Functions</a>
+        </h3>
+      </div>
+      <div id="funcs-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_strings.html#proc-mergechars">mergeChars</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-startswith">startsWith</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-endswith">endsWith</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-replace">replace</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-upper">upper</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-lower">lower</a>
+            <a class="list-group-item" href="../module/fu_strings.html#proc-cistrcmp">cistrcmp</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
 
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
 
-    
 
-    
-    
-    
     
     
     <section>
    <h2>Interfaces</h2>
-   
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-splitstr"></span><h3>public interface <a href='../interface/splitstr.html'>splitstr</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Splits a string.</p><a href="../interface/splitstr.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-  </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-splitstr"></span>
+      <h3>public        interface <a href='../interface/splitstr.html'>splitstr</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>Splits a string and returns the portion selected by the user.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitstr</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">fieldNumber</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="p">,</span><span class="w"> </span><span class="n">rev</span><span class="p">,</span><span class="w"> </span><span class="n">mergedelim</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 
+<p>Where:</p>
+<ul>
+<li><code>str</code>: String that the user whants to split.</li>
+<li><code>fieldNumber</code>: Integer indicating which of the divisions to return.</li>
+<li><code>delimiter</code>: String that the user wants to use as a delimiter for splitting.
+ Optional parameter. Default is Space.</li>
+<li><code>rev</code>: If true start spliting by the end of the string.
+ Optional parameter. Default is False.</li>
+<li><code>mergedelim</code>: If true, contiguous delimiters in the string are merged before splitting.
+ Optional parameter. Default is False.</li>
+</ul>
+<p>It returns a string with the selected part of str. If the fieldNumber does not exists
+ or if the delimiter does not exists it returns an empty string.</p>
+<h3 id="example">Example</h3>
+<p>The following program extracts some portions of a text:</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">splitstrExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">splitstr</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">text</span><span class="w"></span>
+<span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">portion</span><span class="w"></span>
+<span class="w">    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, &amp;</span>
+<span class="s2">       &amp;sed do eiusmod tempor incididunt ut labore et dolore magna al&amp;</span>
+<span class="s2">       &amp;iqua. Ut enim ad minim veniam, quis nostrud exercitation ulla&amp;</span>
+<span class="s2">       &amp;mco laboris nisi ut aliquip ex ea commodo consequat. Duis aut&amp;</span>
+<span class="s2">       &amp;e irure dolor in reprehenderit in voluptate velit esse cillum&amp;</span>
+<span class="s2">       &amp; dolore eu fugiat nulla pariatur. Excepteur sint occaecat cup&amp;</span>
+<span class="s2">       &amp;idatat non proident, sunt in culpa qui officia deserunt molli&amp;</span>
+<span class="s2">       &amp;t anim id est laborum.&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="n">portion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">portion</span><span class="w"></span>
+<span class="w">    </span><span class="n">portion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">rev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">True</span><span class="p">.)</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">portion</span><span class="w"></span>
+<span class="w">    </span><span class="n">portion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">portion</span><span class="w"></span>
+<span class="w">    </span><span class="n">portion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">portion</span><span class="w"></span>
+<span class="w">    </span><span class="n">portion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splitstr</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;l&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">mergedelim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">True</span><span class="p">.)</span><span class="w">  </span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">portion</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">splitstrExample</span><span class="w"></span>
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure function splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) result(res)  
 
+    </h3>
+  
 
-<tbody>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to split.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fieldNumber</strong></td>
+            <td>
+                <p>Integer indicating which of the divisions to return.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimiter</strong></td>
+            <td>
+                <p>String that the users wants to use as a delimiter for splitting.
+Optional parameter. Default is Space.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rev</strong></td>
+            <td>
+                <p>If true start spliting by the end of the string.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mergedelim</strong></td>
+            <td>
+                <p>If true, contiguous delimiters in the string are merged before splitting.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
-Optional parameter. Default is Space.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>A string with the selected part of str. If the fieldNumber does not exists
 or if the delimiter does not exists it returns an empty string.</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function splitstr_i16(str, fieldNumber, delimiter, rev, mergedelim) result(res)  
 
+    </h3>
+  
 
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to split.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fieldNumber</strong></td>
+            <td>
+                <p>Integer indicating which of the divisions to return.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimiter</strong></td>
+            <td>
+                <p>String that the users wants to use as a delimiter for splitting.
+Optional parameter. Default is Space.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rev</strong></td>
+            <td>
+                <p>If true start spliting by the end of the string.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mergedelim</strong></td>
+            <td>
+                <p>If true, contiguous delimiters in the string are merged before splitting.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
-Optional parameter. Default is Space.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>A string with the selected part of str. If the fieldNumber does not exists
 or if the delimiter does not exists it returns an empty string.</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function splitstr_i32(str, fieldNumber, delimiter, rev, mergedelim) result(res)  
 
+    </h3>
+  
 
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to split.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fieldNumber</strong></td>
+            <td>
+                <p>Integer indicating which of the divisions to return.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimiter</strong></td>
+            <td>
+                <p>String that the users wants to use as a delimiter for splitting.
+Optional parameter. Default is Space.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rev</strong></td>
+            <td>
+                <p>If true start spliting by the end of the string.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mergedelim</strong></td>
+            <td>
+                <p>If true, contiguous delimiters in the string are merged before splitting.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
-Optional parameter. Default is Space.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>A string with the selected part of str. If the fieldNumber does not exists
 or if the delimiter does not exists it returns an empty string.</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function splitstr_i64(str, fieldNumber, delimiter, rev, mergedelim) result(res)  
 
+    </h3>
+  
 
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to split.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fieldNumber</strong></td>
+            <td>
+                <p>Integer indicating which of the divisions to return.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimiter</strong></td>
+            <td>
+                <p>String that the users wants to use as a delimiter for splitting.
+Optional parameter. Default is Space.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rev</strong></td>
+            <td>
+                <p>If true start spliting by the end of the string.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mergedelim</strong></td>
+            <td>
+                <p>If true, contiguous delimiters in the string are merged before splitting.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to split.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fieldNumber</strong></td><td><p>Integer indicating which of the divisions to return.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td><p>String that the users wants to use as a delimiter for splitting.
-Optional parameter. Default is Space.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rev</strong></td><td><p>If true start spliting by the end of the string.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mergedelim</strong></td><td><p>If true, contiguous delimiters in the string are merged before splitting.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>A string with the selected part of str. If the fieldNumber does not exists
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>A string with the selected part of str. If the fieldNumber does not exists
 or if the delimiter does not exists it returns an empty string.</p>
-    
 
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-num2str"></span><h3>public interface <a href='../interface/num2str.html'>num2str</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Converts number into a string.</p><a href="../interface/num2str.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+          </li>
+    </ul>
   </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function num2str_i8(num) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
 
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-num2str"></span>
+      <h3>public        interface <a href='../interface/num2str.html'>num2str</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>Converts an integer or real variable into a string variable.
+ Useful to open files named sequentially.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num2str</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="k">format</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 
+<p>Where:</p>
+<ul>
+<li><code>num</code>: Real or Integer to convert to a string.</li>
+<li><code>format</code>: Format to use in the string variable. Only for real numbers.</li>
+</ul>
+<p>It returns a string containing the number.</p>
+<h3 id="example">Example</h3>
+<p>The following program a converts an integer and a real to a
+ string, using them to create a filename:</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">num2strExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">num2str</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">REAL</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">temperature</span><span class="w"></span>
+<span class="w">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">case_number</span><span class="w"></span>
+<span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w">    </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">29</span><span class="mf">3.75</span><span class="w"></span>
+<span class="w">    </span><span class="n">case_number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="w"></span>
+<span class="w">    </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Case_&#39;</span><span class="o">//</span><span class="n">num2str</span><span class="p">(</span><span class="n">case_number</span><span class="p">)</span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">       </span><span class="s1">&#39;_Temp_&#39;</span><span class="o">//</span><span class="n">num2str</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;F4.0&quot;</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;txt&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">num2strExample</span><span class="w"></span>
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure function num2str_i8(num) result(str)  
 
-<tbody>
+    </h3>
+  
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num</strong></td>
+            <td>
+                <p>Number to convert to string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-</tbody>
-</table>
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number</p>
 
-      
-    
-    
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function num2str_i16(num) result(str)  
 
+    </h3>
   
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function num2str_i16(num) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num</strong></td>
+            <td>
+                <p>Number to convert to string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number</p>
 
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function num2str_i32(num) result(str)  
 
-<tbody>
+    </h3>
+  
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num</strong></td>
+            <td>
+                <p>Number to convert to string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-</tbody>
-</table>
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number</p>
 
-      
-    
-    
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function num2str_i64(num) result(str)  
 
+    </h3>
   
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function num2str_i32(num) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num</strong></td>
+            <td>
+                <p>Number to convert to string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number</p>
 
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function num2str_sp(num, formato) result(str)  
 
-<tbody>
+    </h3>
+  
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=sp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num</strong></td>
+            <td>
+                <p>Number to convert to string.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use in the string variable. Only for real numbers.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-</tbody>
-</table>
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number</p>
 
-      
-    
-    
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function num2str_dp(num, formato) result(str)  
 
+    </h3>
   
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function num2str_i64(num) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=dp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num</strong></td>
+            <td>
+                <p>Number to convert to string.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use in the string variable. Only for real numbers.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number</p>
 
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function num2str_qp(num, formato) result(str)  
 
-<tbody>
+    </h3>
+  
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=qp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>num</strong></td>
+            <td>
+                <p>Number to convert to string.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use in the string variable. Only for real numbers.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-</tbody>
-</table>
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number</p>
 
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function num2str_sp(num, formato) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function num2str_dp(num, formato) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function num2str_qp(num, formato) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>num</strong></td><td><p>Number to convert to string.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use in the string variable. Only for real numbers.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number</p>
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-int2str00000"></span><h3>public interface <a href='../interface/int2str00000.html'>int2str00000</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Converts an integer into a string filling with leading zeros.</p><a href="../interface/int2str00000.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+          </li>
+    </ul>
   </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function int2str00000_i8(integ, total_length) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
 
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-int2str00000"></span>
+      <h3>public        interface <a href='../interface/int2str00000.html'>int2str00000</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>Converts an integer variable into a string variable,
+ filling with leading zeros up to the limit imposed by the user.
+ Useful to open files named sequentially with leading zeros in the name.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 
+<p>Where:</p>
+<ul>
+<li><code>integ</code>: Integer number to convert. This number MUST be positive.</li>
+<li><code>format</code>: Number of digits to use, including leading zeros. This number MUST be positive.</li>
+</ul>
+<p>It returns a string containing the number.</p>
+<h3 id="example">Example</h3>
+<p>The following program a converts an integer to a number with leading zeros
+ to create sequential filenames</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">int2str00000Example</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">int2str00000</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">total_length</span><span class="w"></span>
+<span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w">    </span><span class="n">total_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">    </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="w"></span>
+<span class="w">       </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str00000</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;.dat&#39;</span><span class="w"></span>
+<span class="w">       </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w">    </span><span class="k">END DO</span>
+<span class="k"> END PROGRAM </span><span class="n">int2str00000Example</span><span class="w"></span>
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure function int2str00000_i8(integ, total_length) result(str)  
 
-<tbody>
+    </h3>
+  
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>integ</strong></td><td><p>Integer number to convert. This number MUST be positive.</p></td>
-  
-</tr>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>integ</strong></td>
+            <td>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
-  
-</tr>
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number.</p>
 
-</tbody>
-</table>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function int2str00000_i16(integ, total_length) result(str)  
 
-      
-    
-    
+    </h3>
+  
 
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number.</p>
-    
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>integ</strong></td>
+            <td>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function int2str00000_i16(integ, total_length) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number.</p>
 
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function int2str00000_i32(integ, total_length) result(str)  
 
+    </h3>
+  
 
-<tbody>
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>integ</strong></td>
+            <td>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>integ</strong></td><td><p>Integer number to convert. This number MUST be positive.</p></td>
-  
-</tr>
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number.</p>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
-  
-</tr>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function int2str00000_i64(integ, total_length) result(str)  
 
-</tbody>
-</table>
+    </h3>
+  
 
-      
-    
-    
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>integ</strong></td>
+            <td>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number.</p>
-    
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number.</p>
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function int2str00000_i32(integ, total_length) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>integ</strong></td><td><p>Integer number to convert. This number MUST be positive.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private pure function int2str00000_i64(integ, total_length) result(str)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>integ</strong></td><td><p>Integer number to convert. This number MUST be positive.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>total_length</strong></td><td><p>Number of digits to use, including leading zeros. This number MUST be positive.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String containing the number.</p>
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-str2num"></span><h3>public interface <a href='../interface/str2num.html'>str2num</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Converts a string into an integer or real.</p><a href="../interface/str2num.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+          </li>
+    </ul>
   </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function str2num_i8(str, mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
-It is only used to set the type of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i8)
-  </small></h4>
-  <p>The number of the input string.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function str2num_i16(str, mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
-It is only used to set the type of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i16)
-  </small></h4>
-  <p>The number of the input string.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function str2num_i32(str, mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
-It is only used to set the type of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i32)
-  </small></h4>
-  <p>The number of the input string.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function str2num_i64(str, mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
-It is only used to set the type of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i64)
-  </small></h4>
-  <p>The number of the input string.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function str2num_sp(str, mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
-It is only used to set the type of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=sp)
-  </small></h4>
-  <p>The number of the input string.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function str2num_dp(str, mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
-It is only used to set the type of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=dp)
-  </small></h4>
-  <p>The number of the input string.</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private elemental function str2num_qp(str, mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
 
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to number.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real or integer value to identify the type and kind of the output.
-It is only used to set the type of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=qp)
-  </small></h4>
-  <p>The number of the input string.</p>
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-str2num"></span>
+      <h3>public        interface <a href='../interface/str2num.html'>str2num</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>Converts a string into an integer or real number as specified by the type of variable mold.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2num</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">mold</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Where:</p>
+<ul>
+<li><code>str</code>: String to convert to number</li>
+<li><code>mold</code>: Real or integer value to identify the type and kind of the output.
+ It is only used to set the type of the return value, so it can be any value.</li>
+</ul>
+<p>It returns an integer or real with the number contained in the string.</p>
+<h3 id="example">Example</h3>
+<p>The following program converts a string to a real number</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">str2numExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">str2num</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">REAL</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w"></span>
+<span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s</span><span class="w"></span>
+<span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;293.75&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str2num</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">f</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">str2numExample</span><span class="w"></span>
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental function str2num_i8(str, mold) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String to convert to number.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real or integer value to identify the type and kind of the output.
+It is only used to set the type of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=i8)</small>
+    </h4>
+    <p>The number of the input string.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental function str2num_i16(str, mold) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String to convert to number.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real or integer value to identify the type and kind of the output.
+It is only used to set the type of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=i16)</small>
+    </h4>
+    <p>The number of the input string.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental function str2num_i32(str, mold) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String to convert to number.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real or integer value to identify the type and kind of the output.
+It is only used to set the type of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=i32)</small>
+    </h4>
+    <p>The number of the input string.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental function str2num_i64(str, mold) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String to convert to number.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real or integer value to identify the type and kind of the output.
+It is only used to set the type of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=i64)</small>
+    </h4>
+    <p>The number of the input string.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental function str2num_sp(str, mold) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String to convert to number.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=sp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real or integer value to identify the type and kind of the output.
+It is only used to set the type of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=sp)</small>
+    </h4>
+    <p>The number of the input string.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental function str2num_dp(str, mold) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String to convert to number.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=dp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real or integer value to identify the type and kind of the output.
+It is only used to set the type of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=dp)</small>
+    </h4>
+    <p>The number of the input string.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental function str2num_qp(str, mold) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String to convert to number.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=qp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real or integer value to identify the type and kind of the output.
+It is only used to set the type of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=qp)</small>
+    </h4>
+    <p>The number of the input string.</p>
+
+          </li>
+    </ul>
+  </div>
 
-    
     </section>
   <br>
-    
 
     
     
-    
-    
-     
+ 
     <section>
     <h2>Functions</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-mergechars"></span><h3>
-public pure function <a href='../proc/mergechars.html'>mergeChars</a>(str, c) result(res)
-    
-    
-   
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-mergechars"></span><h3>public pure function <a href='../proc/mergechars.html'>mergeChars</a>(str, c) result(res)  
 </h3></div>
-  <div class="panel-body">
-       
-    
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>14/08/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Merge characters in a string if they are contiguous.</p><a href="../proc/mergechars.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+<p>String to search inside for contiguous duplicated characters.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c</strong></td>
+            <td>
+<p>Character to search for contiguous duplications.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String with the selected character contiguous duplications removed.</p>
 
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>14/08/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Merge characters in a string if they are contiguous.</p><a href="../proc/mergechars.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to search inside for contiguous duplicated characters.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>c</strong></td><td><p>Character to search for contiguous duplications.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String with the selected character contiguous duplications removed.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-startswith"></span><h3>
-public elemental function <a href='../proc/startswith.html'>startsWith</a>(str, substr) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>07/05/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Checks if a string starts with a given substring.</p><a href="../proc/startswith.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to check how it starts. It can be an array.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>substr</strong></td><td><p>Substring to search to check if str starts with it.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the string starts with the substring and False otherwise. If
-substr is empty it returns True. If the input is an array, the returned
-values will also be in an array.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-endswith"></span><h3>
-public elemental function <a href='../proc/endswith.html'>endsWith</a>(str, substr) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>07/05/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Checks if a string ends with a given substring.</p><a href="../proc/endswith.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String that the user wants to check how it ends. It can be an array.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>substr</strong></td><td><p>Substring to search to check if str ends with it.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the string ends with the substring and False otherwise. If 
-substr is empty it returns True. If the input is an array, the returned
-values will also be in an array.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-replace"></span><h3>
-public pure function <a href='../proc/replace.html'>replace</a>(str, search, repla) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>10/07/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Searches and replaces a substring in a string</p><a href="../proc/replace.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to modify</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>search</strong></td><td><p>String to search for in str.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>repla</strong></td><td><p>String to replace in str.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>Modified string.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-upper"></span><h3>
-public pure function <a href='../proc/upper.html'>upper</a>(str) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>20/08/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Converts a string to uppercase characters.</p><a href="../proc/upper.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to uppercase characters.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String converted to uppercase characters.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-lower"></span><h3>
-public pure function <a href='../proc/lower.html'>lower</a>(str) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>20/08/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Converts a string to lowercase characters.</p><a href="../proc/lower.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str</strong></td><td><p>String to convert to lowercase characters.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>String converted to lowercase characters.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-cistrcmp"></span><h3>
-public pure function <a href='../proc/cistrcmp.html'>cistrcmp</a>(str1, str2) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>20/08/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Case-independent string comparison.</p><a href="../proc/cistrcmp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str1</strong></td><td><p>First string to compare.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>str2</strong></td><td><p>Second string to compare</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if both strings are equal independently of the case. False otherwise.</p>
-    
-
-  </div>
-  </div>
-
-    
-    </section>
-    <br>
-    
-
-    
-    
-    
     </div>
   </div>
 
-  
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-startswith"></span><h3>public elemental function <a href='../proc/startswith.html'>startsWith</a>(str, substr) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>07/05/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Checks if a string starts with a given substring.</p><a href="../proc/startswith.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+<p>String that the user wants to check how it starts. It can be an array.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>substr</strong></td>
+            <td>
+<p>Substring to search to check if str starts with it.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the string starts with the substring and False otherwise. If
+substr is empty it returns True. If the input is an array, the returned
+values will also be in an array.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-endswith"></span><h3>public elemental function <a href='../proc/endswith.html'>endsWith</a>(str, substr) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>07/05/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Checks if a string ends with a given substring.</p><a href="../proc/endswith.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+<p>String that the user wants to check how it ends. It can be an array.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>substr</strong></td>
+            <td>
+<p>Substring to search to check if str ends with it.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the string ends with the substring and False otherwise. If 
+substr is empty it returns True. If the input is an array, the returned
+values will also be in an array.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-replace"></span><h3>public pure function <a href='../proc/replace.html'>replace</a>(str, search, repla) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>10/07/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Searches and replaces a substring in a string</p><a href="../proc/replace.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+<p>String to modify</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>search</strong></td>
+            <td>
+<p>String to search for in str.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>repla</strong></td>
+            <td>
+<p>String to replace in str.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>Modified string.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-upper"></span><h3>public pure function <a href='../proc/upper.html'>upper</a>(str) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>20/08/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Converts a string to uppercase characters.</p><a href="../proc/upper.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+<p>String to convert to uppercase characters.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String converted to uppercase characters.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-lower"></span><h3>public pure function <a href='../proc/lower.html'>lower</a>(str) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>20/08/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Converts a string to lowercase characters.</p><a href="../proc/lower.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+<p>String to convert to lowercase characters.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String converted to lowercase characters.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-cistrcmp"></span><h3>public pure function <a href='../proc/cistrcmp.html'>cistrcmp</a>(str1, str2) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>20/08/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Case-independent string comparison.</p><a href="../proc/cistrcmp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str1</strong></td>
+            <td>
+<p>First string to compare.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str2</strong></td>
+            <td>
+<p>Second string to compare</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if both strings are equal independently of the case. False otherwise.</p>
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+
+
+    </div>
+  </div>
+
     <hr>    
     </div> <!-- /container -->
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
-                                          </p>
+        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2022 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
         </div>
         <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
-            
-            
           </p>
         </div>
       </div>
@@ -2912,14 +2358,11 @@ public pure function <a href='../proc/cistrcmp.html'>cistrcmp</a>(str1, str2) re
         extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
     
     <script src="../tipuesearch/tipuesearch_content.js"></script>
     <script src="../tipuesearch/tipuesearch_set.js"></script>
     <script src="../tipuesearch/tipuesearch.js"></script>
-    
     
   </body>
 </html>

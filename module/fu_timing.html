@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <meta name="description" content="ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.">
-    
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
@@ -16,10 +14,7 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    
     <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,52 +43,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-        
             <li><a href='../page/index.html'>General documentation</a></li>
-      
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
-              
             <li><a href="../lists/files.html">Source Files</a></li>
-        
-        
-        
             <li><a href="../lists/modules.html">Modules</a></li>
-        
-            
-                                
             <li><a href="../lists/procedures.html">Procedures</a></li>
-        
-               
-               
-        
-        
+              
             </ul>
         
             </li>
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-
-                             
-
-
-
-          </ul>
-        
+                                       </ul>
         <form action="../search.html" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
@@ -102,126 +69,102 @@
         <button type="submit" class="btn btn-default">Submit</button>
 -->
         </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-    
-  
   <div class="row">
     <h1>FU_Timing 
     <small>Module</small>
     
     </h1>
-    
-<div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     
-     <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
-     
-     
-    <li><i class="fa fa-calendar-o"></i> 10/09/2020.</li>
-     
-     
-    <li><i class="fa fa-legal"></i> MIT.</li>
-     
-     
-     
-    <li><i class="fa fa-barcode"></i> 1.0.</li>
-    
-    
-    
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 3.8% of total for modules and submodules.">80 statements</a>
-     </li> 
-     
-     
-     
-    <li><i class="fa fa-code"></i><a href="../src/Timing_M.f90"> Source File</a></li>
-     
-     
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-  
-    
-     <li><a href='../sourcefile/timing_m.f90.html'>Timing_M.f90</a></li>
-    
-  
-     <li class="active">FU_Timing</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li id="meta-author"><i class="fa fa-pencil"></i> Emilio Castro.</li>
+            <li id="meta-date"><i class="fa fa-calendar-o"></i> 10/09/2020.</li>
+            <li id="meta-license"><i class="fa fa-legal"></i> MIT.</li>
+            <li id="meta-version"><i class="fa fa-barcode"></i> 1.0.</li>
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 3.8% of total for modules and submodules.">80 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/Timing_M.f90"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/timing_m.f90.html'>Timing_M.f90</a></li>
+          <li class="active">FU_Timing</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    
-<div id="sidebar">
+      <div id="sidebar">
+      <h3>Contents</h3>
   
-<h3>Contents</h3>
- 
-
-
-
-
-
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
-  <div id="inters-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_timing.html#interface-totaltime">TotalTime</a>
-      
-      <a class="list-group-item" href="../module/fu_timing.html#interface-intervaltime">IntervalTime</a>
-      
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#inters-0">Interfaces</a>
+        </h3>
+      </div>
+      <div id="inters-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_timing.html#interface-totaltime">TotalTime</a>
+            <a class="list-group-item" href="../module/fu_timing.html#interface-intervaltime">IntervalTime</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-0" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/fu_timing.html#proc-resettotaltime">ResetTotalTime</a>
-      
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#subs-0">Subroutines</a>
+        </h3>
+      </div>
+      <div id="subs-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_timing.html#proc-resettotaltime">ResetTotalTime</a>
+        </div>
+      </div>
     </div>
+
+  
+  
+  
+  
+  
+  
+
+
   </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-</div>
 
     </div>
     
@@ -232,517 +175,419 @@ since the begining of the execution if no previous measuement is available. This
 will be used as a starting point for the next interval.
 Use TotalTime to get the time since the beginning of the program or since the last time
 resetTotalTime is executed.</p>
-      <br>
-    
-  
-    <div class="panel panel-default">
+<br>        <div class="panel panel-default">
       <div class="panel-heading">
-  <h3 class="panel-title">Uses</h3>
+        <h3 class="panel-title">Uses</h3>
       </div>
       <ul class="list-group">
-      
-      <li class="list-group-item">
-  <ul class="list-inline">
-    
-    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
-    
-  </ul>
-      </li>
-      
-      
-      
+          <li class="list-group-item">
+            <ul class="list-inline">
+                <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
+            </ul>
+          </li>
       </ul>
     </div>
-    
 
     
-    
-
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      
-<h3>Contents</h3>
- 
-
-
-
-
-
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
-  <div id="inters-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_timing.html#interface-totaltime">TotalTime</a>
-      
-      <a class="list-group-item" href="../module/fu_timing.html#interface-intervaltime">IntervalTime</a>
-      
+        <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#inters-1">Interfaces</a>
+        </h3>
+      </div>
+      <div id="inters-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_timing.html#interface-totaltime">TotalTime</a>
+            <a class="list-group-item" href="../module/fu_timing.html#interface-intervaltime">IntervalTime</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-1" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/fu_timing.html#proc-resettotaltime">ResetTotalTime</a>
-      
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#subs-1">Subroutines</a>
+        </h3>
+      </div>
+      <div id="subs-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_timing.html#proc-resettotaltime">ResetTotalTime</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
 
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
 
-    
 
-    
-    
-    
     
     
     <section>
    <h2>Interfaces</h2>
-   
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-totaltime"></span><h3>public interface <a href='../interface/totaltime.html'>TotalTime</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Gets the time in seconds since the beginning of the program or since the last time resetTotalTime is executed.</p><a href="../interface/totaltime.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-  </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private function TotalTime_def() result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      <em>None</em>
-    
-    
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-totaltime"></span>
+      <h3>public        interface <a href='../interface/totaltime.html'>TotalTime</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>TotalTime gets the time in seconds (with a precision of microseconds)
+ since the beginning of the program or since the last time <a href="../proc/resettotaltime.html">ResetTotalTime</a> is executed.</p>
+<p>You can use mold input argument to indicate the precision of the output number. Default precision
+ is the default precision of your compiler.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TotalTime</span><span class="p">(</span><span class="n">mold</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
 
+<p>Where:</p>
+<ul>
+<li><code>mold</code>: Real value to identify the kind of the output. Optional.
+ It is only used to set the kind of the return value, so it can be any value.</li>
+</ul>
+<p>Total time spent in seconds since the begining of the program or since the last
+ time <a href="../proc/resettotaltime.html">ResetTotalTime</a> has been used. Uses precision set by mold.</p>
+<h3 id="example">Example</h3>
+<p>The following program prints the total time since the start of the program.
+ A more detailed example can be found at <a href="../page/Examples/Example01/index.html">here</a>.</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">totalTimeExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Timing</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">TotalTime</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Prec</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="n">dp</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">TotalTime</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">TotalTime</span><span class="p">(</span><span class="mf">1._dp</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">totalTimeExample</span><span class="w"></span>
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private  function TotalTime_def() result(res)  
+
+    </h3>
   
-  
-  
-  
-     <h4>Return Value <small>real
-  </small></h4>
-  <p>Total time spent in seconds since the begining of the program or since the last
+
+  <h4>Arguments</h4>
+    <em>None</em>
+    <h4>
+    Return Value
+    <small>real</small>
+    </h4>
+    <p>Total time spent in seconds since the begining of the program or since the last
 time ResetTotalTime has been used. Uses default precision of the compiler used.</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private function TotalTime_sp(mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  function TotalTime_sp(mold) result(res)  
 
+    </h3>
+  
 
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=sp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real value to identify the kind of the output.
+It is only used to set the kind of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
-It is only used to set the kind of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=sp)
-  </small></h4>
-  <p>Total time spent in seconds since the begining of the program or since the last
+    <h4>
+    Return Value
+    <small>real(kind=sp)</small>
+    </h4>
+    <p>Total time spent in seconds since the begining of the program or since the last
 time ResetTotalTime has been used. Uses precision set by mold.</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private function TotalTime_dp(mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  function TotalTime_dp(mold) result(res)  
 
+    </h3>
+  
 
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=dp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real value to identify the kind of the output.
+It is only used to set the kind of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
-It is only used to set the kind of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=dp)
-  </small></h4>
-  <p>Total time spent in seconds since the begining of the program or since the last
+    <h4>
+    Return Value
+    <small>real(kind=dp)</small>
+    </h4>
+    <p>Total time spent in seconds since the begining of the program or since the last
 time ResetTotalTime has been used. Uses precision set by mold.</p>
-    
 
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-intervaltime"></span><h3>public interface <a href='../interface/intervaltime.html'>IntervalTime</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Gets the time in seconds since the last measurement.</p><a href="../interface/intervaltime.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+          </li>
+    </ul>
   </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private function IntervalTime_def() result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      <em>None</em>
-    
-    
 
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-intervaltime"></span>
+      <h3>public        interface <a href='../interface/intervaltime.html'>IntervalTime</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>IntervalTime gets the time in seconds (with a precision of microseconds) 
+ since the last measurement or the time since the begining of the execution if no previous 
+ measuement is available. This point will be used as a starting point for the next interval.
+ The starting point can be reset using <a href="../proc/resettotaltime.html">ResetTotalTime</a>.</p>
+<p>You can use mold input argument to indicate the precision of the output number. Default precision
+ is the default precision of your compiler.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">IntervalTime</span><span class="p">(</span><span class="n">mold</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Where:</p>
+<ul>
+<li><code>mold</code>: Real value to identify the kind of the output. Optional.
+ It is only used to set the kind of the return value, so it can be any value.</li>
+</ul>
+<p>Time spent in seconds since the last measurement, or since the begining of the program 
+ if no previous measurement is available, or since the last time
+ <a href="../proc/resettotaltime.html">ResetTotalTime</a> has been used. Uses precision set by mold. </p>
+<h3 id="example">Example</h3>
+<p>The following program prints the time since the start of the program and since
+ the previous measurement.
+ A more detailed example can be found at <a href="../page/Examples/Example01/index.html">here</a>.</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">intervalTimeExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Timing</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">IntervalTime</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Prec</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="n">dp</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">IntervalTime</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">IntervalTime</span><span class="p">(</span><span class="mf">1._dp</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">intervalTimeExample</span><span class="w"></span>
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private  function IntervalTime_def() result(res)  
+
+    </h3>
   
-  
-  
-  
-     <h4>Return Value <small>real
-  </small></h4>
-  <p>Time spent in seconds since the last measurement or since the begining of the program 
+
+  <h4>Arguments</h4>
+    <em>None</em>
+    <h4>
+    Return Value
+    <small>real</small>
+    </h4>
+    <p>Time spent in seconds since the last measurement or since the begining of the program 
 if no previous measurement is available. Uses default precision of the compiler used.</p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private function IntervalTime_sp(mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  function IntervalTime_sp(mold) result(res)  
 
+    </h3>
+  
 
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=sp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real value to identify the kind of the output.
+It is only used to set the kind of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
-It is only used to set the kind of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=sp)
-  </small></h4>
-  <p>Time spent in seconds since the last measurement or since the begining of the program 
+    <h4>
+    Return Value
+    <small>real(kind=sp)</small>
+    </h4>
+    <p>Time spent in seconds since the last measurement or since the begining of the program 
 if no previous measurement is available. Uses precision set by mold. </p>
-    
 
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private function IntervalTime_dp(mold) result(res)
-    
-    
-   
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  function IntervalTime_dp(mold) result(res)  
 
+    </h3>
+  
 
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=dp),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                <p>Real value to identify the kind of the output.
+It is only used to set the kind of the return value, so it can be any value.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td><p>Real value to identify the kind of the output.
-It is only used to set the kind of the return value, so it can be any value.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=dp)
-  </small></h4>
-  <p>Time spent in seconds since the last measurement or since the begining of the program 
+    <h4>
+    Return Value
+    <small>real(kind=dp)</small>
+    </h4>
+    <p>Time spent in seconds since the last measurement or since the begining of the program 
 if no previous measurement is available. Uses precision set by mold. </p>
-    
 
-    </li>
-  
-  
-  </ul>
-</div>
+          </li>
+    </ul>
+  </div>
 
-    
     </section>
   <br>
-    
 
     
     
-    
-    
-    
 
-    
     <section>
     <h2>Subroutines</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-resettotaltime"></span><h3>
-public subroutine <a href='../proc/resettotaltime.html'>ResetTotalTime</a>()
-    
-    
-   
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-resettotaltime"></span><h3>public  subroutine <a href='../proc/resettotaltime.html'>ResetTotalTime</a>()  
 </h3></div>
-  <div class="panel-body">
-       
-    
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>10/09/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
 
+  <p>Sets the starting point to count the total time.</p><a href="../proc/resettotaltime.html" class="pull-right"><emph>Read more&hellip;</emph></a>
 
+  <h4>Arguments</h4>
+    <em>None</em>
 
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>10/09/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Sets the starting point to count the total time.</p><a href="../proc/resettotaltime.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      <em>None</em>
-    
-    
-
-  </div>
-  </div>
-
-    
-    </section>    
-    <br>
-    
-    
-    
     </div>
   </div>
 
-  
+    </section>
+    <br>
+
+
+
+    </div>
+  </div>
+
     <hr>    
     </div> <!-- /container -->
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
-                                          </p>
+        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2022 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
         </div>
         <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
-            
-            
           </p>
         </div>
       </div>
@@ -770,14 +615,11 @@ public subroutine <a href='../proc/resettotaltime.html'>ResetTotalTime</a>()
         extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
     
     <script src="../tipuesearch/tipuesearch_content.js"></script>
     <script src="../tipuesearch/tipuesearch_set.js"></script>
     <script src="../tipuesearch/tipuesearch.js"></script>
-    
     
   </body>
 </html>

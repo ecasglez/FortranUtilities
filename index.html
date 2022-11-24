@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <meta name="description" content="ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.">
-    
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="./favicon.png">
 
@@ -16,10 +14,7 @@
     <link href="./css/pygments.css" rel="stylesheet">
     <link href="./css/font-awesome.min.css" rel="stylesheet">
     <link href="./css/local.css" rel="stylesheet">
-    
     <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
-    
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,52 +43,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-        
             <li><a href='./page/index.html'>General documentation</a></li>
-      
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
-              
             <li><a href="./lists/files.html">Source Files</a></li>
-        
-        
-        
             <li><a href="./lists/modules.html">Modules</a></li>
-        
-            
-                                
             <li><a href="./lists/procedures.html">Procedures</a></li>
-        
-               
-               
-        
-        
+              
             </ul>
         
             </li>
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="./lists/files.html">Source Files</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="./lists/modules.html">Modules</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="./lists/procedures.html">Procedures</a></li>
-
-                             
-
-
-
-          </ul>
-        
+                                       </ul>
         <form action="./search.html" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
@@ -102,37 +69,23 @@
         <button type="submit" class="btn btn-default">Submit</button>
 -->
         </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-    
       <!-- Main component for a primary marketing message or call to action -->
       <div class="jumbotron">
         <p>ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.</p>
-        	 
 	<p> Find us on&hellip;</p>
         <p>
-			 
           <a class="btn btn-lg btn-primary" href="https://github.com/ecasglez/FortranUtilities" role="button">GitHub</a>
-			 
-			 
-			 
-			 
-			 
-	         
-			 
           <a class="btn btn-lg btn-danger" style="float:right" href="https://github.com/ecasglez/FortranUtilities/archive/master.zip" role="button">Download the Source</a>
-			 
         </p>
       </div>
 
       <div class="row" id='text'>
-		  
         <div class="col-md-8">
-		  
           <h1>ecasglez's FortranUtilities</h1>
           <p></p><div class="alert alert-info" role="alert"><h4>Note</h4><p>This is Work-in-Progress. More functions are being added and documentation is being improved.</p></div>
 <p>ecasglez's FortranUtilities is a collection of simple functions for Fortran programs I used during my PhD studies, organized in a library for easy use. It does not intend to be a replacement of the <a href="https://github.com/fortran-lang/stdlib">Fortran Standard Library (stdlib)</a>, because the stdlib has a much wider scope, but at the time I was at University stdlib did not exist.</p>
@@ -147,12 +100,11 @@
 <p>Documentation of the different functions is <a href="https://ecasglez.github.io/FortranUtilities/lists/procedures.html">here</a>.</p>
 <h2 id="usage-example">Usage example</h2>
 <p>To use the library in your programs you first need to use the module of interest, as in the following example:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">test</span>
-<span class="k">USE </span><span class="n">FU_Strings</span>
-<span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">int2str</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="k">END PROGRAM </span><span class="n">test</span>
+<div class="codehilite"><pre><span></span><code><span class="k">PROGRAM </span><span class="n">test</span><span class="w"></span>
+<span class="k">USE </span><span class="n">FU_Strings</span><span class="w"></span>
+<span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">int2str</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"></span>
+<span class="k">END PROGRAM </span><span class="n">test</span><span class="w"></span>
 </code></pre></div>
-
 
 <p>Then you have to link to the library when compiling. For example:</p>
 <ol>
@@ -172,133 +124,71 @@
 <h2 id="license">License</h2>
 <p>These files are distributed under a MIT license. See LICENSE file for more information on using and distributing these files.</p>
         </div>
-		  
         <div class="col-md-4">
 	  <div class="well">
           <h2>Developer Info</h2>
           <h4>Emilio Castro</h4>
           
-          
-			   
             <div class="text-center"><div class="btn-group" role="group">
-              
               <a class="btn btn-lg btn-primary" href="mailto:ecasglez@protonmail.com"><i class="fa fa-envelope fa-lg"></i></a>
-              
-              
-              
               <a class="btn btn-lg btn-primary" href="https://github.com/ecasglez"><i class="fa fa-github fa-lg"></i></a>
-              
-              
-				  
-              
-              
-              
               <a class="btn btn-lg btn-primary" href="https://www.linkedin.com/in/emilio-castro-gonz%C3%A1lez-797707162/"><i class="fa fa-linkedin fa-lg"></i></a>
-				  
-              
             </div></div>
-            
        </div>
        </div>
-       
       </div>
-      
-      
-      
-      
-      
-      
-		
-        
       <div class="row">
-        
         <div class="col-xs-6 col-sm-4">
               <h3>Source Files</h3>
-              <ul>
-                    <li><a href='./sourcefile/files_m.f90.html'>Files_M.F90</a></li>
-                  
+              <ul>                    <li><a href='./sourcefile/files_m.f90.html'>Files_M.F90</a></li>
                     <li><a href='./sourcefile/include_correlation.f90.html'>include_correlation.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_count_digits_integer.f90.html'>include_count_digits_integer.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_covariance.f90.html'>include_covariance.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_eq.f90.html'>include_eq.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_gmean.f90.html'>include_gmean.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_int2str00000.f90.html'>include_int2str00000.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_lin_error_propagation.f90.html'>include_lin_error_propagation.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_mean.f90.html'>include_mean.f90</a></li>
-                  
                     <li><a href='./sourcefile/include_ne.f90.html'>include_ne.f90</a></li>
-                  </ul>
+</ul>
           </div>
-        
-          
 		  <div class="col-xs-6 col-sm-4">
               <h3>Modules</h3>
-              <ul>
-                    <li><a href='./module/fu_files.html'>FU_Files</a></li>
-                  
+              <ul>                    <li><a href='./module/fu_files.html'>FU_Files</a></li>
                     <li><a href='./module/fu_numbers.html'>FU_Numbers</a></li>
-                  
                     <li><a href='./module/fu_prec.html'>FU_Prec</a></li>
-                  
                     <li><a href='./module/fu_statistics.html'>FU_Statistics</a></li>
-                  
                     <li><a href='./module/fu_strings.html'>FU_Strings</a></li>
-                  
                     <li><a href='./module/fu_timing.html'>FU_Timing</a></li>
-                  </ul>
+</ul>
           </div>
-          
-          
 		  <div class="col-xs-6 col-sm-4">
               <h3>Procedures</h3>
-              <ul>
-                    <li><a href='./proc/cistrcmp.html'>cistrcmp</a></li>
-                  
+              <ul>                    <li><a href='./proc/cistrcmp.html'>cistrcmp</a></li>
                     <li><a href='./interface/correlation.html'>correlation</a></li>
-                  
                     <li><a href='./interface/count_digits_integer.html'>count_digits_integer</a></li>
-                  
                     <li><a href='./interface/covariance.html'>covariance</a></li>
-                  
                     <li><a href='./proc/cp.html'>cp</a></li>
-                  
                     <li><a href='./proc/endswith.html'>endsWith</a></li>
-                  
                     <li><a href='./interface/eq.html'>eq</a></li>
-                  
                     <li><a href='./proc/exists.html'>exists</a></li>
-                  
                     <li><a href='./interface/expreg.html'>expreg</a></li>
-                  
                     <li><a href='./proc/extension.html'>extension</a></li>
-                  </ul>
+</ul>
           </div>
-          
-          
       </div>
-      
-
     <hr>    
     </div> <!-- /container -->
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
-                                          </p>
+        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2022 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
         </div>
         <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
-            
-            
           </p>
         </div>
       </div>
@@ -326,14 +216,11 @@
         extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
     
     <script src="./tipuesearch/tipuesearch_content.js"></script>
     <script src="./tipuesearch/tipuesearch_set.js"></script>
     <script src="./tipuesearch/tipuesearch.js"></script>
-    
     
   </body>
 </html>

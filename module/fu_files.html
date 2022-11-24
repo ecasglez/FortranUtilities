@@ -4,9 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
    <meta name="description" content="ecasglez's FortranUtilities is a collection of simple functions and subroutines for Fortran programs. Functions to deal with strings, numbers, precision, statistics and files are included.">
-    
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
@@ -16,10 +14,7 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    
     <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    
-    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,52 +43,24 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-        
             <li><a href='../page/index.html'>General documentation</a></li>
-      
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
               data-toggle="dropdown" role="button"
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          
-              
             <li><a href="../lists/files.html">Source Files</a></li>
-        
-        
-        
             <li><a href="../lists/modules.html">Modules</a></li>
-        
-            
-                                
             <li><a href="../lists/procedures.html">Procedures</a></li>
-        
-               
-               
-        
-        
+              
             </ul>
         
             </li>
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-
-
-
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-
-                             
-
-
-
-          </ul>
-        
+                                       </ul>
         <form action="../search.html" class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
@@ -102,3203 +69,2482 @@
         <button type="submit" class="btn btn-default">Submit</button>
 -->
         </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-    
-  
   <div class="row">
     <h1>FU_Files 
     <small>Module</small>
     
     </h1>
-    
-<div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     
-     <li><i class="fa fa-pencil"></i> Emilio Castro.</li>
-     
-     
-    <li><i class="fa fa-calendar-o"></i> 16/06/2020.</li>
-     
-     
-    <li><i class="fa fa-legal"></i> MIT.</li>
-     
-     
-     
-    <li><i class="fa fa-barcode"></i> 1.0.</li>
-    
-    
-    
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title="29.1% of total for modules and submodules.">618 statements</a>
-     </li> 
-     
-     
-     
-    <li><i class="fa fa-code"></i><a href="../src/Files_M.F90"> Source File</a></li>
-     
-     
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-  
-    
-     <li><a href='../sourcefile/files_m.f90.html'>Files_M.F90</a></li>
-    
-  
-     <li class="active">FU_Files</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li id="meta-author"><i class="fa fa-pencil"></i> Emilio Castro.</li>
+            <li id="meta-date"><i class="fa fa-calendar-o"></i> 16/06/2020.</li>
+            <li id="meta-license"><i class="fa fa-legal"></i> MIT.</li>
+            <li id="meta-version"><i class="fa fa-barcode"></i> 1.0.</li>
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title="29.1% of total for modules and submodules.">618 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/Files_M.F90"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/files_m.f90.html'>Files_M.F90</a></li>
+          <li class="active">FU_Files</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    
-<div id="sidebar">
+      <div id="sidebar">
+      <h3>Contents</h3>
   
-<h3>Contents</h3>
- 
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_files.html#variable-filesep">filesep</a>
-      
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_files.html#variable-filesep">filesep</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
-  <div id="inters-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_files.html#interface-readmatrix">readMatrix</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#interface-writematrix">writeMatrix</a>
-      
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#inters-0">Interfaces</a>
+        </h3>
+      </div>
+      <div id="inters-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_files.html#interface-readmatrix">readMatrix</a>
+            <a class="list-group-item" href="../module/fu_files.html#interface-writematrix">writeMatrix</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-0">Functions</a></h3></div>
-  <div id="funcs-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-mkdir">mkdir</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-cp">cp</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-mv">mv</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-rm">rm</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-exists">exists</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_directory">is_directory</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_empty">is_empty</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_regular_file">is_regular_file</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_path_absolute">is_path_absolute</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_path_relative">is_path_relative</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-replace_extension">replace_extension</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-stem">stem</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-filename">filename</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-replace_filename">replace_filename</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-remove_filename">remove_filename</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-parent_path">parent_path</a>
-      
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#funcs-0">Functions</a>
+        </h3>
+      </div>
+      <div id="funcs-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_files.html#proc-mkdir">mkdir</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-cp">cp</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-mv">mv</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-rm">rm</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-exists">exists</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_directory">is_directory</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_empty">is_empty</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_regular_file">is_regular_file</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_path_absolute">is_path_absolute</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_path_relative">is_path_relative</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-replace_extension">replace_extension</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-stem">stem</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-filename">filename</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-replace_filename">replace_filename</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-remove_filename">remove_filename</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-parent_path">parent_path</a>
+        </div>
+      </div>
     </div>
+
+  
+  
+  
+  
+  
+  
+  
+
+
   </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
     </div>
     
     <div class="col-md-9" id='text'>
     <p>Useful tools to manipulate files in Fortran programs.</p>
-      <br>
-    
-  
-    <div class="panel panel-default">
+<br>        <div class="panel panel-default">
       <div class="panel-heading">
-  <h3 class="panel-title">Uses</h3>
+        <h3 class="panel-title">Uses</h3>
       </div>
       <ul class="list-group">
-      
-      <li class="list-group-item">
-  <ul class="list-inline">
-    
-    <li><a href="http://fortranwiki.org/fortran/show/iso_c_binding">iso_c_binding</a></li>
-    
-    <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
-    
-  </ul>
-      </li>
-      
-      
-      
+          <li class="list-group-item">
+            <ul class="list-inline">
+                <li><a href='../module/fu_prec.html'>FU_Prec</a></li>
+                <li><a href="http://fortranwiki.org/fortran/show/iso_c_binding">iso_c_binding</a></li>
+            </ul>
+          </li>
       </ul>
     </div>
-    
 
     
-    
-
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      
-<h3>Contents</h3>
- 
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_files.html#variable-filesep">filesep</a>
-      
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_files.html#variable-filesep">filesep</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
-  <div id="inters-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_files.html#interface-readmatrix">readMatrix</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#interface-writematrix">writeMatrix</a>
-      
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#inters-1">Interfaces</a>
+        </h3>
+      </div>
+      <div id="inters-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_files.html#interface-readmatrix">readMatrix</a>
+            <a class="list-group-item" href="../module/fu_files.html#interface-writematrix">writeMatrix</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-1">Functions</a></h3></div>
-  <div id="funcs-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-mkdir">mkdir</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-cp">cp</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-mv">mv</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-rm">rm</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-exists">exists</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_directory">is_directory</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_empty">is_empty</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_regular_file">is_regular_file</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_path_absolute">is_path_absolute</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-is_path_relative">is_path_relative</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-replace_extension">replace_extension</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-stem">stem</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-filename">filename</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-replace_filename">replace_filename</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-remove_filename">remove_filename</a>
-      
-      <a class="list-group-item" href="../module/fu_files.html#proc-parent_path">parent_path</a>
-      
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#funcs-1">Functions</a>
+        </h3>
+      </div>
+      <div id="funcs-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../module/fu_files.html#proc-mkdir">mkdir</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-cp">cp</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-mv">mv</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-rm">rm</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-exists">exists</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_directory">is_directory</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_empty">is_empty</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_regular_file">is_regular_file</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_path_absolute">is_path_absolute</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-is_path_relative">is_path_relative</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-extension">extension</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-replace_extension">replace_extension</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-stem">stem</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-filename">filename</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-replace_filename">replace_filename</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-remove_filename">remove_filename</a>
+            <a class="list-group-item" href="../module/fu_files.html#proc-parent_path">parent_path</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
 
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
 
-    
 
-    
     <section>
     <h2>Variables</h2>
-    
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th>
-
-<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-filesep"></span>character,</td>
-  
-  <td>public,</td>
-  <td>parameter</td><td>::</td>
-  <td><strong>filesep</strong></td><td> =</td><td>'/'</td><td><p>Path separator: '\' for Windows and '/' for Linux, MacOS and other OS.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-filesep"></span>
+              character,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>filesep</strong></td>
+<td> =</td>
+                <td>'/'</td>
+            <td>
+                <p>Path separator: '\' for Windows and '/' for Linux, MacOS and other OS.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
-    
-    
-    
     
     
     <section>
    <h2>Interfaces</h2>
-   
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-readmatrix"></span><h3>public interface <a href='../interface/readmatrix.html'>readMatrix</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Reads a matrix from a file.</p><a href="../interface/readmatrix.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-readmatrix"></span>
+      <h3>public        interface <a href='../interface/readmatrix.html'>readMatrix</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+ indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed. The return variable must have ALLOCATABLE attribute,
+ and must not be allocated (the subroutine takes care of allocation but not about deallocation).</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">call </span><span class="n">readMatrix</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Where:</p>
+<ul>
+<li><code>filename</code>: string of any length with the path to the file to read. If the file does not exist or
+ it is empty a Fortran runtime error is raised. If the file does not have the proper format
+ the behaviour is undefined.</li>
+<li><code>matrix</code>: an allocatable array of rank 2 of any of the integer or real kinds supported.
+ It will be allocated automatically in the subroutine, but the user must deallocate matrix
+ manually after use.</li>
+</ul>
+<h3 id="example">Example</h3>
+<p>The following example program loads values from a file named matrix.txt:</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">readMatrixExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">readMatrix</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Prec</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrixFileName</span><span class="w"></span>
+<span class="w">    </span><span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">DIMENSION</span><span class="p">(:,:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+<span class="w">    </span><span class="n">matrixFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;matrix.txt&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="k">CALL </span><span class="n">readMatrix</span><span class="p">(</span><span class="n">matrixFileName</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+<span class="w">    </span><span class="k">DEALLOCATE</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">readMatrixExample</span><span class="w"></span>
+</code></pre></div>
+
+<p>File matrix.txt contains the following information:</p>
+<div class="codehilite"><pre><span></span><code> 2 3 F 
+ 1.1 1.2 1.3 
+ 2.1 2.2 2.3
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private  subroutine readMatrix_i8(filename, res)  
+
+    </h3>
+  <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to read the matrix from.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              DIMENSION(:,:), ALLOCATABLE
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                <p>Values read from the matrix. This output variable must be allocatable but
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine readMatrix_i16(filename, res)  
+
+    </h3>
+  <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to read the matrix from.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              DIMENSION(:,:), ALLOCATABLE
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                <p>Values read from the matrix. This output variable must be allocatable but
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine readMatrix_i32(filename, res)  
+
+    </h3>
+  <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to read the matrix from.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              DIMENSION(:,:), ALLOCATABLE
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                <p>Values read from the matrix. This output variable must be allocatable but
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine readMatrix_i64(filename, res)  
+
+    </h3>
+  <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to read the matrix from.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              DIMENSION(:,:), ALLOCATABLE
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                <p>Values read from the matrix. This output variable must be allocatable but
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine readMatrix_sp(filename, res)  
+
+    </h3>
+  <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to read the matrix from.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=sp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              DIMENSION(:,:), ALLOCATABLE
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                <p>Values read from the matrix. This output variable must be allocatable but
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine readMatrix_dp(filename, res)  
+
+    </h3>
+  <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to read the matrix from.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=dp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              DIMENSION(:,:), ALLOCATABLE
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                <p>Values read from the matrix. This output variable must be allocatable but
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine readMatrix_qp(filename, res)  
+
+    </h3>
+  <p>Reads a matrix from a file. The file must have the proper format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns must be separated using blanks.</p>
+<p>The file is then opened, read and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to read the matrix from.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=qp),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              DIMENSION(:,:), ALLOCATABLE
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                <p>Values read from the matrix. This output variable must be allocatable but
+must not be allocated prior to call readMatrix as it is allocated here. However
+deallocation must be done manually by the user when finishes using the information.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+    </ul>
   </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine readMatrix_i8(filename, res)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_i8.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
-  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
-must not be allocated prior to call readMatrix as it is allocated here. However
-deallocation must be done manually by the user when finishes using the information.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine readMatrix_i16(filename, res)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_i16.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
-  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
-must not be allocated prior to call readMatrix as it is allocated here. However
-deallocation must be done manually by the user when finishes using the information.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine readMatrix_i32(filename, res)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_i32.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
-  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
-must not be allocated prior to call readMatrix as it is allocated here. However
-deallocation must be done manually by the user when finishes using the information.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine readMatrix_i64(filename, res)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_i64.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
-  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
-must not be allocated prior to call readMatrix as it is allocated here. However
-deallocation must be done manually by the user when finishes using the information.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine readMatrix_sp(filename, res)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_sp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
-  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
-must not be allocated prior to call readMatrix as it is allocated here. However
-deallocation must be done manually by the user when finishes using the information.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine readMatrix_dp(filename, res)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_dp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
-  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
-must not be allocated prior to call readMatrix as it is allocated here. However
-deallocation must be done manually by the user when finishes using the information.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine readMatrix_qp(filename, res)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Reads a matrix from a file.</p><a href="../proc/readmatrix_qp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to read the matrix from.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(out),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:), ALLOCATABLE</td><td>::</td>
-  <td><strong>res</strong></td><td><p>Values read from the matrix. This output variable must be allocatable but
-must not be allocated prior to call readMatrix as it is allocated here. However
-deallocation must be done manually by the user when finishes using the information.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-     
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-writematrix"></span><h3>public interface <a href='../interface/writematrix.html'>writeMatrix</a>
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-    <p>Writes a matrix to a file.</p><a href="../interface/writematrix.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-writematrix"></span>
+      <h3>public        interface <a href='../interface/writematrix.html'>writeMatrix</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+ indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">call </span><span class="n">writeMatrix</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="n">formato</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Where:</p>
+<ul>
+<li><code>filename</code>: string of any length with the path to the file to write.</li>
+<li><code>matrix</code>: an array of rank 2 of any of the integer or real kinds supported.</li>
+<li><code>header</code>: optional character variable of any length to write in the second line
+ of the file.</li>
+<li><code>formato</code>: optional character variable with the format to use for the numbers (without
+ parenthesis.</li>
+</ul>
+<h3 id="example">Example</h3>
+<p>The following example program writes values to a file named matrix.txt:</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">writeMatrixExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Files</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">writeMatrix</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Prec</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrixFileName</span><span class="w"></span>
+<span class="w">    </span><span class="kt">REAL</span><span class="p">(</span><span class="nb">KIND</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">DIMENSION</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+<span class="w">    </span><span class="n">matrixFileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;matrix.txt&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span>
+<span class="w">    </span><span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.2</span><span class="w"> </span>
+<span class="w">    </span><span class="n">matrix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.3</span><span class="w"> </span>
+<span class="w">    </span><span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.1</span><span class="w"> </span>
+<span class="w">    </span><span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.2</span><span class="w"> </span>
+<span class="w">    </span><span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.3</span><span class="w"> </span>
+<span class="w">    </span><span class="k">CALL </span><span class="n">writeMatrix</span><span class="p">(</span><span class="n">matrixFileName</span><span class="p">,</span><span class="w"> </span><span class="n">matrix</span><span class="p">,</span><span class="w"> </span><span class="n">formato</span><span class="o">=</span><span class="s1">&#39;F3.1&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">writeMatrixExample</span><span class="w"></span>
+</code></pre></div>
+
+<p>After execution file matrix.txt contains the following information:</p>
+<div class="codehilite"><pre><span></span><code>        2           3 F
+ 1.1 1.2 1.3
+ 2.1 2.2 2.3
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private  subroutine writeMatrix_i8(filename, matrix, header, formato)  
+
+    </h3>
+  <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to write the matrix to.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              DIMENSION(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>matrix</strong></td>
+            <td>
+                <p>Values of the matrix to write to the file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>header</strong></td>
+            <td>
+                <p>Header to be writen in the second line.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use for the numbers without parenthesis. Example: I3</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine writeMatrix_i16(filename, matrix, header, formato)  
+
+    </h3>
+  <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to write the matrix to.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              DIMENSION(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>matrix</strong></td>
+            <td>
+                <p>Values of the matrix to write to the file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>header</strong></td>
+            <td>
+                <p>Header to be writen in the second line.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use for the numbers without parenthesis. Example: I3</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine writeMatrix_i32(filename, matrix, header, formato)  
+
+    </h3>
+  <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to write the matrix to.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              DIMENSION(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>matrix</strong></td>
+            <td>
+                <p>Values of the matrix to write to the file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>header</strong></td>
+            <td>
+                <p>Header to be writen in the second line.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use for the numbers without parenthesis. Example: I3</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine writeMatrix_i64(filename, matrix, header, formato)  
+
+    </h3>
+  <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to write the matrix to.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              DIMENSION(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>matrix</strong></td>
+            <td>
+                <p>Values of the matrix to write to the file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>header</strong></td>
+            <td>
+                <p>Header to be writen in the second line.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use for the numbers without parenthesis. Example: I3</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine writeMatrix_sp(filename, matrix, header, formato)  
+
+    </h3>
+  <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to write the matrix to.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=sp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              DIMENSION(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>matrix</strong></td>
+            <td>
+                <p>Values of the matrix to write to the file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>header</strong></td>
+            <td>
+                <p>Header to be writen in the second line.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use for the numbers without parenthesis. Example: F8.3</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine writeMatrix_dp(filename, matrix, header, formato)  
+
+    </h3>
+  <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to write the matrix to.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=dp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              DIMENSION(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>matrix</strong></td>
+            <td>
+                <p>Values of the matrix to write to the file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>header</strong></td>
+            <td>
+                <p>Header to be writen in the second line.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use for the numbers without parenthesis. Example: F8.3</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private  subroutine writeMatrix_qp(filename, matrix, header, formato)  
+
+    </h3>
+  <p>Writes a matrix to a file. The file will have the following format:</p>
+<p>First line includes the number of rows, the number of columns and a logical
+indicating if the second line is a header line to be skipped. Example: 5 9 T.</p>
+<p>The second row can be a header or not.</p>
+<p>Then the matrix comes. The different columns are separated using blanks.</p>
+<p>The file is then opened, written and closed.</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+                <p>Filename of the file to write the matrix to.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              real(kind=qp),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              DIMENSION(:,:)
+            </td>
+            <td>::</td>
+            <td><strong>matrix</strong></td>
+            <td>
+                <p>Values of the matrix to write to the file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>header</strong></td>
+            <td>
+                <p>Header to be writen in the second line.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>formato</strong></td>
+            <td>
+                <p>Format to use for the numbers without parenthesis. Example: F8.3</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+    </ul>
   </div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine writeMatrix_i8(filename, matrix, header, formato)
-    
-    
-   
-</h3>
-    
 
-
-
-<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i8.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i8),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:)</td><td>::</td>
-  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine writeMatrix_i16(filename, matrix, header, formato)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i16.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i16),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:)</td><td>::</td>
-  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine writeMatrix_i32(filename, matrix, header, formato)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i32.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:)</td><td>::</td>
-  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine writeMatrix_i64(filename, matrix, header, formato)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Writes a matrix to a file.</p><a href="../proc/writematrix_i64.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:)</td><td>::</td>
-  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: I3</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine writeMatrix_sp(filename, matrix, header, formato)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Writes a matrix to a file.</p><a href="../proc/writematrix_sp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=sp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:)</td><td>::</td>
-  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: F8.3</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine writeMatrix_dp(filename, matrix, header, formato)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Writes a matrix to a file.</p><a href="../proc/writematrix_dp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=dp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:)</td><td>::</td>
-  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: F8.3</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine writeMatrix_qp(filename, matrix, header, formato)
-    
-    
-   
-</h3>
-    
-
-
-
-<p>Writes a matrix to a file.</p><a href="../proc/writematrix_qp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>filename</strong></td><td><p>Filename of the file to write the matrix to.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=qp),</td>
-  <td>intent(in),</td>
-  <td></td>
-  
-  <td>DIMENSION(:,:)</td><td>::</td>
-  <td><strong>matrix</strong></td><td><p>Values of the matrix to write to the file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>header</strong></td><td><p>Header to be writen in the second line.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>formato</strong></td><td><p>Format to use for the numbers without parenthesis. Example: F8.3</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
     </section>
   <br>
-    
 
     
     
-    
-    
-     
+ 
     <section>
     <h2>Functions</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-mkdir"></span><h3>
-public function <a href='../proc/mkdir.html'>mkdir</a>(dir, ignoreErrors) result(res)
-    
-    
-   
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-mkdir"></span><h3>public  function <a href='../proc/mkdir.html'>mkdir</a>(dir, ignoreErrors) result(res)  
 </h3></div>
-  <div class="panel-body">
-       
-    
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Creates a directory.</p><a href="../proc/mkdir.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dir</strong></td>
+            <td>
+<p>Path and name of the directory to be created.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ignoreErrors</strong></td>
+            <td>
+<p>False to print a detailed description of the error message.
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the process has been succesful. False in case of error.</p>
 
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Creates a directory.</p><a href="../proc/mkdir.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>dir</strong></td><td><p>Path and name of the directory to be created.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message.
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the process has been succesful. False in case of error.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-cp"></span><h3>
-public function <a href='../proc/cp.html'>cp</a>(src, dest, ignoreErrors) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Copies a file or directory.</p><a href="../proc/cp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>src</strong></td><td><p>Name of the file to be copied. </p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>dest</strong></td><td><p>Name of the destination file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message. 
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the process has been succesful. False in case of error.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-mv"></span><h3>
-public function <a href='../proc/mv.html'>mv</a>(src, dest, ignoreErrors) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Moves or renames a file or directory.</p><a href="../proc/mv.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>src</strong></td><td><p>Name of the file to be moved. </p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>dest</strong></td><td><p>Name of the destination file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message. 
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the process has been succesful. False in case of error.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-rm"></span><h3>
-public function <a href='../proc/rm.html'>rm</a>(fname, ignoreErrors) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Removes a file or directory.</p><a href="../proc/rm.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Name of the file or directory to be removed.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message. 
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the process has been succesful. False in case of error.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-exists"></span><h3>
-public function <a href='../proc/exists.html'>exists</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Checks if a file or directory exists.</p><a href="../proc/exists.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Name of the file to be check for existence.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the file exists. False otherwise.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-is_directory"></span><h3>
-public function <a href='../proc/is_directory.html'>is_directory</a>(fname, ignoreErrors) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Checks if a directory exists.</p><a href="../proc/is_directory.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Name of the directory to be checked. </p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message. 
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if fname is a directory. False otherwise.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-is_empty"></span><h3>
-public function <a href='../proc/is_empty.html'>is_empty</a>(fname, ignoreErrors) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Checks if a file is empty.</p><a href="../proc/is_empty.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Name of the file to be checked. </p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message. 
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if fname is an empty file. False otherwise.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-is_regular_file"></span><h3>
-public function <a href='../proc/is_regular_file.html'>is_regular_file</a>(fname, ignoreErrors) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>16/06/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Checks if a regular file exists and it is not a directory, etc.</p><a href="../proc/is_regular_file.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Name of the file to be checked. </p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>ignoreErrors</strong></td><td><p>False to print a detailed description of the error message. 
-Optional parameter. Default is False.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if fname is a regular file. False otherwise.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-is_path_absolute"></span><h3>
-public function <a href='../proc/is_path_absolute.html'>is_path_absolute</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>27/07/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Determines if a path is absolute or not</p><a href="../proc/is_path_absolute.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Path to a file.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the path is absolute and false if the path is relative.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-is_path_relative"></span><h3>
-public function <a href='../proc/is_path_relative.html'>is_path_relative</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>27/07/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Determines if a path is relative or not</p><a href="../proc/is_path_relative.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Path to a file.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>logical
-  </small></h4>
-  <p>True if the path is relative and false if the path is absolute.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-extension"></span><h3>
-public function <a href='../proc/extension.html'>extension</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>27/07/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Determines the extension of a file.</p><a href="../proc/extension.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>Extension of the file including the "dot". Empty path is returned if no extension is found.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-replace_extension"></span><h3>
-public function <a href='../proc/replace_extension.html'>replace_extension</a>(fname, ext) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>21/01/2021.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Changes the extension of a filename.</p><a href="../proc/replace_extension.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>ext</strong></td><td><p>New extension for the fname.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>The fname value with the modified extension.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-stem"></span><h3>
-public function <a href='../proc/stem.html'>stem</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>06/08/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Determines the filename without the path and without the final extension given a path.</p><a href="../proc/stem.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>Filename without the final extension and without the path.
-If filename consists of an extension only, the extension is returned.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-filename"></span><h3>
-public function <a href='../proc/filename.html'>filename</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>06/08/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Determines the full filename given a path.</p><a href="../proc/filename.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>Full filename given in the path.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-replace_filename"></span><h3>
-public function <a href='../proc/replace_filename.html'>replace_filename</a>(fname, newname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>21/01/2021.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Changes the filename of a path (keeping the path).</p><a href="../proc/replace_filename.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>newname</strong></td><td><p>New filename for the fname (including extension).</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>The fname value with the modified filename.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-remove_filename"></span><h3>
-public function <a href='../proc/remove_filename.html'>remove_filename</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>21/01/2021.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Removes the filename from a path.</p><a href="../proc/remove_filename.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>The fname value with the filename removed.</p>
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-parent_path"></span><h3>
-public function <a href='../proc/parent_path.html'>parent_path</a>(fname) result(res)
-    
-    
-   
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-  <dl class="dl-horizontal">
-    
-    <dt>Author</dt><dd>Emilio Castro.</dd>
-    
-    
-    <dt>Date</dt><dd>06/08/2020.</dd>
-    
-    
-    <dt>License</dt><dd>MIT.</dd>
-    
-    
-    
-    <dt>Version</dt><dd>1.0.</dd>
-    
-    
-  </dl>
-
-
-
-<p>Determines the path to the parent directory given the path to a file.</p><a href="../proc/parent_path.html" class="pull-right"><emph>Read more&hellip;</emph></a>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>fname</strong></td><td><p>Filename or path to a file.</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>character(len=:),
-  ALLOCATABLE</small></h4>
-  <p>Path of the parent directory without final slash.</p>
-    
-
-  </div>
-  </div>
-
-    
-    </section>
-    <br>
-    
-
-    
-    
-    
     </div>
   </div>
 
-  
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-cp"></span><h3>public  function <a href='../proc/cp.html'>cp</a>(src, dest, ignoreErrors) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Copies a file or directory.</p><a href="../proc/cp.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>src</strong></td>
+            <td>
+<p>Name of the file to be copied. </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dest</strong></td>
+            <td>
+<p>Name of the destination file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ignoreErrors</strong></td>
+            <td>
+<p>False to print a detailed description of the error message. 
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the process has been succesful. False in case of error.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-mv"></span><h3>public  function <a href='../proc/mv.html'>mv</a>(src, dest, ignoreErrors) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Moves or renames a file or directory.</p><a href="../proc/mv.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>src</strong></td>
+            <td>
+<p>Name of the file to be moved. </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dest</strong></td>
+            <td>
+<p>Name of the destination file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ignoreErrors</strong></td>
+            <td>
+<p>False to print a detailed description of the error message. 
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the process has been succesful. False in case of error.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-rm"></span><h3>public  function <a href='../proc/rm.html'>rm</a>(fname, ignoreErrors) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Removes a file or directory.</p><a href="../proc/rm.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Name of the file or directory to be removed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ignoreErrors</strong></td>
+            <td>
+<p>False to print a detailed description of the error message. 
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the process has been succesful. False in case of error.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-exists"></span><h3>public  function <a href='../proc/exists.html'>exists</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Checks if a file or directory exists.</p><a href="../proc/exists.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Name of the file to be check for existence.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the file exists. False otherwise.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-is_directory"></span><h3>public  function <a href='../proc/is_directory.html'>is_directory</a>(fname, ignoreErrors) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Checks if a directory exists.</p><a href="../proc/is_directory.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Name of the directory to be checked. </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ignoreErrors</strong></td>
+            <td>
+<p>False to print a detailed description of the error message. 
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if fname is a directory. False otherwise.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-is_empty"></span><h3>public  function <a href='../proc/is_empty.html'>is_empty</a>(fname, ignoreErrors) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Checks if a file is empty.</p><a href="../proc/is_empty.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Name of the file to be checked. </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ignoreErrors</strong></td>
+            <td>
+<p>False to print a detailed description of the error message. 
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if fname is an empty file. False otherwise.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-is_regular_file"></span><h3>public  function <a href='../proc/is_regular_file.html'>is_regular_file</a>(fname, ignoreErrors) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>16/06/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Checks if a regular file exists and it is not a directory, etc.</p><a href="../proc/is_regular_file.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Name of the file to be checked. </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ignoreErrors</strong></td>
+            <td>
+<p>False to print a detailed description of the error message. 
+Optional parameter. Default is False.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if fname is a regular file. False otherwise.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-is_path_absolute"></span><h3>public  function <a href='../proc/is_path_absolute.html'>is_path_absolute</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>27/07/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Determines if a path is absolute or not</p><a href="../proc/is_path_absolute.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Path to a file.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the path is absolute and false if the path is relative.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-is_path_relative"></span><h3>public  function <a href='../proc/is_path_relative.html'>is_path_relative</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>27/07/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Determines if a path is relative or not</p><a href="../proc/is_path_relative.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Path to a file.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    <p>True if the path is relative and false if the path is absolute.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-extension"></span><h3>public  function <a href='../proc/extension.html'>extension</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>27/07/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Determines the extension of a file.</p><a href="../proc/extension.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Filename or path to a file.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>Extension of the file including the "dot". Empty path is returned if no extension is found.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-replace_extension"></span><h3>public  function <a href='../proc/replace_extension.html'>replace_extension</a>(fname, ext) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>21/01/2021.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Changes the extension of a filename.</p><a href="../proc/replace_extension.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Filename or path to a file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ext</strong></td>
+            <td>
+<p>New extension for the fname.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>The fname value with the modified extension.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-stem"></span><h3>public  function <a href='../proc/stem.html'>stem</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>06/08/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Determines the filename without the path and without the final extension given a path.</p><a href="../proc/stem.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Filename or path to a file.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>Filename without the final extension and without the path.
+If filename consists of an extension only, the extension is returned.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-filename"></span><h3>public  function <a href='../proc/filename.html'>filename</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>06/08/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Determines the full filename given a path.</p><a href="../proc/filename.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Filename or path to a file.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>Full filename given in the path.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-replace_filename"></span><h3>public  function <a href='../proc/replace_filename.html'>replace_filename</a>(fname, newname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>21/01/2021.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Changes the filename of a path (keeping the path).</p><a href="../proc/replace_filename.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Filename or path to a file.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>newname</strong></td>
+            <td>
+<p>New filename for the fname (including extension).</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>The fname value with the modified filename.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-remove_filename"></span><h3>public  function <a href='../proc/remove_filename.html'>remove_filename</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>21/01/2021.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Removes the filename from a path.</p><a href="../proc/remove_filename.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Filename or path to a file.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>The fname value with the filename removed.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-parent_path"></span><h3>public  function <a href='../proc/parent_path.html'>parent_path</a>(fname) result(res)  
+</h3></div>
+    <div class="panel-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Emilio Castro.</dd>
+        <dt>Date</dt><dd>06/08/2020.</dd>
+        <dt>License</dt><dd>MIT.</dd>
+        <dt>Version</dt><dd>1.0.</dd>
+    </dl>
+
+  <p>Determines the path to the parent directory given the path to a file.</p><a href="../proc/parent_path.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fname</strong></td>
+            <td>
+<p>Filename or path to a file.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>Path of the parent directory without final slash.</p>
+
+    </div>
+  </div>
+
+    </section>
+    <br>
+
+
+
+
+    </div>
+  </div>
+
     <hr>    
     </div> <!-- /container -->
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2021 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
-                                          </p>
+        <div class="col-xs-6 col-md-6"><p>ecasglez's FortranUtilities was developed by Emilio Castro<br>&copy; 2022 <a rel="license" href="https://opensource.org/licenses/MIT">MIT</a>
+</p>
         </div>
         <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
-            
-            
           </p>
         </div>
       </div>
@@ -3326,14 +2572,11 @@ public function <a href='../proc/parent_path.html'>parent_path</a>(fname) result
         extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
     
     <script src="../tipuesearch/tipuesearch_content.js"></script>
     <script src="../tipuesearch/tipuesearch_set.js"></script>
     <script src="../tipuesearch/tipuesearch.js"></script>
-    
     
   </body>
 </html>
