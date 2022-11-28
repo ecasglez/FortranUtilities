@@ -1,6 +1,6 @@
 
 set(LibrarySources Strings_M.F90 Prec_M.F90 Statistics_M.F90 Numbers_M.F90 Files_M.F90
-    Timing_M.f90 cfiles.cpp csort.cpp ctiming.cpp)
+    Timing_M.f90 Arrays_M.F90 Interpolation_M.F90 cfiles.cpp csort.cpp ctiming.cpp)
 set(TestSources FortranUtilitiesTest.F90)
 
 set(LIB_MOD_DIR ${CMAKE_CURRENT_BINARY_DIR}/mod)

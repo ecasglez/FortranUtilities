@@ -16,6 +16,7 @@ macro: QPREC_FPP
 license: MIT
 exclude: FortranUtilitiesTest.F90
 exclude: include_median.f90
+exclude: include_lin_interp.f90
 sort: permission
 project_download: https://github.com/ecasglez/FortranUtilities/archive/master.zip
 page_dir: documentation

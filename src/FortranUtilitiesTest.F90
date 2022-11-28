@@ -6,6 +6,8 @@ PROGRAM FortranUtilitiesTest
    USE FU_Numbers
    USE FU_Files
    USE FU_Timing
+   USE FU_Arrays
+   USE FU_Interpolation
 
    IMPLICIT NONE
 
@@ -316,6 +318,46 @@ PROGRAM FortranUtilitiesTest
    CALL test('ne',.NOT.ne(1._qp,1._qp))
    CALL test('ne',ne(1._qp,2._qp))
    CALL test('ne',.NOT.ne(1._qp,2._qp,10._qp))
+#endif
+
+   !
+   ! FU_Arrays tests
+   !
+
+   CALL test('is_ordered', is_ordered(vecSp))
+   CALL test('is_ordered', .NOT.is_ordered([1._sp, 4._sp, 9._sp, 1._sp, 8._sp]))
+   CALL test('is_ordered', is_ordered([-4._sp, -1._sp, 0._sp, 1._sp, 8._sp]))
+   CALL test('is_ordered', is_ordered(vecDp))
+   CALL test('is_ordered', .NOT.is_ordered([1._dp, 4._dp, 9._dp, 1._dp, 8._dp]))
+   CALL test('is_ordered', is_ordered([-4._dp, -1._dp, 0._dp, 1._dp, 8._dp]))
+#ifdef QPREC_FPP
+   CALL test('is_ordered', is_ordered(vecQp))
+   CALL test('is_ordered', .NOT.is_ordered([1._qp, 4._qp, 9._qp, 1._qp, 8._qp]))
+   CALL test('is_ordered', is_ordered([-4._qp, -1._qp, 0._qp, 1._qp, 8._qp]))
+#endif
+
+   !
+   ! FU_Arrays tests
+   !
+  CALL test('lin_interp', eq(lin_interp(1._sp, vecSp, vec1Sp), 0.9_sp, 0.01_sp))
+  CALL test('lin_interp', eq(lin_interp(6._sp, vecSp, vec1Sp), 11.1_sp, 0.01_sp))
+  CALL test('lin_interp', eq(lin_interp(4.4_sp, vecSp, vec1Sp), 8.92_sp, 0.01_sp))
+  CALL test('lin_interp', eq(lin_interp(4.4_sp, [1._sp], [3._sp]), 3._sp, 0.01_sp))
+  CALL test('lin_interp', is_nan(lin_interp(4.4_sp, vecSp, vec1Sp(1:3))))
+  CALL test('lin_interp', is_nan(lin_interp(4.4_sp, vec2Sp, vecSp)))
+  CALL test('lin_interp', eq(lin_interp(1._dp, vecDp, vec1Dp), 0.9_dp, 0.01_dp))
+  CALL test('lin_interp', eq(lin_interp(6._dp, vecDp, vec1Dp), 11.1_dp, 0.01_dp))
+  CALL test('lin_interp', eq(lin_interp(4.4_dp, vecDp, vec1Dp), 8.92_dp, 0.01_dp))
+  CALL test('lin_interp', eq(lin_interp(4.4_dp, [1._dp], [3._dp]), 3._dp, 0.01_dp))
+  CALL test('lin_interp', is_nan(lin_interp(4.4_dp, vecDp, vec1Dp(1:3))))
+  CALL test('lin_interp', is_nan(lin_interp(4.4_dp, vec2Dp, vecDp)))
+#ifdef QPREC_FPP
+  CALL test('lin_interp', eq(lin_interp(1._qp, vecQp, vec1Qp), 0.9_qp, 0.01_qp))
+  CALL test('lin_interp', eq(lin_interp(6._qp, vecQp, vec1Qp), 11.1_qp, 0.01_qp))
+  CALL test('lin_interp', eq(lin_interp(4.4_qp, vecQp, vec1Qp), 8.92_qp, 0.01_qp))
+  CALL test('lin_interp', eq(lin_interp(4.4_qp, [1._qp], [3._qp]), 3._qp, 0.01_qp))
+  CALL test('lin_interp', is_nan(lin_interp(4.4_qp, vecQp, vec1Qp(1:3))))
+  CALL test('lin_interp', is_nan(lin_interp(4.4_qp, vec2Qp, vecQp)))
 #endif
 
    !

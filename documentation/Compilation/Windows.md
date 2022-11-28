@@ -19,7 +19,7 @@ MSYS2 can be downloaded [here](https://www.msys2.org/). The following packages m
 * mingw-w64-x86_64-gcc-fortran **AND** mingw-w64-x86_64-gcc.
 * mingw-w64-clang-x86_64-cmake.
 
-The follow this steps to compile:
+Then, follow this steps to compile:
 
 1. Download the sources, open MSYS2-Mingw-w64 terminal and enter directory FortranUtilities. Then create a build directory and enter that directory:
 

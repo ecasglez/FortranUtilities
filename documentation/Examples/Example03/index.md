@@ -67,6 +67,6 @@ Exponential regression: f(x) = 0.8921 exp(0.1926x).    Determination coefficient
 Potential regression:   f(x) = 3.6021 x^0.4330.        Determination coefficient R2 = 0.9764
 ```
 
-This results and the dataset can be plotted using a external tool to see the adjustment:
+These results and the dataset can be plotted using a external tool to see the adjustment:
 
 ![Regression plots](example3.png)
