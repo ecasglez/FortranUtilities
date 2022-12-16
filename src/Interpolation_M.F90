@@ -75,14 +75,14 @@ MODULE FU_Interpolation
       USE FU_Arrays, ONLY: is_ordered
       IMPLICIT NONE
       INTEGER, PARAMETER :: prec = sp
-      !! Data point to be predicted
       REAL(KIND=prec), INTENT(IN) :: x
-      !! Independent array of data, known X values.
+      !! Data point to be predicted
       REAL(KIND=prec), DIMENSION(:), INTENT(IN) :: known_xs
-      !! Dependent array of data, known Y values.
+      !! Independent array of data, known X values.
       REAL(KIND=prec), DIMENSION(:), INTENT(IN) :: known_ys
-      !! Predictad value at position x
+      !! Dependent array of data, known Y values.
       REAL(KIND=prec) :: y
+      !! Predicted value at position x
       INTEGER :: i_1, i_2, siz
       REAL(KIND=prec) :: a, b, R2
       REAL(KIND=prec) :: zero
@@ -97,14 +97,14 @@ MODULE FU_Interpolation
       USE FU_Arrays, ONLY: is_ordered
       IMPLICIT NONE
       INTEGER, PARAMETER :: prec = dp
-      !! Data point to be predicted
       REAL(KIND=prec), INTENT(IN) :: x
-      !! Independent array of data, known X values.
+      !! Data point to be predicted
       REAL(KIND=prec), DIMENSION(:), INTENT(IN) :: known_xs
-      !! Dependent array of data, known Y values.
+      !! Independent array of data, known X values.
       REAL(KIND=prec), DIMENSION(:), INTENT(IN) :: known_ys
-      !! Predictad value at position x
+      !! Dependent array of data, known Y values.
       REAL(KIND=prec) :: y
+      !! Predicted value at position x
       INTEGER :: i_1, i_2, siz
       REAL(KIND=prec) :: a, b, R2
       REAL(KIND=prec) :: zero
@@ -120,14 +120,14 @@ MODULE FU_Interpolation
       USE FU_Arrays, ONLY: is_ordered
       IMPLICIT NONE
       INTEGER, PARAMETER :: prec = qp
-      !! Data point to be predicted
       REAL(KIND=prec), INTENT(IN) :: x
-      !! Independent array of data, known X values.
+      !! Data point to be predicted
       REAL(KIND=prec), DIMENSION(:), INTENT(IN) :: known_xs
-      !! Dependent array of data, known Y values.
+      !! Independent array of data, known X values.
       REAL(KIND=prec), DIMENSION(:), INTENT(IN) :: known_ys
-      !! Predictad value at position x
+      !! Dependent array of data, known Y values.
       REAL(KIND=prec) :: y
+      !! Predicted value at position x
       INTEGER :: i_1, i_2, siz
       REAL(KIND=prec) :: a, b, R2
       REAL(KIND=prec) :: zero

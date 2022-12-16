@@ -60,10 +60,10 @@ MODULE FU_Arrays
 
    PURE FUNCTION is_ordered_sp(arr) RESULT(res)
       IMPLICIT NONE
-      !! Vector to test if it is ascending ordered
       REAL(KIND=sp), DIMENSION(:), INTENT(IN) :: arr
-      !! .TRUE. if it is ascending ordered, .FALSE. otherwise
+      !! Vector to test if it is ascending ordered
       LOGICAL :: res
+      !! .TRUE. if it is ascending ordered, .FALSE. otherwise
       INTEGER :: s
 
       INCLUDE 'Arrays_M/include_is_ordered.f90'
@@ -72,10 +72,10 @@ MODULE FU_Arrays
 
    PURE FUNCTION is_ordered_dp(arr) RESULT(res)
       IMPLICIT NONE
-      !! Vector to test if it is ascending ordered
       REAL(KIND=dp), DIMENSION(:), INTENT(IN) :: arr
-      !! .TRUE. if it is ascending ordered, .FALSE. otherwise
+      !! Vector to test if it is ascending ordered
       LOGICAL :: res
+      !! .TRUE. if it is ascending ordered, .FALSE. otherwise
       INTEGER :: s
 
       INCLUDE 'Arrays_M/include_is_ordered.f90'
@@ -85,10 +85,10 @@ MODULE FU_Arrays
 #ifdef QPREC_FPP
    PURE FUNCTION is_ordered_qp(arr) RESULT(res)
       IMPLICIT NONE
-      !! Vector to test if it is ascending ordered
       REAL(KIND=qp), DIMENSION(:), INTENT(IN) :: arr
-      !! .TRUE. if it is ascending ordered, .FALSE. otherwise
+      !! Vector to test if it is ascending ordered
       LOGICAL :: res
+      !! .TRUE. if it is ascending ordered, .FALSE. otherwise
       INTEGER :: s
 
       INCLUDE 'Arrays_M/include_is_ordered.f90'
