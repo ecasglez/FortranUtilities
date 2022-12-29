@@ -8,7 +8,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>int2str00000 &ndash; ecasglez's FortranUtilities</title>
+    <title>zfill &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -75,7 +75,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>int2str00000
+    <h1>zfill
       <small>Interface</small>
       
     </h1>
@@ -84,14 +84,14 @@
       <div class="well well-sm">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
             <li id="meta-author"><i class="fa fa-pencil"></i> Emilio Castro.</li>
-            <li id="meta-date"><i class="fa fa-calendar-o"></i> 07/05/2020.</li>
+            <li id="meta-date"><i class="fa fa-calendar-o"></i> 16/12/2022.</li>
             <li id="meta-license"><i class="fa fa-legal"></i> MIT.</li>
             <li id="meta-version"><i class="fa fa-barcode"></i> 1.0.</li>
 
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
                data-placement="bottom" data-html="true"
-               title="<p> 1.3% of total for procedures.</p>Including implementation: 42 statements,  9.4% of total for procedures.">6 statements</a>
+               title="<p> 1.3% of total for procedures.</p>Including implementation: 50 statements, 11.1% of total for procedures.">6 statements</a>
           </li>
 
             <li id="source-file">
@@ -102,7 +102,7 @@
         <ol class="breadcrumb in-well text-right">
               <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.F90</a></li>
               <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
-          <li class="active">int2str00000</li>
+          <li class="active">zfill</li>
         </ol>
       </div>
     </div>
@@ -145,10 +145,10 @@
       </div>
       <div id="modprocs-0" class="panel-collapse collapse">
         <div class="list-group">
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i8">int2str00000_i8</a>
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i16">int2str00000_i16</a>
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i32">int2str00000_i32</a>
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i64">int2str00000_i64</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i8">zfill_i8</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i16">zfill_i16</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i32">zfill_i32</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i64">zfill_i64</a>
         </div>
       </div>
     </div>
@@ -160,35 +160,27 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface int2str00000</h2>
-   <p>Converts an integer variable into a string variable,
- filling with leading zeros up to the limit imposed by the user.
- Useful to open files named sequentially with leading zeros in the name.</p>
+      <h2>public interface zfill</h2>
+   <p>Adds zeros at the beginning of a string.</p>
 <h3 id="syntax">Syntax</h3>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">newStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zfill</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
 <p>Where:</p>
 <ul>
-<li><code>integ</code>: Integer number to convert. This number MUST be positive.</li>
-<li><code>format</code>: Number of digits to use, including leading zeros. This number MUST be positive.</li>
+<li><code>str</code>: String that the user wants to fill with leading zeros..</li>
+<li><code>l</code>: Integer indicating the length of the resuling string.</li>
 </ul>
-<p>It returns a string containing the number.</p>
+<p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+ with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+ length of <code>str</code>, it returns <code>str</code>.</p>
 <h3 id="example">Example</h3>
-<p>The following program a converts an integer to a number with leading zeros
- to create sequential filenames</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">int2str00000Example</span><span class="w"></span>
-<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">int2str00000</span><span class="w"></span>
+<p>The following program fills a string with leading zeros:</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">zfillExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">zfill</span><span class="w"></span>
 <span class="w">    </span><span class="k">IMPLICIT NONE</span>
-<span class="k">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
-<span class="w">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">total_length</span><span class="w"></span>
-<span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
-<span class="w">    </span><span class="n">total_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
-<span class="w">    </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="w"></span>
-<span class="w">       </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str00000</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;.dat&#39;</span><span class="w"></span>
-<span class="w">       </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
-<span class="w">    </span><span class="k">END DO</span>
-<span class="k"> END PROGRAM </span><span class="n">int2str00000Example</span><span class="w"></span>
+<span class="k">    WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">zfill</span><span class="p">(</span><span class="s1">&#39;myStr&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">zfillExample</span><span class="w"></span>
 </code></pre></div>
 <br>
      <section class="visible-xs visible-sm hidden-md">
@@ -219,10 +211,10 @@
       </div>
       <div id="modprocs-1" class="panel-collapse collapse">
         <div class="list-group">
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i8">int2str00000_i8</a>
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i16">int2str00000_i16</a>
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i32">int2str00000_i32</a>
-            <a class="list-group-item" href="../interface/int2str00000.html#moduleprocedure-int2str00000_i64">int2str00000_i64</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i8">zfill_i8</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i16">zfill_i16</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i32">zfill_i32</a>
+            <a class="list-group-item" href="../interface/zfill.html#moduleprocedure-zfill_i64">zfill_i64</a>
         </div>
       </div>
     </div>
@@ -236,7 +228,7 @@
 
    <h2>Module Procedures</h2>
       <div class="panel panel-default">
-    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str00000_i8"></span><h3>private pure function int2str00000_i8(integ, total_length) result(str)  
+    <div class="panel-heading codesum"><span class="anchor" id="proc-zfill_i8"></span><h3>private pure function zfill_i8(str, l) result(res)  
 </h3></div>
     <div class="panel-body">
         
@@ -252,6 +244,21 @@
         <th></th>
     </thead>
     <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to fill with leading zeros.</p>
+            </td>
+        </tr>
         <tr>
             <td>
               <span class="anchor" ></span>
@@ -262,24 +269,9 @@
               
             </td>
             <td>::</td>
-            <td><strong>integ</strong></td>
+            <td><strong>l</strong></td>
             <td>
-                <p>Integer number to convert. This number MUST be positive.</p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" ></span>
-              integer(kind=i8),
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>total_length</strong></td>
-            <td>
-                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+                <p>Integer indicating the length of the resuling string.</p>
             </td>
         </tr>
     </tbody>
@@ -287,15 +279,17 @@
 
     <h4>
     Return Value
-    <small>character(len=:), ALLOCATABLE</small>
+    <small>character(len=MAX)</small>
     </h4>
-    <p>String containing the number.</p>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
 
     </div>
   </div>
 
       <div class="panel panel-default">
-    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str00000_i16"></span><h3>private pure function int2str00000_i16(integ, total_length) result(str)  
+    <div class="panel-heading codesum"><span class="anchor" id="proc-zfill_i16"></span><h3>private pure function zfill_i16(str, l) result(res)  
 </h3></div>
     <div class="panel-body">
         
@@ -314,16 +308,16 @@
         <tr>
             <td>
               <span class="anchor" ></span>
-              integer(kind=i16),
+              character(len=*),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>integ</strong></td>
+            <td><strong>str</strong></td>
             <td>
-                <p>Integer number to convert. This number MUST be positive.</p>
+                <p>String that the user wants to fill with leading zeros.</p>
             </td>
         </tr>
         <tr>
@@ -336,9 +330,9 @@
               
             </td>
             <td>::</td>
-            <td><strong>total_length</strong></td>
+            <td><strong>l</strong></td>
             <td>
-                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+                <p>Integer indicating the length of the resuling string.</p>
             </td>
         </tr>
     </tbody>
@@ -346,15 +340,17 @@
 
     <h4>
     Return Value
-    <small>character(len=:), ALLOCATABLE</small>
+    <small>character(len=MAX)</small>
     </h4>
-    <p>String containing the number.</p>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
 
     </div>
   </div>
 
       <div class="panel panel-default">
-    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str00000_i32"></span><h3>private pure function int2str00000_i32(integ, total_length) result(str)  
+    <div class="panel-heading codesum"><span class="anchor" id="proc-zfill_i32"></span><h3>private pure function zfill_i32(str, l) result(res)  
 </h3></div>
     <div class="panel-body">
         
@@ -373,16 +369,16 @@
         <tr>
             <td>
               <span class="anchor" ></span>
-              integer(kind=i32),
+              character(len=*),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>integ</strong></td>
+            <td><strong>str</strong></td>
             <td>
-                <p>Integer number to convert. This number MUST be positive.</p>
+                <p>String that the user wants to fill with leading zeros.</p>
             </td>
         </tr>
         <tr>
@@ -395,9 +391,9 @@
               
             </td>
             <td>::</td>
-            <td><strong>total_length</strong></td>
+            <td><strong>l</strong></td>
             <td>
-                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+                <p>Integer indicating the length of the resuling string.</p>
             </td>
         </tr>
     </tbody>
@@ -405,15 +401,17 @@
 
     <h4>
     Return Value
-    <small>character(len=:), ALLOCATABLE</small>
+    <small>character(len=MAX)</small>
     </h4>
-    <p>String containing the number.</p>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
 
     </div>
   </div>
 
       <div class="panel panel-default">
-    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str00000_i64"></span><h3>private pure function int2str00000_i64(integ, total_length) result(str)  
+    <div class="panel-heading codesum"><span class="anchor" id="proc-zfill_i64"></span><h3>private pure function zfill_i64(str, l) result(res)  
 </h3></div>
     <div class="panel-body">
         
@@ -432,16 +430,16 @@
         <tr>
             <td>
               <span class="anchor" ></span>
-              integer(kind=i64),
+              character(len=*),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>integ</strong></td>
+            <td><strong>str</strong></td>
             <td>
-                <p>Integer number to convert. This number MUST be positive.</p>
+                <p>String that the user wants to fill with leading zeros.</p>
             </td>
         </tr>
         <tr>
@@ -454,9 +452,9 @@
               
             </td>
             <td>::</td>
-            <td><strong>total_length</strong></td>
+            <td><strong>l</strong></td>
             <td>
-                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+                <p>Integer indicating the length of the resuling string.</p>
             </td>
         </tr>
     </tbody>
@@ -464,9 +462,11 @@
 
     <h4>
     Return Value
-    <small>character(len=:), ALLOCATABLE</small>
+    <small>character(len=MAX)</small>
     </h4>
-    <p>String containing the number.</p>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
 
     </div>
   </div>

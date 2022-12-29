@@ -15,12 +15,53 @@ MODULE FU_Strings
    IMPLICIT NONE
 
    PRIVATE
-   PUBLIC :: num2str, int2str00000, str2num
+   PUBLIC :: num2str, int2str0, str2num
    PUBLIC :: startsWith, endsWith, splitstr, replace, mergeChars
-   PUBLIC :: upper, lower, cistrcmp
+   PUBLIC :: upper, lower, cistrcmp, zfill
 
    CHARACTER(LEN=*), PARAMETER  :: lowercase = 'aáäàâbcdeéëèêfghiíïìîjklmnñoóöòôpqrstuúüùûvwxyz'
    CHARACTER(LEN=*), PARAMETER  :: uppercase = 'AÁÄÀÂBCDEÉËÈÊFGHIÍÏÌÎJKLMNÑOÓÖÒÔPQRSTUÚÜÙÛVWXYZ'
+
+   INTERFACE zfill
+      !! author: Emilio Castro.
+      !! date: 16/12/2022.
+      !! version: 1.0.
+      !! license: MIT.
+      !! summary: Adds zeros at the beginning of a string.
+      !! Adds zeros at the beginning of a string.
+      !!
+      !!### Syntax
+      !!
+      !!```Fortran
+      !! newStr = zfill(str, l)
+      !!```
+      !!
+      !! Where:
+      !!
+      !! * `str`: String that the user wants to fill with leading zeros..
+      !! * `l`: Integer indicating the length of the resuling string.
+      !! 
+      !! If ```l``` is greater than the length of ```str```, it returns a string of length ```l```
+      !! with ```str``` padded with zeros at the beginning. If ```l``` is lower or equal to the
+      !! length of ```str```, it returns ```str```.
+      !!
+      !!### Example
+      !!
+      !! The following program fills a string with leading zeros:
+      !!
+      !!```Fortran
+      !! PROGRAM zfillExample
+      !!    USE FU_Strings, ONLY: zfill
+      !!    IMPLICIT NONE
+      !!    WRITE(*,*) zfill('myStr', 12)
+      !! END PROGRAM zfillExample
+      !!```
+      MODULE PROCEDURE zfill_i8
+      MODULE PROCEDURE zfill_i16
+      MODULE PROCEDURE zfill_i32
+      MODULE PROCEDURE zfill_i64
+   END INTERFACE zfill
+
 
    INTERFACE splitstr
       !! author: Emilio Castro.
@@ -141,7 +182,7 @@ MODULE FU_Strings
    END INTERFACE num2str
 
 
-   INTERFACE int2str00000
+   INTERFACE int2str0
       !! author: Emilio Castro.
       !! date: 07/05/2020.
       !! version: 1.0.
@@ -154,7 +195,7 @@ MODULE FU_Strings
       !!### Syntax
       !!
       !!```Fortran
-      !! t = int2str(integ, total_length)
+      !! t = int2str0(integ, total_length)
       !!```
       !!
       !! Where:
@@ -170,24 +211,24 @@ MODULE FU_Strings
       !! to create sequential filenames
       !!
       !!```Fortran
-      !! PROGRAM int2str00000Example
-      !!    USE FU_Strings, ONLY: int2str00000
+      !! PROGRAM int2str0Example
+      !!    USE FU_Strings, ONLY: int2str0
       !!    IMPLICIT NONE
       !!    INTEGER :: i
       !!    INTEGER :: total_length
       !!    CHARACTER(LEN=:), ALLOCATABLE :: filename
       !!    total_length = 5
       !!    DO i = 1, 25
-      !!       filename = int2str00000(i, total_length)//'.dat'
+      !!       filename = int2str0(i, total_length)//'.dat'
       !!       WRITE(*,*) filename
       !!    END DO
-      !! END PROGRAM int2str00000Example
+      !! END PROGRAM int2str0Example
       !!```
-      MODULE PROCEDURE int2str00000_i8
-      MODULE PROCEDURE int2str00000_i16
-      MODULE PROCEDURE int2str00000_i32
-      MODULE PROCEDURE int2str00000_i64
-   END INTERFACE int2str00000
+      MODULE PROCEDURE int2str0_i8
+      MODULE PROCEDURE int2str0_i16
+      MODULE PROCEDURE int2str0_i32
+      MODULE PROCEDURE int2str0_i64
+   END INTERFACE int2str0
 
 
 
@@ -246,6 +287,65 @@ MODULE FU_Strings
 CONTAINS
 
 
+   PURE FUNCTION zfill_i8(str, l) RESULT(res)
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)    :: str
+      !! String that the user wants to fill with leading zeros.
+      INTEGER(KIND=i8), INTENT(IN)    :: l
+      !! Integer indicating the length of the resuling string.
+      CHARACTER(LEN=MAX(l, LEN(str))) :: res
+      !! If ```l``` is greater than the length of ```str```, it returns a string of length ```l```
+      !! with ```str``` padded with zeros at the beginning. If ```l``` is lower or equal to the
+      !! length of ```str```, it returns ```str```.
+
+      INCLUDE 'Strings_M/include_zfill.f90'
+
+   END FUNCTION zfill_i8
+
+   PURE FUNCTION zfill_i16(str, l) RESULT(res)
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)    :: str
+      !! String that the user wants to fill with leading zeros.
+      INTEGER(KIND=i16), INTENT(IN)   :: l
+      !! Integer indicating the length of the resuling string.
+      CHARACTER(LEN=MAX(l, LEN(str))) :: res
+      !! If ```l``` is greater than the length of ```str```, it returns a string of length ```l```
+      !! with ```str``` padded with zeros at the beginning. If ```l``` is lower or equal to the
+      !! length of ```str```, it returns ```str```.
+
+      INCLUDE 'Strings_M/include_zfill.f90'
+
+   END FUNCTION zfill_i16
+
+   PURE FUNCTION zfill_i32(str, l) RESULT(res)
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)    :: str
+      !! String that the user wants to fill with leading zeros.
+      INTEGER(KIND=i32), INTENT(IN)   :: l
+      !! Integer indicating the length of the resuling string.
+      CHARACTER(LEN=MAX(l, LEN(str))) :: res
+      !! If ```l``` is greater than the length of ```str```, it returns a string of length ```l```
+      !! with ```str``` padded with zeros at the beginning. If ```l``` is lower or equal to the
+      !! length of ```str```, it returns ```str```.
+
+      INCLUDE 'Strings_M/include_zfill.f90'
+
+   END FUNCTION zfill_i32
+
+   PURE FUNCTION zfill_i64(str, l) RESULT(res)
+      IMPLICIT NONE
+      CHARACTER(LEN=*), INTENT(IN)    :: str
+      !! String that the user wants to fill with leading zeros.
+      INTEGER(KIND=i64), INTENT(IN)   :: l
+      !! Integer indicating the length of the resuling string.
+      CHARACTER(LEN=MAX(l, LEN(str))) :: res
+      !! If ```l``` is greater than the length of ```str```, it returns a string of length ```l```
+      !! with ```str``` padded with zeros at the beginning. If ```l``` is lower or equal to the
+      !! length of ```str```, it returns ```str```.
+
+      INCLUDE 'Strings_M/include_zfill.f90'
+
+   END FUNCTION zfill_i64
 
 
    PURE FUNCTION splitstr_i8(str, fieldNumber, delimiter, rev, mergedelim) RESULT(res)
@@ -637,7 +737,7 @@ CONTAINS
 
 
 
-   PURE FUNCTION int2str00000_i8(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str0_i8(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i8),INTENT(IN)  :: integ
@@ -647,11 +747,11 @@ CONTAINS
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
-      INCLUDE 'Strings_M/include_int2str00000.f90' 
+      INCLUDE 'Strings_M/include_int2str0.f90' 
 
-   END FUNCTION int2str00000_i8
+   END FUNCTION int2str0_i8
 
-   PURE FUNCTION int2str00000_i16(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str0_i16(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i16),INTENT(IN) :: integ
@@ -661,11 +761,11 @@ CONTAINS
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
-      INCLUDE 'Strings_M/include_int2str00000.f90' 
+      INCLUDE 'Strings_M/include_int2str0.f90' 
 
-   END FUNCTION int2str00000_i16
+   END FUNCTION int2str0_i16
 
-   PURE FUNCTION int2str00000_i32(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str0_i32(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i32),INTENT(IN) :: integ
@@ -675,11 +775,11 @@ CONTAINS
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
-      INCLUDE 'Strings_M/include_int2str00000.f90' 
+      INCLUDE 'Strings_M/include_int2str0.f90' 
 
-   END FUNCTION int2str00000_i32
+   END FUNCTION int2str0_i32
 
-   PURE FUNCTION int2str00000_i64(integ,total_length) RESULT(str)
+   PURE FUNCTION int2str0_i64(integ,total_length) RESULT(str)
       USE FU_Numbers, ONLY: count_digits_integer
       IMPLICIT NONE
       INTEGER(KIND=i64),INTENT(IN) :: integ
@@ -689,9 +789,9 @@ CONTAINS
       CHARACTER(LEN=:),ALLOCATABLE :: str
       !! String containing the number.
 
-      INCLUDE 'Strings_M/include_int2str00000.f90' 
+      INCLUDE 'Strings_M/include_int2str0.f90' 
 
-   END FUNCTION int2str00000_i64
+   END FUNCTION int2str0_i64
 
 
 

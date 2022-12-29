@@ -91,7 +91,7 @@
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
                data-placement="bottom" data-html="true"
-               title="22.5% of total for modules and submodules.">511 statements</a>
+               title="24.3% of total for modules and submodules.">565 statements</a>
           </li>
 
             <li id="source-file">
@@ -134,9 +134,10 @@
       </div>
       <div id="inters-0" class="panel-collapse collapse">
         <div class="list-group">
+            <a class="list-group-item" href="../module/fu_strings.html#interface-zfill">zfill</a>
             <a class="list-group-item" href="../module/fu_strings.html#interface-splitstr">splitstr</a>
             <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
-            <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-int2str0">int2str0</a>
             <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
         </div>
       </div>
@@ -212,9 +213,10 @@
       </div>
       <div id="inters-1" class="panel-collapse collapse">
         <div class="list-group">
+            <a class="list-group-item" href="../module/fu_strings.html#interface-zfill">zfill</a>
             <a class="list-group-item" href="../module/fu_strings.html#interface-splitstr">splitstr</a>
             <a class="list-group-item" href="../module/fu_strings.html#interface-num2str">num2str</a>
-            <a class="list-group-item" href="../module/fu_strings.html#interface-int2str00000">int2str00000</a>
+            <a class="list-group-item" href="../module/fu_strings.html#interface-int2str0">int2str0</a>
             <a class="list-group-item" href="../module/fu_strings.html#interface-str2num">str2num</a>
         </div>
       </div>
@@ -258,6 +260,279 @@
     
     <section>
    <h2>Interfaces</h2>
+       <div class="panel panel-default">
+    <div class="panel-heading codesum">
+      <span class="anchor" id="interface-zfill"></span>
+      <h3>public        interface <a href='../interface/zfill.html'>zfill</a> 
+      </h3>
+    </div>
+      <div class="panel-body">
+        <p>Adds zeros at the beginning of a string.</p>
+<h3 id="syntax">Syntax</h3>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">newStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zfill</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Where:</p>
+<ul>
+<li><code>str</code>: String that the user wants to fill with leading zeros..</li>
+<li><code>l</code>: Integer indicating the length of the resuling string.</li>
+</ul>
+<p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+ with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+ length of <code>str</code>, it returns <code>str</code>.</p>
+<h3 id="example">Example</h3>
+<p>The following program fills a string with leading zeros:</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">zfillExample</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">zfill</span><span class="w"></span>
+<span class="w">    </span><span class="k">IMPLICIT NONE</span>
+<span class="k">    WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">zfill</span><span class="p">(</span><span class="s1">&#39;myStr&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">zfillExample</span><span class="w"></span>
+</code></pre></div>
+      </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure function zfill_i8(str, l) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to fill with leading zeros.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+            <td>
+                <p>Integer indicating the length of the resuling string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=MAX)</small>
+    </h4>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function zfill_i16(str, l) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to fill with leading zeros.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+            <td>
+                <p>Integer indicating the length of the resuling string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=MAX)</small>
+    </h4>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function zfill_i32(str, l) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to fill with leading zeros.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+            <td>
+                <p>Integer indicating the length of the resuling string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=MAX)</small>
+    </h4>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function zfill_i64(str, l) result(res)  
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>str</strong></td>
+            <td>
+                <p>String that the user wants to fill with leading zeros.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+            <td>
+                <p>Integer indicating the length of the resuling string.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=MAX)</small>
+    </h4>
+    <p>If <code>l</code> is greater than the length of <code>str</code>, it returns a string of length <code>l</code>
+with <code>str</code> padded with zeros at the beginning. If <code>l</code> is lower or equal to the
+length of <code>str</code>, it returns <code>str</code>.</p>
+
+          </li>
+    </ul>
+  </div>
+
        <div class="panel panel-default">
     <div class="panel-heading codesum">
       <span class="anchor" id="interface-splitstr"></span>
@@ -1131,8 +1406,8 @@ or if the delimiter does not exists it returns an empty string.</p>
 
        <div class="panel panel-default">
     <div class="panel-heading codesum">
-      <span class="anchor" id="interface-int2str00000"></span>
-      <h3>public        interface <a href='../interface/int2str00000.html'>int2str00000</a> 
+      <span class="anchor" id="interface-int2str0"></span>
+      <h3>public        interface <a href='../interface/int2str0.html'>int2str0</a> 
       </h3>
     </div>
       <div class="panel-body">
@@ -1140,7 +1415,7 @@ or if the delimiter does not exists it returns an empty string.</p>
  filling with leading zeros up to the limit imposed by the user.
  Useful to open files named sequentially with leading zeros in the name.</p>
 <h3 id="syntax">Syntax</h3>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str0</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
 <p>Where:</p>
@@ -1152,24 +1427,24 @@ or if the delimiter does not exists it returns an empty string.</p>
 <h3 id="example">Example</h3>
 <p>The following program a converts an integer to a number with leading zeros
  to create sequential filenames</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">int2str00000Example</span><span class="w"></span>
-<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">int2str00000</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">int2str0Example</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">int2str0</span><span class="w"></span>
 <span class="w">    </span><span class="k">IMPLICIT NONE</span>
 <span class="k">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
 <span class="w">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">total_length</span><span class="w"></span>
 <span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
 <span class="w">    </span><span class="n">total_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 <span class="w">    </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="w"></span>
-<span class="w">       </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str00000</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;.dat&#39;</span><span class="w"></span>
+<span class="w">       </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str0</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;.dat&#39;</span><span class="w"></span>
 <span class="w">       </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
 <span class="w">    </span><span class="k">END DO</span>
-<span class="k"> END PROGRAM </span><span class="n">int2str00000Example</span><span class="w"></span>
+<span class="k"> END PROGRAM </span><span class="n">int2str0Example</span><span class="w"></span>
 </code></pre></div>
       </div>
     <ul class="list-group">
           <li class="list-group-item">
                 <h3>
-    private pure function int2str00000_i8(integ, total_length) result(str)  
+    private pure function int2str0_i8(integ, total_length) result(str)  
 
     </h3>
   
@@ -1227,7 +1502,7 @@ or if the delimiter does not exists it returns an empty string.</p>
           </li>
           <li class="list-group-item">
                 <h3>
-    private pure function int2str00000_i16(integ, total_length) result(str)  
+    private pure function int2str0_i16(integ, total_length) result(str)  
 
     </h3>
   
@@ -1285,7 +1560,7 @@ or if the delimiter does not exists it returns an empty string.</p>
           </li>
           <li class="list-group-item">
                 <h3>
-    private pure function int2str00000_i32(integ, total_length) result(str)  
+    private pure function int2str0_i32(integ, total_length) result(str)  
 
     </h3>
   
@@ -1343,7 +1618,7 @@ or if the delimiter does not exists it returns an empty string.</p>
           </li>
           <li class="list-group-item">
                 <h3>
-    private pure function int2str00000_i64(integ, total_length) result(str)  
+    private pure function int2str0_i64(integ, total_length) result(str)  
 
     </h3>
   

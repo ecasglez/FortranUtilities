@@ -8,7 +8,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>include_int2str00000.f90 &ndash; ecasglez's FortranUtilities</title>
+    <title>include_zfill.f90 &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -75,7 +75,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>include_int2str00000.f90
+    <h1>include_zfill.f90
       <small>Source File</small>
       
     </h1>
@@ -88,16 +88,16 @@
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
                data-placement="bottom" data-html="true"
-               title=" 0.1% of total for source files.">2 statements</a>
+               title=" 0.2% of total for source files.">5 statements</a>
           </li>
 
             <li id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/include_int2str00000.f90"> Source File</a>
+              <a href="../src/include_zfill.f90"> Source File</a>
             </li>
         </ul>
         <ol class="breadcrumb in-well text-right">
-          <li class="active">include_int2str00000.f90</li>
+          <li class="active">include_zfill.f90</li>
         </ol>
       </div>
     </div>
@@ -135,7 +135,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
       <div class="list-group">
-        <a class="list-group-item" href="../sourcefile/include_int2str00000.f90.html#src">include_int2str00000.f90</a>
+        <a class="list-group-item" href="../sourcefile/include_zfill.f90.html#src">include_zfill.f90</a>
       </div>
     </div>
 
@@ -171,7 +171,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
       <div class="list-group">
-        <a class="list-group-item" href="../sourcefile/include_int2str00000.f90.html#src">include_int2str00000.f90</a>
+        <a class="list-group-item" href="../sourcefile/include_zfill.f90.html#src">include_zfill.f90</a>
       </div>
     </div>
 
@@ -181,9 +181,11 @@
 
     <section>
       <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="c">!Automatic allocation is not allowed in the write statements.</span>
-<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="k">ALLOCATE</span><span class="p">(</span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">total_length</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"></span>
-<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="k">WRITE</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="s1">&#39;(I0.&#39;</span><span class="o">//</span><span class="n">num2str</span><span class="p">(</span><span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">integ</span><span class="w"></span>
+    <div class="hl"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="w">      </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="nb">LEN</span><span class="p">(</span><span class="n">str</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="k">         </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="w"></span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">      </span><span class="k">ELSE</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="k">         </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">REPEAT</span><span class="p">(</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">LEN</span><span class="p">(</span><span class="n">str</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">str</span><span class="w"></span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="w">      </span><span class="k">END IF</span><span class="w"></span>
 </pre></div>
 
     </section>

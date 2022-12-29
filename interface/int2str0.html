@@ -8,7 +8,7 @@
     <meta name="author" content="Emilio Castro" >
     <link rel="icon" href="../favicon.png">
 
-    <title>skewness &ndash; ecasglez's FortranUtilities</title>
+    <title>int2str0 &ndash; ecasglez's FortranUtilities</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -75,7 +75,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>skewness
+    <h1>int2str0
       <small>Interface</small>
       
     </h1>
@@ -84,25 +84,25 @@
       <div class="well well-sm">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
             <li id="meta-author"><i class="fa fa-pencil"></i> Emilio Castro.</li>
-            <li id="meta-date"><i class="fa fa-calendar-o"></i> 19/08/2020.</li>
+            <li id="meta-date"><i class="fa fa-calendar-o"></i> 07/05/2020.</li>
             <li id="meta-license"><i class="fa fa-legal"></i> MIT.</li>
             <li id="meta-version"><i class="fa fa-barcode"></i> 1.0.</li>
 
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
                data-placement="bottom" data-html="true"
-               title="<p> 1.1% of total for procedures.</p>Including implementation: 41 statements,  9.1% of total for procedures.">5 statements</a>
+               title="<p> 1.3% of total for procedures.</p>Including implementation: 46 statements, 10.2% of total for procedures.">6 statements</a>
           </li>
 
             <li id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/Statistics_M.F90"> Source File</a>
+              <a href="../src/Strings_M.F90"> Source File</a>
             </li>
         </ul>
         <ol class="breadcrumb in-well text-right">
-              <li><a href='../sourcefile/statistics_m.f90.html'>Statistics_M.F90</a></li>
-              <li><a href='../module/fu_statistics.html'>FU_Statistics</a></li>
-          <li class="active">skewness</li>
+              <li><a href='../sourcefile/strings_m.f90.html'>Strings_M.F90</a></li>
+              <li><a href='../module/fu_strings.html'>FU_Strings</a></li>
+          <li class="active">int2str0</li>
         </ol>
       </div>
     </div>
@@ -145,9 +145,10 @@
       </div>
       <div id="modprocs-0" class="panel-collapse collapse">
         <div class="list-group">
-            <a class="list-group-item" href="../interface/skewness.html#moduleprocedure-skewness_sp">skewness_sp</a>
-            <a class="list-group-item" href="../interface/skewness.html#moduleprocedure-skewness_dp">skewness_dp</a>
-            <a class="list-group-item" href="../interface/skewness.html#moduleprocedure-skewness_qp">skewness_qp</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i8">int2str0_i8</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i16">int2str0_i16</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i32">int2str0_i32</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i64">int2str0_i64</a>
         </div>
       </div>
     </div>
@@ -159,40 +160,35 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface skewness</h2>
-   <p>Calculates the sample skewness of a set of values given in a vector
- of any size with one dimension applying the following equation:</p>
-<p>
-<script type="math/tex; mode=display">S_{x} = \frac{n}{\left( n-1 \right)\left( n-2 \right)
-               }\sum\limits_{i=1}^{n}\left( \frac{x_{i}-\overline{x}
-               }{\sigma_{x}} \right)^3</script>
-</p>
-<p>Where:</p>
-<ul>
-<li>
-<script type="math/tex">x</script> is a vector with real numbers.</li>
-<li>
-<script type="math/tex">n</script> is how many numbers are included in <script type="math/tex">x</script>.</li>
-</ul>
+      <h2>public interface int2str0</h2>
+   <p>Converts an integer variable into a string variable,
+ filling with leading zeros up to the limit imposed by the user.
+ Useful to open files named sequentially with leading zeros in the name.</p>
 <h3 id="syntax">Syntax</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">skewness</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str0</span><span class="p">(</span><span class="n">integ</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
 <p>Where:</p>
 <ul>
-<li><code>x</code> = vector of rank 1 with real numbers.
- See <a href="../page/Examples/Example02/index.html">this example</a> to use an array of
- rank larger than 1.</li>
-<li><code>y</code> = real number of the same kind as <code>x</code> with the sample skewness of <code>x</code>.</li>
+<li><code>integ</code>: Integer number to convert. This number MUST be positive.</li>
+<li><code>format</code>: Number of digits to use, including leading zeros. This number MUST be positive.</li>
 </ul>
+<p>It returns a string containing the number.</p>
 <h3 id="example">Example</h3>
-<p>The following program calculates the sample skewness of a vector:</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">skewnessExample</span><span class="w"></span>
-<span class="w">    </span><span class="k">USE </span><span class="n">FU_Statistics</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">skewness</span><span class="w"></span>
+<p>The following program a converts an integer to a number with leading zeros
+ to create sequential filenames</p>
+<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="k">PROGRAM </span><span class="n">int2str0Example</span><span class="w"></span>
+<span class="w">    </span><span class="k">USE </span><span class="n">FU_Strings</span><span class="p">,</span><span class="w"> </span><span class="k">ONLY</span><span class="p">:</span><span class="w"> </span><span class="n">int2str0</span><span class="w"></span>
 <span class="w">    </span><span class="k">IMPLICIT NONE</span>
-<span class="k">    </span><span class="kt">REAL</span><span class="p">,</span><span class="w"> </span><span class="k">DIMENSION</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="w"> </span><span class="mf">2.</span><span class="p">,</span><span class="w"> </span><span class="mf">3.</span><span class="p">,</span><span class="w"> </span><span class="mf">4.</span><span class="p">,</span><span class="w"> </span><span class="mf">5.</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">skewness</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"></span>
-<span class="w"> </span><span class="k">END PROGRAM </span><span class="n">skewnessExample</span><span class="w"></span>
+<span class="k">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
+<span class="w">    </span><span class="kt">INTEGER</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">total_length</span><span class="w"></span>
+<span class="w">    </span><span class="kt">CHARACTER</span><span class="p">(</span><span class="nb">LEN</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">ALLOCATABLE</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w">    </span><span class="n">total_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">    </span><span class="k">DO </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="w"></span>
+<span class="w">       </span><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">int2str0</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">total_length</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39;.dat&#39;</span><span class="w"></span>
+<span class="w">       </span><span class="k">WRITE</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w">    </span><span class="k">END DO</span>
+<span class="k"> END PROGRAM </span><span class="n">int2str0Example</span><span class="w"></span>
 </code></pre></div>
 <br>
      <section class="visible-xs visible-sm hidden-md">
@@ -223,9 +219,10 @@
       </div>
       <div id="modprocs-1" class="panel-collapse collapse">
         <div class="list-group">
-            <a class="list-group-item" href="../interface/skewness.html#moduleprocedure-skewness_sp">skewness_sp</a>
-            <a class="list-group-item" href="../interface/skewness.html#moduleprocedure-skewness_dp">skewness_dp</a>
-            <a class="list-group-item" href="../interface/skewness.html#moduleprocedure-skewness_qp">skewness_qp</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i8">int2str0_i8</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i16">int2str0_i16</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i32">int2str0_i32</a>
+            <a class="list-group-item" href="../interface/int2str0.html#moduleprocedure-int2str0_i64">int2str0_i64</a>
         </div>
       </div>
     </div>
@@ -239,7 +236,7 @@
 
    <h2>Module Procedures</h2>
       <div class="panel panel-default">
-    <div class="panel-heading codesum"><span class="anchor" id="proc-skewness_sp"></span><h3>private pure function skewness_sp(x) result(res)  
+    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str0_i8"></span><h3>private pure function int2str0_i8(integ, total_length) result(str)  
 </h3></div>
     <div class="panel-body">
         
@@ -258,17 +255,31 @@
         <tr>
             <td>
               <span class="anchor" ></span>
-              real(kind=sp),
+              integer(kind=i8),
             </td>
-<td>intent(in),</td>
+<td>intent(in)</td>
               <td></td>            <td>
-              DIMENSION(:)
+              
             </td>
             <td>::</td>
-            <td><strong>x</strong></td>
+            <td><strong>integ</strong></td>
             <td>
-                <p>Vector of real numbers to calculate the sample skewness.
-It can have any size and it must have one dimension.</p>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i8),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
             </td>
         </tr>
     </tbody>
@@ -276,15 +287,15 @@ It can have any size and it must have one dimension.</p>
 
     <h4>
     Return Value
-    <small>real(kind=sp)</small>
+    <small>character(len=:), ALLOCATABLE</small>
     </h4>
-    <p>Real number with the sample skewness of the x.</p>
+    <p>String containing the number.</p>
 
     </div>
   </div>
 
       <div class="panel panel-default">
-    <div class="panel-heading codesum"><span class="anchor" id="proc-skewness_dp"></span><h3>private pure function skewness_dp(x) result(res)  
+    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str0_i16"></span><h3>private pure function int2str0_i16(integ, total_length) result(str)  
 </h3></div>
     <div class="panel-body">
         
@@ -303,17 +314,31 @@ It can have any size and it must have one dimension.</p>
         <tr>
             <td>
               <span class="anchor" ></span>
-              real(kind=dp),
+              integer(kind=i16),
             </td>
-<td>intent(in),</td>
+<td>intent(in)</td>
               <td></td>            <td>
-              DIMENSION(:)
+              
             </td>
             <td>::</td>
-            <td><strong>x</strong></td>
+            <td><strong>integ</strong></td>
             <td>
-                <p>Vector of real numbers to calculate the sample skewness.
-It can have any size and it must have one dimension.</p>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i16),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
             </td>
         </tr>
     </tbody>
@@ -321,15 +346,15 @@ It can have any size and it must have one dimension.</p>
 
     <h4>
     Return Value
-    <small>real(kind=dp)</small>
+    <small>character(len=:), ALLOCATABLE</small>
     </h4>
-    <p>Real number with the sample skewness of the x.</p>
+    <p>String containing the number.</p>
 
     </div>
   </div>
 
       <div class="panel panel-default">
-    <div class="panel-heading codesum"><span class="anchor" id="proc-skewness_qp"></span><h3>private pure function skewness_qp(x) result(res)  
+    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str0_i32"></span><h3>private pure function int2str0_i32(integ, total_length) result(str)  
 </h3></div>
     <div class="panel-body">
         
@@ -348,17 +373,31 @@ It can have any size and it must have one dimension.</p>
         <tr>
             <td>
               <span class="anchor" ></span>
-              real(kind=qp),
+              integer(kind=i32),
             </td>
-<td>intent(in),</td>
+<td>intent(in)</td>
               <td></td>            <td>
-              DIMENSION(:)
+              
             </td>
             <td>::</td>
-            <td><strong>x</strong></td>
+            <td><strong>integ</strong></td>
             <td>
-                <p>Vector of real numbers to calculate the sample skewness.
-It can have any size and it must have one dimension.</p>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
             </td>
         </tr>
     </tbody>
@@ -366,9 +405,68 @@ It can have any size and it must have one dimension.</p>
 
     <h4>
     Return Value
-    <small>real(kind=qp)</small>
+    <small>character(len=:), ALLOCATABLE</small>
     </h4>
-    <p>Real number with the sample skewness of the x.</p>
+    <p>String containing the number.</p>
+
+    </div>
+  </div>
+
+      <div class="panel panel-default">
+    <div class="panel-heading codesum"><span class="anchor" id="proc-int2str0_i64"></span><h3>private pure function int2str0_i64(integ, total_length) result(str)  
+</h3></div>
+    <div class="panel-body">
+        
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>integ</strong></td>
+            <td>
+                <p>Integer number to convert. This number MUST be positive.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              integer(kind=i64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>total_length</strong></td>
+            <td>
+                <p>Number of digits to use, including leading zeros. This number MUST be positive.</p>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), ALLOCATABLE</small>
+    </h4>
+    <p>String containing the number.</p>
 
     </div>
   </div>
