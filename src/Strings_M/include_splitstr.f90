@@ -4,6 +4,11 @@ ELSE
    d = ' '
 END IF
 
+IF (len(d) == 0) THEN
+   res = str
+   RETURN
+END IF
+
 IF (PRESENT(mergedelim)) THEN
    IF (mergedelim) THEN
       res = mergeChars(str,d)

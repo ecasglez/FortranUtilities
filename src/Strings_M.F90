@@ -90,6 +90,7 @@ MODULE FU_Strings
       !! 
       !! It returns a string with the selected part of str. If the fieldNumber does not exists
       !! or if the delimiter does not exists it returns an empty string.
+      !! If the delimiter has length == 0, the full str is returned.
       !!
       !!### Example
       !!

@@ -87,6 +87,10 @@ PROGRAM FortranUtilitiesTest
       fieldNumber=5_i32, rev = .TRUE.,mergedelim=.FALSE.) == 'campo3')
    CALL test('splitstr',splitstr('campo1     campo2     campo3    campo4',&
       fieldNumber=5_i32, rev = .TRUE.) == 'campo3')
+   CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',delimiter = '',fieldNumber=1_i8) == 'campo1 campo2 campo3 campo4')
+   CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',delimiter = '',fieldNumber=1_i16) == 'campo1 campo2 campo3 campo4')
+   CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',delimiter = '',fieldNumber=1_i32) == 'campo1 campo2 campo3 campo4')
+   CALL test('splitstr',splitstr('campo1 campo2 campo3 campo4',delimiter = '',fieldNumber=1_i64) == 'campo1 campo2 campo3 campo4')
    CALL test('mergeChars',mergeChars("asdf ghjj     qwer",' ') == "asdf ghjj qwer")
    CALL test('mergeChars',mergeChars("asdf ghjj qwer",' ') == "asdf ghjj qwer")
    CALL test('mergeChars',mergeChars("asdfghjjqwer",' ') == "asdfghjjqwer")

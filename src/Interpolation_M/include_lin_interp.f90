@@ -1,4 +1,4 @@
-      zero = 0.
+      zero = 0.0_prec
 
       !Check if x is lower or larger than the limits of known_xs
       !or find the nearest pints. No extrapolation is performed.
